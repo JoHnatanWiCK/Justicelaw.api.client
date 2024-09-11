@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\LawyerController;
 use App\Http\Controllers\LawyerProfileController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\TypeDocumentController;
 use App\Http\Controllers\VerificationLawyerController;
 use Illuminate\Support\Facades\Route;
@@ -48,3 +50,17 @@ Route::post('verificationLawyer', [VerificationLawyerController::class, 'store']
 Route::get('verificationLawyer/{verificationLawyer}', [VerificationLawyerController::class, 'show'])->name('verificationLawyer.show');
 Route::put('verificationLawyer/{verificationLawyer}', [VerificationLawyerController::class, 'update'])->name('verificationLawyer.update');
 Route::delete('verificationLawyer/{verificationLawyer}', [VerificationLawyerController::class, 'destroy'])->name('verificationLawyer.delete');
+
+
+
+Route::get('notifications', [NotificationController::class, 'index'])->name('api.v1.notifications.index');
+Route::post('notifications', [NotificationController::class, 'store'])->name('notifications.store');
+Route::get('notifications/{notification}', [NotificationController::class, 'show'])->name('notifications.show');
+Route::put('notifications/{notification}', [NotificationController::class, 'update'])->name('notifications.update');
+Route::delete('notifications/{notification}', [NotificationController::class, 'destroy'])->name('notifications.delete');
+
+Route::get('searchs', [SearchController::class, 'index'])->name('searchs.index');
+Route::post('searchs', [SearchController::class, 'store'])->name('searchs.store');
+Route::get('searchs/{search}', [SearchController::class, 'show'])->name('searchs.show');
+Route::put('searchs/{search}', [SearchController::class, 'update'])->name('searchs.update');
+Route::delete('searchs/{search}', [SearchController::class, 'destroy'])->name('searchs.delete');

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class TypeDocumentController extends Controller
+class UserProfileController extends Controller
 {
 
     private function fetchDataFromApi($url)
@@ -21,11 +21,11 @@ class TypeDocumentController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $typeDocuments = $this->fetchDataFromApi($url . '/typeDocuments');
+        $usersProfile = $this->fetchDataFromApi($url . '/usersProfile');
 
-        return $typeDocuments;
+        return $usersProfile;
 
-        // return view('typeDocument.index', compact('typeDocuments'));
+        // return view('user-profile.index', compact('usersProfile'));
     }
 
     /**
@@ -51,11 +51,11 @@ class TypeDocumentController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $typeDocument = $this->fetchDataFromApi($url . '/typeDocuments/' . $id);
+        $userProfile = $this->fetchDataFromApi($url . '/usersProfile/' . $id);
 
-        return $typeDocument;
+        return $userProfile;
 
-        // return view('categories.show', compact('typeDocument'));
+        // return view('user-profile.show', compact('userProfile'));
     }
 
     /**

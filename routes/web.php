@@ -1,10 +1,16 @@
 <?php
 
+
 use App\Http\Controllers\AdministratorController;
 use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\TypeDocumentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Controllers\LawyerController;
+use App\Http\Controllers\LawyerProfileController;
+use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\SearchController;
+use App\Http\Controllers\VerificationLawyerController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -65,3 +71,36 @@ Route::get('administrators/{administrator}', [AdministratorController::class, 's
 Route::put('administrators/{administrator}', [AdministratorController::class, 'update'])->name('api.v1.administrators.update');
 Route::delete('administrators/{administrator}', [AdministratorController::class, 'destroy'])->name('api.v1.administrators.delete');
 
+
+Route::get('lawyer', [LawyerController::class, 'index'])->name('lawyer.index');
+Route::post('lawyer', [LawyerController::class, 'store'])->name('lawyer.store');
+Route::get('lawyer/{lawyer}', [LawyerController::class, 'show'])->name('lawyer.show');
+Route::put('lawyer/{lawyer}', [LawyerController::class, 'update'])->name('lawyer.update');
+Route::delete('lawyer/{lawyer}', [LawyerController::class, 'destroy'])->name('lawyer.delete');
+
+
+Route::get('lawyerProfile', [LawyerProfileController::class, 'index'])->name('lawyerProfile.index');
+Route::post('lawyerProfile', [LawyerProfileController::class, 'store'])->name('lawyerProfile.store');
+Route::get('lawyerProfile/{lawyerProfile}', [LawyerProfileController::class, 'show'])->name('lawyerProfile.show');
+Route::put('lawyerProfile/{lawyerProfile}', [LawyerProfileController::class, 'update'])->name('lawyerProfile.update');
+Route::delete('lawyerProfile/{lawyerProfile}', [LawyerProfileController::class, 'destroy'])->name('lawyerProfile.delete');
+
+Route::get('verificationLawyer', [VerificationLawyerController::class, 'index'])->name('verificationLawyer.index');
+Route::post('verificationLawyer', [VerificationLawyerController::class, 'store'])->name('verificationLawyer.store');
+Route::get('verificationLawyer/{verificationLawyer}', [VerificationLawyerController::class, 'show'])->name('verificationLawyer.show');
+Route::put('verificationLawyer/{verificationLawyer}', [VerificationLawyerController::class, 'update'])->name('verificationLawyer.update');
+Route::delete('verificationLawyer/{verificationLawyer}', [VerificationLawyerController::class, 'destroy'])->name('verificationLawyer.delete');
+
+
+
+Route::get('notifications', [NotificationController::class, 'index'])->name('api.v1.notifications.index');
+Route::post('notifications', [NotificationController::class, 'store'])->name('notifications.store');
+Route::get('notifications/{notification}', [NotificationController::class, 'show'])->name('notifications.show');
+Route::put('notifications/{notification}', [NotificationController::class, 'update'])->name('notifications.update');
+Route::delete('notifications/{notification}', [NotificationController::class, 'destroy'])->name('notifications.delete');
+
+Route::get('searchs', [SearchController::class, 'index'])->name('searchs.index');
+Route::post('searchs', [SearchController::class, 'store'])->name('searchs.store');
+Route::get('searchs/{search}', [SearchController::class, 'show'])->name('searchs.show');
+Route::put('searchs/{search}', [SearchController::class, 'update'])->name('searchs.update');
+Route::delete('searchs/{search}', [SearchController::class, 'destroy'])->name('searchs.delete');

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class TypeDocumentController extends Controller
+class UserController extends Controller
 {
 
     private function fetchDataFromApi($url)
@@ -21,11 +21,12 @@ class TypeDocumentController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $typeDocuments = $this->fetchDataFromApi($url . '/typeDocuments');
+        $users = $this->fetchDataFromApi($url . '/users');
 
-        return $typeDocuments;
+        return $users;
 
-        // return view('typeDocument.index', compact('typeDocuments'));
+        // return view('user.index', compact('users'));
+
     }
 
     /**
@@ -51,11 +52,12 @@ class TypeDocumentController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $typeDocument = $this->fetchDataFromApi($url . '/typeDocuments/' . $id);
+        $user = $this->fetchDataFromApi($url . '/typeDocuments/' . $id);
 
-        return $typeDocument;
+        return $user;
 
-        // return view('categories.show', compact('typeDocument'));
+        // return view('user.show', compact('user'));
+
     }
 
     /**

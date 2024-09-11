@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class TypeDocumentController extends Controller
+class AdministratorController extends Controller
 {
 
     private function fetchDataFromApi($url)
@@ -14,6 +14,8 @@ class TypeDocumentController extends Controller
         return $response->json();
     }
 
+
+
     /**
      * Display a listing of the resource.
      */
@@ -21,11 +23,13 @@ class TypeDocumentController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $typeDocuments = $this->fetchDataFromApi($url . '/typeDocuments');
+        $administrators = $this->fetchDataFromApi($url . '/administrators');
 
-        return $typeDocuments;
+        return $administrators;
 
-        // return view('typeDocument.index', compact('typeDocuments'));
+        // return view('administrator.index', compact('administrators'));
+
+
     }
 
     /**
@@ -51,11 +55,12 @@ class TypeDocumentController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $typeDocument = $this->fetchDataFromApi($url . '/typeDocuments/' . $id);
+        $administrator = $this->fetchDataFromApi($url . '/administrators/' . $id);
 
-        return $typeDocument;
+        return $administrator;
 
-        // return view('categories.show', compact('typeDocument'));
+        // return view('administrator.show', compact('administrator'));
+
     }
 
     /**

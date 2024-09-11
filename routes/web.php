@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TypeDocumentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name('typeDocuments.index');
+Route::post('typeDocuments', [TypeDocumentController::class, 'store'])->name('typeDocuments.store');
+Route::get('typeDocuments/{typeDocument}', [TypeDocumentController::class, 'show'])->name('typeDocuments.show');
+Route::put('typeDocuments/{typeDocument}', [TypeDocumentController::class, 'update'])->name('typeDocuments.update');
+Route::delete('typeDocuments/{typeDocument}', [TypeDocumentController::class, 'destroy'])->name('typeDocuments.delete');

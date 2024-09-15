@@ -1,0 +1,978 @@
+.perfil {
+    margin-top: 3rem !important;
+    margin-bottom: 4rem !important;
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: hidden;
+    margin: auto;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .perfil {
+      display: none;
+    }
+    .perfil-movil {
+      display: flex;
+      flex-direction: column;
+      color: #003049;
+      width: 100%;
+    }
+
+    .perfil-main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      position: relative;
+    }
+
+    #fotoIcon {
+      width: 150px;
+      height: 150px;
+    }
+
+    #circuloPerfil {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+    }
+
+    #agregarFoto {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+    }
+
+    #circuloPerfil {
+      top: 100px;
+      left: 61%;
+      transform: translateX(-50%);
+    }
+
+    #agregarFoto {
+      top: 108px;
+      left: 61%;
+      transform: translateX(-50%);
+    }
+
+    .content-movil {
+      text-align: center;
+    }
+
+    .content-movil h3 {
+      font-size: 22px;
+    }
+
+    .content-movil i {
+      font-size: 22px;
+    }
+
+    .contenido-usuario {
+      text-align: left;
+      margin-left: 4rem;
+    }
+
+    .label-user {
+      margin-bottom: 1rem;
+    }
+    .mi-perfil {
+      display: flex;
+      align-items: center;
+      padding-left: 3rem;
+    }
+
+    .mi-perfil i {
+      padding-right: 1rem;
+    }
+
+    .input-user {
+      display: flex;
+      align-items: center;
+    }
+
+    .input-user input {
+      border: none;
+      font-size: 20px;
+      outline: none;
+      font-weight: 500;
+      margin-left: 2rem;
+      font-family: "Faustina", serif;
+    }
+
+    .input-user a:nth-of-type(1) {
+      margin-left: auto;
+    }
+
+    .input-user a {
+      text-decoration: none;
+      color: #003049;
+      margin-right: 2.5rem;
+    }
+
+    #boton-movil {
+      background-color: #003049;
+      color: white;
+      border-radius: 20px;
+      padding: 7px 0;
+      margin-right: 2rem;
+      font-size: 22px;
+      width: 25%;
+      text-align: center;
+      margin-top: 3rem;
+      float: right;
+      text-decoration: none;
+      transition: 0.3s;
+      display: block;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 7rem;
+      right: 0rem;
+      border-radius: 12px;
+      background: #003049;
+      padding: 28px 25px 20px 25px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      z-index: 2000;
+
+      transform: translateX(100%);
+      transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+    }
+
+    .toast.active {
+      transform: translateX(0%);
+    }
+    .toast .toast-content {
+      display: flex;
+      align-items: center;
+    }
+    .toast-content .check {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 20px;
+      width: 20px;
+      font-size: 20px;
+      border-radius: 50%;
+    }
+
+    .toast .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      padding: 5px;
+      color: #003049;
+      cursor: pointer;
+      opacity: 0.7;
+    }
+    .toast .close:hover {
+      opacity: 1;
+    }
+    .toast-content .message {
+      margin-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      margin: 0 25px;
+    }
+    .message .text {
+      font-size: 20px;
+      font-weight: 200;
+      color: #ffffff;
+    }
+    .message .text.text-1 {
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .toast .progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      background: #ddd;
+    }
+
+    .toast .progress:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      background-color: #2c354e;
+      transition: width 5s linear;
+    }
+
+    .progress.active:before {
+      width: 100%;
+    }
+    @keyframes progress {
+      100% {
+        right: 100%;
+      }
+    }
+
+    .toast.active ~ #boton-movil {
+      pointer-events: none;
+    }
+
+    hr {
+      display: none;
+    }
+    .modalDialog {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 99999;
+      opacity: 0;
+      -webkit-transition: opacity 200ms ease-in;
+      -moz-transition: opacity 200ms ease-in;
+      transition: opacity 200ms ease-in;
+      pointer-events: none;
+    }
+
+    .modalDialog:target {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modalDialog > div {
+      width: 90%;
+      height: 42%;
+      position: relative;
+      margin: 50% auto;
+      padding: 40px 20px 13px 20px;
+      text-align: center;
+      border-radius: 10px;
+      background: #fff;
+      -webkit-transition: opacity 400ms ease-in;
+      -moz-transition: opacity 400ms ease-in;
+      transition: opacity 400ms ease-in;
+    }
+
+    .modal-contenido h2,
+    .modal-contenido p {
+      font-size: 20px;
+    }
+    #avatarUno,
+    #avatarDos,
+    #avatarTres {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    #avatarUno,
+    #avatarDos {
+      margin-top: 10px;
+      width: 6rem;
+      height: 6rem;
+    }
+
+    #avatarTres {
+      width: 11rem;
+      height: 10rem;
+    }
+
+    .subir-foto {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      cursor: pointer;
+    }
+
+    .subir-foto::before {
+      background-color: #003049;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+      content: "Seleccionar";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    .subir-foto input[type="file"] {
+      opacity: 0;
+      width: 170px;
+      height: 32px;
+
+      display: inline-block;
+    }
+
+    #seleccionarFoto::before {
+      content: "Subir foto";
+    }
+
+    .close {
+      position: absolute;
+      left: 15px;
+      top: 10;
+      color: black;
+      width: 30px;
+      text-decoration: none;
+    }
+  }
+
+  @media only screen and (min-width: 601px) and (max-width: 1200px) {
+    .perfil-movil {
+      display: none;
+    }
+    #circuloPerfil,
+    #agregarFoto {
+      display: none;
+    }
+
+    .tabletModal a {
+      text-decoration: none;
+      color: #003049;
+      font-weight: 600;
+      padding: 0;
+    }
+
+    #trash {
+      position: absolute;
+      right: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    #boton-guardar {
+      background-color: #003049;
+      color: white;
+      border-radius: 20px;
+      padding: 7px 0;
+      margin-right: 8.5rem;
+      font-size: 15px;
+      width: 25%;
+      text-align: center;
+      margin-top: 3rem;
+      float: right;
+      text-decoration: none;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 0rem;
+      border-radius: 12px;
+      background: #003049;
+      padding: 28px 25px 20px 25px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      z-index: 2000;
+      transform: translateX(100%);
+      transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+    }
+
+    .toast.active {
+      transform: translateX(0);
+    }
+    .toast .toast-content {
+      display: flex;
+      align-items: center;
+    }
+    .toast-content .check {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      width: 40px;
+      font-size: 20px;
+      border-radius: 50%;
+    }
+
+    .toast .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      padding: 5px;
+      color: #003049;
+      cursor: pointer;
+      opacity: 0.7;
+    }
+    .toast .close:hover {
+      opacity: 1;
+    }
+    .toast-content .message {
+      margin-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      margin: 0 25px;
+    }
+    .message .text {
+      font-size: 16px;
+      font-weight: 200;
+      color: #ffffff;
+    }
+    .message .text.text-1 {
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .toast .progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      background: #ddd;
+    }
+
+    .toast .progress:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      background-color: #2c354e;
+      transition: width 5s linear;
+    }
+
+    .progress.active:before {
+      width: 100%;
+    }
+    @keyframes progress {
+      100% {
+        right: 100%;
+      }
+    }
+
+    .toast.active ~ #boton-guardar {
+      pointer-events: none;
+    }
+
+    .modalDialog {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 99999;
+      opacity: 0;
+      -webkit-transition: opacity 200ms ease-in;
+      -moz-transition: opacity 200ms ease-in;
+      transition: opacity 200ms ease-in;
+      pointer-events: none;
+    }
+
+    .modalDialog:target {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modalDialog > div {
+      width: 80%;
+      height: 50%;
+      position: relative;
+      margin: 10% auto;
+      padding: 40px 20px 13px 20px;
+      text-align: center;
+      border-radius: 10px;
+      background: #fff;
+      -webkit-transition: opacity 400ms ease-in;
+      -moz-transition: opacity 400ms ease-in;
+      transition: opacity 400ms ease-in;
+    }
+
+    #avatarUno,
+    #avatarDos,
+    #avatarTres {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    #avatarUno,
+    #avatarDos {
+      margin-top: 10px;
+      width: 7rem;
+      height: 7rem;
+    }
+
+    #avatarTres {
+      width: 11rem;
+      height: 10rem;
+    }
+
+    .subir-foto {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      cursor: pointer;
+    }
+
+    .subir-foto::before {
+      background-color: #003049;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+      content: "Seleccionar";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    .subir-foto input[type="file"] {
+      opacity: 0;
+      width: 170px;
+      height: 32px;
+      display: inline-block;
+    }
+
+    #seleccionarFoto::before {
+      content: "Subir foto";
+    }
+
+    .close {
+      position: absolute;
+      left: 15px;
+      top: 10;
+      color: black;
+      width: 30px;
+      text-decoration: none;
+    }
+
+    #fotoPerfil {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+    }
+  }
+
+  @media only screen and (min-width: 1201px) {
+    .tabletModal {
+      display: none;
+    }
+    #circuloPerfil {
+      top: 4rem;
+      left: 10%;
+      width: 35px;
+      height: 35px;
+      position: absolute;
+    }
+
+    #agregarFoto {
+      top: 4.44rem;
+      left: 11%;
+      width: 20px;
+      height: 20px;
+      position: absolute;
+    }
+    .perfil-movil {
+      display: none;
+    }
+
+    .perfil-main {
+      position: relative;
+    }
+
+    #trash {
+      position: absolute;
+      right: -15px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    #boton-guardar {
+      background-color: #003049;
+      color: white;
+      border-radius: 20px;
+      padding: 7px 0;
+      margin-right: 8.5rem;
+      font-size: 15px;
+      width: 25%;
+      text-align: center;
+      margin-top: 3rem;
+      float: right;
+      text-decoration: none;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .toast {
+      position: fixed;
+      bottom: 2rem;
+      right: 0rem;
+      border-radius: 12px;
+      background: #003049;
+      padding: 28px 25px 20px 25px;
+      box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      z-index: 2000;
+      transform: translateX(100%);
+      transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
+    }
+
+    .toast.active {
+      transform: translateX(0);
+    }
+    .toast .toast-content {
+      display: flex;
+      align-items: center;
+    }
+    .toast-content .check {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 40px;
+      width: 40px;
+      font-size: 20px;
+      border-radius: 50%;
+    }
+
+    .toast .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      padding: 5px;
+      color: #003049;
+      cursor: pointer;
+      opacity: 0.7;
+    }
+    .toast .close:hover {
+      opacity: 1;
+    }
+    .toast-content .message {
+      margin-bottom: 3rem;
+      display: flex;
+      flex-direction: column;
+      margin: 0 25px;
+    }
+    .message .text {
+      font-size: 16px;
+      font-weight: 200;
+      color: #ffffff;
+    }
+    .message .text.text-1 {
+      font-weight: 600;
+      color: #ffffff;
+    }
+    .toast .progress {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 3px;
+      width: 100%;
+      background: #ddd;
+    }
+
+    .toast .progress:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 100%;
+      width: 0;
+      background-color: #2c354e;
+      transition: width 5s linear;
+    }
+
+    .progress.active:before {
+      width: 100%;
+    }
+    @keyframes progress {
+      100% {
+        right: 100%;
+      }
+    }
+
+    .toast.active ~ #boton-guardar {
+      pointer-events: none;
+    }
+
+    .modalDialog {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 99999;
+      opacity: 0;
+      -webkit-transition: opacity 200ms ease-in;
+      -moz-transition: opacity 200ms ease-in;
+      transition: opacity 200ms ease-in;
+      pointer-events: none;
+    }
+
+    .modalDialog:target {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .modalDialog > div {
+      width: 50%;
+      height: 50%;
+      position: relative;
+      margin: 10% auto;
+      padding: 40px 20px 13px 20px;
+      text-align: center;
+      border-radius: 10px;
+      background: #fff;
+      -webkit-transition: opacity 400ms ease-in;
+      -moz-transition: opacity 400ms ease-in;
+      transition: opacity 400ms ease-in;
+    }
+
+    #avatarUno,
+    #avatarDos,
+    #avatarTres {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    #avatarUno,
+    #avatarDos {
+      margin-top: 10px;
+      width: 7rem;
+      height: 7rem;
+    }
+
+    #avatarTres {
+      width: 11rem;
+      height: 10rem;
+    }
+
+    .subir-foto {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      cursor: pointer;
+    }
+
+    .subir-foto::before {
+      background-color: #003049;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 20px;
+      content: "Seleccionar";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+    }
+
+    .subir-foto input[type="file"] {
+      opacity: 0;
+      width: 170px;
+      height: 32px;
+      display: inline-block;
+    }
+
+    #seleccionarFoto::before {
+      content: "Subir foto";
+    }
+
+    .close {
+      position: absolute;
+      left: 15px;
+      top: 10;
+      color: black;
+      width: 30px;
+      text-decoration: none;
+    }
+
+    #fotoPerfil {
+      width: 100px;
+      height: 100px;
+      position: absolute;
+    }
+  }
+
+  .sidebar {
+    position: sticky;
+    top: 20px;
+    width: 300px;
+    background-color: #ffffff;
+    padding: 40px;
+    height: auto;
+    overflow-y: auto;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .sidebar ul li {
+    margin: 10px 0;
+  }
+
+  .sidebar ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
+
+  .titulo {
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+  }
+
+  .sidebar ul .titulo i {
+    padding-right: 1rem;
+  }
+
+  .sidebar ul li i {
+    padding-bottom: 1rem;
+    padding-right: 1.5rem;
+  }
+
+  #cerrarSesion {
+    margin-top: 14rem;
+  }
+
+  .sidebar ul li a:hover {
+    color: #00a8ff;
+  }
+
+  hr {
+    height: 70vh;
+    width: 0.1vw;
+    top: 10%;
+    position: initial;
+    border-width: 0;
+    color: #e9e9e9;
+    background-color: #e9e9e9;
+  }
+
+  .perfil-content {
+    flex: 1;
+    padding: 3.5rem 6rem;
+    position: relative;
+    height: auto;
+  }
+
+  .nombre-perfil {
+    padding-top: 1rem;
+    padding-left: 7.5rem;
+    position: absolute;
+  }
+
+  .nombre-perfil h3 {
+    padding-bottom: 0.5rem;
+    margin: 0;
+    font-size: 20px;
+  }
+
+  .info {
+    margin-top: 10rem;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .form-left,
+  .form-right {
+    display: flex;
+    flex-direction: column;
+    width: 45%;
+  }
+
+  label {
+    margin-top: 10px;
+  }
+
+  .info input,
+  .info select {
+    border: none;
+
+    border-radius: 10px;
+    font-size: 13px;
+    width: 100%;
+    padding: 7px 13px 7px 20px;
+    margin: 15px 0;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+      rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    box-sizing: border-box;
+    font-family: "Faustina", serif;
+  }
+  .input-container {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+  }
+
+  .input-container input,
+  .input-container select {
+    width: calc(100% - 40px);
+    padding-right: 40px;
+  }
+
+  .input-container a {
+    text-decoration: none;
+    color: inherit;
+  }
+  .input-container i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .form-left,
+  .form-right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-left label,
+  .form-right label {
+    margin-bottom: 5px;
+  }
+
+  .form-left .input-container,
+  .form-right .input-container {
+    margin-bottom: 15px;
+  }
+
+  .info input i {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  input:focus,
+  select:focus {
+    outline: none;
+  }
+
+  #boton-actualizar {
+    background-color: #003049;
+    color: white;
+    border-radius: 20px;
+    padding: 7px 0;
+    margin-right: 6.8rem;
+    font-size: 15px;
+    width: 25%;
+    text-align: center;
+    margin-top: 3rem;
+    float: right;
+    text-decoration: none;
+  }

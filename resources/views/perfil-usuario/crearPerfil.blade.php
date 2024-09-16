@@ -172,12 +172,15 @@
             <div class="progress"></div>
         </div>
 
+        @endsection
 
-    @endsection
+        @section('footer')
+        @endsection
 
-@section('footer')
-@endsection
+        @push('styles')
+        <link rel="stylesheet" href="css/perfil.css">
+        @endpush
 
-@push('styles')
-<link rel="stylesheet" href="css/perfil.css">
-@endpush
+        @push('scripts')
+        <script src="js/perfil.js"></script>
+        @endpush

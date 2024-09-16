@@ -71,12 +71,12 @@
                                 <label for="email">Email</label>
                                 <input type="email" name="email">
                                 <label for="pais">País</label>
-                                <select name="pais" onchange="cambia_provincia()">
-                                    <option value="0" selected></option>
-                                    <option value="1">España</option>
-                                    <option value="2">Argentina</option>
-                                    <option value="3">Colombia</option>
-                                    <option value="4">Francia</option>
+                                <select name="pais">
+                                    <option value="">Selecciona un país:</option>
+                                </select>
+
+                                <select name="ciudad">
+                                    <option value="">Selecciona una ciudad:</option>
                                 </select>
                             </div>
                             <div class="form-right">
@@ -85,12 +85,12 @@
                                 <label for="telefono">Teléfono</label>
                                 <input type="text" name="telefono">
                                 <label for="provincia">Ciudad</label>
-                                <select name="provincia">
-                                    <option value="-"></option>
+                                <select name="estado">
+                                    <option value="">Selecciona un estado:</option>
                                 </select>
                             </div>
                         </div>
-                        <a id="boton-guardar">Guardar datos</a>
+                        <a id="boton-guardar" >Guardar datos</a>
                     </form>
                 </div>
             </div>
@@ -172,6 +172,13 @@
             <div class="progress"></div>
         </div>
 
+        <script>
+            window.routes = {
+                perfilCreado: "{{ route('perfilCreado') }}",
+                crearPerfil: "{{ route('crearPerfil') }}"
+            };
+        </script>
+
         @endsection
 
         @section('footer')
@@ -182,5 +189,5 @@
         @endpush
 
         @push('scripts')
-        <script src="js/perfil.js"></script>
+        <script src="{{ asset('js/perfil.js') }}"></script>
         @endpush

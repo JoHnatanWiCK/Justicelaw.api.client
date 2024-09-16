@@ -31,10 +31,10 @@
             </button>
         </div>
         <nav class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Iniciar Sesión</a>
-            <a href="#">Sobre nosotros</a>
-            <a href="#">Foro</a>
+            <a id="home" href="{{ route('home')}}">Home</a>
+            <a id="login" href="{{ route('login')}}">Iniciar Sesión</a>
+            <a id="about-us" href="{{ route('sobreNosotros')}}">Sobre nosotros</a>
+            <a id="foro" href="{{ route('foro')}}">Foro</a>
         </nav>
     </header>
 
@@ -141,7 +141,9 @@
         <i class="fa-solid fa-magnifying-glass"></i>
         <i class="fa-solid fa-users"></i>
     </footer>
+    <script src="js/layout.js"></script>
     @stack('scripts')
+
 </body>
 
 </html>

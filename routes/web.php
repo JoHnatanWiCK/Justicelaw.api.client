@@ -24,9 +24,38 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Route::get('/', function () {
+//     return view('informacion.derechosTrabajadores');
+// });
+
+
 Route::get('/', function () {
-    return view('informacion.derechosTrabajadores');
-});
+    return view(view: 'home');
+})->name('home');
+
+Route::get('/login', function () {
+    return view(view: 'login.login');
+})->name('login');
+
+Route::get('/sobreNosotros', function () {
+    return view(view: 'sobreNosotros');
+})->name('sobreNosotros');
+
+Route::get('/foro', function () {
+    return view(view: 'foro.foro');
+})->name('foro');
+
+Route::get('/perfilCreado', function () {
+    return view(view: 'perfil-usuario.perfilCreado');
+})->name('perfilCreado');
+
+Route::get('/crearPerfil', function () {
+    return view(view: 'perfil-usuario.crearPerfil');
+})->name('crearPerfil');
+
+Route::get('/editarPerfil', function () {
+    return view(view: 'perfil-usuario.editarPerfil');
+})->name('editarPerfil');
 
 Route::get('/notification', function () {
     return view('notification.notification');

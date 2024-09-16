@@ -87,7 +87,7 @@
                                 </select>
                             </div>
                         </div>
-                        <a id="boton-actualizar" href="../perfil_usuario/editarPerfil.html">Actualizar datos</a>
+                        <a id="boton-actualizar">Actualizar datos</a>
                     </form>
                 </div>
             </div>
@@ -167,6 +167,13 @@
             <div class="progress"></div>
         </div>
 
+        <script>
+            window.routes = {
+                perfilCreado: "{{ route('perfilCreado') }}",
+                crearPerfil: "{{ route('crearPerfil') }}",
+                editarPerfil: "{{ route('editarPerfil') }}"
+            };
+        </script>
         @endsection
 
         @section('footer')

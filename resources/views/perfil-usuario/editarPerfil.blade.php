@@ -191,6 +191,14 @@
             <div class="progress"></div>
         </div>
 
+        <script>
+             window.routes = {
+                perfilCreado: "{{ route('perfilCreado') }}",
+                crearPerfil: "{{ route('crearPerfil') }}",
+                editarPerfil: "{{ route('editarPerfil') }}"
+            };
+        </script>
+
         @endsection
 
         @section('footer')

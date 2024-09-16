@@ -479,7 +479,7 @@
 
     .modalDialog > div {
         width: 80%;
-        height: 20rem;
+        height: 23rem;
         position: relative;
         margin: 10% auto;
         padding: 40px 20px 13px 20px;
@@ -722,7 +722,7 @@
 
     .modalDialog > div {
         width: 50%;
-        height: 20rem;
+        height: 23rem;
         position: relative;
         margin: 10% auto;
         padding: 40px 20px 13px 20px;
@@ -964,6 +964,7 @@ select:focus {
 }
 
 #boton-actualizar {
+    cursor: pointer;
     background-color: #003049;
     color: white;
     border-radius: 20px;

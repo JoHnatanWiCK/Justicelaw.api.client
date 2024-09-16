@@ -30,9 +30,9 @@
             </button>
         </div>
         <nav class="nav-links">
-            <a href="#">Home</a>
-            <a href="#">Foro</a>
-            <a href="#">Sobre nosotros</a>
+            <a id="home" href="{{ route('home')}}"">Home</a>
+            <a id="about-us" href="#">Sobre nosotros</a>
+            <a id="foro" href="#">Foro</a>
         </nav>
         <div class="user-menu">
             <img class="img-perfil" src="../../img/fotoPerfil.png" alt="foto de Perfil" />
@@ -161,5 +161,7 @@
 
     <script src="script.js"></script>
     @stack('scripts')
+
+    <script src="js/layout.js"></script>
 </body>
 </html>

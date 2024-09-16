@@ -1,0 +1,130 @@
+
+.breadcrumb {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    font-size: 16px; 
+  margin-top: 40px;
+  margin: 20px;
+    white-space: nowrap; 
+}
+
+.breadcrumb h1 {
+    margin: 0; 
+    display: inline; 
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.breadcrumb h4, .breadcrumb p {
+    margin: 0; 
+    font-weight: lighter; 
+    display: inline; 
+}
+
+.breadcrumb h4::before, .breadcrumb p::before {
+    content: ">";
+    margin-left: 10px; 
+    margin-right: 10px; 
+}
+
+@media (max-width: 768px) {
+    .breadcrumb {
+        font-size: 14px; 
+        flex-wrap: wrap; 
+        padding: 20px 20px; 
+    }
+
+    .breadcrumb h1 {
+        font-size: 18px; 
+    }
+}
+
+.form-container {
+    width: 100%; 
+    max-width: 600px; 
+    margin: 50px; 
+}
+
+
+form input {
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ced4da;
+    border-radius: 10px;
+    font-size: 14px;
+    background-color: #f8f9fa;
+    width: 100%; 
+    box-sizing: border-box; 
+}
+
+form input::placeholder {
+    color: #adb5bd;
+}
+
+form button {
+    display: flex;
+    background-color: #073642;
+    color: #fff;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 24px;
+    cursor: pointer;
+    font-size: 14px;
+    justify-content: center; 
+    width: 30%; 
+    box-sizing: border-box;
+}
+
+form button:hover {
+    background-color: #064153;
+}
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    max-width: 90%; 
+    background-color: #0D384A;
+    color: #fff;
+    padding: 16px 24px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    opacity: 0;
+    transform: translateY(100%);
+    visibility: hidden;
+    z-index: 1000;
+    box-sizing: border-box; 
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+}
+
+.toast .check {
+    width: 40px; 
+    height: 40px;
+    margin-right: 12px; 
+}
+
+.toast .message {
+    display: flex;
+    flex-direction: column;
+}
+
+.toast .text-1 {
+    font-weight: bold;
+    font-size: 18px; 
+}
+
+.toast .text-2 {
+    font-size: 14px; 
+    margin-top: 4px; 
+    font-weight: lighter;
+}
+

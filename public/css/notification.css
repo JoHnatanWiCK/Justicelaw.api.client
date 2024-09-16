@@ -1,0 +1,325 @@
+.container {
+    margin-top: 3rem !important;
+    margin-bottom: 4rem !important;
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    overflow: hidden;
+    margin: auto;
+    height: 100%;
+}
+
+.sect2 {
+    width: 70%;
+    padding: 20px;
+    box-sizing: border-box;
+    height: auto;
+}
+
+.sidebar {
+    position: sticky;
+    top: 20px;
+    width: 300px;
+    background-color: #ffffff;
+    padding: 40px;
+    height: auto;
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin: 10px 0;
+}
+
+.sidebar ul li a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.titulo {
+    font-weight: 700;
+    margin-bottom: 2.5rem;
+}
+
+.titulo i {
+    padding-right: 1rem;
+}
+
+.sidebar ul li i {
+    padding-bottom: 1rem;
+    padding-right: 1.5rem;
+}
+
+#cerrarSesion {
+    margin-top: 14rem;
+}
+
+.sidebar ul li a:hover {
+    color: #00a8ff;
+}
+
+hr {
+    height: 70vh;
+    width: 0.1vw;
+    left: 25%;
+    top: 23%;
+    position: absolute;
+    border-width: 0;
+    color: #e9e9e9;
+    background-color: #e9e9e9;
+    position: initial;
+}
+
+.container1 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.notification {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    background-color: #f9f9f9;
+}
+
+.notifications-d {
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.notifications-d h2 {
+    margin-right: 10px;
+}
+
+.user-menu1 {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.user-menu2 {
+    display: inline-block;
+    position:absolute ;
+    align-items: center;
+}
+
+.user-menu2 .dropdown2 {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    width: 150px;
+    box-shadow: 0 0 10px black;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.user-menu2 input[type="checkbox"]:checked + label + .dropdown2 {
+    display: absolute;
+}
+
+.user-menu1 .dropdown1 {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    width: 150px;
+    box-shadow: 0 0 10px black;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.user-menu1 .dropdown-checkbox1:checked + label + .dropdown1, .user-menu2 .dropdown-checkbox2:checked + label + .dropdown2 {
+    display: block;
+}
+
+.dropdown-checkbox1, .dropdown-checkbox2 {
+    display: none;
+}
+
+.dropdown1 ul, .dropdown2 ul {
+    list-style: none;
+    text-align:initial;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown1 ul li, .dropdown2 ul li {
+    padding: 10px;
+}
+
+.dropdown1 ul li a, .dropdown2 ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.container2 a {
+    margin-left: 10px;
+    margin-right: 40px;
+    text-decoration: none;
+    color: #000;
+    flex: 1;
+}
+
+.container2 .corazon {
+    margin-right: 10px;
+    height: 20px;
+}
+
+.notifications-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.notifications-actions button {
+    background-color: #003049;
+    color: #ffffff;
+    border: none;
+    padding: 10px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border-radius: 20px;
+    width: 168px;
+    height: 48;
+}
+
+.img-flecha {
+    cursor: pointer;
+    height: 20px;
+}
+.notification .user-menu2 .img-3puntos {
+    margin-left: auto;
+    height: 20px;
+    cursor: pointer;
+}
+
+.container2 .img-perfil {
+    width: 35px;
+    height: 35px;
+    border-image: none;
+}
+
+/* mas grandes */
+@media (min-width: 1200px) {
+    .container {
+        width: 80%;
+        max-width: 1200px;
+        margin-top: 3rem !important;
+        margin-bottom: 4rem !important;
+    }
+
+    .sect2 {
+        width: 75%;
+    }
+
+    .sidebar {
+        width: 25%;
+        padding: 30px;
+    }
+
+    .notifications-actions button {
+        width: 200px;
+    }
+}
+
+/* tablets */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .container {
+        width: 90%;
+        max-width: 1000px;
+        margin-top: 2rem !important;
+        margin-bottom: 3rem !important;
+        flex-direction: row;
+    }
+
+    .sect2 {
+        width: 70%;
+        padding: 15px;
+    }
+
+    .sidebar {
+        width: 30%;
+        padding: 25px;
+    }
+
+    .notifications-actions button {
+        width: 180px;
+    }
+}
+
+/* celulares */
+@media (max-width: 767px) {
+    .container {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 1rem !important;
+        margin-bottom: 2rem !important;
+        flex-direction: column;
+    }
+
+    .sect2 {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+        padding: 20px;
+    }
+
+    hr {
+        height: auto;
+        width: 100%;
+        position: relative;
+        left: 0;
+        top: 0;
+    }
+
+    .container1,
+    .notification,
+    .notifications-d,
+    .user-menu1,
+    .user-menu2 {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .notifications-actions {
+        flex-direction: column;
+    }
+
+    .notifications-actions button {
+        width: 80%;
+    }
+
+    .container2 a {
+        margin-left: 0;
+        margin-right: 0;
+        text-align: center;
+        width: 80%;
+    }
+}

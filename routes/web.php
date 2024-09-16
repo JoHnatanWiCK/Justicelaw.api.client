@@ -28,6 +28,33 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('/notification', function () {
+    return view('notification.notification');
+});
+
+Route::get('/noti-lawyer', function () {
+    return view('noti-lawyer.noti-lawyer');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard.dashboard');
+});
+
+Route::get('/adminprofile', function () {
+    return view('adminprofiles.admin-profiles');
+});
+
+Route::get('/configadmin', function () {
+    return view('config-admin.config-admin');
+});
+
+Route::get('/configadmin2', function () {
+    return view('config-admin.config-admin2');
+});
+
+Route::get('/configadmincont', function () {
+    return view('config-admin.config-admincont');
+});
 
 Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name('typeDocuments.index');
 Route::post('typeDocuments', [TypeDocumentController::class, 'store'])->name('typeDocuments.store');

@@ -29,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('/', function () {
+Route::get('/home', function () {
     return view(view: 'home');
 })->name('home');
 
@@ -56,10 +56,6 @@ Route::get('/crearPerfil', function () {
 Route::get('/editarPerfil', function () {
     return view(view: 'perfil-usuario.editarPerfil');
 })->name('editarPerfil');
-
-Route::get('/', function () {
-    return view('home');
-});
 
 Route::get('/derechosTrabajadores', function () {
     return view('informacion.derechosTrabajadores');

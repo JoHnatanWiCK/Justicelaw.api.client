@@ -170,10 +170,10 @@ Route::delete('verificationLawyer/{verificationLawyer}', [VerificationLawyerCont
 
 
 Route::get('notifications', [NotificationController::class, 'index'])->name('api.v1.notifications.index');
-Route::post('notifications', [NotificationController::class, 'store'])->name('notifications.store');
-Route::get('notifications/{notification}', [NotificationController::class, 'show'])->name('notifications.show');
-Route::put('notifications/{notification}', [NotificationController::class, 'update'])->name('notifications.update');
-Route::delete('notifications/{notification}', [NotificationController::class, 'destroy'])->name('notifications.delete');
+Route::post('notifications', [NotificationController::class, 'store'])->name('api.v1.notifications.store');
+Route::get('notifications/{notification}', [NotificationController::class, 'show'])->name('api.v1.notifications.show');
+Route::put('notifications/{notification}', [NotificationController::class, 'update'])->name('api.v1.notifications.update');
+Route::delete('notifications/{notification}', [NotificationController::class, 'destroy'])->name('api.v1.notifications.delete');
 
 Route::get('searchs', [SearchController::class, 'index'])->name('searchs.index');
 Route::post('searchs', [SearchController::class, 'store'])->name('searchs.store');

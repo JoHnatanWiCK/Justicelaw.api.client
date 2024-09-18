@@ -57,6 +57,14 @@ Route::get('/editarPerfil', function () {
     return view(view: 'perfil-usuario.editarPerfil');
 })->name('editarPerfil');
 
+Route::get('/', function () {
+    return view('home');
+});
+
+Route::get('/derechosTrabajadores', function () {
+    return view('informacion.derechosTrabajadores');
+});
+
 Route::get('/notification', function () {
     return view('notification.notification');
 });
@@ -83,6 +91,18 @@ Route::get('/configadmin2', function () {
 
 Route::get('/configadmincont', function () {
     return view('config-admin.config-admincont');
+});
+
+Route::get('/calendar', function () {
+    return view('calendar.calendar');
+});
+
+Route::get('/perfilabogado', function () {
+    return view('verperfil.perfil-abogado');
+});
+
+Route::get('/reseñaPublicada', function () {
+    return view('verperfil.reseñaPublicada');
 });
 
 Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name('typeDocuments.index');

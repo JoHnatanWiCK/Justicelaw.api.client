@@ -108,6 +108,18 @@
     <main>
         @yield('main')
     </main>
+    <div id="logoutModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>¿Estás seguro de que deseas cerrar sesión?</h2>
+            <p>Recuerda que siempre estamos aquí para brindarte la mejor asesoría legal cuando lo necesites.</p>
+            <p>¡Esperamos verte pronto de vuelta!</p>
+            <div class="modal-buttons">
+                <button id="confirmLogout">Cerrar sesión</button>
+                <button id="cancelLogout">Cerrar sesión</button>
+            </div>
+        </div>
+    </div>
     <footer class="footer-large">
         @yield('footer')
         <div class="footer-resources">
@@ -160,6 +172,7 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="js/modal.js"></script>
     @stack('scripts')
 
     <script src="js/layout.js"></script>

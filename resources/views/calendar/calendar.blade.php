@@ -18,6 +18,7 @@
                 <div>Mayo</div>
                 <div>Junio</div>
                 <div>Julio</div>
+                <div>borrar despues</div>
             </div>
             <div class="days">
                 <div class="day">

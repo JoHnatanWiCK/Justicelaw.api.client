@@ -15,24 +15,71 @@ class LawyerController extends Controller
         return $response->json(); 
     }
 
-    public function index()   //http://api.codersfree.test/v1/categories?included=posts
+    public function index()
     {
-
         $url = env('URL_SERVER_API');
 
-        $lawyers = $this->fetchDataFromApi($url . '/lawyers?included=post');
- 
+        $lawyers = $this->fetchDataFromApi($url . '/lawyers');
+
         return $lawyers;
 
-        return view('lawyers.index', compact('lawyers'));
+        // return view('lawyers.index', compact('lawyers'));
     }
 
-    public function show($id)
+    
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
         $url = env('URL_SERVER_API');
 
-        $lawyer = $this->fetchDataFromApi($url . '/lawyer/' . $id);
+        $lawyer = $this->fetchDataFromApi($url . '/lawyers/' . $id);
 
-        return view('lawyers.show', compact('lawyer'));
+        return $lawyer;
+
+        // return view('notifications.show', compact('notification'));
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
+
+
 }

@@ -15,24 +15,70 @@ class VerificationLawyerController extends Controller
         return $response->json(); 
     }
 
-    public function index()   //http://api.codersfree.test/v1/categories?included=posts
+    public function index()
     {
-
         $url = env('URL_SERVER_API');
 
-        $verificationLawyers = $this->fetchDataFromApi($url . '/verificationLawyers?included=post');
- 
+        $verificationLawyers = $this->fetchDataFromApi($url . '/verificationLawyers');
+
         return $verificationLawyers;
 
-        return view('verificationLawyers.index', compact('verificationLawyers'));
+        // return view('verificationLawyers.index', compact('verificationsLawyer'));
     }
 
-    public function show($id)
+    
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
     {
         $url = env('URL_SERVER_API');
 
-        $verificationLawyer = $this->fetchDataFromApi($url . '/verificationLawyer/' . $id);
+        $verificationLawyer = $this->fetchDataFromApi($url . '/verificationLawyers/' . $id);
 
-        return view('verificationLawyers.show', compact('verificationLawyer'));
+        return $verificationLawyer;
+
+        // return view('notifications.show', compact('notification'));
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy(string $id)
+    {
+        //
+    }
+
 }

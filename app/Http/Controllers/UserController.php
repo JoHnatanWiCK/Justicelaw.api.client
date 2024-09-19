@@ -52,7 +52,7 @@ class UserController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $user = $this->fetchDataFromApi($url . '/typeDocuments/' . $id);
+        $user = $this->fetchDataFromApi($url . '/users/' . $id);
 
         return $user;
 

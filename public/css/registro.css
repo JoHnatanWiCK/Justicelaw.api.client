@@ -1,0 +1,354 @@
+@media only screen and (max-width: 600px) {
+    .loginlweb {
+        display: none;
+    }
+    .titulo1 h1 {
+        font-size: 28px;
+        margin-top: 6rem;
+        margin-left: 18rem;
+    }
+    .titulo2 h1 {
+        font-size: 28px;
+        margin-top: -3.85rem;
+        margin-left: 23.8rem;
+        color: #cf9e3e;
+    }
+    .subt h2 {
+        font-size: 19px;
+        margin-top: -1rem;
+        margin-left: 15.5rem;
+    }
+    .contenedor {
+        margin-top: 2rem;
+        margin-left: 9rem;
+        display: flex;
+    }
+
+    .btn1 {
+        background-color: #0a3b55;
+        text-decoration: none;
+        color: white;
+        font-size: 24px;
+        padding: 14px 46px;
+        border-radius: 34px;
+        transition-duration: 0.4s;
+    }
+    .btn1:hover {
+        background-color: #0a3b55;
+        color: #cf9e3e;
+    }
+    .btn2 {
+        background-color: #0a3b55;
+        text-decoration: none;
+        color: white;
+        margin-left: -39px;
+        font-size: 24px;
+        padding: 14px 36px;
+        border-radius: 34px;
+        transition-duration: 0.4s;
+    }
+    .btn2:hover {
+        background-color: #0a3b55;
+        color: #cf9e3e;
+    }
+
+    .re {
+        font-size: 35px;
+        width: 200px;
+        margin-top: 2rem;
+        margin-left: 5rem;
+        color: #0a3b55;
+    }
+    .re input[type="text"] {
+        border: none;
+        margin: 10px 0px;
+        padding: 0px 150px;
+        border-bottom: 2px solid #0a3b55;
+        box-sizing: border-box;
+        outline: none;
+    }
+    .re select {
+        border: none;
+        margin: 8px 0px;
+        padding: 0px 165px;
+        border-bottom: 2px solid #0a3b55;
+        box-sizing: border-box;
+        outline: none;
+    }
+    .re input[type="password"] {
+        border: none;
+        margin: 8px 0px;
+        padding: 0px 150px;
+        border-bottom: 2px solid #0a3b55;
+        box-sizing: border-box;
+        outline: none;
+    }
+    .re input[type="email"] {
+        border: none;
+        margin: 8px 0px;
+        padding: 0px 150px;
+        border-bottom: 2px solid #0a3b55;
+        box-sizing: border-box;
+        outline: none;
+    }
+    .btn3 {
+        background-color: #0a3b55;
+        text-decoration: none;
+        color: white;
+        padding: 14px 205px;
+        margin-top: 2.8rem;
+        margin-left: 5rem;
+        border-radius: 15px;
+    }
+    .parrafo {
+        margin-top: 2rem;
+        margin-left: 5.5rem;
+        color: #0a3b55;
+    }
+
+    .parrafo a {
+        text-decoration: none;
+        color: #cf9e3e;
+    }
+}
+@media only screen and (min-width: 901px) {
+    .loginlweb {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10rem;
+        padding: 20px;
+        max-width: 1300px;
+        margin: 0 auto;
+    }
+
+    .columna-izquierda {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    .loginlmovil {
+        display: none;
+    }
+    .ti h1 {
+        font-size: 48px;
+        color: #0a3b55;
+    }
+    .justice {
+        background-image: url("../img/image2.jpg");
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+
+        height: 100%;
+        box-sizing: border-box;
+    }
+    .justice h1 {
+        text-align: right;
+        margin-top: 25rem;
+        font-size: 60px;
+        color: white;
+    }
+    .justice h2 {
+        text-align: right;
+        margin-top: -65px;
+        font-size: 28px;
+        color: white;
+    }
+    .law h1 {
+        margin-left: 100%;
+        margin-top: -19rem;
+        font-size: 60px;
+        color: #cf9e3e;
+    }
+    .law h2 {
+        margin-top: -4rem;
+        margin-left: 100%;
+        font-size: 28px;
+        color: #0a3b55;
+    }
+    .reg {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        color: #0a3b55;
+        align-items: flex-start;
+    }
+    .reg input[type="text"] {
+        border: none;
+        width: 100%;
+        border-bottom: 2px solid #0a3b55;
+        box-sizing: border-box;
+        outline: none;
+    }
+    .reg select {
+        border: none;
+        width: 100%;
+        border-bottom: 2px solid #0a3b55;
+        box-sizing: border-box;
+        outline: none;
+    }
+    .reg input[type="password"] {
+        border: none;
+        width: 100%;
+        border-bottom: 2px solid #0a3b55;
+        box-sizing: border-box;
+        outline: none;
+    }
+    .reg input[type="email"] {
+        border: none;
+        width: 100%;
+        border-bottom: 2px solid #0a3b55;
+        box-sizing: border-box;
+        outline: none;
+    }
+
+    .bot button {
+        background-color: #0a3b55;
+        text-decoration: none;
+        color: white;
+        padding: 14px 40px;
+        border-radius: 4px;
+        max-width: 317px;
+    }
+    .parrafo {
+        color: #0a3b55;
+    }
+    .parrafo a {
+        text-decoration: none;
+        color: #cf9e3e;
+    }
+
+    .par {
+        color: #0a3b55;
+    }
+
+    .par a {
+        text-decoration: none;
+    }
+}
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+    .loginlweb {
+        grid-template-columns: 1fr; /* Cambia a una sola columna */
+        gap: 20px; /* Ajusta el espacio entre los elementos */
+    }
+
+    .columna-izquierda {
+        align-items: center; /* Centra el contenido */
+    }
+
+    .loginlmovil {
+        display: none;
+    }
+    .ti h1 {
+        font-size: 48px;
+        color: #0a3b55;
+    }
+
+    .justice {
+        background-image: url("../img/image2.jpg");
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+        width: 65%;
+        height: 600px;
+        margin-top: 7rem;
+        margin-left: 10.5%;
+        box-sizing: border-box;
+        position: sticky;
+    }
+    .justice h1 {
+        text-align: right;
+        margin-top: 22rem;
+        font-size: 83px;
+        color: white;
+    }
+    .justice h2 {
+        text-align: right;
+        margin-top: -65px;
+        font-size: 30px;
+        color: white;
+    }
+    .law h1 {
+        margin-left: 76%;
+        margin-top: -14.43rem;
+        font-size: 66.6px;
+        color: #cf9e3e;
+    }
+    .law h2 {
+        margin-top: -3rem;
+        margin-left: 76%;
+        font-size: 32px;
+        color: #0a3b55;
+    }
+
+    .reg {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        color: #0a3b55;
+        align-items: flex-start;
+        align-items: center; /* Centra el contenido horizontalmente */
+        max-width: 100%; /* Asegura que no exceda el ancho del contenedor */
+        margin: 0 auto;
+        margin-top: 5rem;
+    }
+
+    .reg input[type="text"] {
+        border: none;
+        margin: 10px 0px;
+        padding: 0px 130px;
+        border-bottom: 2px solid #0a3b55;
+        box-sizing: border-box;
+        outline: none;
+    }
+    .reg select {
+        border: none;
+        margin: 8px 0px;
+        padding: 0px 145px;
+        border-bottom: 2px solid #0a3b55;
+        box-sizing: border-box;
+        outline: none;
+    }
+    .reg input[type="password"] {
+        border: none;
+        margin: 8px 0px;
+        padding: 0px 130px;
+        border-bottom: 2px solid #0a3b55;
+        box-sizing: border-box;
+        outline: none;
+    }
+    .reg input[type="email"] {
+        border: none;
+        margin: 8px 0px;
+        padding: 0px 130px;
+        border-bottom: 2px solid #0a3b55;
+        box-sizing: border-box;
+        outline: none;
+    }
+
+    .bot button {
+        background-color: #0a3b55;
+        text-decoration: none;
+        color: white;
+        padding: 14px 40px;
+        border-radius: 4px;
+        max-width: 317px;
+    }
+    .parrafo {
+        color: #0a3b55;
+    }
+
+    .parrafo a {
+        text-decoration: none;
+        color: #cf9e3e;
+    }
+
+    .par {
+        color: #0a3b55;
+    }
+    .inicio {
+        margin-top: -0.9rem;
+        margin-left: 14%;
+        margin-bottom: 6rem;
+    }
+}

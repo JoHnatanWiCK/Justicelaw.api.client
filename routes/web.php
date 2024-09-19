@@ -23,10 +23,88 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+<<<<<<< HEAD
 Route::get('/', function () {
     return view('welcome');
+=======
+
+// Route::get('/', function () {
+//     return view('informacion.derechosTrabajadores');
+// });
+
+
+Route::get('/home', function () {
+    return view(view: 'home');
+})->name('home');
+
+Route::get('/login', function () {
+    return view(view: 'login.login');
+})->name('login');
+
+Route::get('/sobreNosotros', function () {
+    return view(view: 'sobreNosotros');
+})->name('sobreNosotros');
+
+Route::get('/foro', function () {
+    return view(view: 'foro.foro');
+})->name('foro');
+
+Route::get('/perfilCreado', function () {
+    return view(view: 'perfil-usuario.perfilCreado');
+})->name('perfilCreado');
+
+Route::get('/crearPerfil', function () {
+    return view(view: 'perfil-usuario.crearPerfil');
+})->name('crearPerfil');
+
+Route::get('/editarPerfil', function () {
+    return view(view: 'perfil-usuario.editarPerfil');
+})->name('editarPerfil');
+
+Route::get('/derechosTrabajadores', function () {
+    return view('informacion.derechosTrabajadores');
+>>>>>>> 253aa6cbb802bd9ddf1c94fd22b6f69ac2853360
 });
 
+Route::get('/notification', function () {
+    return view('notification.notification');
+});
+
+Route::get('/noti-lawyer', function () {
+    return view('noti-lawyer.noti-lawyer');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard.dashboard');
+});
+
+Route::get('/adminprofile', function () {
+    return view('adminprofiles.admin-profiles');
+});
+
+Route::get('/configadmin', function () {
+    return view('config-admin.config-admin');
+});
+
+Route::get('/configadmin2', function () {
+    return view('config-admin.config-admin2');
+});
+
+Route::get('/configadmincont', function () {
+    return view('config-admin.config-admincont');
+});
+
+Route::get('/calendar', function () {
+    return view('calendar.calendar');
+});
+
+Route::get('/perfilabogado', function () {
+    return view('verperfil.perfil-abogado');
+});
+
+Route::get('/reseñaPublicada', function () {
+    return view('verperfil.reseñaPublicada');
+});
 
 Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');
 Route::post('typeDocuments', [TypeDocumentController::class, 'store'])->name('typeDocuments.store');
@@ -93,10 +171,10 @@ Route::delete('verificationLawyer/{verificationLawyer}', [VerificationLawyerCont
 
 
 Route::get('notifications', [NotificationController::class, 'index'])->name('api.v1.notifications.index');
-Route::post('notifications', [NotificationController::class, 'store'])->name('notifications.store');
-Route::get('notifications/{notification}', [NotificationController::class, 'show'])->name('notifications.show');
-Route::put('notifications/{notification}', [NotificationController::class, 'update'])->name('notifications.update');
-Route::delete('notifications/{notification}', [NotificationController::class, 'destroy'])->name('notifications.delete');
+Route::post('notifications', [NotificationController::class, 'store'])->name('api.v1.notifications.store');
+Route::get('notifications/{notification}', [NotificationController::class, 'show'])->name('api.v1.notifications.show');
+Route::put('notifications/{notification}', [NotificationController::class, 'update'])->name('api.v1.notifications.update');
+Route::delete('notifications/{notification}', [NotificationController::class, 'destroy'])->name('api.v1.notifications.delete');
 
 Route::get('searchs', [SearchController::class, 'index'])->name('searchs.index');
 Route::post('searchs', [SearchController::class, 'store'])->name('searchs.store');

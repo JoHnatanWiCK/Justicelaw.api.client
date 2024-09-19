@@ -23,10 +23,6 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-<<<<<<< HEAD
-Route::get('/', function () {
-    return view('welcome');
-=======
 
 // Route::get('/', function () {
 //     return view('informacion.derechosTrabajadores');
@@ -63,7 +59,6 @@ Route::get('/editarPerfil', function () {
 
 Route::get('/derechosTrabajadores', function () {
     return view('informacion.derechosTrabajadores');
->>>>>>> 253aa6cbb802bd9ddf1c94fd22b6f69ac2853360
 });
 
 Route::get('/notification', function () {

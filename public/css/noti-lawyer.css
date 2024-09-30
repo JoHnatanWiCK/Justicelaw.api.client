@@ -1,73 +1,86 @@
-.content {
-    display: flex;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-  }
-  .sidebar {
-    position: sticky;
-    padding-top: 2rem;
-    max-width: 15%;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    align-items: center;
-    justify-content: center;
-    background-color: #ffffff;
-    margin: 0 auto;
-    height: auto;
-    overflow-y: auto;
-  }
-  
-
-  #progreso{
-    text-align: center;
-    width: 70%;
-    margin: 0 auto;
+.container {
+  margin-top: 3rem !important;
+  margin-bottom: 4rem !important;
+  display: flex;
+  width: 90%;
+  max-width: 1200px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  overflow: hidden;
+  margin: auto;
+  height: 100%;
+}
+.sidebar {
+  position: sticky;
+  top: 20px;
+  width: 300px;
+  background-color: #ffffff;
+  padding: 40px;
+  height: auto;
+  overflow-y: auto;
 }
 
-  
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
 
-  .sidebar ul {
-    list-style: none;
-    padding: 0;
-    text-align: center;
+.sidebar ul li {
+  margin: 10px 0;
+}
 
-  }
-  
-  .sidebar ul li {
-    margin: 10px 0;
-    margin-bottom: 2rem;
-  }
-  
-  .sidebar ul li a {
-    margin: 0;
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-  }
+.sidebar ul li a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+}
 
-  .sidebar ul li i {
-    padding-bottom: 1rem;
-    padding-right: 1.5rem;
-  }
-  
-  #cerrarSesion {
-    margin-top: 10rem;
-  }
-  
-  .sidebar ul li a:hover {
-    color: #00a8ff;
-  }
+.titulo {
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+}
+
+.titulo i {
+  padding-right: 1rem;
+}
+
+.sidebar ul li i {
+  padding-bottom: 1rem;
+  padding-right: 1.5rem;
+}
+
+#cerrarSesion {
+  margin-top: 14rem;
+}
+
+.sidebar ul li a:hover {
+  color: #00a8ff;
+}
+
+hr {
+  height: 70vh;
+  width: 0.1vw;
+  left: 25%;
+  top: 23%;
+  position: absolute;
+  border-width: 0;
+  color: #e9e9e9;
+  background-color: #e9e9e9;
+  position: initial;
+}
 
 .notifications {
-  background-color: #f7f7f9;
-  width: 100%;
+  width: 70%;
+  padding: 20px;
+  box-sizing: border-box;
   height: auto;
-  text-align: left;
 }
 
 .contenido {
-  justify-content: center;
+  display: flex;
   align-items: center;
-  margin-left: 15rem;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
 

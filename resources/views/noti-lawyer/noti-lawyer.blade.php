@@ -6,55 +6,35 @@
 @endsection
 
 @section('main')
-<section class="content">
+<section class="container">
     <nav class="sidebar">
-      <ul>
-          <li>
-              <div class="icon-container">
-                  <i class="fa-regular fa-user"></i>
-              </div>
-              <div class="text-container">
-                  <a href="../perfil_usuario/perfil_creado.html">Información usuario</a>
-              </div>
-          </li>
-          <li>
-              <div class="icon-container">
-                  <i class="fa-solid fa-clock-rotate-left"></i>
-              </div>
-              <div class="text-container">
-                  <a href="../historial/historial.html">Historial</a>
-              </div>
-          </li>
-          <li>
-              <div class="icon-container">
-                  <i class="fa-solid fa-gear"></i>
-              </div>
-              <div class="text-container">
-                  <a href="../configuracion/configuracion.html">Configuración</a>
-              </div>
-          </li>
-          <li>
-              <div class="icon-container">
-                  <i class="fa-regular fa-bell"></i>
-              </div>
-              <div class="text-container">
-                  <a href="../notification/notification.html">Notificaciones</a>
-              </div>
-          </li>
-          <li id="cerrarSesion">
-              <div class="icon-container">
-                  <i class="fa-solid fa-right-from-bracket"></i>
-              </div>
-              <div class="text-container">
-                  <a href="../home/home.html">Cerrar sesión</a>
-              </div>
-          </li>
-      </ul>
-  </nav>
+        <ul>
+            <div class="titulo">
+                <i class="fa-solid fa-chevron-left" onclick="window.history.back()"></i>
+                <span>Perfil Usuario</span>
+            </div>
+            <li>
+                <a href="{{ route('crearPerfil') }}"><i class="fa-regular fa-user"></i>Información usuario</a>
+            </li>
+            <li>
+                <a href="{{ route('historial') }}"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>
+            </li>
+            <li>
+                <a href="{{ route('configuracion') }}"><i class="fa-solid fa-gear"></i>Configuracion</a>
+            </li>
+            <li>
+                <a href="{{ route('notificaciones') }}"><i class="fa-regular fa-bell"></i>Notificaciones</a>
+            </li>
+            <li id="cerrarSesion">
+                <a href="#" id="openModal"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesión</a>
+            </li>
+        </ul>
+    </nav>
+    <hr />
   <section class="notifications">
     <div class="contenido">
-      <h2 > Notificaciones</h2>
       <div class="notification-list">
+        <h2 > Notificaciones</h2>
           <div class="notification-item">
               <div class="user-info">
                   <img src="../../img/fotoPerfil.png" alt="User Image">
@@ -97,10 +77,11 @@
                   <span class="date">09/04/2024</span>
               </div>
           </div>
+          <div class="load-more">
+            <button>Cargar más</button>
+        </div>
       </div>
-      <div class="load-more">
-          <button>Cargar más</button>
-      </div>
+      
     </div>
   </section>
 </section>

@@ -14,29 +14,29 @@
                 <span>Perfil Usuario</span>
             </div>
             <li>
-                <a href="../perfil_usuario/perfil_creado.html"><i class="fa-regular fa-user"></i>Información usuario</a>
+                <a href="{{ route('crearPerfil') }}"><i class="fa-regular fa-user"></i>Información usuario</a>
             </li>
             <li>
-                <a href="../historial/historial.html"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>
+                <a href="{{ route('historial') }}"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>
             </li>
             <li>
-                <a href="../configuracion/configuracion.html"><i class="fa-solid fa-gear"></i>Configuracion</a>
+                <a href="{{ route('configuracion') }}"><i class="fa-solid fa-gear"></i>Configuracion</a>
             </li>
             <li>
-                <a href="../notification/notification.html"><i class="fa-regular fa-bell"></i>Notificaciones</a>
+                <a href="{{ route('notificaciones') }}"><i class="fa-regular fa-bell"></i>Notificaciones</a>
             </li>
             <li id="cerrarSesion">
-                <a href="#" id="openModal2"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesión</a>
+                <a href="#" id="openModal"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesión</a>
             </li>
         </ul>
     </nav>
-    <hr>
+    <hr />
     <div class="sect2">
         <div class="container1">
             <div class="notifications-d">
                 <h2>Notificaciones</h2>
                 <div class="user-menu1">
-                    <span> Mostrar: Mis preguntas</span>
+                    <span>Mostrar: Mis preguntas</span>
                     <input type="checkbox" id="dropdownToggle1" class="dropdown-checkbox1">
                     <label for="dropdownToggle1">
                         <img class="img-flecha" src="../../img/flechaAbajo.png" alt="flecha">
@@ -127,14 +127,12 @@
             </div>
         </div>
         <div class="notifications-actions">
-            <button>Marcar todo como leído</button>
-            <button>Archivar todo</button>
-        </div>
+            <button id="marcarTodoLeido">Marcar todo como leído</button>
+            <button id="archivarTodo">Archivar todo</button>
+        </div>    
     </div>
-    
 </section>
 @endsection
-
 
 @section('footer')
 @endsection

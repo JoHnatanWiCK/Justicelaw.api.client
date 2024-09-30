@@ -104,7 +104,7 @@ Route::get('/perfilAbogado', function () {
 
 Route::get('/informaciones', function () {
     return view('informacion.informaciones');
-});
+})->name('informaciones');
 
 Route::get('/notification', function () {
     return view('notification.notification');
@@ -145,6 +145,30 @@ Route::get('/verPerfilAbogado', function () {
 Route::get('/reseñaPublicada', function () {
     return view('verperfil.reseñaPublicada');
 });
+
+Route::get('/informacionArrendamiento', function () {
+    return view('informacion.arrendamiento');
+})->name('informacionArrendamiento');
+
+Route::get('/informacionDespido', function () {
+    return view('informacion.despido');
+})->name('informacionDespido');
+
+Route::get('/informacionDivorcio', function () {
+    return view('informacion.divorcio');
+})->name('informacionDivorcio');
+
+Route::get('/informacionNegocio', function () {
+    return view('informacion.negocio');
+})->name('informacionNegocio');
+
+Route::get('/informacionPension', function () {
+    return view('informacion.pension');
+})->name('informacionPension');
+
+Route::get('/informacionTestamento', function () {
+    return view('informacion.testamento');
+})->name('informacionTestamento');
 
 Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');
 Route::post('typeDocuments', [TypeDocumentController::class, 'store'])->name('typeDocuments.store');

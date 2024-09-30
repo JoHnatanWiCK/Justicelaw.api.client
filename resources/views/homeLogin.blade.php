@@ -54,7 +54,7 @@
                                 <p>Descubre los pasos clave para redactar una carta de despido correctamente. Te explicamos
                                     cómo estructurarla, qué detalles legales incluir y cómo manejar esta situación de forma
                                     profesional y clara.</p>
-                                <button>Más información...</button>
+                                <button> Más información...</button>
                             </div>
 
                         </div>
@@ -71,7 +71,7 @@
                                 <hr>
                                 <p>Descubre los pasos clave para manejar un accidente de tráfico, desde la documentación
                                     hasta las acciones legales necesarias.</p>
-                                <button>Más información...</button>
+                                <button  id="btnInformacion">Más información...</button>
                             </div>
 
                         </div>

@@ -27,3 +27,9 @@ var TrandingSlider = new Swiper('.tranding-slider', {
   document.getElementById('btnRegistro').addEventListener('click', function(e) {
     window.location.href = this.href;
 });
+
+
+document.getElementById('btnInformacion').addEventListener('click', function(e) {
+  window.location.href = '/informacionesAccidente';
+});
+

@@ -221,3 +221,11 @@ Route::post('searchs', [SearchController::class, 'store'])->name('searchs.store'
 Route::get('searchs/{search}', [SearchController::class, 'show'])->name('searchs.show');
 Route::put('searchs/{search}', [SearchController::class, 'update'])->name('searchs.update');
 Route::delete('searchs/{search}', [SearchController::class, 'destroy'])->name('searchs.delete');
+
+Route::get('/faqs', function () {
+    return view(view: 'faqs.faqs');
+})->name('faqs');
+
+Route::get('/faqss', function () {
+    return view(view: 'faqs.faqs_recurso');
+})->name('faqs_recurso');

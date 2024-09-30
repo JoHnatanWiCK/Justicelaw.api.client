@@ -136,6 +136,18 @@ Route::get('/reseñaPublicada', function () {
     return view('verperfil.reseñaPublicada');
 });
 
+Route::get('/privacidad', function () {
+    return view('legal.privacidad');
+});
+
+Route::get('/terminosYcondiciones', function () {
+    return view('legal.terminos');
+});
+
+Route::get('/cookies', function () {
+    return view('legal.cookies');
+});
+
 Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');
 Route::post('typeDocuments', [TypeDocumentController::class, 'store'])->name('typeDocuments.store');
 Route::get('typeDocuments/{typeDocument}', [TypeDocumentController::class, 'show'])->name('typeDocuments.show');

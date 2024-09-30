@@ -63,9 +63,10 @@
                 <a href="#">Cerrar Sesión</a>
             </div>
         </aside>
-        <main class="main-content">
-            @yield('main')
+        <main class="{{ isset($isGrid) && $isGrid ? 'main-content' : 'flex-content' }}">
+            @yield('main-content')
         </main>
+        
     </div>
     @stack('scripts')
 </body>

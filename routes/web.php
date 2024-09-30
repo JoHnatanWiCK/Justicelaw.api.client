@@ -105,6 +105,9 @@ Route::get('/perfilAbogado', function () {
 Route::get('/informaciones', function () {
     return view('informacion.informaciones');
 })->name('informaciones');
+Route::get('/derechosTrabajadores', function () {
+    return view('informacion.derechosTrabajadores');
+});
 
 Route::get('/notification', function () {
     return view('notification.notification');
@@ -138,7 +141,7 @@ Route::get('/calendar', function () {
     return view('calendar.calendar');
 });
 
-Route::get('/verPerfilAbogado', function () {
+Route::get('/perfilabogado', function () {
     return view('verperfil.perfil-abogado');
 });
 
@@ -169,6 +172,21 @@ Route::get('/informacionPension', function () {
 Route::get('/informacionTestamento', function () {
     return view('informacion.testamento');
 })->name('informacionTestamento');
+Route::get('/privacidad', function () {
+    return view('legal.privacidad');
+});
+
+Route::get('/terminosYcondiciones', function () {
+    return view('legal.terminos');
+});
+
+Route::get('/cookies', function () {
+    return view('legal.cookies');
+});
+
+Route::get('/herramientas', function () {
+    return view('herramientas.herramientasAnalisis');
+});
 
 Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');
 Route::post('typeDocuments', [TypeDocumentController::class, 'store'])->name('typeDocuments.store');
@@ -245,3 +263,11 @@ Route::post('searchs', [SearchController::class, 'store'])->name('searchs.store'
 Route::get('searchs/{search}', [SearchController::class, 'show'])->name('searchs.show');
 Route::put('searchs/{search}', [SearchController::class, 'update'])->name('searchs.update');
 Route::delete('searchs/{search}', [SearchController::class, 'destroy'])->name('searchs.delete');
+
+Route::get('/faqs', function () {
+    return view(view: 'faqs.faqs');
+})->name('faqs');
+
+Route::get('/faqss', function () {
+    return view(view: 'faqs.faqs_recurso');
+})->name('faqs_recurso');

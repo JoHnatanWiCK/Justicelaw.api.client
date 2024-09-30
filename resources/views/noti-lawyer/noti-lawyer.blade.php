@@ -23,7 +23,7 @@
                 <a href="{{ route('configuracion') }}"><i class="fa-solid fa-gear"></i>Configuracion</a>
             </li>
             <li>
-                <a href="{{ route('notificaciones') }}"><i class="fa-regular fa-bell"></i>Notificaciones</a>
+                <a href="{{ route('noti-lawyer') }}"><i class="fa-regular fa-bell"></i>Notificaciones</a>
             </li>
             <li id="cerrarSesion">
                 <a href="#" id="openModal"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesión</a>

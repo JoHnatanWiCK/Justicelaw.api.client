@@ -6,8 +6,10 @@
     <nav>
     </nav>
 @endsection
-
-@section('main')
+@php
+    $isGrid = true; 
+@endphp
+@section('main-content')
 <section class="welcome">
     <h3>¡Bienvenido al Dashboard!</h3>
     <p>Ha alcanzado sus objetivos de métricas mensuales.</p>

@@ -1,4 +1,16 @@
+.main-flex {
+    display: flex; /* Cambia el diseño a flex */
+    flex-direction: column; /* O row, según lo que necesites */
+    gap: 10px; /* Espaciado entre elementos */
+    background-color: #f5f7fa; /* Mismo fondo o diferente */
+}
 
+.contentHA {
+    display: flex; /* Cambia el diseño a flex */
+    flex-direction: column; /* O row, según lo que necesites */
+    gap: 10px; /* Espaciado entre elementos */
+    background-color: #f5f7fa; /* Mismo fondo o diferente */
+}
 .columnas {
     width: 100%;
     height: 100%;

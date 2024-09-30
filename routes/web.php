@@ -92,18 +92,8 @@ Route::get('/editarPerfil', function () {
     return view(view: 'perfil-usuario.editarPerfil');
 })->name('editarPerfil');
 
-Route::get('/perfilAbogado', function () {
-    return view(view: 'perfil-abogado.crearPerfil');
-})->name('perfilCreado.lawyer');
-
-
-Route::get('/perfilAbogado', function () {
-    return view(view: 'perfil-abogado.crearPerfil');
-})->name('perfilCreado.lawyer');
-
-
-Route::get('/informaciones', function () {
-    return view('informacion.informaciones');
+Route::get('/derechosTrabajadores', function () {
+    return view('informacion.derechosTrabajadores');
 });
 
 Route::get('/notification', function () {
@@ -138,7 +128,7 @@ Route::get('/calendar', function () {
     return view('calendar.calendar');
 });
 
-Route::get('/verPerfilAbogado', function () {
+Route::get('/perfilabogado', function () {
     return view('verperfil.perfil-abogado');
 });
 
@@ -156,6 +146,10 @@ Route::get('/terminosYcondiciones', function () {
 
 Route::get('/cookies', function () {
     return view('legal.cookies');
+});
+
+Route::get('/herramientas', function () {
+    return view('herramientas.herramientasAnalisis');
 });
 
 Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');

@@ -6,8 +6,10 @@
     <nav>
     </nav>
 @endsection
-
-@section('main')
+@php
+    $isGrid = false; 
+@endphp
+@section('main-content')
 <section class="nogrid">
     <div class="faqs">
         <h1>FAQs</h1>

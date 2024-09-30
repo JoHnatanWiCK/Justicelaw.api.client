@@ -35,7 +35,7 @@
               <h2>Aspectos legales para iniciar un negocio</h2>
               <h3>1 de febrero, 2024</h3>
               <p>Aprende los aspectos legales fundamentales al iniciar un negocio</p>
-              <button>Leer más</button>
+              <button >Leer más</button>
           </div>
 
           <div class="info-informacion">

@@ -18,3 +18,5 @@ document.querySelectorAll('.filter-menu button').forEach(button => {
             boton.classList.add("active");
           });
         });
+
+  

@@ -8,40 +8,27 @@
 @section('main')
       <section class="historial">
         <nav class="sidebar">
-          <ul>
-            <div class="titulo">
-              <i
-                class="fa-solid fa-chevron-left"
-                onclick="window.history.back()"
-              ></i>
-              <span>Perfil Usuario</span>
-            </div>
-            <li>
-              <a href="../perfil_usuario/perfil_creado.html"
-                ><i class="fa-regular fa-user"></i>Información usuario</a
-              >
-            </li>
-            <li>
-              <a href="../historial/historial.html"
-                ><i class="fa-solid fa-clock-rotate-left"></i>Historial</a
-              >
-            </li>
-            <li>
-              <a href="../configuracion/configuracion.html"
-                ><i class="fa-solid fa-gear"></i>Configuracion</a
-              >
-            </li>
-            <li>
-              <a href="../notification/notification.html"
-                ><i class="fa-regular fa-bell"></i>Notificaciones</a
-              >
-            </li>
-            <li id="cerrarSesion">
-              <a href="../home/home.html"
-                ><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesión</a
-              >
-            </li>
-          </ul>
+            <ul>
+                <div class="titulo">
+                    <i class="fa-solid fa-chevron-left" onclick="window.history.back()"></i>
+                    <span>Perfil Usuario</span>
+                </div>
+                <li>
+                    <a href="{{ route('crearPerfil') }}"><i class="fa-regular fa-user"></i>Información usuario</a>
+                </li>
+                <li>
+                    <a href="{{ route('historial') }}"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>
+                </li>
+                <li>
+                    <a href="{{ route('configuracion') }}"><i class="fa-solid fa-gear"></i>Configuracion</a>
+                </li>
+                <li>
+                    <a href="{{ route('notificaciones') }}"><i class="fa-regular fa-bell"></i>Notificaciones</a>
+                </li>
+                <li id="cerrarSesion">
+                    <a href="{{ route('home') }}"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesión</a>
+                </li>
+            </ul>
         </nav>
         <hr />
         <div class="historial-content">
@@ -423,4 +410,8 @@
 
       @push('styles')
       <link rel="stylesheet" href="css/historial.css">
+      @endpush
+
+      @push('scripts')
+      <script src="js/historial.js"></script>
       @endpush

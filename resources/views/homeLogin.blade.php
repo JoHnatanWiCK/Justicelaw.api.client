@@ -14,7 +14,7 @@
                 ayudar a nuestros usuarios a conocer como <br />
                 proseguir en sus casos referentes a la rama <br />
                 judicial presentados en el dia a dia</p>
-            <a href="../registro/register.html">Registrarse</a>
+            <a href="{{ route('registro') }}">Registrarse</a>
         </div>
     </section>
     <section id="tranding">

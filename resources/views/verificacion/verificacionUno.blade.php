@@ -46,7 +46,7 @@
         </select class="loginlweb">
         <label for="respuesta">Respuesta</label>
         <input id="respuesta" type="text" name="respuesta">
-        <div class="bot"><button type="submit">Continuar</button></div>
+        <div class="bot"><button type="submit" id="btnVerificarUno">Continuar</button></div>
 
         </div>
 
@@ -88,7 +88,7 @@
         <label for="respuesta">Respuesta</label>
         <input id="respuesta" type="text" name="respuesta">
 
-        <div class="bot"><button type="submit">Continuar</button></div>
+        <div class="bot"><button id="btnVerificarUno" type="submit">Continuar</button></div>
 
         </div>
         </section>
@@ -104,3 +104,8 @@
         @push('styles')
         <link rel="stylesheet" href="css/verificacion.css" />
         @endpush
+
+        @push('scripts')
+       <script src="js/verificacion.js"></script>
+        @endpush
+

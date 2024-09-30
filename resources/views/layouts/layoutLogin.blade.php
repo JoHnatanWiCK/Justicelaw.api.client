@@ -30,9 +30,9 @@
             </button>
         </div>
         <nav class="nav-links">
-            <a id="home" href="{{ route('home')}}"">Home</a>
+            <a id="home" href="{{ route('homeLogin')}}">Home</a>
             <a id="about-us" href="#">Sobre nosotros</a>
-            <a id="foro" href="#">Foro</a>
+            <a id="foro" href="{{ route('foro')}}">Foro</a>
         </nav>
         <div class="user-menu">
             <img class="img-perfil" src="../../img/fotoPerfil.png" alt="foto de Perfil" />
@@ -43,13 +43,13 @@
             </label>
             <div class="dropdown">
                 <ul>
-                    <li><a href="../perfil_usuario/crearPerfil.html">Perfil</a></li>
-                    <li><a href="../historial/historial.html">Historial</a></li>
+                    <li><a href="{{ route('crearPerfil')}}">Perfil</a></li>
+                    <li><a href="{{ route('historial')}}">Historial</a></li>
                     <li>
-                        <a href="../notification/notification.html">Notificaciones</a>
+                        <a href="{{ route('notificaciones')}}">Notificaciones</a>
                     </li>
                     <li>
-                        <a href="../configuracion/configuracion.html">Configuraciones</a>
+                        <a href="{{ route('configuracion')}}">Configuraciones</a>
                     </li>
                     <li><a href="#" id="openModal">Cerrar Sesión</a></li>
                 </ul>
@@ -175,6 +175,6 @@
     <script src="js/modal.js"></script>
     @stack('scripts')
 
-    <script src="js/layout.js"></script>
+    <script src="js/layoutLogin.js"></script>
 </body>
 </html>

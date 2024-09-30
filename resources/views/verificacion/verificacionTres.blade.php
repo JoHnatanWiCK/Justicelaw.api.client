@@ -35,7 +35,7 @@
    <button class="btn-hoja">Usar OneDrive</button>
    <button class="btn-hoja">Explorador de Archivos</button>
    <button class="btn-hoja">Usar Dropbox</button>
-    <div class="bot"><button type="submit">Guardar</button></div>
+    <div class="bot"><button type="submit" id="btnVerificarTres">Guardar</button></div>
 
     </div>
 
@@ -67,7 +67,7 @@
    <button class="btn-hoja">Usar Dropbox</button>
 
 
-    <div class="bot"><button type="submit">Continuar</button></div>
+    <div class="bot"><button type="submit" id="btnVerificarTres">Continuar</button></div>
 
     </div>
     </section>
@@ -83,3 +83,9 @@
     @push('styles')
     <link rel="stylesheet" href="css/verificacion.css" />
     @endpush
+
+
+    @push('scripts')
+    <script src="js/verificacion.js"></script>
+     @endpush
+

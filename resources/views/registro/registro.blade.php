@@ -45,11 +45,12 @@
 
     <label for="contraseña">Contraseña</label>
     <input id="contraseña" type="password" name="contraseña">
-    <div class="bot"><button type="submit">Registrarse</button></div>
+    <div class="bot"><button type="submit" id="btnRegistro">Registrarse</button></div>
     <div class="parrafo">
         <p>Al crear la cuenta, aceptas los <a href="#">Términos de uso</a> y la <a href="#">Política de Privacidad</a> de justicelaw.com</p>
     </div>
-    <div class="par"><p>¿Ya tienes una cuenta?</p></div>
+    <div class="par"><a href="{{ route('login') }}">¿Ya tienes una cuenta?</a>
+    <a href="{{ route('verificarAbogado') }}">¿Quieres trabajar con nosotros?</a></div>
     </div>
 
 </section>
@@ -90,7 +91,7 @@
         <label for="concontraseña">Confirmar Contraseña</label>
         <input id="concontraseña" type="password" name="concontraseña">
         </div>
-        <div class="bt"><button class="btn3" type="submit">Registrarme</button></div>
+        <div class="bt"><button class="btn3" type="submit" id="btnRegistro">Registrarme</button></div>
         <div class="parrafo">
             <p>Al crear la cuenta, aceptas los <a href="#">Términos de uso</a> y la <a href="#">Política de Privacidad</a> de justicelaw.com</p>
         </div>
@@ -103,4 +104,8 @@
 
 @push('styles')
 <link rel="stylesheet" href="css/registro.css">
+@endpush
+
+@push('scripts')
+    <script src="js/registro.js"></script>
 @endpush

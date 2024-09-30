@@ -29,17 +29,52 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
-Route::get('/home', function () {
+Route::get('/', function () {
     return view(view: 'home');
 })->name('home');
+
+Route::get('/homeLogin', function () {
+    return view(view: 'homeLogin');
+})->name('homeLogin');
 
 Route::get('/login', function () {
     return view(view: 'login.login');
 })->name('login');
 
+Route::get('/registro', function () {
+    return view(view: 'registro.registro');
+})->name(name: 'registro');
+
 Route::get('/sobreNosotros', function () {
     return view(view: 'sobreNosotros');
 })->name('sobreNosotros');
+
+
+Route::get('/historial', function () {
+    return view(view: 'historial.historial');
+})->name('historial');
+
+
+Route::get('/configuracion', function () {
+    return view(view: 'configuracion.configuracion');
+})->name('configuracion');
+
+Route::get('/olvidarContraseña', function () {
+    return view(view: 'olvido-contraseña.olvidoContraseña');
+})->name('olvidarContraseña');
+
+
+Route::get('/verificarAbogado', function () {
+    return view(view: 'verificacion.verificacionUno');
+})->name('verificarAbogado');
+
+Route::get('/verificarAbogadoDos', function () {
+    return view(view: 'verificacion.verificacionDos');
+})->name('verificarAbogadoDos');
+
+Route::get('/verificarAbogadoTres', function () {
+    return view(view: 'verificacion.verificacionTres');
+})->name('verificarAbogadoTres');
 
 Route::get('/foro', function () {
     return view(view: 'foro.foro');
@@ -63,7 +98,7 @@ Route::get('/derechosTrabajadores', function () {
 
 Route::get('/notification', function () {
     return view('notification.notification');
-});
+})->name('notificaciones');;
 
 Route::get('/noti-lawyer', function () {
     return view('noti-lawyer.noti-lawyer');

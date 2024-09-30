@@ -33,7 +33,7 @@
     <label for="lformacion">Lugar de formacion</label>
     <input id="lformacion" type="text" name="lformacion">
 
-    <div class="bot"><button type="submit">Continuar</button></div>
+    <div class="bot"><button type="submit" id="btnVerificarDos">Continuar</button></div>
 
     </div>
 
@@ -62,7 +62,7 @@
     <input id="lformacion" type="text" name="lformacion">
 
 
-    <div class="bot"><button type="submit">Continuar</button></div>
+    <div class="bot"><button type="submit" id="btnVerificarDos">Continuar</button></div>
 
     </div>
     </section>
@@ -78,3 +78,8 @@
     @push('styles')
     <link rel="stylesheet" href="css/verificacion.css" />
     @endpush
+
+    @push('scripts')
+    <script src="js/verificacion.js"></script>
+     @endpush
+

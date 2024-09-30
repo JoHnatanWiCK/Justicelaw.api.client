@@ -59,7 +59,7 @@
             <ul>
                 <hr>
                 <li>
-                    <a href="../home/home.html">
+                    <a href="{{ route('home')}}">
                         <i class="fa-solid fa-house"></i>Home</a>
                 </li>
                 <li>

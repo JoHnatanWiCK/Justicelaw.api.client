@@ -92,8 +92,18 @@ Route::get('/editarPerfil', function () {
     return view(view: 'perfil-usuario.editarPerfil');
 })->name('editarPerfil');
 
-Route::get('/derechosTrabajadores', function () {
-    return view('informacion.derechosTrabajadores');
+Route::get('/perfilAbogado', function () {
+    return view(view: 'perfil-abogado.crearPerfil');
+})->name('perfilCreado.lawyer');
+
+
+Route::get('/perfilAbogado', function () {
+    return view(view: 'perfil-abogado.crearPerfil');
+})->name('perfilCreado.lawyer');
+
+
+Route::get('/informaciones', function () {
+    return view('informacion.informaciones');
 });
 
 Route::get('/notification', function () {
@@ -128,7 +138,7 @@ Route::get('/calendar', function () {
     return view('calendar.calendar');
 });
 
-Route::get('/perfilabogado', function () {
+Route::get('/verPerfilAbogado', function () {
     return view('verperfil.perfil-abogado');
 });
 

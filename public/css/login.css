@@ -138,18 +138,18 @@
         background-size: cover;
         background-position: center;
         overflow: hidden;
-        height: 29rem;
+        height: 42rem;
         box-sizing: border-box;
     }
     .justice h1 {
         text-align: right;
-        margin-top: 18rem;
+        margin-top: 31rem;
         font-size: 40px;
         color: white;
     }
     .justice h2 {
         text-align: right;
-        margin-top: -45px;
+        margin-top: -40px;
         font-size: 20px;
         color: white;
     }

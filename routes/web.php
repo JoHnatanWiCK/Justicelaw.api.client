@@ -102,12 +102,6 @@ Route::get('/perfilAbogado', function () {
 })->name('perfilCreado.lawyer');
 
 
-Route::get('/informaciones', function () {
-    return view('informacion.informaciones');
-})->name('informaciones');
-Route::get('/derechosTrabajadores', function () {
-    return view('informacion.derechosTrabajadores');
-});
 
 Route::get('/notification', function () {
     return view('notification.notification');
@@ -149,6 +143,14 @@ Route::get('/reseñaPublicada', function () {
     return view('verperfil.reseñaPublicada');
 });
 
+Route::get('/informaciones', function () {
+    return view('informacion.informaciones');
+})->name('informaciones');
+
+Route::get('/derechosTrabajadores', function () {
+    return view('informacion.derechosTrabajadores');
+})->name('derechosTrabajadores');
+
 Route::get('/informacionArrendamiento', function () {
     return view('informacion.arrendamiento');
 })->name('informacionArrendamiento');
@@ -172,6 +174,12 @@ Route::get('/informacionPension', function () {
 Route::get('/informacionTestamento', function () {
     return view('informacion.testamento');
 })->name('informacionTestamento');
+
+Route::get('/informacionAccidente', function () {
+    return view('informacion.accidente');
+})->name('informacionAccidente');
+
+
 Route::get('/privacidad', function () {
     return view('legal.privacidad');
 });

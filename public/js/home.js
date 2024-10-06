@@ -44,6 +44,15 @@ document.addEventListener('DOMContentLoaded', function () {
   document.getElementById('btnTestamento').addEventListener('click', function(){
     window.location.href="/informacionTestamento"
   });
+
+  document.getElementById('btnConsumidor').addEventListener('click', function(){
+    window.location.href="/informacionConsumidor"
+  });
+
+  document.getElementById('btnAliemnticia').addEventListener('click', function(){
+    window.location.href="/informacionPension"
+  });
+
 });
 
 

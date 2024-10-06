@@ -179,6 +179,9 @@ Route::get('/informacionAccidente', function () {
     return view('informacion.accidente');
 })->name('informacionAccidente');
 
+Route::get('/informacionConsumidor', function () {
+    return view('informacion.derechoConsumidor');
+})->name('informacionConsumidor');
 
 Route::get('/privacidad', function () {
     return view('legal.privacidad');

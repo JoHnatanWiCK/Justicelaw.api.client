@@ -42,11 +42,23 @@ var TrandingSlider = new Swiper('.tranding-slider', {
       window.location.href="/informacionConsumidor"
     });
 
-    document.getElementById('btnAliemnticia').addEventListener('click', function(){
+    document.getElementById('btnAlimenticia').addEventListener('click', function(){
       window.location.href="/informacionPension"
     });
 
+    document.getElementById('btnArrendamiento').addEventListener('click', function(){
+      window.location.href="/informacionArrendamiento"
+    });
+
+    document.getElementById('btnNegocio').addEventListener('click', function(){
+      window.location.href="/informacionNegocio"
+    });
+
+    document.getElementById('btnLaboral').addEventListener('click', function(){
+      window.location.href="/derechosTrabajadores"
+    });
   });
+
 
 
 

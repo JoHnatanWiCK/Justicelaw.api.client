@@ -1,16 +1,12 @@
+
+@extends('layouts.layoutLogin')
+
+@section('title', 'Informacion')
+
+@section('nav')
 @endsection
 
-@section('footer')
-@endsection
-
-@push('styles')
-<link rel="stylesheet" href="css/informacion.css">
-@endpush
-
-
-@push('scripts')
-<script src="js/informacion.js"></script>
-@endpush
+@section('main')
 
       <div class="container">
         <div class="news-column">
@@ -26,10 +22,10 @@
             />
 
             <p>
-                Conocer los derechos del consumidor es esencial para garantizar que las compras y servicios que adquieres se realicen de manera justa, transparente y segura. 
-                Estos derechos protegen al consumidor de prácticas comerciales desleales, productos defectuosos y publicidad engañosa. Al estar bien informado sobre tus derechos, 
-                puedes tomar decisiones de compra con mayor confianza, exigir reparaciones o reembolsos cuando sea necesario y, en general, asegurar que recibes el valor justo por tu 
-                dinero. Además, un conocimiento sólido de los derechos del consumidor fomenta un mercado más equilibrado y competitivo, donde las empresas son incentivadas a ofrecer 
+                Conocer los derechos del consumidor es esencial para garantizar que las compras y servicios que adquieres se realicen de manera justa, transparente y segura.
+                Estos derechos protegen al consumidor de prácticas comerciales desleales, productos defectuosos y publicidad engañosa. Al estar bien informado sobre tus derechos,
+                puedes tomar decisiones de compra con mayor confianza, exigir reparaciones o reembolsos cuando sea necesario y, en general, asegurar que recibes el valor justo por tu
+                dinero. Además, un conocimiento sólido de los derechos del consumidor fomenta un mercado más equilibrado y competitivo, donde las empresas son incentivadas a ofrecer
                 productos y servicios de calidad, respetando las normas establecidas. En definitiva, entender y ejercer tus derechos como consumidor te empodera para proteger tus intereses
                  y contribuir a un mercado más justo y equitativo.
 
@@ -37,7 +33,7 @@
 
             <p>
 
-             <li>Derecho a la Información: Tienes derecho a recibir información clara, veraz y completa sobre los productos o servicios que adquieres. Esto incluye detalles sobre 
+             <li>Derecho a la Información: Tienes derecho a recibir información clara, veraz y completa sobre los productos o servicios que adquieres. Esto incluye detalles sobre
               el precio, características, garantías, y cualquier condición especial que pueda aplicar.
              </li>
              <li>Derecho a la Protección contra Publicidad Engañosa: Es crucial saber que estás protegido contra prácticas de publicidad falsa o engañosa.

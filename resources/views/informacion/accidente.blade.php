@@ -1,17 +1,13 @@
+
+
+@extends('layouts.layoutLogin')
+
+@section('title', 'Informacion')
+
+@section('nav')
 @endsection
 
-@section('footer')
-@endsection
-
-@push('styles')
-<link rel="stylesheet" href="css/informacion.css">
-@endpush
-
-
-@push('scripts')
-<script src="js/informacion.js"></script>
-@endpush
-
+@section('main')
       <div class="container">
         <div class="news-column">
           <h2 class="titulo-informacion">Guia sobre los pasos a seguir en un accidente de trafico</h2>

@@ -41,6 +41,14 @@
                             <a href="../notification/notification.html">Notificaciones</a>
                         </div>
                     </li>
+                    <li>
+                        <div class="icon-container">
+                            <i class="fa-regular fa-calendar"></i>
+                        </div>
+                        <div class="text-container">
+                            <a href="{{ route('calendar') }}">Calendario</a>
+                        </div>
+                    </li>
                     <li id="cerrarSesion">
                         <div class="icon-container">
                             <i class="fa-solid fa-right-from-bracket"></i>
@@ -59,7 +67,7 @@
             <img id="fotoPerfil" src="../../img/fotoPerfil.jfif" alt="foto" />
 
             <div class="content-abogado">
-            <h3>David Astrada</h3>
+            <h3 id="nombreUsuario">David Astrada</h3>
             <div class="stars">
               <img src="../../img/star-solid.svg" alt="star">
               <img src="../../img/star-solid.svg" alt="star">
@@ -68,9 +76,48 @@
               <img src="../../img/star-solid-white.svg" alt="star white">
             </div>
             </div>
-            <a href="../perfil_abogado/editarPerfil.html"><i class="fa-regular fa-pen-to-square"></i></a>
+            <a href="../perfil_abogado/editarPerfil.html"  id="editLink"><i class="fa-regular fa-pen-to-square"></i></a>
 
             </div>
+<!-- Modal para Editar Perfil -->
+<div id="editModal" class="modal-edit">
+    <div class="modal-edit-content">
+        <span class="modal-edit-close">&times;</span>
+        <h4>Editar Perfil Abogado</h4>
+        <form id="editForm">
+            <div class="modal-edit-field">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" placeholder="Introduce tu nombre" required>
+            </div>
+            <div class="modal-edit-field">
+                <label for="contacto">Contacto:</label>
+                <input type="text" id="contacto" placeholder="Introduce tu contacto" required>
+            </div>
+            <div class="modal-edit-field">
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" placeholder="Introduce tu DNI" required>
+            </div>
+            <div class="modal-edit-field">
+                <label for="consultorio">Nombre Consultorio:</label>
+                <input type="text" id="consultorio" placeholder="Introduce nombre del consultorio" required>
+            </div>
+            <div class="modal-edit-field">
+                <label for="ciudad">Ciudad:</label>
+                <input type="text" id="ciudad" placeholder="Introduce tu ciudad" required>
+            </div>
+            <div class="modal-edit-field">
+                <label for="pais">País:</label>
+                <input type="text" id="pais" placeholder="Introduce tu país" required>
+            </div>
+            <div class="modal-edit-field">
+                <label for="biografia">Biografía:</label>
+                <textarea id="biografia" placeholder="Introduce tu biografía" required></textarea>
+            </div>
+            <button type="submit">Guardar Cambios</button>
+        </form>
+    </div>
+</div>
+
 
 
             <a href="#modal-foto"><img id="circuloPerfil" src="../../img/circuloPerfil.png" alt="circuloPerfil"></a>
@@ -103,23 +150,21 @@
                   <div class="datos">
                     <div class="editar-datos">
                       <h2>Información Personal</h2>
-                      <a href="../perfil_abogado/editarPerfil.html"><i class="fa-regular fa-pen-to-square"></i></a>
                     </div>
-                      <p>Contacto: &ensp;&ensp;+57 3132307635</p>
-                      <p>DNI: &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;1061702424</p>
+                    <p>Contacto: <span id="contactoUsuario">+57 3132307635</span></p>
+                    <p>DNI: <span id="dniUsuario">1061702424</span></p>
                       <p>Email: &ensp;&ensp;&ensp;&ensp;davidastr45@gmail.com</p>
-                      <p>País: &ensp;&ensp;&ensp;&ensp;&ensp;Colombia</p>
-                      <p>Ciudad: &ensp;&ensp;&ensp;Popayán</p>
-                      <p>Nombre <br> Consultorio: &ensp;&ensp;LeyEs</p>
+                      <p>País: <span id="paisUsuario">Colombia</span></p>
+                      <p>Ciudad: <span id="ciudadUsuario">Popayán</span></p>
+                      <p>Nombre Consultorio: <span id="consultorioUsuario">LeyEs</span></p>
                      </div>
-                     <a href="../perfil_abogado/editarPerfil.html" id="agregarDatos"><img src="../../img/mas.png" alt="mas"> Agregar Informacion</a>
 
               </div>
 
               <div class="right-column">
                   <div class="presentation">
                       <h2>Presentación</h2>
-                      <p>Especializado en derecho civil y familiar, mi objetivo
+                      <p id="biografiaUsuario">Especializado en derecho civil y familiar, mi objetivo
                         es proporcionar soluciones legales efectivas y comprensibles
                         para mis clientes. Fuera del trabajo, disfruto de la lectura y
                         el tiempo al aire libre. Estoy aquí para ayudarte con tus necesidades
@@ -321,6 +366,7 @@
               <img src="../../img/star-solid.svg" alt="star">
               <img src="../../img/star-solid.svg" alt="star">
               <img src="../../img/star-solid-white.svg" alt="star white">
+
             </div>
             </div>
             </div>

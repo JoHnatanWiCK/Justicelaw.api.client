@@ -98,7 +98,7 @@
 
             <div id="latest" class="tab-content">
               <ul class="article-list">
-                <a href="#">
+                <a href="/informacionDivorcio">
                   <li class="article">
                     <img src="../../img/Divorcio.jpg" alt="Artículo 1" />
                     <div class="article-content">
@@ -111,7 +111,7 @@
                   </li>
                 </a>
 
-                <a href="../Information/informacion_arrendamiento.html">
+                <a href="/informacionArrendamiento">
                   <li class="article">
                     <img
                       src="../../img/Derechosdeinquilinos.png"
@@ -128,23 +128,7 @@
                     </div>
                   </li>
                 </a>
-                <a href="../Information/plantilla_informacion.html">
-                    <li class="article">
-                      <img
-                        src="../../img/Tutela.jpg"
-                        alt="Artículo 2"
-                      />
-                      <div class="article-content">
-                        <div class="article-title">
-                          La tutela
-                        </div>
-                        <p class="article-description">
-                          Obtén información sobre la tutela.
-                        </p>
-                      </div>
-                    </li>
-                  </a>
-                  <a href="../Information/informacion_testamento.html">
+                  <a href="/informacionTestamento">
                     <li class="article">
                       <img src="../../img/Testamento.jpg" alt="Artículo 2" />
                       <div class="article-content">
@@ -157,7 +141,7 @@
                       </div>
                     </li>
                   </a>
-                  <a href="#">
+                  <a href="/derechosTrabajadores">
                     <li class="article">
                       <img
                         src="../../img/DerechosTrabajadores.jpg"
@@ -173,7 +157,7 @@
                       </div>
                     </li>
                   </a>
-                <a href="../Information/informacion_pension.html">
+                <a href="/informacionPension">
                   <li class="article">
                     <img
                       src="../../img/PensionAliemnticia.jpg"
@@ -190,7 +174,7 @@
                     </div>
                   </li>
                 </a>
-                <a href="#">
+                <a href="/informacionConsumidor">
                   <li class="article">
                     <img
                       src="../../img/Derechosdelconsumidor.png"
@@ -208,21 +192,25 @@
                     </div>
                   </li>
                 </a>
-                <a href="#">
+                <a href="/informacionAccidente">
                   <li class="article">
-                    <img src="../../img/Despido.jpg" alt="Artículo 1" />
+                    <img
+                      src="../../img/AccidenteTrafico.jpeg"
+                      alt="Artículo 1"
+                    />
                     <div class="article-content">
                       <div class="article-title">
-                        Qué hacer en caso de despido injustificado
+                        Guía después de un accidente de tráfico
                       </div>
                       <p class="article-description">
-                        Explora tus opciones legales y los pasos a seguir si te
-                        enfrentas a un despido injustificado.
+                        Qué hacer inmediatamente después de verse involucrado en
+                        un accidente de tráfico y cómo buscar ayuda legal si es
+                        necesario.
                       </p>
                     </div>
                   </li>
                 </a>
-                <a href="../Information/informacion_negocio.html">
+                <a href="/informacionNegocio">
                   <li class="article">
                     <img src="../../img/IniciarNegocio.jpg" alt="Artículo 2" />
                     <div class="article-content">

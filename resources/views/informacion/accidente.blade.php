@@ -127,7 +127,7 @@
                     como testamentos, seguros y cuentas bancarias, para reflejar cualquier cambio en tu situación
                     personal que haya resultado del accidente. Esta actualización garantiza que tu información esté al día
                     y pueda ser utilizada en caso de futuros eventos o reclamaciones.<br><br><br>
-En resumen, manejar un accidente de tráfico requiere una serie de pasos cuidadosamente planificados para garantizar la seguridad, la documentación adecuada y el cumplimiento de tus derechos. Seguir estos pasos te ayudará a abordar el accidente de manera efectiva, facilitando una recuperación tanto física como legal y emocional. La preparación y la atención a los detalles son claves para asegurar que todos los aspectos del accidente se manejen de manera adecuada y eficiente.
+                   En resumen, manejar un accidente de tráfico requiere una serie de pasos cuidadosamente planificados para garantizar la seguridad, la documentación adecuada y el cumplimiento de tus derechos. Seguir estos pasos te ayudará a abordar el accidente de manera efectiva, facilitando una recuperación tanto física como legal y emocional. La preparación y la atención a los detalles son claves para asegurar que todos los aspectos del accidente se manejen de manera adecuada y eficiente.
 
                 </p>
           </div>
@@ -143,7 +143,7 @@ En resumen, manejar un accidente de tráfico requiere una serie de pasos cuidado
 
             <div id="latest" class="tab-content">
               <ul class="article-list">
-                <a href="#">
+                <a href="/informacionDivorcio">
                   <li class="article">
                     <img src="../../img/Divorcio.jpg" alt="Artículo 1" />
                     <div class="article-content">
@@ -155,8 +155,7 @@ En resumen, manejar un accidente de tráfico requiere una serie de pasos cuidado
                     </div>
                   </li>
                 </a>
-
-                <a href="../Information/informacion_arrendamiento.html">
+                <a href="/informacionArrendamiento">
                   <li class="article">
                     <img
                       src="../../img/Derechosdeinquilinos.png"
@@ -173,23 +172,7 @@ En resumen, manejar un accidente de tráfico requiere una serie de pasos cuidado
                     </div>
                   </li>
                 </a>
-                <a href="../Information/plantilla_informacion.html">
-                    <li class="article">
-                      <img
-                        src="../../img/Tutela.jpg"
-                        alt="Artículo 2"
-                      />
-                      <div class="article-content">
-                        <div class="article-title">
-                          La tutela
-                        </div>
-                        <p class="article-description">
-                          Obtén información sobre la tutela.
-                        </p>
-                      </div>
-                    </li>
-                  </a>
-                  <a href="../Information/informacion_testamento.html">
+                  <a href="informacionTestamento">
                     <li class="article">
                       <img src="../../img/Testamento.jpg" alt="Artículo 2" />
                       <div class="article-content">
@@ -202,7 +185,7 @@ En resumen, manejar un accidente de tráfico requiere una serie de pasos cuidado
                       </div>
                     </li>
                   </a>
-                  <a href="#">
+                  <a href="/derechosTrabajadores">
                     <li class="article">
                       <img
                         src="../../img/DerechosTrabajadores.jpg"
@@ -218,7 +201,7 @@ En resumen, manejar un accidente de tráfico requiere una serie de pasos cuidado
                       </div>
                     </li>
                   </a>
-                <a href="../Information/informacion_pension.html">
+                <a href="./informacionPension">
                   <li class="article">
                     <img
                       src="../../img/PensionAliemnticia.jpg"
@@ -235,7 +218,7 @@ En resumen, manejar un accidente de tráfico requiere una serie de pasos cuidado
                     </div>
                   </li>
                 </a>
-                <a href="#">
+                <a href="informacionConsumidor">
                   <li class="article">
                     <img
                       src="../../img/Derechosdelconsumidor.png"
@@ -253,7 +236,7 @@ En resumen, manejar un accidente de tráfico requiere una serie de pasos cuidado
                     </div>
                   </li>
                 </a>
-                <a href="#">
+                <a href="/informacionDespido">
                   <li class="article">
                     <img src="../../img/Despido.jpg" alt="Artículo 1" />
                     <div class="article-content">
@@ -267,7 +250,7 @@ En resumen, manejar un accidente de tráfico requiere una serie de pasos cuidado
                     </div>
                   </li>
                 </a>
-                <a href="../Information/informacion_negocio.html">
+                <a href="/informacionNegocio">
                   <li class="article">
                     <img src="../../img/IniciarNegocio.jpg" alt="Artículo 2" />
                     <div class="article-content">

@@ -185,3 +185,203 @@ function handleFileSelection() {
 
 }
 
+let currentStep = 0;
+
+document.addEventListener("DOMContentLoaded", function () {
+    const continuarBtn = document.getElementById("continuarBtn");
+    const atrasBtn = document.getElementById("atrasBtn");
+    const agregarBiografia = document.getElementById("agregarBiografia");
+    const practiceTitle = document.getElementById("practice-title");
+    const practiceDescription = document.getElementById("practice-description");
+
+    updateStep();
+
+    continuarBtn.addEventListener("click", function () {
+        if (currentStep < 4 && agregarBiografia.value) {
+            currentStep++;
+            updateStep();
+        }
+    });
+
+    atrasBtn.addEventListener("click", function () {
+        if (currentStep > 1) {
+            currentStep--;
+            updateStep();
+        }
+    });
+
+    function updateStep() {
+        const steps = document.querySelectorAll(".step");
+
+        steps.forEach((step, index) => {
+            step.classList.remove("completed", "current");
+
+            if (index < currentStep) {
+                step.classList.add("completed");
+            }
+            else if (index === currentStep) {
+                step.classList.add("current");
+            }
+        });
+
+        changeContent(currentStep);
+
+        continuarBtn.disabled = !(currentStep === 1 ? agregarBiografia.value : true);
+        atrasBtn.style.display = currentStep > 0 ? "inline-block" : "none";
+    }
+
+    function changeContent(step) {
+        switch (step) {
+            case 0:
+                practiceTitle.textContent = "Agrega tu biografía personal";
+                practiceDescription.textContent = "Asegúrate de incluir una breve biografía que destaque tu experiencia, áreas de especialización y filosofía profesional.";
+                agregarBiografia.placeholder = "Escribe tu biografía aquí...";
+                agregarBiografia.value = "";
+                break;
+            case 1:
+                practiceTitle.textContent = "Completa tu información de contacto";
+                practiceDescription.textContent = "Por favor, asegúrate de que tu información de contacto esté actualizada.";
+                agregarBiografia.placeholder = "Ejemplo: tu correo electrónico...";
+                agregarBiografia.value = "";
+                break;
+            case 2:
+                practiceTitle.textContent = "Agrega tus habilidades";
+                practiceDescription.textContent = "Selecciona tus habilidades y áreas de especialización.";
+                agregarBiografia.placeholder = "Ejemplo: Derecho Penal, Derecho Civil...";
+                agregarBiografia.value = "";
+                break;
+            case 3:
+                practiceTitle.textContent = "Revisa y completa tu perfil";
+                practiceDescription.textContent = "Asegúrate de que toda tu información esté correcta antes de finalizar.";
+                agregarBiografia.placeholder = "Revisa tu información aquí...";
+                agregarBiografia.style.display = "none";
+
+                setTimeout(() => {
+
+                    window.location.href = "/perfilAbogadoCreado"
+                }, 2000);
+
+                break;
+        }
+    }
+
+    agregarBiografia.addEventListener("input", function () {
+        continuarBtn.disabled = !agregarBiografia.value;
+    });
+
+    steps[0].classList.add("current");
+});
+
+
+// Obtener el modal
+var modalEdit = document.getElementById("editModal");
+
+// Obtener el enlace que abre el modal
+var editLink = document.getElementById("editLink");
+
+// Obtener el elemento <span> que cierra el modal
+var spanEditClose = document.getElementsByClassName("modal-edit-close")[0];
+
+// Obtener los elementos donde se mostrará la información del usuario
+var nombreUsuario = document.getElementById("nombreUsuario");
+var contactoUsuario = document.getElementById("contactoUsuario");
+var dniUsuario = document.getElementById("dniUsuario");
+var paisUsuario = document.getElementById("paisUsuario");
+var ciudadUsuario = document.getElementById("ciudadUsuario");
+var consultorioUsuario = document.getElementById("consultorioUsuario");
+var biografiaUsuario = document.getElementById("biografiaUsuario");
+
+// Cuando el usuario hace clic en el enlace, se abre el modal
+editLink.onclick = function(event) {
+    event.preventDefault(); // Evitar la acción predeterminada del enlace
+    modalEdit.style.display = "block"; // Mostrar el modal
+
+    // Cargar los datos actuales en los campos del formulario
+    nombre.value = nombreUsuario.textContent;
+    contacto.value = contactoUsuario.textContent;
+    dni.value = dniUsuario.textContent;
+    consultorio.value = consultorioUsuario.textContent;
+    ciudad.value = ciudadUsuario.textContent;
+    pais.value = paisUsuario.textContent;
+    biografia.value = biografiaUsuario.textContent;
+}
+
+// Cuando el usuario hace clic en <span> (x), se cierra el modal
+spanEditClose.onclick = function() {
+    modalEdit.style.display = "none";
+}
+
+// Cuando el usuario hace clic en cualquier parte fuera del modal, se cierra
+window.onclick = function(event) {
+    if (event.target == modalEdit) {
+        modalEdit.style.display = "none";
+    }
+}
+
+// Manejo del formulario de edición
+document.getElementById('editForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Evitar el envío del formulario
+
+    // Obtener los nuevos valores de los inputs
+    var nombre = document.getElementById('nombre').value;
+    var contacto = document.getElementById('contacto').value;
+    var dni = document.getElementById('dni').value;
+    var consultorio = document.getElementById('consultorio').value;
+    var ciudad = document.getElementById('ciudad').value;
+    var pais = document.getElementById('pais').value;
+    var biografia = document.getElementById('biografia').value;
+
+    // Actualizar los elementos de perfil con los nuevos valores
+    nombreUsuario.textContent = nombre;
+    contactoUsuario.textContent = contacto;
+    dniUsuario.textContent = dni;
+    consultorioUsuario.textContent = consultorio;
+    ciudadUsuario.textContent = ciudad;
+    paisUsuario.textContent = pais;
+    biografiaUsuario.textContent = biografia;
+
+    // Guardar los nuevos valores en localStorage
+    localStorage.setItem('nombreUsuario', nombre);
+    localStorage.setItem('contactoUsuario', contacto);
+    localStorage.setItem('dniUsuario', dni);
+    localStorage.setItem('consultorioUsuario', consultorio);
+    localStorage.setItem('ciudadUsuario', ciudad);
+    localStorage.setItem('paisUsuario', pais);
+    localStorage.setItem('biografiaUsuario', biografia);
+
+    // Cierra el modal después de guardar los cambios
+    modalEdit.style.display = "none";
+});
+
+// Al cargar la página, verifica si hay datos guardados
+window.onload = function() {
+    var nombreGuardado = localStorage.getItem('nombreUsuario');
+    var contactoGuardado = localStorage.getItem('contactoUsuario');
+    var dniGuardado = localStorage.getItem('dniUsuario');
+    var consultorioGuardado = localStorage.getItem('consultorioUsuario');
+    var ciudadGuardada = localStorage.getItem('ciudadUsuario');
+    var paisGuardado = localStorage.getItem('paisUsuario');
+    var biografiaGuardada = localStorage.getItem('biografiaUsuario');
+
+    if (nombreGuardado) {
+        nombreUsuario.textContent = nombreGuardado; // Cargar el nombre guardado
+    }
+    if (contactoGuardado) {
+        contactoUsuario.textContent = contactoGuardado; // Cargar el contacto guardado
+    }
+    if (dniGuardado) {
+        dniUsuario.textContent = dniGuardado; // Cargar el DNI guardado
+    }
+    if (consultorioGuardado) {
+        consultorioUsuario.textContent = consultorioGuardado; // Cargar el consultorio guardado
+    }
+    if (ciudadGuardada) {
+        ciudadUsuario.textContent = ciudadGuardada; // Cargar la ciudad guardada
+    }
+    if (paisGuardado) {
+        paisUsuario.textContent = paisGuardado; // Cargar el país guardado
+    }
+    if (biografiaGuardada) {
+        biografiaUsuario.textContent = biografiaGuardada; // Cargar la biografía guardada
+    }
+}

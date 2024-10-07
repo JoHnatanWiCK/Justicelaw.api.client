@@ -58,4 +58,22 @@
     background-color: aqua;
 }
 
+.plus-icon {
+    width: 30px; 
+    height: auto; 
+}
 
+.faq-answer {
+    max-height: 0; 
+    overflow: hidden; 
+    transition: max-height 0.3s ease, opacity 0.3s ease; 
+    opacity: 0; 
+    background-color: #33828d; 
+    padding: 10px; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 5px rgba(55, 40, 80, 0.1); 
+}
+
+.faq-answer.show {
+    opacity: 1; 
+}

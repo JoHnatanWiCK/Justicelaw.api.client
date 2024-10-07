@@ -126,7 +126,7 @@
                                 <p>Entiende los aspectos esenciales de la pensión alimenticia, incluyendo cómo solicitarla,
                                     cómo se calcula y cómo administrarla correctamente para asegurar el bienestar de los
                                     dependientes.</p>
-                                <button id="btnAliemnticia">Más información...</button>
+                                <button id="btnAlimenticia">Más información...</button>
                             </div>
 
                         </div>

@@ -128,22 +128,6 @@
                     </div>
                   </li>
                 </a>
-                <a href="../Information/plantilla_informacion.html">
-                    <li class="article">
-                      <img
-                        src="../../img/Tutela.jpg"
-                        alt="Artículo 2"
-                      />
-                      <div class="article-content">
-                        <div class="article-title">
-                          La tutela
-                        </div>
-                        <p class="article-description">
-                          Obtén información sobre la tutela.
-                        </p>
-                      </div>
-                    </li>
-                  </a>
                   <a href="../Information/informacion_testamento.html">
                     <li class="article">
                       <img src="../../img/Testamento.jpg" alt="Artículo 2" />
@@ -208,16 +192,20 @@
                     </div>
                   </li>
                 </a>
-                <a href="#">
+                <a href="../Information/informacion_accidente.html">
                   <li class="article">
-                    <img src="../../img/Despido.jpg" alt="Artículo 1" />
+                    <img
+                      src="../../img/AccidenteTrafico.jpeg"
+                      alt="Artículo 1"
+                    />
                     <div class="article-content">
                       <div class="article-title">
-                        Qué hacer en caso de despido injustificado
+                        Guía después de un accidente de tráfico
                       </div>
                       <p class="article-description">
-                        Explora tus opciones legales y los pasos a seguir si te
-                        enfrentas a un despido injustificado.
+                        Qué hacer inmediatamente después de verse involucrado en
+                        un accidente de tráfico y cómo buscar ayuda legal si es
+                        necesario.
                       </p>
                     </div>
                   </li>

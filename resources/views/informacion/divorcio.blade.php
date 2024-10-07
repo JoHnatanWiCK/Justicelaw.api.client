@@ -163,18 +163,6 @@
 
             <div id="latest" class="tab-content">
               <ul class="article-list">
-                <a href="#">
-                  <li class="article">
-                    <img src="../../img/Divorcio.jpg" alt="Artículo 1" />
-                    <div class="article-content">
-                      <div class="article-title">Guía sobre divorcio</div>
-                      <p class="article-description">
-                        La guía sobre divorcio brinda información sobre cómo
-                        proceder durante la separación matrimonial.
-                      </p>
-                    </div>
-                  </li>
-                </a>
 
                 <a href="../Information/informacion_arrendamiento.html">
                   <li class="article">
@@ -193,22 +181,6 @@
                     </div>
                   </li>
                 </a>
-                <a href="../Information/plantilla_informacion.html">
-                    <li class="article">
-                      <img
-                        src="../../img/Tutela.jpg"
-                        alt="Artículo 2"
-                      />
-                      <div class="article-content">
-                        <div class="article-title">
-                          La tutela
-                        </div>
-                        <p class="article-description">
-                          Obtén información sobre la tutela.
-                        </p>
-                      </div>
-                    </li>
-                  </a>
                   <a href="../Information/informacion_testamento.html">
                     <li class="article">
                       <img src="../../img/Testamento.jpg" alt="Artículo 2" />
@@ -283,6 +255,24 @@
                       <p class="article-description">
                         Explora tus opciones legales y los pasos a seguir si te
                         enfrentas a un despido injustificado.
+                      </p>
+                    </div>
+                  </li>
+                </a>
+                <a href="../Information/informacion_accidente.html">
+                  <li class="article">
+                    <img
+                      src="../../img/AccidenteTrafico.jpeg"
+                      alt="Artículo 1"
+                    />
+                    <div class="article-content">
+                      <div class="article-title">
+                        Guía después de un accidente de tráfico
+                      </div>
+                      <p class="article-description">
+                        Qué hacer inmediatamente después de verse involucrado en
+                        un accidente de tráfico y cómo buscar ayuda legal si es
+                        necesario.
                       </p>
                     </div>
                   </li>

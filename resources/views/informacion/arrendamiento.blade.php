@@ -183,39 +183,24 @@
                   </li>
                 </a>
 
-                <a href="../Information/informacion_arrendamiento.html">
+                <a href="#">
                   <li class="article">
                     <img
-                      src="../../img/Derechosdeinquilinos.png"
-                      alt="Artículo 2"
+                      src="../../img/AccidenteTrafico.jpeg"
+                      alt="Artículo 1"
                     />
                     <div class="article-content">
                       <div class="article-title">
-                        Cómo enfrentar problemas de arrendamiento y derechos del
-                        inquilino
+                        Guía después de un accidente de tráfico
                       </div>
                       <p class="article-description">
-                        Obtén información sobre tus derechos como inquilino.
+                        Qué hacer inmediatamente después de verse involucrado en
+                        un accidente de tráfico y cómo buscar ayuda legal si es
+                        necesario.
                       </p>
                     </div>
                   </li>
                 </a>
-                <a href="../Information/plantilla_informacion.html">
-                    <li class="article">
-                      <img
-                        src="../../img/Tutela.jpg"
-                        alt="Artículo 2"
-                      />
-                      <div class="article-content">
-                        <div class="article-title">
-                          La tutela
-                        </div>
-                        <p class="article-description">
-                          Obtén información sobre la tutela.
-                        </p>
-                      </div>
-                    </li>
-                  </a>
                   <a href="../Information/informacion_testamento.html">
                     <li class="article">
                       <img src="../../img/Testamento.jpg" alt="Artículo 2" />

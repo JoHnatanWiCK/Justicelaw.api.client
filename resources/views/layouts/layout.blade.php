@@ -26,7 +26,7 @@
         <div class="search-bar">
             <input type="text" placeholder="">
             <img id="filtroBusqueda" src="../../img/FiltroBusqueda.png" alt="Filtro">
-            <button>
+            <button id="buscarBtn">
                 <img src="../../img/Lupa.png" alt="Buscar">
             </button>
         </div>

@@ -125,20 +125,48 @@
                     </div>
                   </li>
                 </a>
-                <a href="#">
+                <a href="../Information/informacion_testamento.html">
+                  <li class="article">
+                    <img src="../../img/Testamento.jpg" alt="Artículo 2" />
+                    <div class="article-content">
+                      <div class="article-title">
+                        Como redactar un testamento
+                      </div>
+                      <p class="article-description">
+                        Aprende los pasos necesarios para realizar un testamento.
+                      </p>
+                    </div>
+                  </li>
+                </a>
+                <a href="../Information/informacion_pension.html">
                   <li class="article">
                     <img
-                      src="../../img/Derechosdelconsumidor.png"
-                      alt="Artículo 2"
+                      src="../../img/PensionAliemnticia.jpg"
+                      alt="Artículo 1"
                     />
                     <div class="article-content">
                       <div class="article-title">
-                        Los derechos del consumidor
+                        Pension Alienticia
                       </div>
                       <p class="article-description">
-                        Conoce tus derechos como consumidor y aprende cómo
-                        protegerte contra el fraude y las prácticas comerciales
-                        injustas.
+                        Todo lo que necesitas saber sobre la
+                        pension alimenticia
+                      </p>
+                    </div>
+                  </li>
+                </a>
+                <a href="#">
+                  <li class="article">
+                    <img
+                      src="../../img/DerechosTrabajadores.jpg"
+                      alt="Artículo 1"
+                    />
+                    <div class="article-content">
+                      <div class="article-title">
+                        Derechos del trabajador
+                      </div>
+                      <p class="article-description">
+                        Todo lo que necesitas saber sobre los derechos del trabajador.
                       </p>
                     </div>
                   </li>

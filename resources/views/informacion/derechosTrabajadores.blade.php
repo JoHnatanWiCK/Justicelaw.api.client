@@ -141,6 +141,23 @@
                     </div>
                   </li>
                 </a>
+                <a href="../Information/informacion_pension.html">
+                  <li class="article">
+                    <img
+                      src="../../img/PensionAliemnticia.jpg"
+                      alt="Artículo 1"
+                    />
+                    <div class="article-content">
+                      <div class="article-title">
+                        Pension Alienticia
+                      </div>
+                      <p class="article-description">
+                        Todo lo que necesitas saber sobre la
+                        pension alimenticia
+                      </p>
+                    </div>
+                  </li>
+                </a>
                 <a href="#">
                   <li class="article">
                     <img src="../../img/IniciarNegocio.jpg" alt="Artículo 2" />
@@ -151,6 +168,19 @@
                       <p class="article-description">
                         Aprende los aspectos legales fundamentales al iniciar un
                         negocio
+                      </p>
+                    </div>
+                  </li>
+                </a>
+                <a href="../Information/informacion_testamento.html">
+                  <li class="article">
+                    <img src="../../img/Testamento.jpg" alt="Artículo 2" />
+                    <div class="article-content">
+                      <div class="article-title">
+                        Como redactar un testamento
+                      </div>
+                      <p class="article-description">
+                        Aprende los pasos necesarios para realizar un testamento.
                       </p>
                     </div>
                   </li>

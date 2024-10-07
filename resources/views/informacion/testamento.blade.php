@@ -205,35 +205,24 @@
                     </div>
                   </li>
                 </a>
-                <a href="../Information/plantilla_informacion.html">
-                    <li class="article">
-                      <img
-                        src="../../img/Tutela.jpg"
-                        alt="Artículo 2"
-                      />
-                      <div class="article-content">
-                        <div class="article-title">
-                          La tutela
-                        </div>
-                        <p class="article-description">
-                          Obtén información sobre la tutela.
-                        </p>
+                <a href="../Information/informacion_accidente.html">
+                  <li class="article">
+                    <img
+                      src="../../img/AccidenteTrafico.jpeg"
+                      alt="Artículo 1"
+                    />
+                    <div class="article-content">
+                      <div class="article-title">
+                        Guía después de un accidente de tráfico
                       </div>
-                    </li>
-                  </a>
-                  <a href="../Information/informacion_testamento.html">
-                    <li class="article">
-                      <img src="../../img/Testamento.jpg" alt="Artículo 2" />
-                      <div class="article-content">
-                        <div class="article-title">
-                          Como redactar un testamento
-                        </div>
-                        <p class="article-description">
-                          Aprende los pasos necesarios para realizar un testamento.
-                        </p>
-                      </div>
-                    </li>
-                  </a>
+                      <p class="article-description">
+                        Qué hacer inmediatamente después de verse involucrado en
+                        un accidente de tráfico y cómo buscar ayuda legal si es
+                        necesario.
+                      </p>
+                    </div>
+                  </li>
+                </a>
                   <a href="#">
                     <li class="article">
                       <img

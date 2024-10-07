@@ -54,7 +54,7 @@
                             </div>
                             <div class="container">
                                 <h4>Normas Comunitarias y Politicas Legales</h4>
-                               <p>Condiciones del servicio</p>
+                               <p>Terminos y Condiciones del servicio</p>
                                 <p>Política de Privacidad</p>
                                 <p>Política de Cookies</p>
                                 <p>Normas Comunitarias</p>

@@ -28,6 +28,62 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    const button = document.querySelector("#aceptar");
+    const toast = document.querySelector(".toast-aceptar");
+    const progress = document.querySelector(".progress");
+
+    let timer1, timer2;
+
+    if (button && toast) {
+
+
+    button.addEventListener("click", () => {
+        toast.classList.add("active");
+        progress.classList.add("active");
+
+
+        timer1 = setTimeout(() => {
+            toast.classList.remove("active");
+
+            window.location.href = window.routes.historial;
+
+
+        }, 5000);
+
+        timer2 = setTimeout(() => {
+            progress.classList.remove("active");
+        }, 5300);
+
+    });}
+
+    const buttonAplazar = document.querySelector("#aplazar");
+    const toastAplazar = document.querySelector(".toast-aplazar");
+    const progres = document.querySelector(".progress");
+
+    let time1, time2;
+
+    if (buttonAplazar && toastAplazar) {
+
+
+    buttonAplazar.addEventListener("click", () => {
+        toastAplazar.classList.add("active");
+        progres.classList.add("active");
+
+
+        time1 = setTimeout(() => {
+            toastAplazar.classList.remove("active");
+
+            window.location.href = window.routes.historial;
+
+
+        }, 5000);
+
+        time2 = setTimeout(() => {
+            progress.classList.remove("active");
+        }, 5300);
+
+    });}
+
     function filterNotifications(filter) {
         notifications.forEach(notification => {
             const isFavorite = notification.classList.contains('favorite');

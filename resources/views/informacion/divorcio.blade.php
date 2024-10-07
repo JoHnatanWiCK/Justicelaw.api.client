@@ -164,7 +164,7 @@
             <div id="latest" class="tab-content">
               <ul class="article-list">
 
-                <a href="../Information/informacion_arrendamiento.html">
+                <a href="/informacionArrendamiento">
                   <li class="article">
                     <img
                       src="../../img/Derechosdeinquilinos.png"
@@ -181,7 +181,7 @@
                     </div>
                   </li>
                 </a>
-                  <a href="../Information/informacion_testamento.html">
+                  <a href="/informacionTestamento">
                     <li class="article">
                       <img src="../../img/Testamento.jpg" alt="Artículo 2" />
                       <div class="article-content">
@@ -194,7 +194,7 @@
                       </div>
                     </li>
                   </a>
-                  <a href="#">
+                  <a href="/derechosTrabajadores">
                     <li class="article">
                       <img
                         src="../../img/DerechosTrabajadores.jpg"
@@ -210,7 +210,7 @@
                       </div>
                     </li>
                   </a>
-                <a href="../Information/informacion_pension.html">
+                <a href="/informacionPension">
                   <li class="article">
                     <img
                       src="../../img/PensionAliemnticia.jpg"
@@ -227,7 +227,7 @@
                     </div>
                   </li>
                 </a>
-                <a href="#">
+                <a href="/informacionConsumidor">
                   <li class="article">
                     <img
                       src="../../img/Derechosdelconsumidor.png"
@@ -245,7 +245,7 @@
                     </div>
                   </li>
                 </a>
-                <a href="#">
+                <a href="/informacionDespido">
                   <li class="article">
                     <img src="../../img/Despido.jpg" alt="Artículo 1" />
                     <div class="article-content">
@@ -259,7 +259,7 @@
                     </div>
                   </li>
                 </a>
-                <a href="../Information/informacion_accidente.html">
+                <a href="/informacionAccidente">
                   <li class="article">
                     <img
                       src="../../img/AccidenteTrafico.jpeg"
@@ -277,7 +277,7 @@
                     </div>
                   </li>
                 </a>
-                <a href="../Information/informacion_negocio.html">
+                <a href="/informacionNegocio">
                   <li class="article">
                     <img src="../../img/IniciarNegocio.jpg" alt="Artículo 2" />
                     <div class="article-content">

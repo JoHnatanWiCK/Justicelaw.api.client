@@ -96,11 +96,9 @@ Route::get('/perfilAbogado', function () {
     return view(view: 'perfil-abogado.crearPerfil');
 })->name('perfilCreado.lawyer');
 
-
-Route::get('/perfilAbogado', function () {
-    return view(view: 'perfil-abogado.crearPerfil');
-})->name('perfilCreado.lawyer');
-
+Route::get('/perfilAbogadoCreado', function () {
+    return view(view: 'perfil-abogado.perfilCreado');
+})->name('perfil.abogado.creado');
 
 
 Route::get('/notification', function () {
@@ -133,7 +131,8 @@ Route::get('/configadmincont', function () {
 
 Route::get('/calendar', function () {
     return view('calendar.calendar');
-});
+})->name('calendar'); // Asigna el nombre calendar.calendar
+
 
 Route::get('/perfilabogado', function () {
     return view('verperfil.perfil-abogado');

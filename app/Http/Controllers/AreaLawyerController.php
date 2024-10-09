@@ -51,9 +51,9 @@ class AreaLawyerController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $area = $this->fetchDataFromApi($url . '/areasLawyer/' . $id);
+        $areaLawyer = $this->fetchDataFromApi($url . '/areasLawyer/' . $id);
 
-        return $area;
+        return $areaLawyer;
 
         // return view('categories.show', compact('forumCategory'));
     }

@@ -2,13 +2,16 @@
 
 
 use App\Http\Controllers\AdministratorController;
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\DropdownController;
+use App\Http\Controllers\ForumCategoryController;
 use App\Http\Controllers\TypeDocumentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\LawyerController;
 use App\Http\Controllers\LawyerProfileController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\VerificationLawyerController;
 use Illuminate\Support\Facades\Route;
@@ -186,7 +189,13 @@ Route::get('/terminosCondiciones', function () {
     return view('legal.TerminosCondiciones');
 })->name('terminosCondiciones');
 
-Route::get('/privacidad', function () {
+
+Route::get('/answer', function () {
+    return view('answer');
+})->name('answer');
+
+
+Route::get('/privacidad', function (){
     return view('legal.privacidad');
 });
 
@@ -265,7 +274,6 @@ Route::put('verificationLawyer/{verificationLawyer}', [VerificationLawyerControl
 Route::delete('verificationLawyer/{verificationLawyer}', [VerificationLawyerController::class, 'destroy'])->name('verificationLawyer.delete');
 
 
-
 Route::get('notifications', [NotificationController::class, 'index'])->name('api.v1.notifications.index');
 Route::post('notifications', [NotificationController::class, 'store'])->name('api.v1.notifications.store');
 Route::get('notifications/{notification}', [NotificationController::class, 'show'])->name('api.v1.notifications.show');
@@ -277,6 +285,24 @@ Route::post('searchs', [SearchController::class, 'store'])->name('searchs.store'
 Route::get('searchs/{search}', [SearchController::class, 'show'])->name('searchs.show');
 Route::put('searchs/{search}', [SearchController::class, 'update'])->name('searchs.update');
 Route::delete('searchs/{search}', [SearchController::class, 'destroy'])->name('searchs.delete');
+
+Route::get('answers', [AnswerController::class, 'index'])->name('api.v1.answers.index');
+Route::post('answers', [AnswerController::class, 'store'])->name('api.v1.answers.store');
+Route::get('answers/{answer}', [AnswerController::class, 'show'])->name('api.v1.answers.show');
+Route::put('answers/{answer}', [AnswerController::class, 'update'])->name('api.v1.answers.update');
+Route::delete('answers/{answer}', [AnswerController::class, 'destroy'])->name('api.v1.answers.delete');
+
+Route::get('questions', [QuestionController::class, 'index'])->name('api.v1.questions.index');
+Route::post('questions', [QuestionController::class, 'store'])->name('api.v1.questions.store');
+Route::get('questions/{question}', [QuestionController::class, 'show'])->name('api.v1.questions.show');
+Route::put('questions/{question}', [QuestionController::class, 'update'])->name('api.v1.questions.update');
+Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('api.v1.questions.delete');
+
+Route::get('forumCategories', [ForumCategoryController::class, 'index'])->name('api.v1.forumCategories.index');
+Route::post('forumCategories', [ForumCategoryController::class, 'store'])->name('api.v1.forumCategories.store');
+Route::get('forumCategories/{forumCategory}', [ForumCategoryController::class, 'show'])->name('api.v1.forumCategories.show');
+Route::put('forumCategories/{forumCategory}', [ForumCategoryController::class, 'update'])->name('api.v1.forumCategories.update');
+Route::delete('forumCategories/{forumCategory}', [ForumCategoryController::class, 'destroy'])->name('api.v1.forumCategories.delete');
 
 Route::get('/faqs', function () {
     return view(view: 'faqs.faqs');

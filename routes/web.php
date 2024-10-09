@@ -12,7 +12,10 @@ use App\Http\Controllers\LawyerController;
 use App\Http\Controllers\LawyerProfileController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\AreaController;
 use App\Http\Controllers\VerificationLawyerController;
+use App\Http\Controllers\AreaLawyerController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -289,6 +292,23 @@ Route::get('consultings/{consulting}', [ConsultingController::class, 'show'])->n
 Route::put('consultings/{consulting}', [ConsultingController::class, 'update'])->name('api.v1.consultings.update');
 Route::delete('consultings/{consulting}', [ConsultingController::class, 'destroy'])->name('api.v1.consultings.delete');
 
+Route::get('areas', [AreaController::class, 'index'])->name( 'areas.index');
+Route::post('areas', [AreaController::class, 'store'])->name('areas.store');
+Route::get('areas/{area}', [AreaController::class, 'show'])->name('areas.show');
+Route::put('areas/{area}', [AreaController::class, 'update'])->name('areas.update');
+Route::delete('areas/{area}', [AreaController::class, 'destroy'])->name('areas.delete');
+
+Route::get('areaslawyer', [AreaLawyerController::class, 'index'])->name( 'areaslawyer.index');
+Route::post('areaslawyer', [AreaLawyerController::class, 'store'])->name('areaslawyer.store');
+Route::get('areaslawyer/{arealawyer}', [AreaLawyerController::class, 'show'])->name('areaslawyer.show');
+Route::put('areaslawyer/{arealawyer}', [AreaLawyerController::class, 'update'])->name('areaslawyer.update');
+Route::delete('areaslawyer/{arealawyer}', [AreaLawyerController::class, 'destroy'])->name('areaslawyer.delete');
+
+Route::get('reviews', [ReviewController::class, 'index'])->name( 'reviews.index');
+Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
+Route::get('reviews/{review}', [ReviewController::class, 'show'])->name('reviews.show');
+Route::put('reviews/{review}', [ReviewController::class, 'update'])->name('reviews.update');
+Route::delete('reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.delete');
 
 Route::get('notifications', [NotificationController::class, 'index'])->name('api.v1.notifications.index');
 Route::post('notifications', [NotificationController::class, 'store'])->name('api.v1.notifications.store');

@@ -2,6 +2,8 @@
 
 
 use App\Http\Controllers\AdministratorController;
+use App\Http\Controllers\ConsultingController;
+use App\Http\Controllers\DateController;
 use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\TypeDocumentController;
 use App\Http\Controllers\UserController;
@@ -279,6 +281,17 @@ Route::get('verificationLawyer/{verificationLawyer}', [VerificationLawyerControl
 Route::put('verificationLawyer/{verificationLawyer}', [VerificationLawyerController::class, 'update'])->name('verificationLawyer.update');
 Route::delete('verificationLawyer/{verificationLawyer}', [VerificationLawyerController::class, 'destroy'])->name('verificationLawyer.delete');
 
+Route::get('dates', [DateController::class, 'index'])->name('api.v1.dates.index');
+Route::post('dates', [DateController::class, 'store'])->name('api.v1.dates.store');
+Route::get('dates/{date}', [DateController::class, 'show'])->name('api.v1.dates.show');
+Route::put('dates/{date}', [DateController::class, 'update'])->name('api.v1.dates.update');
+Route::delete('dates/{date}', [DateController::class, 'destroy'])->name('api.v1.dates.delete');
+
+Route::get('consultings', [ConsultingController::class, 'index'])->name('api.v1.consultings.index');
+Route::post('consultings', [ConsultingController::class, 'store'])->name('api.v1.consultings.store');
+Route::get('consultings/{consulting}', [ConsultingController::class, 'show'])->name('api.v1.consultings.show');
+Route::put('consultings/{consulting}', [ConsultingController::class, 'update'])->name('api.v1.consultings.update');
+Route::delete('consultings/{consulting}', [ConsultingController::class, 'destroy'])->name('api.v1.consultings.delete');
 
 Route::get('areas', [AreaController::class, 'index'])->name( 'areas.index');
 Route::post('areas', [AreaController::class, 'store'])->name('areas.store');

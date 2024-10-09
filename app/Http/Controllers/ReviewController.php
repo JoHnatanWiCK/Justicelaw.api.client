@@ -54,7 +54,7 @@ class ReviewController extends Controller
         $reviews = $this->fetchDataFromApi($url . '/reviews/' . $id);
 
         return $reviews;
-        
+
         // return view('categories.show', compact('forumCategory'));
     }
 

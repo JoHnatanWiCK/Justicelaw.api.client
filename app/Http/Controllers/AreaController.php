@@ -54,7 +54,7 @@ class AreaController extends Controller
         $areas= $this->fetchDataFromApi($url . '/areas/' . $id);
 
         return $areas;
-        
+
         // return view('categories.show', compact('forumCategory'));
     }
 

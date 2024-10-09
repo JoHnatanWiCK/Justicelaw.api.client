@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class Area extends Controller
+class AreaController extends Controller
 {
 
     private function fetchDataFromApi($url)

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class AreaLawyerController extends Controller
+class ConsultingController extends Controller
 {
 
     private function fetchDataFromApi($url)
@@ -14,6 +14,7 @@ class AreaLawyerController extends Controller
         return $response->json();
     }
 
+
     /**
      * Display a listing of the resource.
      */
@@ -21,11 +22,11 @@ class AreaLawyerController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $areaslawyer = $this->fetchDataFromApi($url . '/areaslawyer');
+        $consultings = $this->fetchDataFromApi($url . '/consultings');
 
-        return $areaslawyer;
+        return $consultings;
 
-        // return view('categories.index', compact('forumCategory'));
+        // return view('consulting.index', compact('consultings'));
     }
 
     /**
@@ -51,11 +52,11 @@ class AreaLawyerController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $area = $this->fetchDataFromApi($url . '/area/' . $id);
+        $consulting = $this->fetchDataFromApi($url . '/consultings/' . $id);
 
-        return $area;
+        return $consulting;
 
-        // return view('categories.show', compact('forumCategory'));
+        // return view('consulting.show', compact('consulting'));
     }
 
     /**

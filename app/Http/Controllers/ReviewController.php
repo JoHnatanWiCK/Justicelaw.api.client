@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class Review extends Controller
+class ReviewController extends Controller
 {
 
     private function fetchDataFromApi($url)
@@ -54,7 +54,7 @@ class Review extends Controller
         $reviews = $this->fetchDataFromApi($url . '/reviews/' . $id);
 
         return $reviews;
-        
+
         // return view('categories.show', compact('forumCategory'));
     }
 

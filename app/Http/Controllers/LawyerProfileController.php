@@ -12,7 +12,7 @@ class LawyerProfileController extends Controller
     private function fetchDataFromApi($url)
     {
         $response = Http::get($url);
-        return $response->json(); 
+        return $response->json();
     }
 
     public function index()   //http://api.codersfree.test/v1/categories?included=posts
@@ -21,10 +21,10 @@ class LawyerProfileController extends Controller
         $url = env('URL_SERVER_API');
 
         $lawyerProfiles = $this->fetchDataFromApi($url . '/lawyerPofiles?included=post');
- 
+
         return $lawyerProfiles;
 
-        return view('lawyerProfiles.index', compact('lawyerProfiles'));
+        // return view('lawyerProfiles.index', compact('lawyerProfiles'));
     }
 
     public function show($id)

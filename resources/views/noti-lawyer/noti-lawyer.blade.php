@@ -6,9 +6,11 @@
 @endsection
 
 @section('main')
+
 <section class="container">
     <nav class="sidebar">
         <ul>
+
             <div class="titulo">
                 <i class="fa-solid fa-chevron-left" onclick="window.history.back()"></i>
                 <span>Perfil Abogado</span>
@@ -23,21 +25,31 @@
                 <a href="{{ route('configuracionAbogado') }}"><i class="fa-solid fa-gear"></i>Configuracion</a>
             </li>
             <li>
-                <a href="{{ route('noti-lawyer') }}"><i class="fa-regular fa-bell"></i>Notificaciones</a>
+                <div class="icon-container">
+                    <i class="fa-regular fa-bell"></i>
+                </div>
+                <div class="text-container">
+                    <a href="../notification/notification.html">Notificaciones</a>
+                </div>
             </li>
             <li>
-
+                <div class="icon-container">
                     <i class="fa-regular fa-calendar"></i>
-
+                </div>
+                <div class="text-container">
                     <a href="{{ route('calendar') }}">Calendario</a>
-
+                </div>
+            </li>
+            <li>
+                    <i class="fa-regular fa-calendar"></i>
+                    <a href="{{ route('calendar') }}">Calendario</a>
             </li>
             <li id="cerrarSesion">
                 <a href="{{ route('home') }}"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesión</a>
             </li>
         </ul>
     </nav>
-    <hr />
+
   <section class="notifications">
     <div class="contenido">
       <div class="notification-list">
@@ -48,7 +60,7 @@
                   <p><strong>Carlos Nose</strong> ha solicitado una asesoría para el día <strong>10/04/2024 : 13:00 pm</strong></p>
               </div>
               <div class="actions">
-                  <a href="#">Ver en el calendario</a>
+                  <a href="{{ route('calendar') }}">Ver en el calendario</a>
                   <span class="date">10/04/2024</span>
               </div>
           </div>
@@ -58,8 +70,8 @@
                   <p><strong>Diego Narvaez</strong> ha solicitado una asesoría para el día <strong>13/04/2024</strong></p>
               </div>
               <div class="actions">
-                  <a href="#">Aceptar</a>
-                  <a href="#">Aplazar</a>
+                  <a href="#" id="aceptar">Aceptar</a>
+                  <a href="#" id="aplazar">Aplazar</a>
                   <span class="date">09/04/2024</span>
               </div>
           </div>
@@ -69,7 +81,7 @@
                   <p><strong>Carlos Nose</strong> ha solicitado una asesoría para el día <strong>10/04/2024 : 13:00 pm</strong></p>
               </div>
               <div class="actions">
-                  <a href="#">Ver en el calendario</a>
+                  <a href="{{ route('calendar') }}">Ver en el calendario</a>
                   <span class="date">10/04/2024</span>
               </div>
           </div>
@@ -79,8 +91,8 @@
                   <p><strong>Diego Narvaez</strong> ha solicitado una asesoría para el día <strong>13/04/2024</strong></p>
               </div>
               <div class="actions">
-                  <a href="#">Aceptar</a>
-                  <a href="#">Aplazar</a>
+                <a href="#" id="aceptar">Aceptar</a>
+                <a href="#" id="aplazar">Aplazar</a>
                   <span class="date">09/04/2024</span>
               </div>
           </div>
@@ -92,6 +104,44 @@
     </div>
   </section>
 </section>
+
+    <div class="toast-aceptar">
+        <div class="toast-content">
+            <img src="../../img/check.png"  class="check" alt="check">
+            <div class="message">
+                <span class="text text-1">Aceptado</span>
+                <span class="text text-2">¡Agendado exitosamente!</span>
+            </div>
+        </div>
+        <i class="fa-solid fa-xmark close"></i>
+        <div class="progress"></div>
+    </div>
+
+    <script>
+        window.routes = {
+            perfilCreado: "{{ route('perfilCreado') }}",
+            crearPerfil: "{{ route('crearPerfil') }}"
+        };
+    </script>
+
+<div class="toast-aplazar">
+    <div class="toast-content">
+        <img src="../../img/check.png"  class="check" alt="check">
+        <div class="message">
+            <span class="text text-1">Datos Guardados</span>
+            <span class="text text-2">¡Aplazado!</span>
+        </div>
+    </div>
+    <i class="fa-solid fa-xmark close"></i>
+    <div class="progress"></div>
+</div>
+
+<script>
+    window.routes = {
+        perfilCreado: "{{ route('perfilCreado') }}",
+        crearPerfil: "{{ route('crearPerfil') }}"
+    };
+</script>
 @endsection
 
 
@@ -99,7 +149,6 @@
 @endsection
 
 @push('styles')
-    <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="css/noti-lawyer.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 @endpush

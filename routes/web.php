@@ -193,11 +193,15 @@ Route::get('/informacionConsumidor', function () {
     return view('informacion.derechoConsumidor');
 })->name('informacionConsumidor');
 
+Route::get('/terminosCondiciones', function () {
+    return view('legal.TerminosCondiciones');
+})->name('terminosCondiciones');
+
 Route::get('/privacidad', function () {
     return view('legal.privacidad');
 });
 
-Route::get('/terminosYcondiciones', function () {
+Route::get('/terminosUso', function () {
     return view('legal.terminos');
 });
 

@@ -1,4 +1,4 @@
-.nogrid .main-content *{
+.nogrid .main-content * {
     display: flex !important;
 }
 
@@ -54,7 +54,7 @@
     border-bottom: none;
 }
 
-.fasq-content{
+.faq-content {
     background-color: aqua;
 }
 
@@ -76,4 +76,48 @@
 
 .faq-answer.show {
     opacity: 1; 
+}
+
+@media (max-width: 768px) {
+    .faqs h1 {
+        font-size: 24px;
+        margin-left: 20px;
+    }
+
+    .faq-sections {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .faq-category {
+        margin: 10px;
+    }
+
+    .faq-category h2 {
+        font-size: 20px;
+    }
+
+    .faq-category ul li {
+        font-size: 14px;
+    }
+
+    .plus-icon {
+        width: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .faqs h1 {
+        font-size: 20px;
+        margin-left: 10px;
+    }
+
+    .faq-category h2 {
+        font-size: 18px;
+    }
+
+    .faq-category ul li {
+        font-size: 12px;
+        padding: 8px;
+    }
 }

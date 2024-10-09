@@ -10,29 +10,19 @@
 <section class="container">
     <nav class="sidebar">
         <ul>
+
+            <div class="titulo">
+                <i class="fa-solid fa-chevron-left" onclick="window.history.back()"></i>
+                <span>Perfil Abogado</span>
+            </div>
             <li>
-                <div class="icon-container">
-                    <i class="fa-regular fa-user"></i>
-                </div>
-                <div class="text-container">
-                    <a href="../perfil_usuario/perfil_creado.html">Información usuario</a>
-                </div>
+                <a href="{{ route('perfil.abogado.creado') }}"><i class="fa-regular fa-user"></i>Información usuario</a>
             </li>
             <li>
-                <div class="icon-container">
-                    <i class="fa-solid fa-clock-rotate-left"></i>
-                </div>
-                <div class="text-container">
-                    <a href="../historial/historial.html">Historial</a>
-                </div>
+                <a href="{{ route('historialAbogado') }}"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>
             </li>
             <li>
-                <div class="icon-container">
-                    <i class="fa-solid fa-gear"></i>
-                </div>
-                <div class="text-container">
-                    <a href="../configuracion/configuracion.html">Configuración</a>
-                </div>
+                <a href="{{ route('configuracionAbogado') }}"><i class="fa-solid fa-gear"></i>Configuracion</a>
             </li>
             <li>
                 <div class="icon-container">
@@ -50,17 +40,16 @@
                     <a href="{{ route('calendar') }}">Calendario</a>
                 </div>
             </li>
+            <li>
+                    <i class="fa-regular fa-calendar"></i>
+                    <a href="{{ route('calendar') }}">Calendario</a>
+            </li>
             <li id="cerrarSesion">
-                <div class="icon-container">
-                    <i class="fa-solid fa-right-from-bracket"></i>
-                </div>
-                <div class="text-container">
-                    <a href="../home/home.html">Cerrar sesión</a>
-                </div>
+                <a href="{{ route('home') }}"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesión</a>
             </li>
         </ul>
     </nav>
-    
+
   <section class="notifications">
     <div class="contenido">
       <div class="notification-list">
@@ -111,7 +100,7 @@
             <button>Cargar más</button>
         </div>
       </div>
-      
+
     </div>
   </section>
 </section>

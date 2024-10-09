@@ -5,9 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class AreaLawyerController extends Controller
+class OverhaulReviewController extends Controller
 {
-
     private function fetchDataFromApi($url)
     {
         $response = Http::get($url);
@@ -21,11 +20,9 @@ class AreaLawyerController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $areaslawyer = $this->fetchDataFromApi($url . '/areaslawyer');
+        $overhaul = $this->fetchDataFromApi($url . '/overhauls');
 
-        return $areaslawyer;
-
-        // return view('categories.index', compact('forumCategory'));
+        return $overhaul;
     }
 
     /**
@@ -51,11 +48,10 @@ class AreaLawyerController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $area = $this->fetchDataFromApi($url . '/area/' . $id);
+        $overhaul = $this->fetchDataFromApi($url . '/overhauls/' . $id);
 
-        return $area;
+        return $overhaul;
 
-        // return view('categories.show', compact('forumCategory'));
     }
 
     /**

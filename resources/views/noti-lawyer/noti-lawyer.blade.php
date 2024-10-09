@@ -11,22 +11,29 @@
         <ul>
             <div class="titulo">
                 <i class="fa-solid fa-chevron-left" onclick="window.history.back()"></i>
-                <span>Perfil Usuario</span>
+                <span>Perfil Abogado</span>
             </div>
             <li>
-                <a href="{{ route('crearPerfil') }}"><i class="fa-regular fa-user"></i>Información usuario</a>
+                <a href="{{ route('perfil.abogado.creado') }}"><i class="fa-regular fa-user"></i>Información usuario</a>
             </li>
             <li>
-                <a href="{{ route('historial') }}"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>
+                <a href="{{ route('historialAbogado') }}"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>
             </li>
             <li>
-                <a href="{{ route('configuracion') }}"><i class="fa-solid fa-gear"></i>Configuracion</a>
+                <a href="{{ route('configuracionAbogado') }}"><i class="fa-solid fa-gear"></i>Configuracion</a>
             </li>
             <li>
                 <a href="{{ route('noti-lawyer') }}"><i class="fa-regular fa-bell"></i>Notificaciones</a>
             </li>
+            <li>
+
+                    <i class="fa-regular fa-calendar"></i>
+
+                    <a href="{{ route('calendar') }}">Calendario</a>
+
+            </li>
             <li id="cerrarSesion">
-                <a href="#" id="openModal"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesión</a>
+                <a href="{{ route('home') }}"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesión</a>
             </li>
         </ul>
     </nav>
@@ -81,7 +88,7 @@
             <button>Cargar más</button>
         </div>
       </div>
-      
+
     </div>
   </section>
 </section>

@@ -14,7 +14,7 @@
                             <i class="fa-regular fa-user"></i>
                         </div>
                         <div class="text-container">
-                            <a href="../perfil_usuario/perfil_creado.html">Información usuario</a>
+                            <a href="{{route ('perfil.abogado.creado')}}">Información usuario</a>
                         </div>
                     </li>
                     <li>
@@ -22,7 +22,7 @@
                             <i class="fa-solid fa-clock-rotate-left"></i>
                         </div>
                         <div class="text-container">
-                            <a href="../historial/historial.html">Historial</a>
+                            <a href="{{ route('historial') }}">Historial</a>
                         </div>
                     </li>
                     <li>
@@ -30,7 +30,7 @@
                             <i class="fa-solid fa-gear"></i>
                         </div>
                         <div class="text-container">
-                            <a href="../configuracion/configuracion.html">Configuración</a>
+                            <a href="{{ route ('configuracionAbogado')}}">Configuración</a>
                         </div>
                     </li>
                     <li>
@@ -38,7 +38,7 @@
                             <i class="fa-regular fa-bell"></i>
                         </div>
                         <div class="text-container">
-                            <a href="../notification/notification.html">Notificaciones</a>
+                            <a href="{{ route ('noti-lawyer')}}">Notificaciones</a>
                         </div>
                     </li>
                     <li>

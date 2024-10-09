@@ -128,7 +128,7 @@
                 <div class="linea1"></div>
                 <li><a href="blog">Blog</a></li>
                 <li><a href="contacto">Contacto</a></li>
-                <li><a href="faq">FAQ</a></li>
+                <li><a href="{{ route ('faqs_recurso')}}">FAQ</a></li>
             </ul>
         </div>
         <div class="footer-main">

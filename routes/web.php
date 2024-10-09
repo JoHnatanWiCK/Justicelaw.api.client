@@ -221,3 +221,10 @@ Route::post('searchs', [SearchController::class, 'store'])->name('searchs.store'
 Route::get('searchs/{search}', [SearchController::class, 'show'])->name('searchs.show');
 Route::put('searchs/{search}', [SearchController::class, 'update'])->name('searchs.update');
 Route::delete('searchs/{search}', [SearchController::class, 'destroy'])->name('searchs.delete');
+
+Route::get('overhauls', [SearchController::class, 'index'])->name('overhauls.index');
+Route::post('overhauls', [SearchController::class, 'store'])->name('seoverhaulsarchs.store');
+Route::get('overhauls/{overhaul}', [SearchController::class, 'show'])->name('overhauls.show');
+Route::put('overhauls/{overhaul}', [SearchController::class, 'update'])->name('overhauls.update');
+Route::delete('overhauls/{overhaul}', [SearchController::class, 'destroy'])->name('overhauls.delete');
+

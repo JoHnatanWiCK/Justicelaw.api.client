@@ -1229,12 +1229,35 @@
   }
 
 
-  #progreso{
+  #progre{
     text-align: center;
     width: 70%;
     margin: 0 auto;
 }
 
+.contenedor{
+  text-align: center;
+  box-sizing: border-box;
+}
+.contenedor-progre{
+  display: flex;
+  justify-content: space-between;
+position: relative;
+margin-bottom: 30px;
+max-width: 100%;
+width: 350px;
+}
+.contenedor-progre::before{
+  content: "";
+  position: absolute;
+  background-color: #5e5a5a;
+  transform: rotateY('-50%');
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+}
 
 
   .sidebar ul {

@@ -123,8 +123,18 @@
                       <p>Recuerda añadir más información a tu perfil para que sea más explícito e interesante para los clientes.</p>
 
                   </div>
+                  <div class="contenedor"><div class="contenedor-progre">
+                    <div class="progre" id="progre"></div>
+                    <div class="step active">1</div>
+                    <div class="step">2</div>
+                    <div class="step">3</div>
+                    <div class="step">4</div>
 
-                  <img id="progreso" src="../../img/progreso1.png" alt="progreso1">
+                  </div>
+<button class="btn" id="prev" disabled>Prev</button>
+<button class="btn" id="next">Next</button>
+                </div>
+
                   <div class="practice">
                       <h2>Agrega tu biografia personal</h2>
                       <div class="civ">

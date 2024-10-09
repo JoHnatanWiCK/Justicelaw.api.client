@@ -21,7 +21,7 @@ class AreaLawyerController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $areaslawyer = $this->fetchDataFromApi($url . '/areaslawyer');
+        $areaslawyer = $this->fetchDataFromApi($url . '/areasLawyer');
 
         return $areaslawyer;
 
@@ -51,7 +51,7 @@ class AreaLawyerController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $area = $this->fetchDataFromApi($url . '/area/' . $id);
+        $area = $this->fetchDataFromApi($url . '/areasLawyer/' . $id);
 
         return $area;
 

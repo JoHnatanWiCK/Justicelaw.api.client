@@ -10,7 +10,11 @@ use App\Http\Controllers\LawyerController;
 use App\Http\Controllers\LawyerProfileController;
 use App\Http\Controllers\NotificationController;
 use App\Http\Controllers\SearchController;
+use App\Http\Controllers\AreaController;
 use App\Http\Controllers\VerificationLawyerController;
+use App\Http\Controllers\AreaLawyerController;
+use App\Http\Controllers\OverhaulReviewController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -54,10 +58,21 @@ Route::get('/historial', function () {
     return view(view: 'historial.historial');
 })->name('historial');
 
+Route::get('/historialAbogado', function () {
+    return view(view: 'historial.historialAbogado');
+})->name('historialAbogado');
+
 
 Route::get('/configuracion', function () {
     return view(view: 'configuracion.configuracion');
 })->name('configuracion');
+
+
+Route::get('/configuracionAbogado', function () {
+    return view(view: 'configuracion.configuracionAbogado');
+})->name('configuracionAbogado');
+
+
 
 Route::get('/olvidarContraseña', function () {
     return view(view: 'olvido-contraseña.olvidoContraseña');
@@ -92,19 +107,14 @@ Route::get('/editarPerfil', function () {
     return view(view: 'perfil-usuario.editarPerfil');
 })->name('editarPerfil');
 
-Route::get('/perfilAbogado', function () {
+Route::get('/crearPerfilAbogado', function () {
     return view(view: 'perfil-abogado.crearPerfil');
 })->name('perfilCreado.lawyer');
 
+Route::get('/perfilAbogadoCreado', function () {
+    return view(view: 'perfil-abogado.perfilCreado');
+})->name('perfil.abogado.creado');
 
-Route::get('/perfilAbogado', function () {
-    return view(view: 'perfil-abogado.crearPerfil');
-})->name('perfilCreado.lawyer');
-
-
-Route::get('/informaciones', function () {
-    return view('informacion.informaciones');
-});
 
 Route::get('/notification', function () {
     return view('notification.notification');
@@ -112,7 +122,7 @@ Route::get('/notification', function () {
 
 Route::get('/noti-lawyer', function () {
     return view('noti-lawyer.noti-lawyer');
-});
+})->name('noti-lawyer');
 
 Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
@@ -136,14 +146,75 @@ Route::get('/configadmincont', function () {
 
 Route::get('/calendar', function () {
     return view('calendar.calendar');
-});
+})->name('calendar'); // Asigna el nombre calendar.calendar
 
-Route::get('/verPerfilAbogado', function () {
+
+Route::get('/perfilabogado', function () {
     return view('verperfil.perfil-abogado');
 });
 
 Route::get('/reseñaPublicada', function () {
     return view('verperfil.reseñaPublicada');
+});
+
+Route::get('/informaciones', function () {
+    return view('informacion.informaciones');
+})->name('informaciones');
+
+Route::get('/derechosTrabajadores', function () {
+    return view('informacion.derechosTrabajadores');
+})->name('derechosTrabajadores');
+
+Route::get('/informacionArrendamiento', function () {
+    return view('informacion.arrendamiento');
+})->name('informacionArrendamiento');
+
+Route::get('/informacionDespido', function () {
+    return view('informacion.despido');
+})->name('informacionDespido');
+
+Route::get('/informacionDivorcio', function () {
+    return view('informacion.divorcio');
+})->name('informacionDivorcio');
+
+Route::get('/informacionNegocio', function () {
+    return view('informacion.negocio');
+})->name('informacionNegocio');
+
+Route::get('/informacionPension', function () {
+    return view('informacion.pension');
+})->name('informacionPension');
+
+Route::get('/informacionTestamento', function () {
+    return view('informacion.testamento');
+})->name('informacionTestamento');
+
+Route::get('/informacionAccidente', function () {
+    return view('informacion.accidente');
+})->name('informacionAccidente');
+
+Route::get('/informacionConsumidor', function () {
+    return view('informacion.derechoConsumidor');
+})->name('informacionConsumidor');
+
+Route::get('/terminosCondiciones', function () {
+    return view('legal.TerminosCondiciones');
+})->name('terminosCondiciones');
+
+Route::get('/privacidad', function () {
+    return view('legal.privacidad');
+});
+
+Route::get('/terminosUso', function () {
+    return view('legal.terminos');
+});
+
+Route::get('/cookies', function () {
+    return view('legal.cookies');
+});
+
+Route::get('/herramientas', function () {
+    return view('herramientas.herramientasAnalisis');
 });
 
 Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');
@@ -209,6 +280,23 @@ Route::put('verificationLawyer/{verificationLawyer}', [VerificationLawyerControl
 Route::delete('verificationLawyer/{verificationLawyer}', [VerificationLawyerController::class, 'destroy'])->name('verificationLawyer.delete');
 
 
+Route::get('areas', [AreaController::class, 'index'])->name( 'areas.index');
+Route::post('areas', [AreaController::class, 'store'])->name('areas.store');
+Route::get('areas/{area}', [AreaController::class, 'show'])->name('areas.show');
+Route::put('areas/{area}', [AreaController::class, 'update'])->name('areas.update');
+Route::delete('areas/{area}', [AreaController::class, 'destroy'])->name('areas.delete');
+
+Route::get('areaslawyer', [AreaLawyerController::class, 'index'])->name( 'areaslawyer.index');
+Route::post('areaslawyer', [AreaLawyerController::class, 'store'])->name('areaslawyer.store');
+Route::get('areaslawyer/{arealawyer}', [AreaLawyerController::class, 'show'])->name('areaslawyer.show');
+Route::put('areaslawyer/{arealawyer}', [AreaLawyerController::class, 'update'])->name('areaslawyer.update');
+Route::delete('areaslawyer/{arealawyer}', [AreaLawyerController::class, 'destroy'])->name('areaslawyer.delete');
+
+Route::get('reviews', [ReviewController::class, 'index'])->name( 'reviews.index');
+Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
+Route::get('reviews/{review}', [ReviewController::class, 'show'])->name('reviews.show');
+Route::put('reviews/{review}', [ReviewController::class, 'update'])->name('reviews.update');
+Route::delete('reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.delete');
 
 Route::get('notifications', [NotificationController::class, 'index'])->name('api.v1.notifications.index');
 Route::post('notifications', [NotificationController::class, 'store'])->name('api.v1.notifications.store');
@@ -222,9 +310,16 @@ Route::get('searchs/{search}', [SearchController::class, 'show'])->name('searchs
 Route::put('searchs/{search}', [SearchController::class, 'update'])->name('searchs.update');
 Route::delete('searchs/{search}', [SearchController::class, 'destroy'])->name('searchs.delete');
 
-Route::get('overhauls', [SearchController::class, 'index'])->name('overhauls.index');
-Route::post('overhauls', [SearchController::class, 'store'])->name('seoverhaulsarchs.store');
-Route::get('overhauls/{overhaul}', [SearchController::class, 'show'])->name('overhauls.show');
-Route::put('overhauls/{overhaul}', [SearchController::class, 'update'])->name('overhauls.update');
-Route::delete('overhauls/{overhaul}', [SearchController::class, 'destroy'])->name('overhauls.delete');
+Route::get('overhauls', [OverhaulReviewController::class, 'index'])->name('overhauls.index');
+Route::post('overhauls', [OverhaulReviewController::class, 'store'])->name('seoverhaulsarchs.store');
+Route::get('overhauls/{overhaul}', [OverhaulReviewController::class, 'show'])->name('overhauls.show');
+Route::put('overhauls/{overhaul}', [OverhaulReviewController::class, 'update'])->name('overhauls.update');
+Route::delete('overhauls/{overhaul}', [OverhaulReviewController::class, 'destroy'])->name('overhauls.delete');
 
+Route::get('/faqs', function () {
+    return view(view: 'faqs.faqs');
+})->name('faqs');
+
+Route::get('/faqss', function () {
+    return view(view: 'faqs.faqs_recurso');
+})->name('faqs_recurso');

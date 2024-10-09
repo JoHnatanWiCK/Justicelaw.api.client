@@ -5,8 +5,10 @@
 @section('nav')
    
 @endsection
-
-@section('main')
+@php
+    $isGrid = false; // Desactiva el grid para esta vista
+@endphp
+@section('main-content')
 <section class="contentHA">
     <div class="columnas">
       <div class="columna-izquierda">

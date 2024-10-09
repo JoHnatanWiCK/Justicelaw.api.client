@@ -26,7 +26,7 @@
         <div class="search-bar">
             <input type="text" placeholder="">
             <img id="filtroBusqueda" src="../../img/FiltroBusqueda.png" alt="Filtro">
-            <button>
+            <button id="buscarBtn">
                 <img src="../../img/Lupa.png" alt="Buscar">
             </button>
         </div>
@@ -99,7 +99,7 @@
                 <div class="linea1"></div>
                 <li><a href="blog">Blog</a></li>
                 <li><a href="contacto">Contacto</a></li>
-                <li><a href="faq">FAQ</a></li>
+                <li><a href="{{ route ('faqs_recurso')}}">FAQ</a></li>
             </ul>
         </div>
         <div class="footer-main">
@@ -129,9 +129,9 @@
             <ul>
                 <h3>Legal</h3>
                 <div class="linea4"></div>
-                <li><a href="terminos">Términos de uso</a></li>
-                <li><a href="cookies">Política de Cookies</a></li>
-                <li><a href="privacidad">Política de privacidad</a></li>
+                <li><a href="../legal/terminos.html">Términos de uso</a></li>
+                <li><a href="legal.cookies.html">Política de Cookies</a></li>
+                <li><a href="legal.privacidad">Política de privacidad</a></li>
             </ul>
         </div>
     </footer>

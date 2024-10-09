@@ -18,3 +18,34 @@ document.querySelectorAll('.filter-menu button').forEach(button => {
             boton.classList.add("active");
           });
         });
+
+
+
+        document.addEventListener('DOMContentLoaded', function () {
+
+          document.getElementById('btnDesp').addEventListener('click', function(){
+            window.location.href="/informacionDespido"
+          });
+      
+          document.getElementById('btnGuia').addEventListener('click', function(){
+            window.location.href="/informacionAccidente"
+          });
+
+          document.getElementById('btnConsu').addEventListener('click', function(){
+            window.location.href="/informacionConsumidor"
+          });
+
+          document.getElementById('btnInquilino').addEventListener('click', function(){
+            window.location.href="/informacionArrendamiento"
+          });
+      
+          document.getElementById('btnAspect').addEventListener('click', function(){
+            window.location.href="/informacionNegocio"
+          });
+      
+          document.getElementById('btnDest').addEventListener('click', function(){
+            window.location.href="/informacionPension"
+          });
+        });
+  
+        

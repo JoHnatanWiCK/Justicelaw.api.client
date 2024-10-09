@@ -15,7 +15,7 @@
                             <i class="fa-regular fa-user"></i>
                         </div>
                         <div class="text-container">
-                            <a href="../perfil_usuario/perfil_creado.html">Información usuario</a>
+                            <a href="{{route ('perfil.abogado.creado')}}">Información usuario</a>
                         </div>
                     </li>
                     <li>
@@ -23,7 +23,7 @@
                             <i class="fa-solid fa-clock-rotate-left"></i>
                         </div>
                         <div class="text-container">
-                            <a href="../historial/historial.html">Historial</a>
+                            <a href="{{ route('historial') }}">Historial</a>
                         </div>
                     </li>
                     <li>
@@ -31,7 +31,7 @@
                             <i class="fa-solid fa-gear"></i>
                         </div>
                         <div class="text-container">
-                            <a href="../configuracion/configuracion.html">Configuración</a>
+                            <a href="{{ route ('configuracionAbogado')}}">Configuración</a>
                         </div>
                     </li>
                     <li>
@@ -39,7 +39,15 @@
                             <i class="fa-regular fa-bell"></i>
                         </div>
                         <div class="text-container">
-                            <a href="../notification/notification.html">Notificaciones</a>
+                            <a href="{{ route ('noti-lawyer')}}">Notificaciones</a>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="icon-container">
+                            <i class="fa-regular fa-calendar"></i>
+                        </div>
+                        <div class="text-container">
+                            <a href="{{ route('calendar') }}">Calendario</a>
                         </div>
                     </li>
                     <li id="cerrarSesion">
@@ -69,9 +77,49 @@
               <img src="../../img/star-solid-white.svg" alt="star white">
             </div>
             </div>
-            <a href="../perfil_abogado/editarPerfil.html"><i class="fa-regular fa-pen-to-square"></i></a>
+            <a href="../perfil_abogado/editarPerfil.html"  id="editLink"><i class="fa-regular fa-pen-to-square"></i></a>
 
             </div>
+<!-- Modal para Editar Perfil -->
+<div id="editModal" class="modal-edit">
+    <div class="modal-edit-content">
+        <span class="modal-edit-close">&times;</span>
+        <h4>Editar Perfil Abogado</h4>
+        <form id="editForm">
+            <div class="modal-edit-field">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" placeholder="Introduce tu nombre" required>
+            </div>
+            <div class="modal-edit-field">
+                <label for="contacto">Contacto:</label>
+                <input type="text" id="contacto" placeholder="Introduce tu contacto" required>
+            </div>
+            <div class="modal-edit-field">
+                <label for="dni">DNI:</label>
+                <input type="text" id="dni" placeholder="Introduce tu DNI" required>
+            </div>
+            <div class="modal-edit-field">
+                <label for="consultorio">Nombre Consultorio:</label>
+                <input type="text" id="consultorio" placeholder="Introduce nombre del consultorio" required>
+            </div>
+            <div class="modal-edit-field">
+                <label for="ciudad">Ciudad:</label>
+                <input type="text" id="ciudad" placeholder="Introduce tu ciudad" required>
+            </div>
+            <div class="modal-edit-field">
+                <label for="pais">País:</label>
+                <input type="text" id="pais" placeholder="Introduce tu país" required>
+            </div>
+            <div class="modal-edit-field">
+                <label for="biografia">Biografía:</label>
+                <textarea id="biografia" placeholder="Introduce tu biografía" required></textarea>
+            </div>
+            <button type="submit">Guardar Cambios</button>
+        </form>
+    </div>
+</div>
+
+
 
 
             <a href="#modal-foto"><img id="circuloPerfil" src="../../img/circuloPerfil.png" alt="circuloPerfil"></a>
@@ -104,7 +152,6 @@
                   <div class="datos">
                     <div class="editar-datos">
                       <h2>Información Personal</h2>
-                      <a href="../perfil_abogado/editarPerfil.html"><i class="fa-regular fa-pen-to-square"></i></a>
                     </div>
                       <p>Contacto: &ensp;&ensp;+57 3132307635</p>
                       <p>DNI: &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;1061702424</p>
@@ -113,7 +160,7 @@
                       <p>Ciudad: &ensp;&ensp;&ensp;Popayán</p>
                       <p>Nombre consultorio: &ensp;&ensp;LeyEs</p>
                      </div>
-                     <a href="../perfil_abogado/editarPerfil.html" id="agregarDatos"><i class="fa-solid fa-plus"></i> Agregar Informacion</a>
+
 
               </div>
 
@@ -135,15 +182,38 @@
 <button class="btn" id="next">Next</button>
                 </div>
 
+<<<<<<< HEAD
                   <div class="practice">
                       <h2>Agrega tu biografia personal</h2>
                       <div class="civ">
                         <p>Asegúrate de incluir una breve biografía que destaque tu experiencia, áreas de especialización y filosofía profesional.</p>
 
                         <a href="../perfil_abogado/agregarBiografia.html" id="agregarBio"><i class="fa-solid fa-plus"></i>  Agregar Biografia</a>
+=======
+                  <div class="progress-bar">
+                    <div class="step completed">1</div>
+                    <div class="line"></div>
+                    <div class="step">2</div>
+                    <div class="line"></div>
+                    <div class="step">3</div>
+                    <div class="line"></div>
+                    <div class="step">4</div>
+                </div>
+>>>>>>> 56a4627d9601a315a3ce2065050c6e53ae990e23
 
+                <div class="practice">
+                    <h2 id="practice-title">Agrega tu biografía personal</h2>
+                    <div class="civ">
+                        <p id="practice-description">Asegúrate de incluir una breve biografía que destaque tu experiencia, áreas de especialización y filosofía profesional.</p>
                     </div>
-                  </div>
+                    <input type="text" id="agregarBiografia" placeholder="Escribe tu biografía aquí...">
+                    <div class="button-group">
+                        <button id="atrasBtn" style="display: none;">Atrás</button>
+                        <button id="continuarBtn" disabled>Continuar</button>
+                    </div>
+                </div>
+
+
               </div>
           </div>
           <div class="act">

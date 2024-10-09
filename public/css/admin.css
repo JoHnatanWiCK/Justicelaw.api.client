@@ -121,3 +121,10 @@ header input[type="text"] {
     background-color: #f5f7fa;
     align-items: start;
 }
+
+.flex-content {
+    display: flex; /* Aplica flex aquí */
+    flex-direction: column; /* O row, según tus necesidades */
+    gap: 10px; /* Espaciado entre elementos */
+    background-color: #f5f7fa; /* Puedes usar el mismo fondo o uno diferente */
+}

@@ -365,6 +365,166 @@
       margin-right: 10px;
     }
 
+    .progress-bar {
+        width: 80%;
+        display: flex;
+        justify-content: space-between; /* Espacia los elementos de forma uniforme */
+        align-items: center; /* Centra los elementos verticalmente */
+        margin: 10px auto; /* Centra la barra en la página */
+        position: relative; /* Necesario para posicionar las líneas */
+    }
+
+    .step {
+        width: 25px;
+        font-size: 12px;
+        height: 25px;
+        border: 2px solid gray;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background 0.3s, border-color 0.3s;
+        position: relative; /* Necesario para la línea */
+        z-index: 1; /* Para asegurarnos de que esté por encima de las líneas */
+        color: gray; /* Color del número del paso */
+    }
+
+    .line {
+        flex-grow: 1; /* Hace que la línea ocupe el espacio disponible */
+        height: 2px; /* Altura de la línea */
+        background-color: #f1c40f; /* Color de la línea */
+        position: relative;
+        z-index: 0; /* Mantiene la línea detrás de los círculos */
+    }
+
+    .step.completed {
+        background-color: #f1c40f; /* Relleno verde cuando se completa */
+        border-color: #f1c40f; /* Delineado verde */
+        color: white; /* Color del número del paso */
+    }
+
+    .step.current {
+        border-color: #f1c40f; /* Delineado verde del paso actual */
+        color: #f1c40f; /* Color del número del paso actual */
+    }
+
+
+    .button-group {
+        display: flex; /* Establece un contenedor flex */
+        justify-content: flex-end; /* Alinea los botones a la derecha */
+        margin-right: 2rem;
+    }
+
+    .button-group button {
+        margin-left: 10px; /* Espacio entre los botones */
+        padding: 2px 15px;
+        color: #fff;
+        background-color: #002f49;
+        border-radius: 20px;
+       width: auto;
+
+    }
+
+    .modal-edit {
+        display: none; /* Ocultar por defecto */
+        position: fixed; /* Posicionamiento fijo */
+        z-index: 1000; /* Asegurarse de que esté por encima del contenido */
+        left: 0;
+        top: 0;
+        width: 100%; /* Ancho completo */
+        height: 100%; /* Alto completo */
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+        padding: 20px; /* Espaciado alrededor del modal */
+        box-sizing: border-box; /* Incluye padding en el ancho total */
+    }
+
+    .modal-edit-content {
+        background-color: #fefefe; /* Color de fondo del contenido */
+        position: absolute; /* Cambiado a absoluto para centrar */
+        left: 50%; /* Mover hacia la derecha al 50% */
+        top: 50%; /* Mover hacia abajo al 50% */
+        transform: translate(-50%, -50%); /* Ajustar para centrar */
+        padding: 20px; /* Espaciado interno */
+        border: 1px solid #888; /* Borde */
+        width: 80%; /* Ancho del modal */
+        max-width: 600px; /* Ancho máximo */
+        border-radius: 8px; /* Bordes redondeados */
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+        margin-top: 20px; /* Margen superior */
+        margin-bottom: 20px; /* Margen inferior */
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    #editForm {
+        display: grid; /* Usar Grid para organizar los campos */
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas iguales */
+        gap: 20px; /* Espacio entre las filas y columnas */
+    }
+
+    .modal-edit-field {
+        display: flex; /* Flex para alinear label y input */
+        flex-direction: column; /* Organizar en columna */
+        margin-bottom: 0; /* Elimina margen adicional entre campos */
+    }
+
+
+
+    .modal-edit-field label {
+        margin-bottom: 5px; /* Espaciado entre label e input */
+        font-weight: bold; /* Negrita para los labels */
+        font-size: 12px;
+    }
+
+    .modal-edit-field input,
+    .modal-edit-field textarea {
+        flex: 1; /* Tomar espacio proporcional */
+        padding: 8px; /* Espaciado interno */
+        border: 1px solid #ccc; /* Borde */
+        border-radius: 4px; /* Bordes redondeados */
+    }
+
+    .modal-edit-field textarea {
+        height: 100px; /* Altura fija para el textarea */
+        resize: none; /* Evitar el redimensionamiento */
+    }
+
+    button[type="submit"] {
+        grid-column: span 2; /* Hacer que el botón ocupe ambas columnas */
+        padding: 10px 10px; /* Espaciado interno */
+        font-size: 14px; /* Tamaño de fuente más pequeño */
+        align-self: center; /* Centrar el botón */
+        border-radius: 20px;
+
+    }
+
+    button:hover {
+        background-color: #002f49; /* Color de fondo al pasar el cursor */
+        color: #fff;
+        border-radius: 20px;
+    }
+
+
+
+    .modal-edit-field textarea {
+        flex: 2; /* Toma un ancho proporcional mayor */
+        padding: 5px; /* Espaciado interno */
+        border: 1px solid #ccc; /* Borde del input */
+        border-radius: 4px; /* Bordes redondeados */
+        height: 100px; /* Altura del área de texto */
+        resize: vertical; /* Permitir el redimensionamiento vertical */
+    }
+
+
+    #agregarBiografia{
+        width: 90%;
+        padding: 1rem;
+        margin: 1rem;
+        border-radius: 10px;
+        border: 1px solid #cfcfcf;
+    }
+
 
 
     .user-info p {
@@ -432,19 +592,10 @@
   @media only screen and (min-width: 601px) and (max-width: 1000px) {
 
     .sidebar {
-        position: sticky;
-        padding-top: 2rem;
-        max-width: 20%;
-        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-        align-items: center;
-        justify-content: center;
-        background-color: #ffffff;
-        margin: 0 auto;
-        height: auto;
-        overflow-y: auto;
+       display: none;
       }
 
-      .sidebar ul {
+      /* .sidebar ul {
         list-style: none;
         padding: 0;
         text-align: center;
@@ -473,7 +624,7 @@
 
       .sidebar ul li a:hover {
         color: #00a8ff;
-      }
+      } */
 
 
       #circuloPerfil {
@@ -752,12 +903,12 @@
   }
 
   #fotoPerfil {
-    left: 3%;
+    left: 2%;
     top: 90%;
     position: absolute;
-    min-width: 9%;
-    min-height: 70%;
-    max-height: 90%;
+    min-width: 15%;
+    min-height: 55%;
+    max-height: 70%;
     max-width: 12%;
     object-fit: cover;
     border-radius: 50%;
@@ -838,7 +989,7 @@
 
   .left-column {
     flex: 1;
-    width: 30%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -921,9 +1072,17 @@
     position: relative;
   }
 
+  #progreso{
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+}
+
+
   .right-column {
     margin-left: 2rem;
     margin-top: 1rem;
+    height: 100%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     flex: 2;
     display: flex;
@@ -972,6 +1131,167 @@
     border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
+
+  .progress-bar {
+    width: 80%;
+    display: flex;
+    justify-content: space-between; /* Espacia los elementos de forma uniforme */
+    align-items: center; /* Centra los elementos verticalmente */
+    margin: 10px auto; /* Centra la barra en la página */
+    position: relative; /* Necesario para posicionar las líneas */
+}
+
+.step {
+    width: 25px;
+    font-size: 12px;
+    height: 25px;
+    border: 2px solid gray;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s, border-color 0.3s;
+    position: relative; /* Necesario para la línea */
+    z-index: 1; /* Para asegurarnos de que esté por encima de las líneas */
+    color: gray; /* Color del número del paso */
+}
+
+.line {
+    flex-grow: 1; /* Hace que la línea ocupe el espacio disponible */
+    height: 2px; /* Altura de la línea */
+    background-color: #f1c40f; /* Color de la línea */
+    position: relative;
+    z-index: 0; /* Mantiene la línea detrás de los círculos */
+}
+
+.step.completed {
+    background-color: #f1c40f; /* Relleno verde cuando se completa */
+    border-color: #f1c40f; /* Delineado verde */
+    color: white; /* Color del número del paso */
+}
+
+.step.current {
+    border-color: #f1c40f; /* Delineado verde del paso actual */
+    color: #f1c40f; /* Color del número del paso actual */
+}
+
+
+.button-group {
+    display: flex; /* Establece un contenedor flex */
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    margin-right: 2rem;
+}
+
+.button-group button {
+    margin-left: 10px; /* Espacio entre los botones */
+    padding: 2px 15px;
+    color: #fff;
+    background-color: #002f49;
+    border-radius: 20px;
+   width: auto;
+
+}
+
+.modal-edit {
+    display: none; /* Ocultar por defecto */
+    position: fixed; /* Posicionamiento fijo */
+    z-index: 1000; /* Asegurarse de que esté por encima del contenido */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    padding: 20px; /* Espaciado alrededor del modal */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+}
+
+.modal-edit-content {
+    background-color: #fefefe; /* Color de fondo del contenido */
+    position: absolute; /* Cambiado a absoluto para centrar */
+    left: 50%; /* Mover hacia la derecha al 50% */
+    top: 50%; /* Mover hacia abajo al 50% */
+    transform: translate(-50%, -50%); /* Ajustar para centrar */
+    padding: 20px; /* Espaciado interno */
+    border: 1px solid #888; /* Borde */
+    width: 80%; /* Ancho del modal */
+    max-width: 600px; /* Ancho máximo */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    margin-top: 20px; /* Margen superior */
+    margin-bottom: 20px; /* Margen inferior */
+    display: flex;
+    flex-direction: column;
+}
+
+
+#editForm {
+    display: grid; /* Usar Grid para organizar los campos */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas iguales */
+    gap: 20px; /* Espacio entre las filas y columnas */
+}
+
+.modal-edit-field {
+    display: flex; /* Flex para alinear label y input */
+    flex-direction: column; /* Organizar en columna */
+    margin-bottom: 0; /* Elimina margen adicional entre campos */
+}
+
+
+
+.modal-edit-field label {
+    margin-bottom: 5px; /* Espaciado entre label e input */
+    font-weight: bold; /* Negrita para los labels */
+    font-size: 12px;
+}
+
+.modal-edit-field input,
+.modal-edit-field textarea {
+    flex: 1; /* Tomar espacio proporcional */
+    padding: 8px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.modal-edit-field textarea {
+    height: 100px; /* Altura fija para el textarea */
+    resize: none; /* Evitar el redimensionamiento */
+}
+
+button[type="submit"] {
+    grid-column: span 2; /* Hacer que el botón ocupe ambas columnas */
+    padding: 10px 10px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    align-self: center; /* Centrar el botón */
+    border-radius: 20px;
+
+}
+
+button:hover {
+    background-color: #002f49; /* Color de fondo al pasar el cursor */
+    color: #fff;
+    border-radius: 20px;
+}
+
+
+
+.modal-edit-field textarea {
+    flex: 2; /* Toma un ancho proporcional mayor */
+    padding: 5px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde del input */
+    border-radius: 4px; /* Bordes redondeados */
+    height: 100px; /* Altura del área de texto */
+    resize: vertical; /* Permitir el redimensionamiento vertical */
+}
+
+
+#agregarBiografia{
+    width: 90%;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    border: 1px solid #cfcfcf;
+}
+
 
   .practice-item {
     text-align: center;
@@ -1656,9 +1976,11 @@ width: 350px;
 
   .left-column {
     flex: 1;
-    height: 98%;
+    height: 100%;
     margin-top: 2rem;
     width: 30%;
+    padding: 2rem;
+    padding-top: 0.5rem;
     display: flex;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -1713,16 +2035,176 @@ width: 350px;
     height: 20px;
   }
 
+  .progress-bar {
+    width: 80%;
+    display: flex;
+    justify-content: space-between; /* Espacia los elementos de forma uniforme */
+    align-items: center; /* Centra los elementos verticalmente */
+    margin: 10px auto; /* Centra la barra en la página */
+    position: relative; /* Necesario para posicionar las líneas */
+}
+
+.step {
+    width: 25px;
+    font-size: 12px;
+    height: 25px;
+    border: 2px solid gray;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s, border-color 0.3s;
+    position: relative; /* Necesario para la línea */
+    z-index: 1; /* Para asegurarnos de que esté por encima de las líneas */
+    color: gray; /* Color del número del paso */
+}
+
+.line {
+    flex-grow: 1; /* Hace que la línea ocupe el espacio disponible */
+    height: 2px; /* Altura de la línea */
+    background-color: #f1c40f; /* Color de la línea */
+    position: relative;
+    z-index: 0; /* Mantiene la línea detrás de los círculos */
+}
+
+.step.completed {
+    background-color: #f1c40f; /* Relleno verde cuando se completa */
+    border-color: #f1c40f; /* Delineado verde */
+    color: white; /* Color del número del paso */
+}
+
+.step.current {
+    border-color: #f1c40f; /* Delineado verde del paso actual */
+    color: #f1c40f; /* Color del número del paso actual */
+}
+
+
+.button-group {
+    display: flex; /* Establece un contenedor flex */
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+    margin-right: 2rem;
+}
+
+.button-group button {
+    margin-left: 10px; /* Espacio entre los botones */
+    padding: 2px 15px;
+    color: #fff;
+    background-color: #002f49;
+    border-radius: 20px;
+   width: auto;
+
+}
+
+.modal-edit {
+    display: none; /* Ocultar por defecto */
+    position: fixed; /* Posicionamiento fijo */
+    z-index: 1000; /* Asegurarse de que esté por encima del contenido */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    padding: 20px; /* Espaciado alrededor del modal */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+}
+
+.modal-edit-content {
+    background-color: #fefefe; /* Color de fondo del contenido */
+    position: absolute; /* Cambiado a absoluto para centrar */
+    left: 50%; /* Mover hacia la derecha al 50% */
+    top: 50%; /* Mover hacia abajo al 50% */
+    transform: translate(-50%, -50%); /* Ajustar para centrar */
+    padding: 20px; /* Espaciado interno */
+    border: 1px solid #888; /* Borde */
+    width: 80%; /* Ancho del modal */
+    max-width: 600px; /* Ancho máximo */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    margin-top: 20px; /* Margen superior */
+    margin-bottom: 20px; /* Margen inferior */
+    display: flex;
+    flex-direction: column;
+}
+
+
+#editForm {
+    display: grid; /* Usar Grid para organizar los campos */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas iguales */
+    gap: 20px; /* Espacio entre las filas y columnas */
+}
+
+.modal-edit-field {
+    display: flex; /* Flex para alinear label y input */
+    flex-direction: column; /* Organizar en columna */
+    margin-bottom: 0; /* Elimina margen adicional entre campos */
+}
+
+
+
+.modal-edit-field label {
+    margin-bottom: 5px; /* Espaciado entre label e input */
+    font-weight: bold; /* Negrita para los labels */
+    font-size: 12px;
+}
+
+.modal-edit-field input,
+.modal-edit-field textarea {
+    flex: 1; /* Tomar espacio proporcional */
+    padding: 8px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+.modal-edit-field textarea {
+    height: 100px; /* Altura fija para el textarea */
+    resize: none; /* Evitar el redimensionamiento */
+}
+
+button[type="submit"] {
+    grid-column: span 2; /* Hacer que el botón ocupe ambas columnas */
+    padding: 10px 10px; /* Espaciado interno */
+    font-size: 14px; /* Tamaño de fuente más pequeño */
+    align-self: center; /* Centrar el botón */
+    border-radius: 20px;
+
+}
+
+button:hover {
+    background-color: #002f49; /* Color de fondo al pasar el cursor */
+    color: #fff;
+    border-radius: 20px;
+}
+
+
+
+.modal-edit-field textarea {
+    flex: 2; /* Toma un ancho proporcional mayor */
+    padding: 5px; /* Espaciado interno */
+    border: 1px solid #ccc; /* Borde del input */
+    border-radius: 4px; /* Bordes redondeados */
+    height: 100px; /* Altura del área de texto */
+    resize: vertical; /* Permitir el redimensionamiento vertical */
+}
+
+
+#agregarBiografia{
+    width: 90%;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 10px;
+    border: 1px solid #cfcfcf;
+}
+
   #agregarBio{
     text-decoration: none;
     color: inherit;
     border: 1px solid #003049;
     background-color: #fff;
-    width: 40%;
+    width: 30%;
     padding: 0.3rem;
-    margin: 0.5rem;
+    /* margin: 0.5rem; */
     height: 20%;
-    margin-top: 1rem;
+    /* margin-top: 1rem; */
     text-align: center;
     font-size: 14px;
     border-radius: 30px;
@@ -1751,12 +2233,15 @@ width: 350px;
     position: relative;
   }
 
+
   .right-column {
     margin-left: 2rem;
-    height: 98%;
+    height: 100%;
+    padding: 2rem;
+    padding-top: 0.5rem;
     margin-top: 2rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    flex: 2;
+    flex: 4;
     display: flex;
     flex-direction: column;
   }

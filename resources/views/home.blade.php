@@ -24,7 +24,7 @@
 
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/informacion_divorcio.html"><img src="../../img/Divorcio.jpg"
+                            <a><img src="../../img/Divorcio.jpg"
                                     alt="Tranding">
                             </a>
                         </div>
@@ -35,7 +35,7 @@
                                 <hr>
                                 <p>La guía sobre divorcio brinda información sobre cómo proceder durante la separación
                                     matrimonial, incluyendo consejos legales y emocionales.</p>
-                                <button>Más información...</button>
+                                <button id="btnDivorcio">Más información...</button>
                             </div>
 
                         </div>
@@ -43,7 +43,7 @@
 
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/informacion_despido.html"><img src="../../img/Despido.jpg"
+                            <a><img src="../../img/Despido.jpg"
                                     alt="Tranding">
                             </a>
                         </div>
@@ -54,14 +54,14 @@
                                 <p>Descubre los pasos clave para redactar una carta de despido correctamente. Te explicamos
                                     cómo estructurarla, qué detalles legales incluir y cómo manejar esta situación de forma
                                     profesional y clara.</p>
-                                <button>Más información...</button>
+                                <button id="btnDespido">Más información...</button>
                             </div>
 
                         </div>
                     </div>
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/informacion_accidente.html"><img src="../../img/Accidente.png"
+                            <a><img src="../../img/Accidente.png"
                                     alt="Tranding">
                             </a>
                         </div>
@@ -71,14 +71,14 @@
                                 <hr>
                                 <p>Descubre los pasos clave para manejar un accidente de tráfico, desde la documentación
                                     hasta las acciones legales necesarias.</p>
-                                <button>Más información...</button>
+                                <button id="btnAccidente">Más información...</button>
                             </div>
 
                         </div>
                     </div>
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/informacion_testamento.html"><img src="../../img/Testamento.jpg"
+                            <a><img src="../../img/Testamento.jpg"
                                     alt="Tranding">
                             </a>
                         </div>
@@ -88,7 +88,7 @@
                                 <hr>
                                 <p>Aprende a estructurar y redactar un testamento de forma clara y legalmente válida,
                                     asegurando que tus deseos sean respetados y evitando futuros conflictos familiares.</p>
-                                <button>Más información...</button>
+                                <button id="btnTestamento">Más información...</button>
                             </div>
 
                         </div>
@@ -96,7 +96,7 @@
 
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/derecho_consumidor.html"><img src="../../img/DerechosConsumidor.jpg"
+                            <a><img src="../../img/DerechosConsumidor.jpg"
                                     alt="Tranding">
                             </a>
                         </div>
@@ -107,7 +107,7 @@
                                 <p>Infórmate sobre tus derechos como consumidor y cómo defenderte en situaciones de compra y
                                     servicio, desde garantías y devoluciones hasta reclamaciones efectivas contra productos
                                     defectuosos.</p>
-                                <button>Más información...</button>
+                                <button id="btnConsumidor">Más información...</button>
                             </div>
 
                         </div>
@@ -115,7 +115,7 @@
 
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/informacion_pension.html"><img src="../../img/PensionAliemnticia.jpg"
+                            <a><img src="../../img/PensionAliemnticia.jpg"
                                     alt="Tranding">
                             </a>
                         </div>
@@ -126,7 +126,7 @@
                                 <p>Entiende los aspectos esenciales de la pensión alimenticia, incluyendo cómo solicitarla,
                                     cómo se calcula y cómo administrarla correctamente para asegurar el bienestar de los
                                     dependientes.</p>
-                                <button>Más información...</button>
+                                <button id="btnAlimenticia">Más información...</button>
                             </div>
 
                         </div>
@@ -134,7 +134,7 @@
 
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/informacion_arrendamiento.html"><img src="../../img/Arrendamiento.jpg"
+                            <a><img src="../../img/Arrendamiento.jpg"
                                     alt="Tranding">
                             </a>
                         </div>
@@ -145,14 +145,14 @@
                                 <p>Conoce tus derechos y cómo resolver conflictos comunes en el arrendamiento, incluyendo
                                     problemas con el contrato, el mantenimiento del inmueble y la protección legal del
                                     inquilino.</p>
-                                <button>Más información...</button>
+                                <button id="btnArrendamiento">Más información...</button>
                             </div>
 
                         </div>
                     </div>
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/informacion_negocio.html"><img src="../../img/IniciarNegocio.jpg"
+                            <a><img src="../../img/IniciarNegocio.jpg"
                                     alt="Tranding">
                             </a>
                         </div>
@@ -163,7 +163,7 @@
                                 <p>Explora los requisitos y aspectos legales necesarios para establecer y operar un nuevo
                                     negocio, desde la constitución legal hasta el cumplimiento de normativas y licencias.
                                 </p>
-                                <button>Más información...</button>
+                                <button id="btnNegocio">Más información...</button>
                             </div>
 
                         </div>
@@ -171,7 +171,7 @@
 
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/derechos_trabajadores.html"><img
+                            <a><img
                                     src="../../img/DerechosTrabajadores.jpg" alt="Tranding">
                             </a>
                         </div>
@@ -182,7 +182,7 @@
                                 <p>Infórmate sobre tus derechos como trabajador, incluyendo condiciones laborales, salarios,
                                     seguridad en el trabajo y cómo actuar en caso de conflictos con el empleador para
                                     proteger tus intereses.</p>
-                                <button>Más información...</button>
+                                <button id="btnLaboral">Más información...</button>
                             </div>
 
                         </div>

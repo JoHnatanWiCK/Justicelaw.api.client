@@ -17,7 +17,7 @@
                     inmediatamente después de verse involucrado en un accidente de tráfico,
                      cómo recopilar pruebas, cuándo y cómo comunicarse con las compañías de
                       seguros y cómo buscar ayuda legal si es necesario.</p>
-                      <button>Leer mas</button>
+                      <button id="btnGuia">Leer mas</button>
             </div>
 
 
@@ -27,7 +27,7 @@
               <h2>Los derechos del consumidor</h2>
               <h3>1 de febrero, 2024</h3>
               <p>Conoce tus derechos como consumidor y aprende cómo protegerte contra el fraude y las prácticas comerciales injustas</p>
-              <button>Leer más</button>
+              <button id="btnConsu">Leer más</button>
           </div>
 
           <div class="info-informacion">
@@ -35,7 +35,7 @@
               <h2>Aspectos legales para iniciar un negocio</h2>
               <h3>1 de febrero, 2024</h3>
               <p>Aprende los aspectos legales fundamentales al iniciar un negocio</p>
-              <button>Leer más</button>
+              <button id="btnAspect">Leer más</button>
           </div>
 
           <div class="info-informacion">
@@ -43,7 +43,7 @@
               <h2>Qué hacer en caso de despido injustificado</h2>
               <h3>1 de febrero, 2024</h3>
               <p>Explora tus opciones legales y los pasos a seguir si te enfrentas a un despido injustificado</p>
-              <button>Leer más</button>
+              <button id="btnDesp">Leer más</button>
           </div>
 
           <div class="info-informacion">
@@ -51,7 +51,7 @@
               <h2>Cómo enfrentar problemas de arrendamiento y derechos del inquilino</h2>
               <h3>1 de febrero, 2024</h3>
               <p>Obtén información sobre tus derechos como inquilino</p>
-              <button>Leer más</button>
+              <button id="btnInquilino">Leer más</button>
           </div>
 
         </div>
@@ -72,7 +72,7 @@
             <img src="../../img/lomasdestacado.png" alt="lomasdestacado">
             <h3>Pensión alimenticia: Todo lo que necesitas saber</h3>
             <h4>1 de febrero, 2024</h4>
-            <button>Leer más</button>
+            <button id="btnDest">Leer más</button>
         </div>
     </div>
         <div class="position-container">

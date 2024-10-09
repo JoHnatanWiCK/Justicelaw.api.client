@@ -170,7 +170,26 @@
                       <p>Recuerda añadir más información a tu perfil para que sea más explícito e interesante para los clientes.</p>
 
                   </div>
+                  <div class="contenedor"><div class="contenedor-progre">
+                    <div class="progre" id="progre"></div>
+                    <div class="step active">1</div>
+                    <div class="step">2</div>
+                    <div class="step">3</div>
+                    <div class="step">4</div>
 
+                  </div>
+<button class="btn" id="prev" disabled>Prev</button>
+<button class="btn" id="next">Next</button>
+                </div>
+
+<<<<<<< HEAD
+                  <div class="practice">
+                      <h2>Agrega tu biografia personal</h2>
+                      <div class="civ">
+                        <p>Asegúrate de incluir una breve biografía que destaque tu experiencia, áreas de especialización y filosofía profesional.</p>
+
+                        <a href="../perfil_abogado/agregarBiografia.html" id="agregarBio"><i class="fa-solid fa-plus"></i>  Agregar Biografia</a>
+=======
                   <div class="progress-bar">
                     <div class="step completed">1</div>
                     <div class="line"></div>
@@ -180,6 +199,7 @@
                     <div class="line"></div>
                     <div class="step">4</div>
                 </div>
+>>>>>>> 56a4627d9601a315a3ce2065050c6e53ae990e23
 
                 <div class="practice">
                     <h2 id="practice-title">Agrega tu biografía personal</h2>

@@ -67,9 +67,9 @@
                         <div class="container">
                             <div class="form-left">
                                 <label for="nombre">Nombre</label>
-                                <input type="text" name="nombre">
+                                <input type="text" name="nombre" value="eder">
                                 <label for="email">Email</label>
-                                <input type="email" name="email">
+                                <input type="email" name="email" value="edefa@gmail.com">
                                 <label for="pais">País</label>
                                 <select name="pais">
                                     <option value="">Selecciona un país:</option>
@@ -81,9 +81,9 @@
                             </div>
                             <div class="form-right">
                                 <label for="apellidos">Apellidos</label>
-                                <input type="text" name="apellidos">
+                                <input type="text" name="apellidos" value="gomez">
                                 <label for="telefono">Teléfono</label>
-                                <input type="text" name="telefono">
+                                <input type="text" name="telefono" value="311312313">
                                 <label for="provincia">Ciudad</label>
                                 <select name="estado">
                                     <option value="">Selecciona un estado:</option>

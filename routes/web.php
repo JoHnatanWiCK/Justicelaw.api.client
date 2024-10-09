@@ -15,6 +15,7 @@ use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\VerificationLawyerController;
 use App\Http\Controllers\AreaLawyerController;
+use App\Http\Controllers\OverhaulReviewController;
 use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 
@@ -321,6 +322,12 @@ Route::post('searchs', [SearchController::class, 'store'])->name('searchs.store'
 Route::get('searchs/{search}', [SearchController::class, 'show'])->name('searchs.show');
 Route::put('searchs/{search}', [SearchController::class, 'update'])->name('searchs.update');
 Route::delete('searchs/{search}', [SearchController::class, 'destroy'])->name('searchs.delete');
+
+Route::get('overhauls', [OverhaulReviewController::class, 'index'])->name('overhauls.index');
+Route::post('overhauls', [OverhaulReviewController::class, 'store'])->name('seoverhaulsarchs.store');
+Route::get('overhauls/{overhaul}', [OverhaulReviewController::class, 'show'])->name('overhauls.show');
+Route::put('overhauls/{overhaul}', [OverhaulReviewController::class, 'update'])->name('overhauls.update');
+Route::delete('overhauls/{overhaul}', [OverhaulReviewController::class, 'destroy'])->name('overhauls.delete');
 
 Route::get('/faqs', function () {
     return view(view: 'faqs.faqs');

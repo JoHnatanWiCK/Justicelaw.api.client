@@ -54,10 +54,21 @@ Route::get('/historial', function () {
     return view(view: 'historial.historial');
 })->name('historial');
 
+Route::get('/historialAbogado', function () {
+    return view(view: 'historial.historialAbogado');
+})->name('historialAbogado');
+
 
 Route::get('/configuracion', function () {
     return view(view: 'configuracion.configuracion');
 })->name('configuracion');
+
+
+Route::get('/configuracionAbogado', function () {
+    return view(view: 'configuracion.configuracionAbogado');
+})->name('configuracionAbogado');
+
+
 
 Route::get('/olvidarContraseña', function () {
     return view(view: 'olvido-contraseña.olvidoContraseña');
@@ -92,7 +103,7 @@ Route::get('/editarPerfil', function () {
     return view(view: 'perfil-usuario.editarPerfil');
 })->name('editarPerfil');
 
-Route::get('/perfilAbogado', function () {
+Route::get('/crearPerfilAbogado', function () {
     return view(view: 'perfil-abogado.crearPerfil');
 })->name('perfilCreado.lawyer');
 
@@ -107,7 +118,7 @@ Route::get('/notification', function () {
 
 Route::get('/noti-lawyer', function () {
     return view('noti-lawyer.noti-lawyer');
-});
+})->name('noti-lawyer');
 
 Route::get('/dashboard', function () {
     return view('dashboard.dashboard');
@@ -182,11 +193,15 @@ Route::get('/informacionConsumidor', function () {
     return view('informacion.derechoConsumidor');
 })->name('informacionConsumidor');
 
+Route::get('/terminosCondiciones', function () {
+    return view('legal.TerminosCondiciones');
+})->name('terminosCondiciones');
+
 Route::get('/privacidad', function () {
     return view('legal.privacidad');
 });
 
-Route::get('/terminosYcondiciones', function () {
+Route::get('/terminosUso', function () {
     return view('legal.terminos');
 });
 

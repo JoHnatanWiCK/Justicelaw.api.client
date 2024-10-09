@@ -14,19 +14,26 @@
             <ul>
                 <div class="titulo">
                     <i class="fa-solid fa-chevron-left" onclick="window.history.back()"></i>
-                    <span>Perfil Usuario</span>
+                    <span>Perfil Abogado</span>
                 </div>
                 <li>
-                    <a href="{{ route('crearPerfil') }}"><i class="fa-regular fa-user"></i>Información usuario</a>
+                    <a href="{{ route('perfil.abogado.creado') }}"><i class="fa-regular fa-user"></i>Información usuario</a>
                 </li>
                 <li>
-                    <a href="{{ route('historial') }}"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>
+                    <a href="{{ route('historialAbogado') }}"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>
                 </li>
                 <li>
-                    <a href="{{ route('configuracion') }}"><i class="fa-solid fa-gear"></i>Configuracion</a>
+                    <a href="{{ route('configuracionAbogado') }}"><i class="fa-solid fa-gear"></i>Configuracion</a>
                 </li>
                 <li>
-                    <a href="{{ route('notificaciones') }}"><i class="fa-regular fa-bell"></i>Notificaciones</a>
+                    <a href="{{ route('noti-lawyer') }}"><i class="fa-regular fa-bell"></i>Notificaciones</a>
+                </li>
+                <li>
+
+                        <i class="fa-regular fa-calendar"></i>
+
+                        <a href="{{ route('calendar') }}">Calendario</a>
+
                 </li>
                 <li id="cerrarSesion">
                     <a href="{{ route('home') }}"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesión</a>
@@ -54,7 +61,7 @@
                             </div>
                             <div class="container">
                                 <h4>Normas Comunitarias y Politicas Legales</h4>
-                               <p>Terminos y Condiciones del servicio</p>
+                               <p>Condiciones del servicio</p>
                                 <p>Política de Privacidad</p>
                                 <p>Política de Cookies</p>
                                 <p>Normas Comunitarias</p>

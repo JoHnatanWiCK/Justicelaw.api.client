@@ -23,7 +23,7 @@ class QuestionController extends Controller
 
         $question = $this->fetchDataFromApi($url . '/questions');
 
-        return $question;
+        return view('foro.foro',compact('question'));
 
         // return view('categories.index', compact('question'));
     }

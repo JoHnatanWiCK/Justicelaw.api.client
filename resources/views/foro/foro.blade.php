@@ -7,6 +7,7 @@
 
 @section('main')
 
+
         <section class="welcome">
             <h1>¡Bienvenido al foro!</h1>
             <p>Infórmate y comparte tu opinión con los demás.</p>
@@ -21,13 +22,18 @@
                         <th class="responses-col">Respuestas</th>
                         <th class="user-col">Usuario</th>
                     </tr>
+
+                    @foreach ($question as $q) 
+              
+
+                
                     <tr>
                         <td class="message-col">
-                            <h2>¿Qué pasos debo seguir si me lesiono en un accidente de tráfico y el culpable se da a la fuga?</h2>
-                            <p>Recientemente estuve involucrado en un accidente de tráfico donde el otro conductor se dio a la fuga. Sufrí lesiones y daños en mi vehículo. ¿Cuáles son mis opciones legales en esta situación? ¿Cómo puedo buscar compensación por mis lesiones y los daños a mi propiedad si el culpable no ha sido identificado?</p>
+                            <h2>{{$q['affair']}}</h2>
+                            <p>{{$q['content']}}</p>
                             <div class="meta">
-                                <span class="date">30 de marzo, 2024</span>
-                                <span class="category">Categoría: Legal</span>
+                                <span class="date">{{$q['date_publication']}}</span>
+                                <span class="category">Categoría: {{$q['forum_category_id']}}</span>
                             </div>
                         </td>
                         <td class="responses-col"><a href="">2</a></td>
@@ -35,46 +41,11 @@
                             <div class="user-info">
                                 <img src="../../img/fotoPerfil.png" class="fotoperfil" alt="Andrés López" />
                                 <br>
-                                <span class="name_user">Andrés López</span>
+                                <span class="name_user">USER:{{$q['user_id']}}</span>
                             </div>
                         </td>
                     </tr>
-                    <tr>
-                        <td class="message-col">
-                            <h2>¿Qué pasos debo seguir si me lesiono en un accidente de tráfico y el culpable se da a la fuga?</h2>
-                            <p>Recientemente estuve involucrado en un accidente de tráfico donde el otro conductor se dio a la fuga. Sufrí lesiones y daños en mi vehículo. ¿Cuáles son mis opciones legales en esta situación? ¿Cómo puedo buscar compensación por mis lesiones y los daños a mi propiedad si el culpable no ha sido identificado?</p>
-                            <div class="meta">
-                                <span class="date">30 de marzo, 2024</span>
-                                <span class="category">Categoría: Legal</span>
-                            </div>
-                        </td>
-                        <td class="responses-col"><a href="foro_respuestas.html">2</a></td>
-                        <td class="user-col">
-                            <div class="user-info">
-                                <img src="../../img/fotoPerfil.png" class="fotoperfil" alt="Andrés López" />
-                                <br>
-                                <span class="name_user">Andrés López</span>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class="message-col">
-                            <h2>¿Qué pasos debo seguir si me lesiono en un accidente de tráfico y el culpable se da a la fuga?</h2>
-                            <p>Recientemente estuve involucrado en un accidente de tráfico donde el otro conductor se dio a la fuga. Sufrí lesiones y daños en mi vehículo. ¿Cuáles son mis opciones legales en esta situación? ¿Cómo puedo buscar compensación por mis lesiones y los daños a mi propiedad si el culpable no ha sido identificado?</p>
-                            <div class="meta">
-                                <span class="date">30 de marzo, 2024</span>
-                                <span class="category">Categoría: Legal</span>
-                            </div>
-                        </td>
-                        <td class="responses-col"><a href="">2</a></td>
-                        <td class="user-col">
-                            <div class="user-info">
-                                <img src="../../img/fotoPerfil.png" class="fotoperfil" alt="Andrés López" />
-                                <br>
-                                <span class="name_user">Andrés López</span>
-                            </div>
-                        </td>
-                    </tr>
+                @endforeach
                 </table>
             </div>
             <aside>

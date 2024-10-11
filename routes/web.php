@@ -2,12 +2,8 @@
 
 
 use App\Http\Controllers\AdministratorController;
-<<<<<<< HEAD
-use App\Http\Controllers\AnswerController;
-=======
 use App\Http\Controllers\ConsultingController;
 use App\Http\Controllers\DateController;
->>>>>>> 70b3db247e7408fa9f8238ee49e3373533998619
 use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\ForumCategoryController;
 use App\Http\Controllers\TypeDocumentController;
@@ -299,8 +295,6 @@ Route::get('dates/{date}', [DateController::class, 'show'])->name('api.v1.dates.
 Route::put('dates/{date}', [DateController::class, 'update'])->name('api.v1.dates.update');
 Route::delete('dates/{date}', [DateController::class, 'destroy'])->name('api.v1.dates.delete');
 
-<<<<<<< HEAD
-=======
 Route::get('consultings', [ConsultingController::class, 'index'])->name('api.v1.consultings.index');
 Route::post('consultings', [ConsultingController::class, 'store'])->name('api.v1.consultings.store');
 Route::get('consultings/{consulting}', [ConsultingController::class, 'show'])->name('api.v1.consultings.show');
@@ -325,7 +319,6 @@ Route::get('reviews/{review}', [ReviewController::class, 'show'])->name('reviews
 Route::put('reviews/{review}', [ReviewController::class, 'update'])->name('reviews.update');
 Route::delete('reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.delete');
 
->>>>>>> 70b3db247e7408fa9f8238ee49e3373533998619
 Route::get('notifications', [NotificationController::class, 'index'])->name('api.v1.notifications.index');
 Route::post('notifications', [NotificationController::class, 'store'])->name('api.v1.notifications.store');
 Route::get('notifications/{notification}', [NotificationController::class, 'show'])->name('api.v1.notifications.show');
@@ -338,31 +331,17 @@ Route::get('searchs/{search}', [SearchController::class, 'show'])->name('searchs
 Route::put('searchs/{search}', [SearchController::class, 'update'])->name('searchs.update');
 Route::delete('searchs/{search}', [SearchController::class, 'destroy'])->name('searchs.delete');
 
-<<<<<<< HEAD
-Route::get('answers', [AnswerController::class, 'index'])->name('api.v1.answers.index');
-Route::post('answers', [AnswerController::class, 'store'])->name('api.v1.answers.store');
-Route::get('answers/{answer}', [AnswerController::class, 'show'])->name('api.v1.answers.show');
-Route::put('answers/{answer}', [AnswerController::class, 'update'])->name('api.v1.answers.update');
-Route::delete('answers/{answer}', [AnswerController::class, 'destroy'])->name('api.v1.answers.delete');
+Route::get('overhauls', [OverhaulReviewController::class, 'index'])->name('overhauls.index');
+Route::post('overhauls', [OverhaulReviewController::class, 'store'])->name('seoverhaulsarchs.store');
+Route::get('overhauls/{overhaul}', [OverhaulReviewController::class, 'show'])->name('overhauls.show');
+Route::put('overhauls/{overhaul}', [OverhaulReviewController::class, 'update'])->name('overhauls.update');
+Route::delete('overhauls/{overhaul}', [OverhaulReviewController::class, 'destroy'])->name('overhauls.delete');
 
 Route::get('questions', [QuestionController::class, 'index'])->name('api.v1.questions.index');
 Route::post('questions', [QuestionController::class, 'store'])->name('api.v1.questions.store');
 Route::get('questions/{question}', [QuestionController::class, 'show'])->name('api.v1.questions.show');
 Route::put('questions/{question}', [QuestionController::class, 'update'])->name('api.v1.questions.update');
 Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('api.v1.questions.delete');
-
-Route::get('forumCategories', [ForumCategoryController::class, 'index'])->name('api.v1.forumCategories.index');
-Route::post('forumCategories', [ForumCategoryController::class, 'store'])->name('api.v1.forumCategories.store');
-Route::get('forumCategories/{forumCategory}', [ForumCategoryController::class, 'show'])->name('api.v1.forumCategories.show');
-Route::put('forumCategories/{forumCategory}', [ForumCategoryController::class, 'update'])->name('api.v1.forumCategories.update');
-Route::delete('forumCategories/{forumCategory}', [ForumCategoryController::class, 'destroy'])->name('api.v1.forumCategories.delete');
-=======
-Route::get('overhauls', [OverhaulReviewController::class, 'index'])->name('overhauls.index');
-Route::post('overhauls', [OverhaulReviewController::class, 'store'])->name('seoverhaulsarchs.store');
-Route::get('overhauls/{overhaul}', [OverhaulReviewController::class, 'show'])->name('overhauls.show');
-Route::put('overhauls/{overhaul}', [OverhaulReviewController::class, 'update'])->name('overhauls.update');
-Route::delete('overhauls/{overhaul}', [OverhaulReviewController::class, 'destroy'])->name('overhauls.delete');
->>>>>>> 70b3db247e7408fa9f8238ee49e3373533998619
 
 Route::get('/faqs', function () {
     return view(view: 'faqs.faqs');

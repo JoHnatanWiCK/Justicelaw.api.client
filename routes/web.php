@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\AdministratorController;
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\ConsultingController;
 use App\Http\Controllers\DateController;
 use App\Http\Controllers\DropdownController;
@@ -227,6 +228,11 @@ Route::get('/herramientas', function () {
     return view('herramientas.herramientasAnalisis');
 });
 
+Route::get('/foror', function () {
+    return view('foro.foroRespuestas');
+});
+
+
 Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');
 Route::post('typeDocuments', [TypeDocumentController::class, 'store'])->name('typeDocuments.store');
 Route::get('typeDocuments/{typeDocument}', [TypeDocumentController::class, 'show'])->name('typeDocuments.show');
@@ -343,10 +349,20 @@ Route::get('questions/{question}', [QuestionController::class, 'show'])->name('a
 Route::put('questions/{question}', [QuestionController::class, 'update'])->name('api.v1.questions.update');
 Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('api.v1.questions.delete');
 
+Route::get('answers', [QuestionController::class, 'indexr'])->name('api.v1.answers.index');
+Route::post('answers', [QuestionController::class, 'storer'])->name('api.v1.answers.store');
+Route::get('answers/{answer}', [QuestionController::class, 'showr'])->name('api.v1.answers.show');
+Route::put('answers/{answer}', [QuestionController::class, 'updater'])->name('api.v1.answers.update');
+Route::delete('answers/{answer}', [QuestionController::class, 'destroyr'])->name('api.v1.answers.delete');
+
 Route::get('/faqs', function () {
     return view(view: 'faqs.faqs');
 })->name('faqs');
 
 Route::get('/faqss', function () {
     return view(view: 'faqs.faqs_recurso');
+})->name('faqs_recurso');
+
+Route::get('/nosotros', function () {
+    return view(view: 'sobreNosotros');
 })->name('faqs_recurso');

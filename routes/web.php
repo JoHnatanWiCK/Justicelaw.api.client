@@ -202,6 +202,10 @@ Route::get('/informacionConsumidor', function () {
     return view('informacion.derechoConsumidor');
 })->name('informacionConsumidor');
 
+Route::get('/informacionSeguridadSocial', function () {
+    return view('informacion.seguridadSocial');
+})->name('informacionSeguridadSocial');
+
 Route::get('/terminosCondiciones', function () {
     return view('legal.TerminosCondiciones');
 })->name('terminosCondiciones');
@@ -365,4 +369,4 @@ Route::get('/faqss', function () {
 
 Route::get('/nosotros', function () {
     return view(view: 'sobreNosotros');
-})->name('faqs_recurso');
+})->name('mm');

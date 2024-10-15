@@ -3,20 +3,48 @@ document.addEventListener('DOMContentLoaded', function() {
     const corazones = document.querySelectorAll('.corazon');
 
     corazones.forEach(corazon => {
-        let estadoCorazon = 'vacio'; 
+        let estadoCorazon = 'vacio';
 
         corazon.addEventListener('click', function() {
             if (estadoCorazon === 'vacio') {
                 corazon.src = '../../img/Like2.png';
-                estadoCorazon = 'lleno'; 
+                estadoCorazon = 'lleno';
             } else {
                 corazon.src = '../../img/Like.png';
-                estadoCorazon = 'vacio'; 
+                estadoCorazon = 'vacio';
             }
         });
     });
-    
-    // Manejo de los dropdowns
+
+    // Manejo de los dropdowns con JavaScript
+    const dropdowns = document.querySelectorAll('.user-menu1, .user-menu2');
+
+    dropdowns.forEach(menu => {
+        const toggleButton = menu.querySelector('label');
+        const dropdown = menu.querySelector('.dropdown1, .dropdown2');
+
+        toggleButton.addEventListener('click', function(event) {
+            event.preventDefault();
+            closeAllDropdowns(); // Cerrar todos los demás dropdowns primero
+            dropdown.classList.toggle('active'); // Mostrar/Ocultar el dropdown actual
+        });
+    });
+
+    // Función para cerrar todos los dropdowns
+    function closeAllDropdowns() {
+        document.querySelectorAll('.dropdown1, .dropdown2').forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
+    }
+
+    // Cerrar dropdowns si se hace clic fuera
+    document.addEventListener('click', function(event) {
+        if (!event.target.closest('.user-menu1') && !event.target.closest('.user-menu2')) {
+            closeAllDropdowns();
+        }
+    });
+
+    // Filtrado de notificaciones
     const dropdownItems = document.querySelectorAll('.dropdown1 a');
     const notifications = document.querySelectorAll('.notification');
 
@@ -27,62 +55,6 @@ document.addEventListener('DOMContentLoaded', function() {
             filterNotifications(filter);
         });
     });
-
-    const button = document.querySelector("#aceptar");
-    const toast = document.querySelector(".toast-aceptar");
-    const progress = document.querySelector(".progress");
-
-    let timer1, timer2;
-
-    if (button && toast) {
-
-
-    button.addEventListener("click", () => {
-        toast.classList.add("active");
-        progress.classList.add("active");
-
-
-        timer1 = setTimeout(() => {
-            toast.classList.remove("active");
-
-            window.location.href = window.routes.historial;
-
-
-        }, 5000);
-
-        timer2 = setTimeout(() => {
-            progress.classList.remove("active");
-        }, 5300);
-
-    });}
-
-    const buttonAplazar = document.querySelector("#aplazar");
-    const toastAplazar = document.querySelector(".toast-aplazar");
-    const progres = document.querySelector(".progress");
-
-    let time1, time2;
-
-    if (buttonAplazar && toastAplazar) {
-
-
-    buttonAplazar.addEventListener("click", () => {
-        toastAplazar.classList.add("active");
-        progres.classList.add("active");
-
-
-        time1 = setTimeout(() => {
-            toastAplazar.classList.remove("active");
-
-            window.location.href = window.routes.historial;
-
-
-        }, 5000);
-
-        time2 = setTimeout(() => {
-            progress.classList.remove("active");
-        }, 5300);
-
-    });}
 
     function filterNotifications(filter) {
         notifications.forEach(notification => {
@@ -110,6 +82,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     filterNotifications('todas');
 
+    // Mostrar mensaje de éxito
     function showSuccessMessage(action) {
         const message = document.createElement('div');
         message.classList.add('success-message');
@@ -118,10 +91,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         setTimeout(() => {
             document.body.removeChild(message);
-        }, 3000);  
+        }, 3000);
     }
-    
-    // leido y archivar
+
+    // Marcar todo como leído
     const marcarTodoLeido = document.querySelector('#marcarTodoLeido');
 
     marcarTodoLeido.addEventListener('click', function() {
@@ -131,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
         showSuccessMessage('todas marcadas como leídas');
     });
 
-    
+    // Archivar todo
     document.querySelector('#archivarTodo').addEventListener('click', function() {
         notifications.forEach(notification => {
             notification.classList.remove('unread');
@@ -139,12 +112,12 @@ document.addEventListener('DOMContentLoaded', function() {
         showSuccessMessage('todas archivadas');
     });
 
-    
+    // Navegación
     const navLinks = document.querySelectorAll('.nav-links a');
 
     navLinks.forEach(link => {
         link.addEventListener('click', function(event) {
-            window.location.href = this.href; 
+            window.location.href = this.href;
             event.preventDefault();
         });
     });

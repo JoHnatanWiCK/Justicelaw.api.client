@@ -12,9 +12,12 @@
 
     <h2>Aceptación de los Términos</h2>
     <p>
-        Al acceder o utilizar el sitio web de Justice Law (en adelante, "el Sitio"), acepta cumplir
-         con los siguientes términos y condiciones de servicio (en adelante, "Términos"), así como con todas 
-         las leyes y regulaciones aplicables. Si no está de acuerdo con estos Términos, le solicitamos que no utilice el Sitio.
+        Al acceder, navegar o utilizar cualquier parte del sitio web Justice Law
+        ("el sitio"), o al contratar cualquiera de los servicios legales ofrecidos por Justice Law("nosotros", "nuestro"),
+        usted ("usuario", "cliente") acepta quedar legalmente vinculado a estos Términos y Condiciones del Servicio. Si no está
+        de acuerdo con estos términos, no utilice el sitio ni los servicios proporcionados. Nos reservamos el derecho de modificar estos
+        términos en cualquier momento y sin previo aviso, por lo que le recomendamos revisar esta página periódicamente. Su uso continuado
+        del sitio tras la publicación de cualquier modificación constituye su aceptación de dichas modificaciones.
     </p>
     <h2>Descripción de los Servicios</h2>
     <p>

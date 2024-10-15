@@ -54,7 +54,7 @@
                             </div>
                             <div class="container">
                                 <h4>Normas Comunitarias y Politicas Legales</h4>
-                               <p>Terminos y Condiciones del servicio</p>
+                                <a href="{{route ('terminosCondiciones')}}">Terminos y condiciones</a>
                                 <p>Política de Privacidad</p>
                                 <p>Política de Cookies</p>
                                 <p>Normas Comunitarias</p>

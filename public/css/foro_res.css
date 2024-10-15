@@ -1,43 +1,7 @@
-.pagination {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.pagination .page-link {
-    display: inline-block;
-    padding: 8px 12px;
-    font-size: 14px;
-    color: #333;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-
-.pagination .page-link:hover {
-    background-color: #f2f2f2;
-}
-
-.pagination .page-item.active .page-link {
-    background-color: #333;
-    color: white;
-}
-
-.pagination .page-link svg,
-.pagination .page-link i {
-    width: 16px;
-    height: 16px;
-    display: inline-block;
-    vertical-align: middle;
-}
-
-
 body {
     margin: 0;
     padding: 0;
     background-color: #f5f5f5;
-    font-family: "Faustina", serif;
-
 }
 
 header {
@@ -287,17 +251,13 @@ span {
     color: #003049;
 }
 
-.meta .category {
-    padding-left: 250px;
-}
+
 
 .category {
     font-size: 13px;
 }
 
-.date {
-    font-size: 13px;
-}
+
 
 footer {
     background-color: #000000;
@@ -326,24 +286,58 @@ footer .footer-content .social-media a {
     text-decoration: none;
     font-size: 1.2em;
 }
-
-
-
-table {
-    font-family: 'Faustina', serif;
+.avatar {
+width: 50px;
+height: 50px;
+border-radius: 50%;
+margin-right: 10px;
 }
 
-body {
-    font-family: 'Faustina', serif;
-}
-* {
-    font-family: 'Faustina', serif !important;
+
+
+.post-header, .response-header {
+display: flex;
+align-items: center;
+margin-bottom: 10px;
 }
 
+.date-1{
+font-size: 13px;
+}
+
+.response-container {
+display: flex;
+align-items: center;
+justify-content: space-between;
+border: 1px solid #ddd;
+padding: 10px;
+border-radius: 5px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+width: 100%;
+margin-top: 20px;
+max-width: 100%;
+height: 150px;
+}
+.response-container textarea {
+width: 100%;
+border: none;
+resize: none;
+outline: none;
+padding: 10px;
+font-size: 1em;
+}
+.response-container button {
+background-color: #003049;
+color: white;
+border: none;
+padding: 10px 20px;
+border-radius: 25px;
+cursor: pointer;
+font-size: 1em;
+}
 
 .res{
-    margin-top: 7%;
-    margin-bottom: 7%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 
 }
-

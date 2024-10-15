@@ -2,15 +2,18 @@
 
 
 use App\Http\Controllers\AdministratorController;
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\ConsultingController;
 use App\Http\Controllers\DateController;
 use App\Http\Controllers\DropdownController;
+use App\Http\Controllers\ForumCategoryController;
 use App\Http\Controllers\TypeDocumentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\LawyerController;
 use App\Http\Controllers\LawyerProfileController;
 use App\Http\Controllers\NotificationController;
+use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\SearchController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\VerificationLawyerController;
@@ -199,11 +202,25 @@ Route::get('/informacionConsumidor', function () {
     return view('informacion.derechoConsumidor');
 })->name('informacionConsumidor');
 
+Route::get('/informacionSeguridadSocial', function () {
+    return view('informacion.seguridadSocial');
+})->name('informacionSeguridadSocial');
+
+Route::get('/informacionSST',function(){
+    return view('informacion.seguridadSaludTrabajo');
+})->name('SST');
+
 Route::get('/terminosCondiciones', function () {
     return view('legal.TerminosCondiciones');
 })->name('terminosCondiciones');
 
-Route::get('/privacidad', function () {
+
+Route::get('/answer', function () {
+    return view('answer');
+})->name('answer');
+
+
+Route::get('/privacidad', function (){
     return view('legal.privacidad');
 });
 
@@ -219,7 +236,12 @@ Route::get('/herramientas', function () {
     return view('herramientas.herramientasAnalisis');
 });
 
-Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');
+Route::get('/foror', function () {
+    return view('foro.foroRespuestas');
+});
+
+
+Route::get('', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');
 Route::post('typeDocuments', [TypeDocumentController::class, 'store'])->name('typeDocuments.store');
 Route::get('typeDocuments/{typeDocument}', [TypeDocumentController::class, 'show'])->name('typeDocuments.show');
 Route::put('typeDocuments/{typeDocument}', [TypeDocumentController::class, 'update'])->name('typeDocuments.update');
@@ -329,6 +351,18 @@ Route::get('overhauls/{overhaul}', [OverhaulReviewController::class, 'show'])->n
 Route::put('overhauls/{overhaul}', [OverhaulReviewController::class, 'update'])->name('overhauls.update');
 Route::delete('overhauls/{overhaul}', [OverhaulReviewController::class, 'destroy'])->name('overhauls.delete');
 
+Route::get('questions', [QuestionController::class, 'index'])->name('api.v1.questions.index');
+Route::post('questions', [QuestionController::class, 'store'])->name('api.v1.questions.store');
+Route::get('questions/{question}', [QuestionController::class, 'show'])->name('api.v1.questions.show');
+Route::put('questions/{question}', [QuestionController::class, 'update'])->name('api.v1.questions.update');
+Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('api.v1.questions.delete');
+
+Route::get('answers', [QuestionController::class, 'indexr'])->name('api.v1.answers.index');
+Route::post('answers', [QuestionController::class, 'storer'])->name('api.v1.answers.store');
+Route::get('answers/{answer}', [QuestionController::class, 'showr'])->name('api.v1.answers.show');
+Route::put('answers/{answer}', [QuestionController::class, 'updater'])->name('api.v1.answers.update');
+Route::delete('answers/{answer}', [QuestionController::class, 'destroyr'])->name('api.v1.answers.delete');
+
 Route::get('/faqs', function () {
     return view(view: 'faqs.faqs');
 })->name('faqs');
@@ -336,3 +370,7 @@ Route::get('/faqs', function () {
 Route::get('/faqss', function () {
     return view(view: 'faqs.faqs_recurso');
 })->name('faqs_recurso');
+
+Route::get('/nosotros', function () {
+    return view(view: 'sobreNosotros');
+})->name('mm');

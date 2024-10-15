@@ -84,16 +84,39 @@ hr {
     width: 100%;
 }
 
+.notifications-list {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+}
+
 .notification {
     display: flex;
-    align-items: center;
+    align-items: center; 
+    
     margin-bottom: 20px;
-    width: 100%;
     padding: 10px;
     border: 1px solid #ddd;
     border-radius: 20px;
     background-color: #f9f9f9;
+    width: 100%; 
+    
 }
+
+.container2 {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    width: 100%;
+}
+
+.notification a {
+    flex-grow: 1; 
+    text-align: center; 
+    margin: 0;
+    
+}
+
 
 .notifications-d {
     display: flex;
@@ -116,9 +139,10 @@ hr {
     display: inline-block;
     position:absolute ;
     align-items: center;
+    margin: 0;
 }
 
-.user-menu2 .dropdown2 {
+.dropdown1, .dropdown2 {
     display: none;
     position: absolute;
     top: 100%;
@@ -131,30 +155,10 @@ hr {
     z-index: 10;
 }
 
-.user-menu2 input[type="checkbox"]:checked + label + .dropdown2 {
-    display: absolute;
-}
-
-.user-menu1 .dropdown1 {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: #fff;
-    border: 1px solid #ccc;
-    width: 150px;
-    box-shadow: 0 0 10px black;
-    border-radius: 10px;
-    z-index: 10;
-}
-
-.user-menu1 .dropdown-checkbox1:checked + label + .dropdown1, .user-menu2 .dropdown-checkbox2:checked + label + .dropdown2 {
+.dropdown1.active, .dropdown2.active {
     display: block;
 }
 
-.dropdown-checkbox1, .dropdown-checkbox2 {
-    display: none;
-}
 
 .dropdown1 ul, .dropdown2 ul {
     list-style: none;
@@ -174,17 +178,17 @@ hr {
     font-weight: 500;
 }
 
+
 .container2 a {
-    margin-left: 10px;
-    margin-right: 40px;
-    text-decoration: none;
+    flex-grow: 1; 
     color: #000;
-    flex: 1;
+    text-decoration: none;
 }
 
 .container2 .corazon {
     margin-right: 10px;
     height: 20px;
+    vertical-align: middle;
 }
 
 .notifications-actions {
@@ -206,11 +210,12 @@ hr {
 }
 
 .img-flecha {
+    margin-top: 10px;
     cursor: pointer;
     height: 20px;
 }
 .notification .user-menu2 .img-3puntos {
-    margin-left: auto;
+    margin-top: 8px;
     height: 20px;
     cursor: pointer;
 }
@@ -219,10 +224,12 @@ hr {
     width: 35px;
     height: 35px;
     border-image: none;
+    margin-right: 10px;
+    vertical-align:middle
 }
 
 /* mas grandes */
-@media (min-width: 1200px) {
+@media (max-width: 1200px) {
     .container {
         width: 80%;
         max-width: 1200px;

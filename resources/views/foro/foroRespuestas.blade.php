@@ -129,6 +129,6 @@
         @endsection
 
         @push('styles')
-        <link rel="stylesheet" href="css/foro.css">
+        <link rel="stylesheet" href="css/foro_res.css">
         @endpush
 

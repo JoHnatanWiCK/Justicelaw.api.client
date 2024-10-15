@@ -10,63 +10,70 @@
 
       <div class="container">
         <div class="news-column">
-          <h2 class="titulo-informacion">Seguridad Social</h2>
+          <h2 class="titulo-informacion">Seguridad y Salud en el Trabajo (SST)</h2>
           <span>14 agosto 2024</span>
           <span class="categoria">Categoria: Laboral y de Empleo</span>
 
           <div class="informacion-contenido">
             <img
-              src="../../img/seguridadSocial.jpg"
-              alt="seguridadSocial"
+              src="../../img/SST.jpg"
+              alt="seguridadSaludTrabajo"
               class="imagen-arriba-derecha"
             />
             <p>
-                El Derecho de la Seguridad Social es una rama del derecho público que se encarga
-                de regular la protección social de los trabajadores y sus familias frente a ciertos
-                riesgos que afectan su estabilidad económica y social. Estos riesgos incluyen enfermedades,
-                accidentes, desempleo, maternidad, invalidez, vejez y muerte. En esencia, la Seguridad Social
-                garantiza que las personas puedan contar con prestaciones que les aseguren un nivel de vida
-                digno cuando no puedan trabajar o se encuentren en situaciones de vulnerabilidad.
+                El Derecho de la Seguridad y Salud en el Trabajo (SST) es una rama del derecho laboral que
+                se ocupa de establecer y regular las medidas necesarias para proteger a los trabajadores
+                frente a los riesgos derivados de su actividad laboral. Su objetivo principal es garantizar
+                un entorno de trabajo seguro y saludable, minimizando la ocurrencia de accidentes y enfermedades
+                profesionales.
+                <br>
+                El ámbito de la SST es crucial, ya que promueve un clima laboral óptimo y mejora la
+                productividad al reducir el ausentismo y mejorar la moral del trabajador. Este conjunto de normas no
+                solo protege al trabajador, sino que también beneficia al empleador, ya que el bienestar de los empleados
+                está directamente vinculado al rendimiento y sostenibilidad de la empresa.
             </p>
 
-            <h3>Consepto y Objetivo</h3>
+            <h3>Concepto y Objetivos de la Seguridad y Salud en el Trabajo</h3>
 
             <p>
-                El Derecho de la Seguridad Social se centra en la protección integral del trabajador
-                y sus beneficiarios, proporcionando asistencia económica y acceso a servicios de salud
-                en determinadas situaciones. Su objetivo es promover el bienestar general y prevenir que
-                las personas caigan en la pobreza debido a contingencias laborales o personales.
-
-                La Seguridad Social también busca redistribuir la riqueza, pues su financiamiento
-                se basa en un sistema de contribuciones donde las personas en actividad laboral
-                contribuyen para sostener a aquellos que no pueden trabajar, ya sea temporal o
-                permanentemente.
-
+                El concepto de Seguridad y Salud en el Trabajo se refiere a todas las políticas
+                normativas, procedimientos y actividades que tienen como fin la prevención de riesgos
+                laborales y la promoción de la salud en el entorno laboral. Este ámbito del derecho busca
+                proteger la integridad física y mental de los empleados, prevenir los accidentes de trabajo
+                y evitar el desarrollo de enfermedades profesionales.
+            </p>
+            <p>
+                <strong>Los principales objetivos de la SST son:</strong>
+                <li><strong>Prevenir accidentes y enfermedades laborales: </strong> Identificando y minimizando los riesgos laborales.</li>
+                <li><strong>Garantizar condiciones laborales seguras: </strong> Fomentando el uso de equipos de protección personal (EPP) y manteniendo las instalaciones en condiciones óptimas.</li>
+                <li><strong>Cumplir con las normativas vigentes: </strong> Asegurando que las empresas cumplan con las leyes y reglamentos establecidos en materia de SST.</li>
+                <li><strong>Fomentar una cultura de seguridad:</strong> Sensibilizando a trabajadores y empleadores sobre la importancia de seguir buenas prácticas de seguridad.</li>
+            </p>
                 <h3>Principios Fundamentales</h3>
-                <p>El Derecho de la Seguridad Social se basa en varios principios clave:
+                <p>La Seguridad y Salud en el Trabajo se rige por una serie de principios que guían su aplicación:
 
-                    <li><strong>Universalidad: </strong> Toda persona tiene derecho a acceder al sistema de Seguridad Social, sin importar su
-                         situación laboral.</li>
-                         <br>
-                    <li><strong>Solidaridad: </strong>Los recursos para financiar el sistema provienen de contribuciones obligatorias de
-                        trabajadores y empleadores, basándose en la idea de que los más capaces de contribuir ayudan a
-                        quienes lo necesitan.</li>
-                        <br>
-                        <li><strong>Igualdad: </strong>Todos los asegurados deben recibir el mismo trato en cuanto al acceso y calidad de las
-                            prestaciones.</li>
+                    <li><strong>Prevención: </strong> El principio rector es la prevención de riesgos, es decir, evitar que los accidentes y enfermedades ocurran, a través de la identificación y
+                        control de los factores de riesgo.</li>
+                    <li><strong>Participación: </strong>Involucrar a empleadores y trabajadores en la creación y ejecución de medidas preventivas. Todos en el lugar de trabajo tienen un rol
+                        activo en la seguridad.</li>
+                        <li><strong>Responsabilidad del empleador: </strong>El empleador tiene la obligación legal de proporcionar un ambiente de trabajo seguro y de tomar las medidas necesarias
+                            para proteger a sus empleados.</li>
                             <br>
-                        <li><strong>Suficiencia: </strong>Las prestaciones deben ser adecuadas para cubrir las necesidades básicas del beneficiario.</li>
+                        <li><strong>Derecho a la información: </strong>Los trabajadores tienen derecho a ser informados sobre los riesgos a los que están expuestos y sobre las
+                            medidas para prevenirlos.</li>
                         <br>
-                        <li><strong>Responsabilidad Estatal: </strong> El Estado garantiza y supervisa el adecuado funcionamiento del sistema de Seguridad Social.</li>
+                        <li><strong>Derecho a la salud: </strong> ELos empleados tienen derecho a acceder a medidas que protejan su salud física y mental en el lugar de trabajo.</li>
+                        <li><strong>Indemnización: </strong> En caso de accidentes laborales o enfermedades profesionales, los trabajadores tienen derecho a recibir compensación
+                            o asistencia médica</li>
                 </p>
 
-            <h3>Cobertura y Beneficiarios</h3>
+            <h3>Ámbito de Aplicación y Cobertura</h3>
             <p>
-                El sistema de Seguridad Social está diseñado para cubrir una serie de riesgos o contingencias que afectan la capacidad de las personas para generar ingresos.
-                Los principales riesgos cubiertos son:
-                <li><strong>Enfermedad: </strong>Prestaciones médicas y económicas en caso de incapacidad temporal o permanente derivada de una enfermedad común.</li>
+                La SST aplica a todos los sectores económicos y tipos de empleo, desde trabajos industriales y de construcción hasta empleos en oficinas o trabajo remoto.
+                Algunas áreas específicas donde se presta atención a la SST son:
+                <li><strong>Industria manufacturera:  </strong>Uso de maquinaria pesada y exposición a sustancias químicas.</li>
                 <br>
-                <li><strong>Maternidad: </strong>Protección económica y médica a la trabajadora durante el embarazo, parto y posparto.</li>
+                <li><strong>Construcción: </strong>Altos riesgos de caídas, uso de equipos peligrosos y trabajos en alturas.</li>
                 <br>
                 <li><strong>Invalidez: </strong>Protección en caso de que el trabajador sufra una incapacidad física o mental que le impida continuar trabajando.</li>
                 <br>

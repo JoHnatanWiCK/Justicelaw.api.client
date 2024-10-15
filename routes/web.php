@@ -206,6 +206,10 @@ Route::get('/informacionSeguridadSocial', function () {
     return view('informacion.seguridadSocial');
 })->name('informacionSeguridadSocial');
 
+Route::get('/informacionSST',function(){
+    return view('informacion.seguridadSaludTrabajo');
+})->name('SST');
+
 Route::get('/terminosCondiciones', function () {
     return view('legal.TerminosCondiciones');
 })->name('terminosCondiciones');
@@ -237,7 +241,7 @@ Route::get('/foror', function () {
 });
 
 
-Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');
+Route::get('', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');
 Route::post('typeDocuments', [TypeDocumentController::class, 'store'])->name('typeDocuments.store');
 Route::get('typeDocuments/{typeDocument}', [TypeDocumentController::class, 'show'])->name('typeDocuments.show');
 Route::put('typeDocuments/{typeDocument}', [TypeDocumentController::class, 'update'])->name('typeDocuments.update');

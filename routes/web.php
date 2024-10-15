@@ -241,7 +241,7 @@ Route::get('/foror', function () {
 });
 
 
-Route::get('', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');
+Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');
 Route::post('typeDocuments', [TypeDocumentController::class, 'store'])->name('typeDocuments.store');
 Route::get('typeDocuments/{typeDocument}', [TypeDocumentController::class, 'show'])->name('typeDocuments.show');
 Route::put('typeDocuments/{typeDocument}', [TypeDocumentController::class, 'update'])->name('typeDocuments.update');

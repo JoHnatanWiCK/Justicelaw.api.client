@@ -118,7 +118,7 @@ hr {
     align-items: center;
 }
 
-.user-menu2 .dropdown2 {
+.dropdown1, .dropdown2 {
     display: none;
     position: absolute;
     top: 100%;
@@ -131,30 +131,10 @@ hr {
     z-index: 10;
 }
 
-.user-menu2 input[type="checkbox"]:checked + label + .dropdown2 {
-    display: absolute;
-}
-
-.user-menu1 .dropdown1 {
-    display: none;
-    position: absolute;
-    top: 100%;
-    right: 0;
-    background: #fff;
-    border: 1px solid #ccc;
-    width: 150px;
-    box-shadow: 0 0 10px black;
-    border-radius: 10px;
-    z-index: 10;
-}
-
-.user-menu1 .dropdown-checkbox1:checked + label + .dropdown1, .user-menu2 .dropdown-checkbox2:checked + label + .dropdown2 {
+.dropdown1.active, .dropdown2.active {
     display: block;
 }
 
-.dropdown-checkbox1, .dropdown-checkbox2 {
-    display: none;
-}
 
 .dropdown1 ul, .dropdown2 ul {
     list-style: none;
@@ -206,11 +186,12 @@ hr {
 }
 
 .img-flecha {
+    margin-top: 10px;
     cursor: pointer;
     height: 20px;
 }
 .notification .user-menu2 .img-3puntos {
-    margin-left: auto;
+    margin-top: 14px;
     height: 20px;
     cursor: pointer;
 }

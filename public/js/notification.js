@@ -112,6 +112,85 @@ document.addEventListener('DOMContentLoaded', function() {
         showSuccessMessage('todas archivadas');
     });
 
+    const marcarTodoLeidoButton = document.querySelector("#marcarTodoLeido");
+    const archivarTodoButton = document.querySelector("#archivarTodo");
+    const toast = document.querySelector(".toast");
+    const progress = document.querySelector(".progress");
+    const toastMessage = document.querySelector("#toastMessage"); 
+
+    let timer1, timer2;
+
+    const showToast = (actionMessage, completionMessage) => {
+        toastMessage.textContent = actionMessage; 
+        toast.classList.add("active");
+        progress.classList.add("active");
+
+       
+        timer1 = setTimeout(() => {
+            toastMessage.textContent = completionMessage; 
+        }, 3000); 
+
+        
+        timer2 = setTimeout(() => {
+            toast.classList.remove("active");
+            progress.classList.remove("active");
+        }, 5000); 
+    };
+
+    if (marcarTodoLeidoButton) {
+        marcarTodoLeidoButton.addEventListener("click", () => {
+            showToast( "¡Acción completada!", "¡Todo marcado como leído!"); 
+        });
+    }
+
+    if (archivarTodoButton) {
+        archivarTodoButton.addEventListener("click", () => {
+            showToast( "¡Acción completada!", "¡Todo archivado correctamente!"); 
+        });
+    }
+
+    //toast notification lawyer
+    const aceptarButton = document.querySelector("#aceptar");
+    const aplazarButton = document.querySelector("#aplazar");
+    const toast1 = document.querySelector(".toast");
+    const progress1 = document.querySelector(".progress");
+    const toastMessage1 = document.querySelector("#toastMessage"); 
+
+    let timer11, timer21;
+
+    const showToast1 = (actionMessage, completionMessage) => {
+        toastMessage1.textContent = actionMessage; 
+        toast1.classList.add("active");
+        progress1.classList.add("active");
+
+        
+        timer11 = setTimeout(() => {
+            toastMessage1.textContent = completionMessage; 
+        }, 3000); 
+
+        
+        timer21 = setTimeout(() => {
+            toast1.classList.remove("active");
+            progress1.classList.remove("active");
+        }, 5000); 
+    };
+
+    if (aceptarButton) {
+        aceptarButton.addEventListener("click", (event) => {
+            event.preventDefault(); 
+            showToast1("¡Asesoría aceptada!", "¡Acción completada!"); 
+        });
+    }
+
+    if (aplazarButton) {
+        aplazarButton.addEventListener("click", (event) => {
+            event.preventDefault(); 
+            showToast1("¡Asesoría aplazada!", "¡Acción completada!"); 
+        });
+    }
+
+
+
     // Navegación
     const navLinks = document.querySelectorAll('.nav-links a');
 

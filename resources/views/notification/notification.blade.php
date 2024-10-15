@@ -125,6 +125,16 @@
             <button id="marcarTodoLeido">Marcar todo como leído</button>
             <button id="archivarTodo">Archivar todo</button>
         </div>    
+        <div class="toast">
+            <div class="toast-content">
+                <img src="../../img/check.png"  class="check" alt="check">
+                <div class="message">
+                    <div class="text" id="toastMessage">¡Acción completada!</div>
+                </div>
+            </div>
+            <i class="fa-solid fa-xmark close"></i>
+            <div class="progress"></div>
+        </div>
     </div>
 </section>
 @endsection

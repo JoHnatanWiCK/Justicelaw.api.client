@@ -102,39 +102,19 @@
       </div>
 
     </div>
-  </section>
-</section>
-
-    <div class="toast-aceptar">
+    <div class="toast">
         <div class="toast-content">
             <img src="../../img/check.png"  class="check" alt="check">
             <div class="message">
-                <span class="text text-1">Aceptado</span>
-                <span class="text text-2">¡Agendado exitosamente!</span>
+                <div class="text" id="toastMessage">¡Acción completada!</div>
             </div>
         </div>
         <i class="fa-solid fa-xmark close"></i>
         <div class="progress"></div>
     </div>
+  </section>
+</section>
 
-    <script>
-        window.routes = {
-            perfilCreado: "{{ route('perfilCreado') }}",
-            crearPerfil: "{{ route('crearPerfil') }}"
-        };
-    </script>
-
-<div class="toast-aplazar">
-    <div class="toast-content">
-        <img src="../../img/check.png"  class="check" alt="check">
-        <div class="message">
-            <span class="text text-1">Datos Guardados</span>
-            <span class="text text-2">¡Aplazado!</span>
-        </div>
-    </div>
-    <i class="fa-solid fa-xmark close"></i>
-    <div class="progress"></div>
-</div>
 
 <script>
     window.routes = {

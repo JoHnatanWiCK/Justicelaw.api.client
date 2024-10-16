@@ -9,8 +9,11 @@
 <section class="content">
     <div class="container">
         <div class="calendar">
-            <h1 id="monthName">Calendario</h1> 
+            <h1 id="monthName">Calendario</h1>
             <div class="months">
+                <div id="prevMonthBtn" class="navigation">
+                    <button>&lt;</button>
+                </div>
                 <div>Enero</div>
                 <div>Febrero</div>
                 <div>Marzo</div>
@@ -18,16 +21,19 @@
                 <div>Mayo</div>
                 <div>Junio</div>
                 <div>Julio</div>
+                <div id="nextMonthBtn" class="navigation">
+                    <button>&gt;</button>
+                </div>
             </div>
             <div class="days">
-                <div class="navigation">
-                    <button id="prevBtn">&lt;</button> 
+                <div class="navigation-days">
+                    <button class="prevBtn" id="prevBtn">&lt;</button> 
                 </div>
-                <div class="navigation">
-                    <button id="nextBtn">&gt;</button> 
+                <div class="navigation-days">
+                    <button class="nextBtn" id="nextBtn">&gt;</button> 
                 </div>
             </div>
-            <div class="schedule">
+            <div class="schedule" id="scheduleArea">
                 <div class="hours">
                     <div>10:00</div>
                     <div>11:00</div>
@@ -40,9 +46,9 @@
                     <div>18:00</div>
                 </div>
                 <div class="events">
-                    <div class="event time"></div>
-                    <div class="event task"></div>
-                    <div class="event last"></div>
+                    <div class="event time" id="event1" style="top: 10%;">Asesoría familiar con Mariana Santos</div>
+                    <div class="event task" id="event2" style="top: 30%;">Asesoría legal con Mariana Santos</div>
+                    <div class="event last" style="top: 50%;"></div>
                 </div>
             </div>
         </div>
@@ -70,7 +76,28 @@
             </div>
         </div>
     </div>
+
+    <!-- Modal -->
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Disponibilidad de asesoría</h2>
+            <p>Jueves, 11 abril</p>
+            <p>12:00pm - 1:00pm</p>
+            <button>Aceptar nueva disponibilidad</button>
+            <label>
+                Notificar
+                <select>
+                    <option>5 minutos antes</option>
+                    <option>10 minutos antes</option>
+                    <option>15 minutos antes</option>
+                </select>
+            </label>
+            <button>Guardar</button>
+        </div>
+    </div>
 </section>
+
 
 @endsection
 

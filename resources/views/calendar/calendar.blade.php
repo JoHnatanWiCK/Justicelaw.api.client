@@ -77,7 +77,6 @@
         </div>
     </div>
 
-    <!-- Modal -->
     <div id="modal" class="modal" style="display: none;">
         <div class="modal-content">
             <span class="close">&times;</span>

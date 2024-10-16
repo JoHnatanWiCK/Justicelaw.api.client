@@ -43,6 +43,11 @@
 
 
     <section class="carrusel">
+        <div class="carousel-header">
+            <h1 class="carousel-title">Descubre Nuestras Informaciones</h1>
+            <p class="carousel-description">Explora una variedad de temas legales que te ayudarán a tomar decisiones informadas. Navega entre nuestras guías y descubre más sobre tus derechos.</p>
+        </div>
+        
         <div class="card-container">
             <div class="card">
                 <img src="../../img/Divorcio.jpg" alt="Noticia 1">

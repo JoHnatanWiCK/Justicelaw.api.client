@@ -151,7 +151,7 @@ Route::get('/configadmincont', function () {
 
 Route::get('/calendar', function () {
     return view('calendar.calendar');
-})->name('calendar'); // Asigna el nombre calendar.calendar
+})->name('calendar'); 
 
 
 Route::get('/perfilabogado', function () {
@@ -222,19 +222,19 @@ Route::get('/answer', function () {
 
 Route::get('/privacidad', function (){
     return view('legal.privacidad');
-});
+})->name('politicaPrivacidad');;
 
 Route::get('/terminosUso', function () {
     return view('legal.terminos');
-});
+})->name('terminosUso');;
 
 Route::get('/cookies', function () {
     return view('legal.cookies');
-});
+})->name('cookies');;
 
 Route::get('/herramientas', function () {
     return view('herramientas.herramientasAnalisis');
-});
+})->name('herramientasAnalisis');;
 
 Route::get('/foror', function () {
     return view('foro.foroRespuestas');

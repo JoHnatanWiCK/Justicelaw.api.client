@@ -68,3 +68,5 @@ var TrandingSlider = new Swiper('.tranding-slider', {
     window.location.href = this.href;
 });
 
+
+

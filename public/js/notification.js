@@ -84,14 +84,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mostrar mensaje de éxito
     function showSuccessMessage(action) {
-        const message = document.createElement('div');
-        message.classList.add('success-message');
-        message.innerText = `Notificación ${action} con éxito`;
-        document.body.appendChild(message);
+        const toastMessage = document.querySelector('#toastMessage');
+        const toast = document.querySelector('.toast');
+        const progress = document.querySelector('.progress');
+
+        toastMessage.textContent = `Notificación ${action} con éxito`;
+        toast.classList.add('active');
+        progress.classList.add('active');
 
         setTimeout(() => {
-            document.body.removeChild(message);
-        }, 3000);
+            toast.classList.remove('active');
+            progress.classList.remove('active');
+        }, 3000); // Ocultar el toast después de 3 segundos
     }
 
     // Marcar todo como leído
@@ -105,14 +109,43 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Archivar todo
-    document.querySelector('#archivarTodo').addEventListener('click', function() {
+    const archivarTodo = document.querySelector('#archivarTodo');
+    archivarTodo.addEventListener('click', function() {
         notifications.forEach(notification => {
-            notification.classList.remove('unread');
+            notification.style.display = 'none';
         });
         showSuccessMessage('todas archivadas');
     });
 
-    // Navegación
+    // Manejo de las opciones individuales de las notificaciones
+    notifications.forEach(notificacion => {
+        const marcarLeido = notificacion.querySelector('a[href="m-leido"]');
+        const archivar = notificacion.querySelector('a[href="archivar"]');
+        const eliminar = notificacion.querySelector('a[href="eliminar"]');
+
+        // Marcar como leído
+        marcarLeido.addEventListener('click', function(event) {
+            event.preventDefault();
+            notificacion.classList.remove('unread');
+            showSuccessMessage('marcada como leída');
+        });
+
+        // Archivar notificación
+        archivar.addEventListener('click', function(event) {
+            event.preventDefault();
+            notificacion.style.display = 'none';
+            showSuccessMessage('archivada');
+        });
+
+        // Eliminar notificación
+        eliminar.addEventListener('click', function(event) {
+            event.preventDefault();
+            notificacion.remove();
+            showSuccessMessage('eliminada');
+        });
+    });
+
+    // Navegación en los links del sidebar (si es necesario)
     const navLinks = document.querySelectorAll('.nav-links a');
 
     navLinks.forEach(link => {

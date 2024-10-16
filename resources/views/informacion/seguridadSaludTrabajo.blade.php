@@ -44,14 +44,16 @@
             </p>
             <p>
                 <strong>Los principales objetivos de la SST son:</strong>
+                <ul>
                 <li><strong>Prevenir accidentes y enfermedades laborales: </strong> Identificando y minimizando los riesgos laborales.</li>
                 <li><strong>Garantizar condiciones laborales seguras: </strong> Fomentando el uso de equipos de protección personal (EPP) y manteniendo las instalaciones en condiciones óptimas.</li>
                 <li><strong>Cumplir con las normativas vigentes: </strong> Asegurando que las empresas cumplan con las leyes y reglamentos establecidos en materia de SST.</li>
                 <li><strong>Fomentar una cultura de seguridad:</strong> Sensibilizando a trabajadores y empleadores sobre la importancia de seguir buenas prácticas de seguridad.</li>
+              </ul>
             </p>
                 <h3>Principios Fundamentales</h3>
                 <p>La Seguridad y Salud en el Trabajo se rige por una serie de principios que guían su aplicación:
-
+                  <ul>
                     <li><strong>Prevención: </strong> El principio rector es la prevención de riesgos, es decir, evitar que los accidentes y enfermedades ocurran, a través de la identificación y
                         control de los factores de riesgo.</li>
                     <li><strong>Participación: </strong>Involucrar a empleadores y trabajadores en la creación y ejecución de medidas preventivas. Todos en el lugar de trabajo tienen un rol
@@ -65,87 +67,89 @@
                         <li><strong>Derecho a la salud: </strong> ELos empleados tienen derecho a acceder a medidas que protejan su salud física y mental en el lugar de trabajo.</li>
                         <li><strong>Indemnización: </strong> En caso de accidentes laborales o enfermedades profesionales, los trabajadores tienen derecho a recibir compensación
                             o asistencia médica</li>
+                          </ul>
                 </p>
 
             <h3>Ámbito de Aplicación y Cobertura</h3>
             <p>
                 La SST aplica a todos los sectores económicos y tipos de empleo, desde trabajos industriales y de construcción hasta empleos en oficinas o trabajo remoto.
                 Algunas áreas específicas donde se presta atención a la SST son:
+                <ul>
                 <li><strong>Industria manufacturera:  </strong>Uso de maquinaria pesada y exposición a sustancias químicas.</li>
                 <br>
                 <li><strong>Construcción: </strong>Altos riesgos de caídas, uso de equipos peligrosos y trabajos en alturas.</li>
                 <br>
-                <li><strong>Invalidez: </strong>Protección en caso de que el trabajador sufra una incapacidad física o mental que le impida continuar trabajando.</li>
+                <li><strong>Sector servicios</strong>Estrés laboral, ergonomía en trabajos de oficina.</li>
                 <br>
-                <li><strong>Vejez: </strong>Prestaciones que aseguran una pensión durante la jubilación, una vez que el trabajador cumple con los requisitos de edad y contribuciones.</li>
+                <li><strong>Trabajo agrario: </strong>Exposición a productos químicos y riesgos por maquinaria agrícola.</li>
                 <br>
-                <li><strong>Accidentes de Trabajo y Enfermedades Profesionales: </strong>Asistencia médica y económica para quienes sufren accidentes o desarrollan enfermedades derivadas de su actividad laboral.</li>
-                <br>
-                <li><strong>Desempleo: </strong>Subsidios o ayudas para personas que han perdido su empleo involuntariamente y cumplen con los requisitos establecidos.</li>
-                <br>
-                <li><strong>Muerte: </strong>Prestaciones a favor de los familiares o dependientes del trabajador fallecido.</li>
-                <br>
-                Los beneficiarios de estas prestaciones incluyen no solo al trabajador asegurado, sino también a sus familiares directos (cónyuge, hijos, dependientes), quienes pueden recibir cobertura médica,
+                <li><strong>Transporte: </strong>Riesgos asociados con accidentes de tráfico, fatiga y largas jornadas laborales.</li>
+                
+              </ul>
+                Los beneficiarios de estas prestaciones incluyen no solo al trabajador asegurado, sino también a sus familiares directos
+                 (cónyuge, hijos, dependientes), quienes pueden recibir cobertura médica,
                 pensiones o subsidios en caso de muerte del titular o en otras circunstancias.
             </p>
-
-            <h3>Financiamiento de la Seguridad Social</h3>
-            <p>
-                El sistema de Seguridad Social se financia a través de contribuciones obligatorias que recaen
-                sobre los trabajadores y empleadores. Estas contribuciones se realizan mediante deducciones
-                salariales y pagos patronales que son administrados por las entidades de Seguridad Social del Estado.
-                <br>
-                En muchos países, el sistema puede complementarse con fondos estatales, especialmente para
-                cubrir déficits o financiar programas especiales de asistencia social para personas que no
-                tienen capacidad contributiva (como los desempleados de larga duración, ancianos sin pensiones, etc.).
-            </p>
     
-            <h3>Prestaciones del Sistema de Seguridad Social</h3>
-            <p>Las prestaciones proporcionadas por el sistema de Seguridad Social pueden ser de dos tipos:
-                en especie y en dinero.
-            <li><strong>Prestaciones en especie: </strong>Estas incluyen la atención médica, los tratamientos, medicamentos, hospitalizaciones y cualquier
-                otro servicio relacionado con la salud.</li>
+            <h3>Accidentes de Trabajo y Enfermedades Profesionales</h3>
+            <p>La legislación en materia de SST clasifica los riesgos laborales en dos grandes categorías:
+              <ul>
+            <li><strong>Accidentes de Trabajo: </strong>Se refiere a cualquier evento inesperado que ocurra en el curso del trabajo y que provoque
+              una lesión o daño al trabajador.
+              Ejemplos incluyen caídas, cortes con herramientas, o accidentes con maquinaria.</li>
                 <br>
-                <li><strong>Prestaciones en dinero: </strong>Son pagos directos que el beneficiario recibe, como pensiones, subsidios por desempleo, incapacidad
-                    temporal o permanente, subsidios por maternidad, entre otros.</li>
+                <li><strong>Enfermedades Profesionales:  </strong> Son aquellas condiciones de salud que se desarrollan como resultado directo de
+                  la exposición prolongada a ciertos riesgos en el lugar de trabajo. Ejemplos comunes son:
+                  <p>
+                <li><strong>Sordera: </strong>Por exposición prolongada a ruidos fuertes.</li>
+                <li><strong>Trastornos musculoesqueléticos: </strong>Derivados de movimientos repetitivos o malas posturas.</li>
+                <li><strong>Enfermedades respiratorias: </strong> por la inhalación de polvos o sustancias tóxicas (como el asbesto).</li>
+              </p>
+                </li>
+              </ul>
 
-            </p>
-              <strong>Ejemplos de prestaciones económicas:</strong>
-              <p>
-              <li><strong>Pensiones por jubilación: </strong>Un ingreso mensual vitalicio para el trabajador retirado que ha alcanzado la edad de jubilación.</li>
-              <br>
-              <li><strong>Incapacidad temporal: </strong>Pago de un porcentaje del salario mientras el trabajador está incapacitado por una enfermedad o accidente no laboral.</li>
-              <br>
-              <li><strong>Seguro de desempleo: </strong>Pago periódico mientras la persona busca un nuevo empleo.</li>
-
-            </p>
-              <strong>Ejemplos de prestaciones en especie:</strong>
-              <p>
-              <li><strong>Atención médica gratuita: </strong>Servicios de salud para los asegurados y sus dependientes, que incluye desde consultas médicas hasta cirugías complejas.</li>
-              <br>
-              <li><strong>Rehabilitación laboral: </strong>Servicios destinados a la reincorporación de los trabajadores accidentados o con discapacidad.</li>
-            </p>
-             
-                <h3>Administración del Sistema de Seguridad Social</h3>
-                <p>Los sistemas de Seguridad Social pueden ser administrados por entidades públicas o privadas bajo supervisión estatal. En la mayoría de los países,
-                    el Estado juega un papel fundamental como garante del sistema, aunque algunas funciones pueden ser delegadas a instituciones especializadas o
-                    aseguradoras privadas bajo regulación estricta.</p>
-                    
-                    <li><strong>Institutos de Seguridad Social: </strong> Son las entidades públicas encargadas de gestionar las contribuciones y pagar las prestaciones.</li>
-                    <li><strong>Aseguradoras privadas: </strong> En algunos sistemas, las aseguradoras privadas participan ofreciendo planes complementarios o administrando fondos de pensiones bajo control estatal.</li>
-                       
-                    <h3>Evolución y Desafíos del Sistema de Seguridad Social</h3>
-                    <p>A lo largo del tiempo, los sistemas de Seguridad Social han evolucionado para adaptarse a los cambios demográficos, económicos y sociales. Sin embargo, también enfrentan
-                        desafíos importantes, como el envejecimiento de la población, el empleo informal y la necesidad de reformas para garantizar la sostenibilidad financiera a largo plazo.</p>
+                <h3>Medidas de Prevención en Seguridad y Salud en el Trabajo</h3>
+                <p>La prevención de riesgos laborales se articula a través de una serie de medidas proactivas que deben implementar las empresas para proteger a sus empleados.
+                  Estas medidas incluyen:</p>
+                    <ul>
+                    <li><strong>Evaluación de riesgos:</strong> Las empresas deben realizar una evaluación periódica de los riesgos presentes en el lugar de trabajo, identificando los peligros y analizando su impacto
+                      en la salud de los empleados.</li>
+                    <li><strong>Capacitación continua: </strong> Es responsabilidad del empleador proporcionar formación y capacitación a los trabajadores sobre la identificación de riesgos y el uso adecuado de los equipos de protección.</li>
+                    <li><strong>Equipos de Protección Personal (EPP):</strong>n trabajos de alto riesgo, el uso de EPP (cascos, guantes, gafas de seguridad, protectores auditivos, etc.) es fundamental para proteger a los empleados.</li>
+                    <li><strong>Ergonomía: </strong>En trabajos que requieren esfuerzos repetitivos o posturas prolongadas, se deben adoptar medidas ergonómicas para prevenir lesiones musculares y articulares.</li>
+                    <li><strong>Planes de emergencia y evacuación: </strong> Cada centro de trabajo debe contar con un plan de emergencia que contemple la evacuación rápida y segura en caso de accidentes graves o desastres naturales.</li>
+                  </ul>
+                    <h3>Derechos y Obligaciones de los Trabajadores y Empleadores</h3>
+                    <p>En el marco de la SST, tanto los trabajadores como los empleadores tienen una serie de derechos y obligaciones que deben cumplir para garantizar un entorno laboral seguro.</p>
                         <p>
-                        <strong>Desafíos actuales:</strong>
-                       <li><strong>Sostenibilidad financiera: </strong>El envejecimiento de la población y la baja tasa de natalidad en muchos países ponen presión sobre los sistemas de pensiones.</li>
+                        <strong>Derechos del Trabajador:</strong>
+                        <ul>
+                       <li><strong>Derecho a la formación: </strong>Recibir capacitación adecuada sobre prevención de riesgos y uso de equipos de protección.</li>
                        <br>
-                       <li><strong>Cobertura insuficiente: </strong> países con alta informalidad laboral, muchas personas quedan excluidas del sistema de Seguridad Social, lo que agrava 
-                        la pobreza y la desigualdad.</li>
+                       <li><strong>Derecho a un lugar de trabajo seguro: </strong>Exigir que se cumplan las medidas de seguridad establecidas.</li>
                         <br>
-                        <li><strong>Reformas necesarias: </strong> muchos países, los sistemas de pensiones y de seguridad social requieren reformas para garantizar su viabilidad y equidad en el futuro.</li>
+                        <li><strong>Derecho a negarse a trabajar en condiciones inseguras: </strong> Si un trabajador detecta un riesgo grave, puede negarse a trabajar hasta que se resuelva.</li>
+                        <li><strong>Derecho a la compensación: </strong> En caso de accidente o enfermedad profesional, el trabajador tiene derecho a ser indemnizado o recibir prestaciones</li>
+                      </ul>
+                      <strong>Obligaciones del Trabajador:</strong>
+                      <ul>
+                        <li><strong>Cumplir con las normas de seguridad:</strong>Los empleados deben seguir las normas de seguridad establecidas y usar los equipos de protección proporcionados.</li>
+                        <li><strong>Reportar situaciones de riesgo:</strong>Informar al empleador sobre cualquier peligro o incidente que detecten en el lugar de trabajo.</li>
+                      </ul>
+                      <strong>Obligaciones del Empleador:</strong>
+                      <ul>
+                        <li><strong>Proporcionar un entorno seguro:</strong>Implementar todas las medidas necesarias para garantizar la seguridad y salud de los trabajadores.</li>
+                        <li><strong>Evaluar y controlar los riesgos: </strong> Realizar evaluaciones periódicas de los riesgos laborales y adoptar medidas preventivas.</li>
+                        <li><strong>Proporcionar formación y equipos de protección: </strong> Capacitar a los trabajadores y suministrarles los equipos de protección necesarios.</li>
+                        <li><strong>Supervisar y mejorar:</strong> Supervisar constantemente las condiciones de seguridad y realizar ajustes cuando sea necesario.</li>
+                      </ul>
                         </p>
+                  <h3>Sanciones y Cumplimiento</h3>
+                  <p>
+                    Los incumplimientos en las normativas de Seguridad y Salud en el Trabajo pueden dar lugar a sanciones administrativas, civiles o penales contra el empleador. Las sanciones
+                    dependen de la gravedad de la infracción y pueden variar desde multas hasta la suspensión de actividades. En casos graves de negligencia, los empleadores también pueden
+                    enfrentar responsabilidad penal si la falta de medidas de seguridad provoca accidentes graves o fatales.
+                  </p>
 
           </div>
         </div>

@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\AdministratorController;
+use App\Http\Controllers\AnswerController;
 use App\Http\Controllers\ConsultingController;
 use App\Http\Controllers\DateController;
 use App\Http\Controllers\DropdownController;
@@ -201,6 +202,14 @@ Route::get('/informacionConsumidor', function () {
     return view('informacion.derechoConsumidor');
 })->name('informacionConsumidor');
 
+Route::get('/informacionSeguridadSocial', function () {
+    return view('informacion.seguridadSocial');
+})->name('informacionSeguridadSocial');
+
+Route::get('/informacionSST',function(){
+    return view('informacion.seguridadSaludTrabajo');
+})->name('SST');
+
 Route::get('/terminosCondiciones', function () {
     return view('legal.TerminosCondiciones');
 })->name('terminosCondiciones');
@@ -213,19 +222,24 @@ Route::get('/answer', function () {
 
 Route::get('/privacidad', function (){
     return view('legal.privacidad');
-});
+})->name('politicaPrivacidad');;
 
 Route::get('/terminosUso', function () {
     return view('legal.terminos');
-});
+})->name('terminosUso');;
 
 Route::get('/cookies', function () {
     return view('legal.cookies');
-});
+})->name('cookies');;
 
 Route::get('/herramientas', function () {
     return view('herramientas.herramientasAnalisis');
+})->name('herramientasAnalisis');;
+
+Route::get('/foror', function () {
+    return view('foro.foroRespuestas');
 });
+
 
 Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');
 Route::post('typeDocuments', [TypeDocumentController::class, 'store'])->name('typeDocuments.store');
@@ -307,11 +321,11 @@ Route::get('areas/{area}', [AreaController::class, 'show'])->name('areas.show');
 Route::put('areas/{area}', [AreaController::class, 'update'])->name('areas.update');
 Route::delete('areas/{area}', [AreaController::class, 'destroy'])->name('areas.delete');
 
-Route::get('areaslawyer', [AreaLawyerController::class, 'index'])->name( 'areaslawyer.index');
-Route::post('areaslawyer', [AreaLawyerController::class, 'store'])->name('areaslawyer.store');
-Route::get('areaslawyer/{arealawyer}', [AreaLawyerController::class, 'show'])->name('areaslawyer.show');
-Route::put('areaslawyer/{arealawyer}', [AreaLawyerController::class, 'update'])->name('areaslawyer.update');
-Route::delete('areaslawyer/{arealawyer}', [AreaLawyerController::class, 'destroy'])->name('areaslawyer.delete');
+Route::get('areasLawyer', [AreaLawyerController::class, 'index'])->name('api.v1.areasLawyer.index');
+Route::post('areasLawyer', [AreaLawyerController::class, 'store'])->name('api.v1.areasLawyer.store');
+Route::get('areasLawyer/{areaLawyer}', [AreaLawyerController::class, 'show'])->name('api.v1.areasLawyer.show');
+Route::put('areasLawyer/{areaLawyer}', [AreaLawyerController::class, 'update'])->name('api.v1.areasLawyer.update');
+Route::delete('areasLawyer/{areaLawyer}', [AreaLawyerController::class, 'destroy'])->name('api.v1.areasLawyer.delete');
 
 Route::get('reviews', [ReviewController::class, 'index'])->name( 'reviews.index');
 Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
@@ -343,6 +357,12 @@ Route::get('questions/{question}', [QuestionController::class, 'show'])->name('a
 Route::put('questions/{question}', [QuestionController::class, 'update'])->name('api.v1.questions.update');
 Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('api.v1.questions.delete');
 
+Route::get('answers', [QuestionController::class, 'indexr'])->name('api.v1.answers.index');
+Route::post('answers', [QuestionController::class, 'storer'])->name('api.v1.answers.store');
+Route::get('answers/{answer}', [QuestionController::class, 'showr'])->name('api.v1.answers.show');
+Route::put('answers/{answer}', [QuestionController::class, 'updater'])->name('api.v1.answers.update');
+Route::delete('answers/{answer}', [QuestionController::class, 'destroyr'])->name('api.v1.answers.delete');
+
 Route::get('/faqs', function () {
     return view(view: 'faqs.faqs');
 })->name('faqs');
@@ -350,3 +370,7 @@ Route::get('/faqs', function () {
 Route::get('/faqss', function () {
     return view(view: 'faqs.faqs_recurso');
 })->name('faqs_recurso');
+
+Route::get('/nosotros', function () {
+    return view(view: 'sobreNosotros');
+})->name('mm');

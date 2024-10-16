@@ -128,9 +128,9 @@
             <ul>
                 <h3>Legal</h3>
                 <div class="linea4"></div>
-                <li><a href="{{ route('terminosUso')}}">Términos de uso</a></li>
-                <li><a href="{{ route('cookies')}}">Política de Cookies</a></li>
-                <li><a href="{{ route('politicaPrivacidad')}}">Política de privacidad</a></li>
+                {{-- <li><a href="{{ route('terminosUso')}}">Términos de uso</a></li> --}}
+                {{-- <li><a href="{{ route('cookies')}}">Política de Cookies</a></li>
+                <li><a href="{{ route('politicaPrivacidad')}}">Política de privacidad</a></li> --}}
             </ul>
         </div>
     </footer>

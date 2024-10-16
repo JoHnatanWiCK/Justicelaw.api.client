@@ -14,7 +14,35 @@
         </div>
     </section>
 
-    <section >
+    <section class="servicios">
+        <h3>Nuestros servicios</h3>
+        <p>Explora nuestra amplia gama de servicios legales diseñados para satisfacer tus necesidades.</p>
+        <div class="contenedor-tarjetas">
+            <div class="tarjeta">
+                <i class="fa-solid fa-gavel"></i>
+                <h5>Consulta Legal Personalizada</h5>
+                <p>Recibe asesoría adaptada a tu situación legal específica.</p>
+            </div>
+            <div class="tarjeta">
+                <i class="fa-solid fa-scale-balanced"></i>
+                <h5>Representación Legal</h5>
+                <p>Defiende tus derechos con representación de un abogado profesional.</p>
+            </div>
+            <div class="tarjeta">
+                <i class="fa-solid fa-info"></i>
+                <h5>Acceso a Información Legal</h5>
+                <p>Obtén información relevante sobre derechos, leyes y procedimientos legales.</p>
+            </div>
+            <div class="tarjeta">
+                <i class="fa-solid fa-user-tie"></i>
+                <h5>Foro de Discusión</h5>
+                <p>Plataforma para compartir experiencias y hacer preguntas sobre temas legales.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="carrusel">
         <div class="card-container">
             <div class="card">
                 <img src="../../img/Divorcio.jpg" alt="Noticia 1">
@@ -43,8 +71,6 @@
             </div>
         </div>
     </section>
-
-
 
     <section id="tranding">
         <div class="container">

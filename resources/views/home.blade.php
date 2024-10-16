@@ -8,15 +8,44 @@
 @section('main')
     <section class="banner">
         <div class="content-banner">
-            <h1>¿Quiénes somos?</h1>
-            <p>
-                Somos una comunidad con el objetivo de <br />
-                ayudar a nuestros usuarios a conocer como <br />
-                proseguir en sus casos referentes a la rama <br />
-                judicial presentados en el dia a dia</p>
-            <a href="{{ route ('registro') }}">Registrarse</a>
+            <h3>Conéctate con abogados experimentados y encuentra las respuestas que necesitas.</h3>
+            <p>Nuestro objetivo es brindar asesoría legal accesible y de calidad, ayudando a usuarios a navegar el sistema legal con confianza.</p>
+            <a href="{{ route ('registro') }}">Comienza Ahora</a>
         </div>
     </section>
+
+    <section >
+        <div class="card-container">
+            <div class="card">
+                <img src="../../img/Divorcio.jpg" alt="Noticia 1">
+                <h4 class="card-title">GUÍA SOBRE  <br> DIVORCIO</h4>
+                <p class="card-description">La guía sobre divorcio brinda información sobre cómo proceder durante la separación
+                    matrimonial, incluyendo consejos legales y emocionales.</p>
+            </div>
+            <div class="card">
+                <img src="../../img/Despido.jpg" alt="Noticia 2">
+                <h4 class="card-title">REDACTAR UNA CARTA DE DESPIDO</h4>
+                <p class="card-description">Descubre los pasos clave para redactar una carta de despido correctamente. Te explicamos
+                    cómo estructurarla, qué detalles legales incluir y cómo manejar esta situación de forma
+                    profesional y clara.</p>
+            </div>
+            <div class="card">
+                <img src="../../img/Accidente.png" alt="Noticia 3">
+                <h4 class="card-title">GUÍA PARA ACCIDENTES DE TRÁFICO</h4>
+                <p class="card-description">Descubre los pasos clave para manejar un accidente de tráfico, desde la documentación
+                    hasta las acciones legales necesarias.</p>
+            </div>
+            <div class="card">
+                <img src="../../img/Testamento.jpg" alt="Noticia 2">
+                <h4 class="card-title">COMO REDACTAR UN TESTAMENTO</h4>
+                <p class="card-description">Aprende a estructurar y redactar un testamento de forma clara y legalmente válida,
+                    asegurando que tus deseos sean respetados y evitando futuros conflictos familiares.</p>
+            </div>
+        </div>
+    </section>
+
+
+
     <section id="tranding">
         <div class="container">
             <div class="swiper tranding-slider">

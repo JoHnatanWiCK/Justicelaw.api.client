@@ -17,7 +17,7 @@
     <header class="header-large">
         @yield('nav')
         <div class="logo">
-            <img src="../../img/logo.jpg" alt="JusticeLaw Logo">
+          <a href="{{ route('home')}}"> <img src="../../img/logo.jpg" alt="JusticeLaw Logo"></a>
             <div class="logo-text">
                 <h1>JUSTICE</h1>
                 <p>LAW</p>
@@ -25,16 +25,15 @@
         </div>
         <div class="search-bar">
             <input type="text" placeholder="">
-            <img id="filtroBusqueda" src="../../img/FiltroBusqueda.png" alt="Filtro">
             <button id="buscarBtn">
-                <img src="../../img/Lupa.png" alt="Buscar">
+                <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </div>
         <nav class="nav-links">
-            <a id="home" href="{{ route('home')}}">Home</a>
-            <a id="login" href="{{ route('login')}}">Iniciar Sesión</a>
             <a id="about-us" href="{{ route('sobreNosotros')}}">Sobre nosotros</a>
+            <a id="foro" href="{{ route('informaciones')}}">Informaciones</a>
             <a id="foro" href="{{ route('foro')}}">Foro</a>
+            <a id="login" href="{{ route('login')}}">Iniciar Sesión</a>
         </nav>
     </header>
 

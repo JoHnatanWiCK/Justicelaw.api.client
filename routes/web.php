@@ -166,6 +166,10 @@ Route::get('/informaciones', function () {
     return view('informacion.informaciones');
 })->name('informaciones');
 
+Route::get('/informacionesLaboral', function () {
+    return view('informacion.informacionesLaboral');
+})->name('informacionesLaboral');
+
 Route::get('/derechosTrabajadores', function () {
     return view('informacion.derechosTrabajadores');
 })->name('derechosTrabajadores');
@@ -209,6 +213,14 @@ Route::get('/informacionSeguridadSocial', function () {
 Route::get('/informacionSST',function(){
     return view('informacion.seguridadSaludTrabajo');
 })->name('SST');
+
+Route::get('/informacionIntLab',function(){
+    return view('informacion.internacionalLaboral');
+})->name('informacionIntLab');
+
+Route::get('/informacionContrato',function(){
+    return view('informacion.contratoTrabajo');
+})->name('informacionContrato');
 
 Route::get('/terminosCondiciones', function () {
     return view('legal.TerminosCondiciones');

@@ -185,6 +185,19 @@
                       </div>
                     </li>
                   </a>
+                  <a href="informacionSeguridadSaludTrabajo">
+                    <li class="article">
+                      <img src="../../img/SST.jpg" alt="Artículo 2" />
+                      <div class="article-content">
+                        <div class="article-title">
+                          Como redactar un testamento
+                        </div>
+                        <p class="article-description">
+                          Aprende lo necesario sobre seguridad y salud en el trabajo..
+                        </p>
+                      </div>
+                    </li>
+                  </a>
                   <a href="/derechosTrabajadores">
                     <li class="article">
                       <img

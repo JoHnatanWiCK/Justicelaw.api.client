@@ -1,55 +1,29 @@
 document.querySelectorAll('.faq-item').forEach(function(faqItem) {
-    const icon = faqItem.querySelector('.plus-icon');
+    const plusIcon = faqItem.querySelector('.plus-icon'); 
+    const minusIcon = faqItem.querySelector('.minus-icon'); 
+    const answer = faqItem.nextElementSibling; 
+
     const toggleAnswer = () => {
-        const answer = faqItem.nextElementSibling; 
-        document.querySelectorAll('.faq-answer').forEach(function(ans) {
-            ans.style.maxHeight = null;  
-            ans.style.opacity = '0';
-        });
-        document.querySelectorAll('.plus-icon').forEach(function(icon) {
-            icon.src = "../../img/mas.png";  
-        });
-        
         if (answer.style.maxHeight) {
-            answer.style.maxHeight = null;  
-            answer.style.opacity = '0';  
-            icon.src = "../../img/mas.png";  
+            answer.style.maxHeight = null;
+            answer.style.opacity = '0';
+            plusIcon.style.display = 'inline-block';
+            minusIcon.style.display = 'none'; 
         } else {
-            answer.style.maxHeight = answer.scrollHeight + "px"; 
-            answer.style.opacity = '1'; 
-            icon.src = "../../img/cerrarsecion.png";
+            answer.style.maxHeight = (answer.scrollHeight + 50) +  "px";
+            answer.style.opacity = '1';
+            plusIcon.style.display = 'none'; 
+            minusIcon.style.display = 'inline-block';
         }
     };
+
     faqItem.addEventListener('click', toggleAnswer);
-    icon.addEventListener('click', function(event) {
+    plusIcon.addEventListener('click', function(event) {
+        event.stopPropagation(); 
+        toggleAnswer();
+    });
+    minusIcon.addEventListener('click', function(event) {
         event.stopPropagation(); 
         toggleAnswer();
     });
 });
-
-var modal = document.getElementById("logoutModal");
-var logoutBtn = document.querySelector('.sidebar ul li.logout a');
-var closeBtn = document.getElementsByClassName("close")[0];
-var confirmLogout = document.getElementById("confirmLogout");
-var cancelLogout = document.getElementById("cancelLogout");
-logoutBtn.onclick = function(event) {
-    event.preventDefault(); 
-    modal.style.display = "block";
-}
-
-
-closeBtn.onclick = function() {
-    modal.style.display = "none";
-}
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-
-
-confirmLogout.onclick = function() {
-    alert("Cierre de sesión confirmado.");
-    modal.style.display = "none";
-}

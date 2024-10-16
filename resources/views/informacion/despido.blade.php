@@ -12,7 +12,7 @@
         <div class="news-column">
           <h2 class="titulo-informacion">Que hacer en caso de un despido</h2>
           <span>14 agosto 2024</span>
-          <span class="categoria">Categoria: Legal</span>
+          <span class="categoria">Categoria: Laboral y de empleo</span>
 
           <div class="informacion-contenido">
             <img

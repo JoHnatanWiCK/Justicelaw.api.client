@@ -84,14 +84,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mostrar mensaje de éxito
     function showSuccessMessage(action) {
-        const message = document.createElement('div');
-        message.classList.add('success-message');
-        message.innerText = `Notificación ${action} con éxito`;
-        document.body.appendChild(message);
+        const toastMessage = document.querySelector('#toastMessage');
+        const toast = document.querySelector('.toast');
+        const progress = document.querySelector('.progress');
+
+        toastMessage.textContent = `Notificación ${action} con éxito`;
+        toast.classList.add('active');
+        progress.classList.add('active');
 
         setTimeout(() => {
-            document.body.removeChild(message);
-        }, 3000);
+            toast.classList.remove('active');
+            progress.classList.remove('active');
+        }, 3000); // Ocultar el toast después de 3 segundos
     }
 
     // Marcar todo como leído
@@ -105,93 +109,43 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Archivar todo
-    document.querySelector('#archivarTodo').addEventListener('click', function() {
+    const archivarTodo = document.querySelector('#archivarTodo');
+    archivarTodo.addEventListener('click', function() {
         notifications.forEach(notification => {
-            notification.classList.remove('unread');
+            notification.style.display = 'none';
         });
         showSuccessMessage('todas archivadas');
     });
 
-    const marcarTodoLeidoButton = document.querySelector("#marcarTodoLeido");
-    const archivarTodoButton = document.querySelector("#archivarTodo");
-    const toast = document.querySelector(".toast");
-    const progress = document.querySelector(".progress");
-    const toastMessage = document.querySelector("#toastMessage"); 
+    // Manejo de las opciones individuales de las notificaciones
+    notifications.forEach(notificacion => {
+        const marcarLeido = notificacion.querySelector('a[href="m-leido"]');
+        const archivar = notificacion.querySelector('a[href="archivar"]');
+        const eliminar = notificacion.querySelector('a[href="eliminar"]');
 
-    let timer1, timer2;
-
-    const showToast = (actionMessage, completionMessage) => {
-        toastMessage.textContent = actionMessage; 
-        toast.classList.add("active");
-        progress.classList.add("active");
-
-       
-        timer1 = setTimeout(() => {
-            toastMessage.textContent = completionMessage; 
-        }, 3000); 
-
-        
-        timer2 = setTimeout(() => {
-            toast.classList.remove("active");
-            progress.classList.remove("active");
-        }, 5000); 
-    };
-
-    if (marcarTodoLeidoButton) {
-        marcarTodoLeidoButton.addEventListener("click", () => {
-            showToast( "¡Acción completada!", "¡Todo marcado como leído!"); 
+        // Marcar como leído
+        marcarLeido.addEventListener('click', function(event) {
+            event.preventDefault();
+            notificacion.classList.remove('unread');
+            showSuccessMessage('marcada como leída');
         });
-    }
 
-    if (archivarTodoButton) {
-        archivarTodoButton.addEventListener("click", () => {
-            showToast( "¡Acción completada!", "¡Todo archivado correctamente!"); 
+        // Archivar notificación
+        archivar.addEventListener('click', function(event) {
+            event.preventDefault();
+            notificacion.style.display = 'none';
+            showSuccessMessage('archivada');
         });
-    }
 
-    //toast notification lawyer
-    const aceptarButton = document.querySelector("#aceptar");
-    const aplazarButton = document.querySelector("#aplazar");
-    const toast1 = document.querySelector(".toast");
-    const progress1 = document.querySelector(".progress");
-    const toastMessage1 = document.querySelector("#toastMessage"); 
-
-    let timer11, timer21;
-
-    const showToast1 = (actionMessage, completionMessage) => {
-        toastMessage1.textContent = actionMessage; 
-        toast1.classList.add("active");
-        progress1.classList.add("active");
-
-        
-        timer11 = setTimeout(() => {
-            toastMessage1.textContent = completionMessage; 
-        }, 3000); 
-
-        
-        timer21 = setTimeout(() => {
-            toast1.classList.remove("active");
-            progress1.classList.remove("active");
-        }, 5000); 
-    };
-
-    if (aceptarButton) {
-        aceptarButton.addEventListener("click", (event) => {
-            event.preventDefault(); 
-            showToast1("¡Asesoría aceptada!", "¡Acción completada!"); 
+        // Eliminar notificación
+        eliminar.addEventListener('click', function(event) {
+            event.preventDefault();
+            notificacion.remove();
+            showSuccessMessage('eliminada');
         });
-    }
+    });
 
-    if (aplazarButton) {
-        aplazarButton.addEventListener("click", (event) => {
-            event.preventDefault(); 
-            showToast1("¡Asesoría aplazada!", "¡Acción completada!"); 
-        });
-    }
-
-
-
-    // Navegación
+    // Navegación en los links del sidebar (si es necesario)
     const navLinks = document.querySelectorAll('.nav-links a');
 
     navLinks.forEach(link => {

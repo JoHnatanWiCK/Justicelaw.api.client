@@ -24,14 +24,15 @@ class QuestionController extends Controller
         $questions = $this->fetchDataFromApi($url . '/questions');
         $answers =  $this->fetchDataFromApi($url . '/answers');
         $users =  $this->fetchDataFromApi($url . '/users');
+        $lawyers =  $this->fetchDataFromApi($url . '/lawyers');
+
         $categories =  $this->fetchDataFromApi($url . '/forumCategories');
 
 
         // Suponiendo que $questions es un array, deberías convertirlo a una colección
         $questions = collect($questions);
         $answers = collect($answers);
-
-        // Paginamos la colección, 10 elementos por página
+        
         $perPage = 5; // Número de elementos por página
         $currentPage = request()->input('page', 1); // Obtenemos la página actual
         $pagedData = $questions->forPage($currentPage, $perPage); // Dividimos los datos
@@ -44,7 +45,7 @@ class QuestionController extends Controller
             ['path' => request()->url()]
         );
     
-        return view('foro.foro', compact('pquestions','answers','users','categories'));
+        return view('foro.foro', compact('pquestions','answers','users','categories','lawyers'));
     }
 
    
@@ -63,7 +64,6 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        // Validar los datos del formulario si es necesario
         $validatedData = $request->validate([
             'affair' => 'required|string|max:255',
             'user_id' => 'required|integer',

@@ -59,9 +59,13 @@
                     <div class="post-header">
                         <img src="../../img/fotoPerfil.png" class="avatar" alt="Ana Martínez">
                         <div class="user-details">
-                            
-                        <strong class="response-date">{{ $a['lawyer_id'] }}</strong></tr>
-                            
+                        @foreach ($lawyers as $lawyer)
+                        @if ($a['lawyer_id'] == $lawyer['id'])
+                           
+                        <strong class="response-date">{{ $lawyer['names'] }} {{ $lawyer['last_names'] }}</strong></tr>
+                       
+                        @endif
+                        @endforeach
                         </div>
                     </div>
                     
@@ -123,7 +127,6 @@
 
         <input type="number" name="user_id" placeholder="user_id:" required />
 
-        <input type="number" name="forum_category_id" placeholder="user_id:" required />
 
         <input type="date" name="date_publication" placeholder="user_id:" required />
 
@@ -131,14 +134,11 @@
         
         <textarea name="content" placeholder="Contenido:" required></textarea>
         
-        <!-- <select name="forum_category_ids" >
-            <option value="">Categoría</option>
-            <option value="1">Familiar</option>
-            <option value="2">Legal</option>
-            <option value="3">Laboral</option>
-            <option value="4">Propiedad</option>
-            <option value="5">Vivienda</option>
-        </select> -->
+            <select name="forum_category_id" >
+                @foreach ($categories as $c)
+                        <option value="{{$c['id']}}">{{$c['name']}}</option>
+                @endforeach
+            </select>
 
         
         <button type="submit">Publicar</button>
@@ -155,29 +155,9 @@
 
       
 
-        @push('scripts')
-        <script src="js/foro.js"></script>   
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-       $(document).ready(function() {
-    // Cuando se hace clic en el enlace de "Ver respuestas"
-    $('.toggle-responses').on('click', function(e) {
-        e.preventDefault();
-        
-        console.log("Click en 'Ver respuestas'"); // Verifica si el evento click está funcionando
+      
 
-        // Obtén el id de la pregunta relacionada
-        var questionId = $(this).data('question-id');
-        
-        // Muestra u oculta las respuestas relacionadas a esa pregunta
-        $('#responses-' + questionId).toggle();
-    });
-});
 
-    </script>
-         @endpush
          @push('styles')
         
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -187,5 +167,18 @@
         <link href="https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
         @endpush
+
+
+
+        @push('scripts')
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <script src="{{ asset('js/foro.js') }}"></script>
+
+
+         @endpush
        
 

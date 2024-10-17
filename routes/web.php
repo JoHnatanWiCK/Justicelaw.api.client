@@ -151,7 +151,7 @@ Route::get('/configadmincont', function () {
 
 Route::get('/calendar', function () {
     return view('calendar.calendar');
-})->name('calendar'); // Asigna el nombre calendar.calendar
+})->name('calendar'); 
 
 
 Route::get('/perfilabogado', function () {
@@ -165,6 +165,10 @@ Route::get('/reseñaPublicada', function () {
 Route::get('/informaciones', function () {
     return view('informacion.informaciones');
 })->name('informaciones');
+
+Route::get('/informacionesLaboral', function () {
+    return view('informacion.informacionesLaboral');
+})->name('informacionesLaboral');
 
 Route::get('/derechosTrabajadores', function () {
     return view('informacion.derechosTrabajadores');
@@ -202,6 +206,22 @@ Route::get('/informacionConsumidor', function () {
     return view('informacion.derechoConsumidor');
 })->name('informacionConsumidor');
 
+Route::get('/informacionSeguridadSocial', function () {
+    return view('informacion.seguridadSocial');
+})->name('informacionSeguridadSocial');
+
+Route::get('/informacionSST',function(){
+    return view('informacion.seguridadSaludTrabajo');
+})->name('SST');
+
+Route::get('/informacionIntLab',function(){
+    return view('informacion.internacionalLaboral');
+})->name('informacionIntLab');
+
+Route::get('/informacionContrato',function(){
+    return view('informacion.contratoTrabajo');
+})->name('informacionContrato');
+
 Route::get('/terminosCondiciones', function () {
     return view('legal.TerminosCondiciones');
 })->name('terminosCondiciones');
@@ -214,19 +234,19 @@ Route::get('/answer', function () {
 
 Route::get('/privacidad', function (){
     return view('legal.privacidad');
-});
+})->name('politicaPrivacidad');;
 
 Route::get('/terminosUso', function () {
     return view('legal.terminos');
-});
+})->name('terminosUso');;
 
 Route::get('/cookies', function () {
     return view('legal.cookies');
-});
+})->name('cookies');;
 
 Route::get('/herramientas', function () {
     return view('herramientas.herramientasAnalisis');
-});
+})->name('herramientasAnalisis');;
 
 Route::get('/foror', function () {
     return view('foro.foroRespuestas');
@@ -313,11 +333,11 @@ Route::get('areas/{area}', [AreaController::class, 'show'])->name('areas.show');
 Route::put('areas/{area}', [AreaController::class, 'update'])->name('areas.update');
 Route::delete('areas/{area}', [AreaController::class, 'destroy'])->name('areas.delete');
 
-Route::get('areaslawyer', [AreaLawyerController::class, 'index'])->name( 'areaslawyer.index');
-Route::post('areaslawyer', [AreaLawyerController::class, 'store'])->name('areaslawyer.store');
-Route::get('areaslawyer/{arealawyer}', [AreaLawyerController::class, 'show'])->name('areaslawyer.show');
-Route::put('areaslawyer/{arealawyer}', [AreaLawyerController::class, 'update'])->name('areaslawyer.update');
-Route::delete('areaslawyer/{arealawyer}', [AreaLawyerController::class, 'destroy'])->name('areaslawyer.delete');
+Route::get('areasLawyer', [AreaLawyerController::class, 'index'])->name('api.v1.areasLawyer.index');
+Route::post('areasLawyer', [AreaLawyerController::class, 'store'])->name('api.v1.areasLawyer.store');
+Route::get('areasLawyer/{areaLawyer}', [AreaLawyerController::class, 'show'])->name('api.v1.areasLawyer.show');
+Route::put('areasLawyer/{areaLawyer}', [AreaLawyerController::class, 'update'])->name('api.v1.areasLawyer.update');
+Route::delete('areasLawyer/{areaLawyer}', [AreaLawyerController::class, 'destroy'])->name('api.v1.areasLawyer.delete');
 
 Route::get('reviews', [ReviewController::class, 'index'])->name( 'reviews.index');
 Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
@@ -365,4 +385,4 @@ Route::get('/faqss', function () {
 
 Route::get('/nosotros', function () {
     return view(view: 'sobreNosotros');
-})->name('faqs_recurso');
+})->name('mm');

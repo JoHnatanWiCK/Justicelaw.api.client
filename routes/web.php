@@ -230,7 +230,7 @@ Route::get('/herramientas', function () {
 
 Route::get('/foror', function () {
     return view('foro.foroRespuestas');
-});
+})->name('jeje');
 
 
 Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');

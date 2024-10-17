@@ -30,7 +30,12 @@
             <p>{{ $q['content'] }}</p>
             <div class="meta">
                 <span class="date">{{ $q['date_publication'] }}</span>
-                <span class="category">Categoría: {{ $q['forum_category_id'] }}</span>
+                @foreach ($categories as $c)
+                @if ($q['forum_category_id'] == $c['id'])  <!-- Verifica si id == a categoriaforo -->
+
+                <span class="category">Categoría: {{ $c['name'] }}</span>
+                @endif
+                @endforeach
                 <br>
 
             </div>
@@ -54,6 +59,7 @@
                     <div class="post-header">
                         <img src="../../img/fotoPerfil.png" class="avatar" alt="Ana Martínez">
                         <div class="user-details">
+                            
                         <strong class="response-date">{{ $a['lawyer_id'] }}</strong></tr>
                             
                         </div>
@@ -76,7 +82,11 @@
             <div class="user-info">
                 <img src="../../img/fotoPerfil.png" class="fotoperfil" alt="Andrés López" />
                 <br>
-                <span class="name_user">USER: {{ $q['user_id'] }}</span>
+                @foreach ($users as $user)
+                @if ($q['user_id'] == $user['id'])
+                <span class="name_user"> {{ $user['name'] }} {{$user['last_name']}}</span>
+                @endif
+                @endforeach
             </div>
         </td>
     </tr>
@@ -94,43 +104,41 @@
             <aside>
                 <div class="categories">
                     <h3>Categorías</h3>
+                    <br>
                     <ul>
-                        <li><a href="foro_familiar.html">Familiar</a></li>
+                        @foreach ($categories as $c)
+                        <li><a href="foro_familiar.html">{{$c['name']}}</a></li>
                         <br>
-                        <li><a href="#">Legal</a></li>
-                        <br>
-                        <li><a href="#">Laboral</a></li>
-                        <br>
-                        <li><a href="#">Propiedad</a></li>
-                        <br>
-                        <li><a href="#">Vivienda</a></li>
-                        <br>
-                        <li><a href="#">Negocio</a></li>
-                        <br>
-                        <li><a href="#">Inmigración</a></li>
-                        <br>
-                        <li><a href="#">Consumidor</a></li>
-                        <br>
-                        <li><a href="#">Propiedad Intelectual</a></li>
+                        @endforeach
+                        
+                        
                     </ul>
                 </div>
                 <div class="ask-question">
     <h3>Escribe tu duda....</h3>
-    <form action="{{ route('api.v1.questions.store') }}" method="POST">
+    <form action="{{ route('api.v1.questions.store') }}"  method="POST">
         @csrf 
         
         <input type="text" name="affair" placeholder="Asunto:" required />
+
+        <input type="number" name="user_id" placeholder="user_id:" required />
+
+        <input type="number" name="forum_category_id" placeholder="user_id:" required />
+
+        <input type="date" name="date_publication" placeholder="user_id:" required />
+
+
         
         <textarea name="content" placeholder="Contenido:" required></textarea>
         
-        <select name="forum_category_id" required>
+        <!-- <select name="forum_category_ids" >
             <option value="">Categoría</option>
             <option value="1">Familiar</option>
             <option value="2">Legal</option>
             <option value="3">Laboral</option>
             <option value="4">Propiedad</option>
             <option value="5">Vivienda</option>
-        </select>
+        </select> -->
 
         
         <button type="submit">Publicar</button>

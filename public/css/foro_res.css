@@ -341,3 +341,9 @@ font-size: 1em;
     margin-bottom: 5%;
 
 }
+
+.toggle-responses:hover{
+
+    cursor:pointer ;
+
+}

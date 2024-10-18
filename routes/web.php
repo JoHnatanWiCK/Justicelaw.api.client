@@ -270,7 +270,7 @@ Route::get('/herramientas', function () {
 
 Route::get('/foror', function () {
     return view('foro.foroRespuestas');
-});
+})->name('jeje');
 
 
 Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');
@@ -314,14 +314,6 @@ Route::post('administrators', [AdministratorController::class, 'store'])->name('
 Route::get('administrators/{administrator}', [AdministratorController::class, 'show'])->name('api.v1.administrators.show');
 Route::put('administrators/{administrator}', [AdministratorController::class, 'update'])->name('api.v1.administrators.update');
 Route::delete('administrators/{administrator}', [AdministratorController::class, 'destroy'])->name('api.v1.administrators.delete');
-
-
-Route::get('lawyer', [LawyerController::class, 'index'])->name('lawyer.index');
-Route::post('lawyer', [LawyerController::class, 'store'])->name('lawyer.store');
-Route::get('lawyer/{lawyer}', [LawyerController::class, 'show'])->name('lawyer.show');
-Route::put('lawyer/{lawyer}', [LawyerController::class, 'update'])->name('lawyer.update');
-Route::delete('lawyer/{lawyer}', [LawyerController::class, 'destroy'])->name('lawyer.delete');
-
 
 Route::get('lawyerProfile', [LawyerProfileController::class, 'index'])->name('lawyerProfile.index');
 Route::post('lawyerProfile', [LawyerProfileController::class, 'store'])->name('lawyerProfile.store');
@@ -394,6 +386,15 @@ Route::post('answers', [QuestionController::class, 'storer'])->name('api.v1.answ
 Route::get('answers/{answer}', [QuestionController::class, 'showr'])->name('api.v1.answers.show');
 Route::put('answers/{answer}', [QuestionController::class, 'updater'])->name('api.v1.answers.update');
 Route::delete('answers/{answer}', [QuestionController::class, 'destroyr'])->name('api.v1.answers.delete');
+
+
+Route::get('lawyers', [LawyerController::class, 'index'])->name('api.v1.lawyers.index');
+Route::post('lawyers', [LawyerController::class, 'store'])->name('api.v1.lawyers.store');
+Route::get('lawyers/{lawyer}', [LawyerController::class, 'show'])->name('api.v1.lawyers.show');
+Route::put('lawyers/{lawyer}', [LawyerController::class, 'update'])->name('api.v1.lawyers.update');
+Route::delete('lawyers/{lawyer}', [LawyerController::class, 'destroy'])->name('api.v1.lawyers.delete');
+
+
 
 Route::get('/faqs', function () {
     return view(view: 'faqs.faqs');

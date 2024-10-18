@@ -84,7 +84,7 @@
             <h1>Categorías Derechos</h1>
             <div class="imagen-container">
                 <img src="../../img/derechosNiños.jpg" alt="Derecholaboralydeempleo">
-                <div class="texto-superpuesto">De los Niños</div>
+                <div class="texto-superpuesto">Infantiles</div>
             </div>
             <div class="imagen-container">
                 <img src="../../img/DerechoComercial.png" alt="DerechoComercial">

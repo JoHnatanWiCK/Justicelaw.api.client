@@ -218,9 +218,29 @@ Route::get('/informacionIntLab',function(){
     return view('informacion.internacionalLaboral');
 })->name('informacionIntLab');
 
+Route::get('/informacionEducacion',function(){
+    return view('informacion.derechosInfantiles.derechoEducacion');
+})->name('informacionEducacion');
+
+Route::get('/informacionVidaFamiliar',function(){
+    return view('informacion.derechosInfantiles.vidaFamiliarYCuidados');
+})->name('informacionVidaFamiliar');
+
+Route::get('/informacionTrabajoInfantil',function(){
+    return view('informacion.derechosInfantiles.trabajoInfantil');
+})->name('informacionTrabajoInfantil');
+
 Route::get('/informacionContrato',function(){
     return view('informacion.contratoTrabajo');
 })->name('informacionContrato');
+
+Route::get('/informacionSalud',function(){
+    return view('informacion.derechosInfantiles.saludBienestar');
+})->name('informacionSalud');
+
+Route::get('/informacionParticipacion',function(){
+    return view('informacion.derechosInfantiles.participacionDecisiones');
+})->name('informacionParticipacion');
 
 Route::get('/terminosCondiciones', function () {
     return view('legal.TerminosCondiciones');

@@ -242,6 +242,14 @@ Route::get('/informacionParticipacion',function(){
     return view('informacion.derechosInfantiles.participacionDecisiones');
 })->name('informacionParticipacion');
 
+Route::get('/informacionVoto',function(){
+    return view('informacion.participacionCiudadana.derechoVoto');
+})->name('informacionVoto');
+
+Route::get('/informacionCargo',function(){
+    return view('informacion.participacionCiudadana.postulacionCargosPublicos');
+})->name('informacionCargo');
+
 Route::get('/terminosCondiciones', function () {
     return view('legal.TerminosCondiciones');
 })->name('terminosCondiciones');

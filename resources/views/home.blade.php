@@ -13,6 +13,41 @@
             <h3>Conéctate con abogados experimentados y encuentra las respuestas que necesitas.</h3>
             <p>Nuestro objetivo es brindar asesoría legal accesible y de calidad, ayudando a usuarios a navegar el sistema legal con confianza.</p>
         </div>
+        <!-- Banner Section -->
+<section class="banner">
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- Abogado Estrella -->
+            <div class="swiper-slide">
+                <img src="ruta-a-imagen-abogado.jpg" alt="Abogado Estrella">
+                <div class="text">
+                    <h2>Conoce a Nuestro Abogado Estrella</h2>
+                    <p>Descripción breve sobre el abogado y su especialidad.</p>
+                    <a href="ruta-a-perfil-abogado" class="btn">Ver Perfil</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="ruta-a-imagen-informacion.jpg" alt="Información Relevante">
+                <div class="text">
+                    <h2>Información Importante</h2>
+                    <p>Detalles sobre otros servicios o secciones de la página.</p>
+                    <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
+                </div>
+            </div>
+            <!-- Tendencias -->
+            <div class="swiper-slide" id="trending-items">
+                <div class="text">
+                    <h2>Tendencias</h2>
+                    <!-- Las tendencias se cargarán aquí -->
+                </div>
+            </div>
+        </div>
+        <!-- Botones de navegación -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+</section>
+
     </section>
 
     <section class="servicios">
@@ -330,6 +365,7 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="js/home.js"></script>
+    <script src="js/forocarousel.js"></script>
     
 
 @endpush

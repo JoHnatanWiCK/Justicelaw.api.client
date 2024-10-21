@@ -985,3 +985,17 @@
     left: 85%;
     padding-left: 60px;
   }
+
+
+  .modal-header {
+    background-color: #00274d; /* Color corporativo */
+    color: white;
+}
+.modal-content {
+    border-radius: 10px;
+}
+.btn-outline-dark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

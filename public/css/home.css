@@ -73,6 +73,73 @@
 	display: grid;
 	place-items: center;
 }
+
+/* Estilos generales para el contenedor del banner */
+.banner {
+    display: flex; /* Usa flexbox para alinear elementos */
+    justify-content: flex-end; /* Alinea hacia la derecha */
+    width: 100vw; /* Asegura que ocupe el 100% del ancho de la ventana */
+    position: relative; /* Posicionamiento relativo para manejar elementos hijos */
+}
+
+/* Estilos para el contenedor del Swiper */
+.swiper-container {
+    width: 33.33%; /* Ocupa un tercio de la pantalla */
+    height: auto; /* Altura del carrusel */
+    position: relative; /* Para que los botones de navegación se posicionen correctamente */
+    float: right; /* Alinear el carrusel a la derecha */
+    box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho total */
+    overflow: hidden;
+    margin-right: 30px;
+}
+
+/* Estilos para los slides */
+.swiper-slide {
+    display: flex; /* Usa flexbox para alinear elementos dentro del slide */
+    flex-direction: column; /* Organiza los elementos en una columna */
+    justify-content: center; /* Centra los elementos verticalmente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    text-align: center; /* Centra el texto */
+    color: white;
+}
+
+/* Estilos para las imágenes en los slides */
+.swiper-slide img {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la relación de aspecto */
+}
+
+/* Estilos para los textos dentro de los slides */
+.text {
+    margin-top: 10px; /* Espaciado entre la imagen y el texto */
+}
+
+/* Estilos para los botones */
+.btn {
+    display: inline-block; /* Para que el botón se muestre como un bloque en línea */
+    margin-top: 10px; /* Espaciado superior */
+    padding: 10px 20px; /* Espaciado interno */
+    background-color: #007bff; /* Color de fondo */
+    color: white; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    text-decoration: none; /* Sin subrayado */
+    transition: background-color 0.3s; /* Transición suave */
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Color de fondo al pasar el cursor */
+}
+
+/* Estilos para el contenedor de tendencias */
+#trending-items {
+    display: flex; /* Usa flexbox para alinear los elementos */
+    flex-direction: column; /* Organiza en columnas */
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    margin-top: 20px; /* Espaciado superior */
+    color: white;
+}
+
 @media only screen and (min-width: 1100px) {
     #slider-container #slider .slide {
         width: calc(2.5% - 20px);

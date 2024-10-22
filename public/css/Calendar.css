@@ -134,35 +134,41 @@
   position: relative;
   flex: 1;
   border-left: 2px solid #ccc;
-  height: 400px;
+  max-height: 400px; /* Ajustar la altura máxima del contenedor */
+  overflow-y: auto; /* Permitir desplazamiento si hay muchos elementos */
 }
 
 .event {
-  position: absolute;
+  position: relative; /* Cambiado de absolute a relative */
   left: 0;
   right: 0;
   border-radius: 5px;
   padding: 10px;
   box-sizing: border-box;
   border: 2px solid transparent;
+  margin-bottom: 10px; /* Separación entre eventos */
+  background-color: #f9f9f9; /* Fondo claro para todas las asesorías */
+  color: #333; /* Color de texto */
+  transition: background-color 0.3s; /* Transición suave para el color de fondo */
 }
 
-.event.time {
-  top: 10px;
-  height: 40px;
-  background-color: #f3e6cd;
+.event.disponible {
+  background-color: #DFE6E9; /* Color para eventos disponibles */
+  color: #333; /* Color de texto */
 }
 
-.event.task {
-  top: 140px;
-  height: 40px;
-  background-color: #dfe6e9;
+.event.ocupado {
+  background-color: #f3e6cd; /* Color para eventos ocupados */
+  color: #333; /* Color de texto */
 }
 
-.event.last {
-  top: 240px;
-  height: 40px;
-  background-color: #dfe6e9;
+/* Efectos de hover para eventos disponibles y ocupados */
+.event.disponible:hover {
+  background-color: #c1d4db; /* Color más oscuro al pasar el cursor */
+}
+
+.event.ocupado:hover {
+  background-color: #e1c6a1; /* Color más oscuro al pasar el cursor */
 }
 
 .profile {
@@ -236,7 +242,7 @@
   height: 10px;
   margin-right: 10px;
   width: 10px;
-  background: #DFE6E9;
+  background: #DFE6E9; /* Color para el círculo disponible */
   border-radius: 50%;
 }
 
@@ -244,7 +250,7 @@
   height: 10px;
   margin-right: 10px;
   width: 10px;
-  background: #f3e6cd;
+  background: #f3e6cd; /* Color para el círculo ocupado */
   border-radius: 50%;
 }
 

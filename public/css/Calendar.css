@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: flex-start;
 }
+
 .calendar {
   flex: 3;
   text-align: left;
@@ -14,66 +15,107 @@
   padding: 20px;
   border-radius: 10px;
 }
+
 .calendar h1 {
   margin-bottom: 20px;
 }
+
 .months {
   display: flex;
   justify-content: space-between;
+  align-items: center; 
   margin-bottom: 10px;
 }
+
 .months div {
   margin: 0 5px;
   text-align: center;
   font-weight: bold;
   color: #666;
 }
+
+.months button {
+  background: transparent; 
+  border: none;
+  font-size: 24px; 
+  cursor: pointer; 
+}
+
+.months button:hover {
+  color: blue; 
+}
+
 .days {
   display: flex;
-  justify-content: space-between;
-  padding: 0 5%;
+  justify-content: center; 
+  align-items: center; 
+  margin-bottom: 20px; 
 }
+
 .day {
   color: #666;
   text-align: center;
+  width: 14%; 
+  cursor: pointer; 
 }
+
 .day .date {
   display: block;
   font-weight: bold;
 }
+
 .day .day-name {
   display: block;
   font-size: smaller;
 }
+
 .day.selected .date {
-  font-size: 15px;
+  font-size: 20px; 
   color: #fff;
-  background-color: #003c74;
-  width: 30px;
-  height: 30px;
-  line-height: 30px;
-  border-radius: 50%;
-  margin: 0 auto;
+  background-color: #003c74; 
+  width: 40px; 
+  height: 40px; 
+  line-height: 40px; 
+  border-radius: 50%; 
+  margin: 0 auto; 
 }
+
 .day.selected .day-name {
-  color: #666;
+  color: #666; 
 }
-.day.selected {
-  color: #666;
+
+.navigation-days {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px; 
 }
-.day.selected::after {
-  content: "";
-  display: block;
-  width: 20px;
-  height: 3px;
-  background-color: #666;
-  margin: 5px auto 0;
+
+.prevBtn,
+.nextBtn {
+  background-color: #003049; 
+  border: none; 
+  color: white; 
+  font-size: 17px; 
+  cursor: pointer; 
+  padding: 5px; 
+  border-radius: 5px; 
+  transition: background-color 0.3s; 
+  display: flex;
+  justify-content: center;
+  align-items: center; 
 }
+
+.prevBtn:hover,
+.nextBtn:hover {
+  background-color: #010c13; 
+}
+
 .schedule {
   display: flex;
   align-items: flex-start;
   margin: 20px 5%;
 }
+
 .hours {
   display: flex;
   flex-direction: column;
@@ -82,16 +124,19 @@
   font-size: 12px;
   color: #666;
 }
+
 .hours div {
   height: 40px;
   line-height: 40px;
 }
+
 .events {
   position: relative;
   flex: 1;
   border-left: 2px solid #ccc;
   height: 400px;
 }
+
 .event {
   position: absolute;
   left: 0;
@@ -101,21 +146,25 @@
   box-sizing: border-box;
   border: 2px solid transparent;
 }
+
 .event.time {
   top: 10px;
   height: 40px;
   background-color: #f3e6cd;
 }
+
 .event.task {
   top: 140px;
   height: 40px;
   background-color: #dfe6e9;
 }
+
 .event.last {
   top: 240px;
   height: 40px;
   background-color: #dfe6e9;
 }
+
 .profile {
   width: 270px;
   text-align: center;
@@ -124,26 +173,32 @@
   border-radius: 10px;
   margin-left: 20px;
 }
+
 .profile img {
   border-radius: 50%;
   width: 180px;
   height: 180px;
 }
+
 .profile h2 {
   margin: 10px 0 5px 0;
 }
+
 .profile p {
   font-size: 14px;
   color: #666;
 }
+
 .profile .stats {
   display: flex;
   justify-content: space-around;
   margin-top: 20px;
 }
+
 .profile .stats div {
   text-align: center;
 }
+
 .profile .stats div p {
   display: block;
   color: #4d5052;
@@ -162,26 +217,28 @@
 }
 
 .disponible {
-    display: flex;
-    flex-direction: column;
-  }
+  display: flex;
+  flex-direction: column;
+}
 
 .contenido {
   display: flex;
   align-items: center;
 }
-.disponible span, .ocupado span{
-    font-size: 35px;
-    font-weight: 600;
+
+.disponible span,
+.ocupado span {
+  font-size: 35px;
+  font-weight: 600;
 }
 
 .circulo-disponible {
-    height: 10px;
-    margin-right: 10px;
-    width: 10px;
-    background: #DFE6E9;
-    border-radius: 50%;
-  }
+  height: 10px;
+  margin-right: 10px;
+  width: 10px;
+  background: #DFE6E9;
+  border-radius: 50%;
+}
 
 .circulo-ocupado {
   height: 10px;
@@ -191,7 +248,7 @@
   border-radius: 50%;
 }
 
-.stats hr{
-    border: 0.1px solid #cf9e3e;
-    width: 0px;
+.stats hr {
+  border: 0.1px solid #cf9e3e;
+  width: 0px;
 }

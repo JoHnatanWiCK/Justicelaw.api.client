@@ -6,25 +6,48 @@
 @endsection
 
 @section('main')
-    <section class="banner">
-        <div class="content-banner">
-            <h1>¿Quiénes somos?</h1>
-            <p>
-                Somos una comunidad con el objetivo de <br />
-                ayudar a nuestros usuarios a conocer como <br />
-                proseguir en sus casos referentes a la rama <br />
-                judicial presentados en el dia a dia</p>
-            <a href="{{ route('registro') }}">Registrarse</a>
+<section class="banner">
+    <div class="content-banner">
+        <h3>Conéctate con abogados experimentados y encuentra las respuestas que necesitas.</h3>
+        <p>Nuestro objetivo es brindar asesoría legal accesible y de calidad, ayudando a usuarios a navegar el sistema legal con confianza.</p>
+    </div>
+</section>
+<section class="servicios">
+    <h3>Nuestros servicios</h3>
+    <p>Explora nuestra amplia gama de servicios legales diseñados para satisfacer tus necesidades.</p>
+    <div class="contenedor-tarjetas">
+        <div class="tarjeta">
+            <i class="fa-solid fa-gavel"></i>
+            <h5>Consulta Legal Personalizada</h5>
+            <p>Recibe asesoría adaptada a tu situación legal específica.</p>
         </div>
-    </section>
-    <section id="tranding">
+        <div class="tarjeta">
+            <i class="fa-solid fa-scale-balanced"></i>
+            <h5>Representación Legal</h5>
+            <p>Defiende tus derechos con representación de un abogado profesional.</p>
+        </div>
+        <div class="tarjeta">
+            <i class="fa-solid fa-info"></i>
+            <h5>Acceso a Información Legal</h5>
+            <p>Obtén información relevante sobre derechos, leyes y procedimientos legales.</p>
+        </div>
+        <div class="tarjeta">
+            <i class="fa-solid fa-user-tie"></i>
+            <h5>Foro de Discusión</h5>
+            <p>Plataforma para compartir experiencias y hacer preguntas sobre temas legales.</p>
+        </div>
+    </div>
+</section>
+
+
+{{-- <section id="tranding">
         <div class="container">
             <div class="swiper tranding-slider">
                 <div class="swiper-wrapper">
 
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/informacion_divorcio.html"><img src="../../img/Divorcio.jpg"
+                            <a><img src="../../img/Divorcio.jpg"
                                     alt="Tranding">
                             </a>
                         </div>
@@ -43,7 +66,7 @@
 
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/informacion_despido.html"><img src="../../img/Despido.jpg"
+                            <a><img src="../../img/Despido.jpg"
                                     alt="Tranding">
                             </a>
                         </div>
@@ -54,14 +77,14 @@
                                 <p>Descubre los pasos clave para redactar una carta de despido correctamente. Te explicamos
                                     cómo estructurarla, qué detalles legales incluir y cómo manejar esta situación de forma
                                     profesional y clara.</p>
-                                <button id="btnDespido"> Más información...</button>
+                                <button id="btnDespido">Más información...</button>
                             </div>
 
                         </div>
                     </div>
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/informacion_accidente.html"><img src="../../img/Accidente.png"
+                            <a><img src="../../img/Accidente.png"
                                     alt="Tranding">
                             </a>
                         </div>
@@ -71,14 +94,14 @@
                                 <hr>
                                 <p>Descubre los pasos clave para manejar un accidente de tráfico, desde la documentación
                                     hasta las acciones legales necesarias.</p>
-                                <button  id="btnAccidente">Más información...</button>
+                                <button id="btnAccidente">Más información...</button>
                             </div>
 
                         </div>
                     </div>
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/informacion_testamento.html"><img src="../../img/Testamento.jpg"
+                            <a><img src="../../img/Testamento.jpg"
                                     alt="Tranding">
                             </a>
                         </div>
@@ -96,7 +119,7 @@
 
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/derecho_consumidor.html"><img src="../../img/DerechosConsumidor.jpg"
+                            <a><img src="../../img/DerechosConsumidor.jpg"
                                     alt="Tranding">
                             </a>
                         </div>
@@ -115,7 +138,7 @@
 
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/informacion_pension.html"><img src="../../img/PensionAliemnticia.jpg"
+                            <a><img src="../../img/PensionAliemnticia.jpg"
                                     alt="Tranding">
                             </a>
                         </div>
@@ -134,7 +157,7 @@
 
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/informacion_arrendamiento.html"><img src="../../img/Arrendamiento.jpg"
+                            <a><img src="../../img/Arrendamiento.jpg"
                                     alt="Tranding">
                             </a>
                         </div>
@@ -152,7 +175,7 @@
                     </div>
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/informacion_negocio.html"><img src="../../img/IniciarNegocio.jpg"
+                            <a><img src="../../img/IniciarNegocio.jpg"
                                     alt="Tranding">
                             </a>
                         </div>
@@ -171,7 +194,7 @@
 
                     <div class="swiper-slide tranding-slide">
                         <div class="tranding-slide-img">
-                            <a href="../Information/derechos_trabajadores.html"><img
+                            <a><img
                                     src="../../img/DerechosTrabajadores.jpg" alt="Tranding">
                             </a>
                         </div>
@@ -202,7 +225,10 @@
 
         </div>
         </div>
-    </section>
+    </section> --}}
+
+
+   
 
     <section class="informacion">
         <div class="content-informacion">
@@ -228,6 +254,8 @@
 @push('styles')
     <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-5YSOQ5KtZq2j9Vc1lYZn3vZ0rUubXsg9F9Z9RkVoThSKg/B0J9cuC0Rf5Gp6ueIa" crossorigin="anonymous">
+
 @endpush
 
 @push('scripts')

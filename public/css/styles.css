@@ -6,6 +6,7 @@
     margin: 0;
     font-family: "Faustina", serif;
   }
+  
 
   @media only screen and (max-width: 600px) {
     * {
@@ -267,9 +268,12 @@
       width: 100%;
       border-radius: 15px 0 0 15px;
     }
+    #buscarBtn{
+        background-color: #fff;
+    }
+
 
     .search-bar button {
-      background: url("../img/fondoBusqueda.png");
       background-size: cover;
       border: none;
       cursor: pointer;
@@ -279,11 +283,6 @@
       justify-content: center;
       width: 40px;
       height: 25px;
-    }
-
-    .search-bar button img {
-      max-width: 70%;
-      max-height: 70%;
     }
 
     .user-menu {
@@ -362,7 +361,25 @@
     }
   }
 
-  @media only screen and (min-width: 701px) and (max-width: 1000px) {
+  @media only screen and (min-width: 701px) and (max-width: 1300px) {
+
+    #login{
+        border: 1px solid #fff;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border-radius: 20px;
+        background-color: #fff;
+        color: #003049;
+        font-weight: 600;
+    }
+
+  }
+
+
+
+  @media only screen and (min-width: 701px) and (max-width: 1300px) {
     .header-small,
     .footer-small {
       display: none;
@@ -420,7 +437,9 @@
       color: white;
       width: 100%;
       z-index: 9000;
+
     }
+
 
     .nav-links {
       display: flex;
@@ -432,12 +451,17 @@
     .nav-links a {
       color: white;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 15px;
       margin: 0 15px;
     }
 
     #filtroBusqueda {
       display: none;
+    }
+
+
+    #buscarBtn{
+        background-color: #fff;
     }
 
     .search-bar {
@@ -458,8 +482,10 @@
       border-radius: 15px 0 0 15px;
     }
 
+
+
     .search-bar button {
-      background: url("../img/fondoBusqueda.png");
+
       background-size: cover;
       border: none;
       cursor: pointer;
@@ -469,11 +495,6 @@
       justify-content: center;
       width: 40px;
       height: 25px;
-    }
-
-    .search-bar button img {
-      max-width: 70%;
-      max-height: 70%;
     }
 
     .user-menu {
@@ -551,9 +572,27 @@
       flex-direction: column;
       align-items: flex-start;
     }
+
+
+
   }
 
-  @media only screen and (min-width: 1001px) {
+
+
+  @media only screen and (min-width: 1301px) {
+
+    #login{
+        border: 1px solid #fff;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        border-radius: 20px;
+        background-color: #fff;
+        color: #003049;
+        font-weight: 600;
+    }
+
     .logo {
       display: flex;
       align-items: center;
@@ -621,7 +660,7 @@
     .nav-links a {
       color: white;
       text-decoration: none;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     #filtroBusqueda {
@@ -649,8 +688,12 @@
       border-radius: 15px 0 0 15px;
     }
 
+    #buscarBtn{
+        background-color: #fff;
+    }
+
     .search-bar button {
-      background: url("../img/fondoBusqueda.png");
+
       background-size: cover;
       border: none;
       cursor: pointer;
@@ -660,11 +703,6 @@
       justify-content: center;
       width: 40px;
       height: 25px;
-    }
-
-    .search-bar button img {
-      max-width: 70%;
-      max-height: 70%;
     }
 
     .user-menu {
@@ -947,3 +985,17 @@
     left: 85%;
     padding-left: 60px;
   }
+
+
+  .modal-header {
+    background-color: #00274d; /* Color corporativo */
+    color: white;
+}
+.modal-content {
+    border-radius: 10px;
+}
+.btn-outline-dark {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

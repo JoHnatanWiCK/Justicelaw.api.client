@@ -7,29 +7,39 @@
 
 @section('main')
 
-<section class="container">
+<section class="content">
     <nav class="sidebar">
         <ul>
-
-            <div class="titulo">
-                <i class="fa-solid fa-chevron-left" onclick="window.history.back()"></i>
-                <span>Perfil Abogado</span>
-            </div>
             <li>
-                <a href="{{ route('perfil.abogado.creado') }}"><i class="fa-regular fa-user"></i>Información usuario</a>
+                <div class="icon-container">
+                    <i class="fa-regular fa-user"></i>
+                </div>
+                <div class="text-container">
+                    <a href="{{route ('perfil.abogado.creado')}}">Información usuario</a>
+                </div>
             </li>
             <li>
-                <a href="{{ route('historialAbogado') }}"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>
+                <div class="icon-container">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </div>
+                <div class="text-container">
+                    <a href="{{ route('historial') }}">Historial</a>
+                </div>
             </li>
             <li>
-                <a href="{{ route('configuracionAbogado') }}"><i class="fa-solid fa-gear"></i>Configuracion</a>
+                <div class="icon-container">
+                    <i class="fa-solid fa-gear"></i>
+                </div>
+                <div class="text-container">
+                    <a href="{{ route ('configuracionAbogado')}}">Configuración</a>
+                </div>
             </li>
             <li>
                 <div class="icon-container">
                     <i class="fa-regular fa-bell"></i>
                 </div>
                 <div class="text-container">
-                    <a href="../notification/notification.html">Notificaciones</a>
+                    <a href="{{ route ('noti-lawyer')}}">Notificaciones</a>
                 </div>
             </li>
             <li>
@@ -40,12 +50,13 @@
                     <a href="{{ route('calendar') }}">Calendario</a>
                 </div>
             </li>
-            <li>
-                    <i class="fa-regular fa-calendar"></i>
-                    <a href="{{ route('calendar') }}">Calendario</a>
-            </li>
             <li id="cerrarSesion">
-                <a href="{{ route('home') }}"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesión</a>
+                <div class="icon-container">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </div>
+                <div class="text-container">
+                    <a href="../home/home.html">Cerrar sesión</a>
+                </div>
             </li>
         </ul>
     </nav>
@@ -102,46 +113,19 @@
       </div>
 
     </div>
-  </section>
-</section>
-
-    <div class="toast-aceptar">
+    <div class="toast">
         <div class="toast-content">
             <img src="../../img/check.png"  class="check" alt="check">
             <div class="message">
-                <span class="text text-1">Aceptado</span>
-                <span class="text text-2">¡Agendado exitosamente!</span>
+                <div class="text" id="toastMessage">¡Acción completada!</div>
             </div>
         </div>
         <i class="fa-solid fa-xmark close"></i>
         <div class="progress"></div>
     </div>
+  </section>
+</section>
 
-    <script>
-        window.routes = {
-            perfilCreado: "{{ route('perfilCreado') }}",
-            crearPerfil: "{{ route('crearPerfil') }}"
-        };
-    </script>
-
-<div class="toast-aplazar">
-    <div class="toast-content">
-        <img src="../../img/check.png"  class="check" alt="check">
-        <div class="message">
-            <span class="text text-1">Datos Guardados</span>
-            <span class="text text-2">¡Aplazado!</span>
-        </div>
-    </div>
-    <i class="fa-solid fa-xmark close"></i>
-    <div class="progress"></div>
-</div>
-
-<script>
-    window.routes = {
-        perfilCreado: "{{ route('perfilCreado') }}",
-        crearPerfil: "{{ route('crearPerfil') }}"
-    };
-</script>
 @endsection
 
 
@@ -157,5 +141,5 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script src="js/notification.js"></script>
+    <script src="js/noti-lawyer.js"></script>
 @endpush

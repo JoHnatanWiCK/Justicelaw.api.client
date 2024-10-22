@@ -12,7 +12,7 @@
         <div class="news-column">
           <h2 class="titulo-informacion">Que hacer en caso de un despido</h2>
           <span>14 agosto 2024</span>
-          <span class="categoria">Categoria: Legal</span>
+          <span class="categoria">Categoria: Laboral y de empleo</span>
 
           <div class="informacion-contenido">
             <img
@@ -110,7 +110,19 @@
                     </div>
                   </li>
                 </a>
-
+                <a href="informacionSeguridadSaludTrabajo">
+                  <li class="article">
+                    <img src="../../img/SST.jpg" alt="Artículo 2" />
+                    <div class="article-content">
+                      <div class="article-title">
+                        Como redactar un testamento
+                      </div>
+                      <p class="article-description">
+                        Aprende lo necesario sobre seguridad y salud en el trabajo..
+                      </p>
+                    </div>
+                  </li>
+                </a>
                 <a href="/informacionArrendamiento">
                   <li class="article">
                     <img

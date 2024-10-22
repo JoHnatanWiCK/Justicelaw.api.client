@@ -9,8 +9,11 @@
 <section class="content">
     <div class="container">
         <div class="calendar">
-            <h1>Calendario</h1>
+            <h1 id="monthName">Calendario</h1>
             <div class="months">
+                <div id="prevMonthBtn" class="navigation">
+                    <button>&lt;</button>
+                </div>
                 <div>Enero</div>
                 <div>Febrero</div>
                 <div>Marzo</div>
@@ -18,67 +21,19 @@
                 <div>Mayo</div>
                 <div>Junio</div>
                 <div>Julio</div>
-                <div>borrar despues</div>
+                <div id="nextMonthBtn" class="navigation">
+                    <button>&gt;</button>
+                </div>
             </div>
             <div class="days">
-                <div class="day">
-                    <span class="date">1</span>
-                    <span class="day-name">Lun</span>
+                <div class="navigation-days">
+                    <button class="prevBtn" id="prevBtn">&lt;</button> 
                 </div>
-                <div class="day">
-                    <span class="date">2</span>
-                    <span class="day-name">Mar</span>
-                </div>
-                <div class="day">
-                    <span class="date">3</span>
-                    <span class="day-name">Mié</span>
-                </div>
-                <div class="day">
-                    <span class="date">4</span>
-                    <span class="day-name">Jue</span>
-                </div>
-                <div class="day">
-                    <span class="date">5</span>
-                    <span class="day-name">Vie</span>
-                </div>
-                <div class="day">
-                    <span class="date">6</span>
-                    <span class="day-name">Sáb</span>
-                </div>
-                <div class="day">
-                    <span class="date">8</span>
-                    <span class="day-name">Lun</span>
-                </div>
-                <div class="day">
-                    <span class="date">9</span>
-                    <span class="day-name">Mar</span>
-                </div>
-                <div class="day">
-                    <span class="date">10</span>
-                    <span class="day-name">Mié</span>
-                </div>
-                <div class="day selected">
-                    <span class="date">11</span>
-                    <span class="day-name">Jue</span>
-                </div>
-                <div class="day">
-                    <span class="date">12</span>
-                    <span class="day-name">Vie</span>
-                </div>
-                <div class="day">
-                    <span class="date">13</span>
-                    <span class="day-name">Sáb</span>
-                </div>
-                <div class="day">
-                    <span class="date">15</span>
-                    <span class="day-name">Lun</span>
-                </div>
-                <div class="day">
-                    <span class="date">16</span>
-                    <span class="day-name">Mar</span>
+                <div class="navigation-days">
+                    <button class="nextBtn" id="nextBtn">&gt;</button> 
                 </div>
             </div>
-            <div class="schedule">
+            <div class="schedule" id="scheduleArea">
                 <div class="hours">
                     <div>10:00</div>
                     <div>11:00</div>
@@ -91,9 +46,9 @@
                     <div>18:00</div>
                 </div>
                 <div class="events">
-                    <div class="event time"></div>
-                    <div class="event task"></div>
-                    <div class="event last"></div>
+                    <div class="event time" id="event1" style="top: 10%;">Asesoría familiar con Mariana Santos</div>
+                    <div class="event task" id="event2" style="top: 30%;">Asesoría legal con Mariana Santos</div>
+                    <div class="event last" style="top: 50%;"></div>
                 </div>
             </div>
         </div>
@@ -121,16 +76,37 @@
             </div>
         </div>
     </div>
+
+    <div id="modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Disponibilidad de asesoría</h2>
+            <p>Jueves, 11 abril</p>
+            <p>12:00pm - 1:00pm</p>
+            <button>Aceptar nueva disponibilidad</button>
+            <label>
+                Notificar
+                <select>
+                    <option>5 minutos antes</option>
+                    <option>10 minutos antes</option>
+                    <option>15 minutos antes</option>
+                </select>
+            </label>
+            <button>Guardar</button>
+        </div>
+    </div>
 </section>
-        @endsection
 
-        @section('footer')
-        @endsection
 
-        @push('styles')
-        <link rel="stylesheet" href="css/calendar.css">
-        @endpush
+@endsection
 
-        @push('scripts')
-        <script src="js/perfil.js"></script>
-        @endpush
+@section('footer')
+@endsection
+
+@push('styles')
+<link rel="stylesheet" href="css/calendar.css">
+@endpush
+
+@push('scripts')
+<script src="js/calendar.js"></script>
+@endpush

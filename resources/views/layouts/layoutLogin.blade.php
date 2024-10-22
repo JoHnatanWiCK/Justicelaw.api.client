@@ -16,7 +16,7 @@
     <header class="header-large">
         @yield('nav')
         <div class="logo">
-            <img src="../../img/logo.jpg" alt="JusticeLaw Logo" />
+            <a href="{{ route('homeLogin')}}"> <img src="../../img/logo.jpg" alt="JusticeLaw Logo"></a>
             <div class="logo-text">
                 <h1>JUSTICE</h1>
                 <p>LAW</p>
@@ -24,15 +24,15 @@
         </div>
         <div class="search-bar">
             <input type="text" placeholder="" />
-            <img id="filtroBusqueda" src="../../img/FiltroBusqueda.png" alt="Filtro" />
             <button id="buscarBtn">
-                <img src="../../img/Lupa.png" alt="Buscar" />
+                <i class="fa-solid fa-magnifying-glass"></i>
             </button>
         </div>
         <nav class="nav-links">
-            <a id="home" href="{{ route('homeLogin')}}">Home</a>
+
             <a id="about-us" href="#">Sobre nosotros</a>
             <a id="foro" href="{{ route('foro')}}">Foro</a>
+            <a id="informaciones" href="{{ route('informaciones')}}">Informaciones</a>
         </nav>
         <div class="user-menu">
             <img class="img-perfil" src="../../img/fotoPerfil.png" alt="foto de Perfil" />
@@ -157,9 +157,9 @@
             <ul>
                 <h3>Legal</h3>
                 <div class="linea4"></div>
-                <li><a href="../legal/terminos.html">Términos de uso</a></li>
-                <li><a href="legal.cookies.html">Política de Cookies</a></li>
-                <li><a href="legal.privacidad">Política de privacidad</a></li>
+                {{-- <li><a href="{{ route('terminosUso')}}">Términos de uso</a></li>
+                <li><a href="{{ route('cookies')}}">Política de Cookies</a></li>
+                <li><a href="{{ route('politicaPrivacidad')}}">Política de privacidad</a></li> --}}
             </ul>
         </div>
     </footer>

@@ -2,12 +2,9 @@
 
 
 use App\Http\Controllers\AdministratorController;
-<<<<<<< HEAD
 use App\Http\Controllers\AnswerController;
-=======
 use App\Http\Controllers\ConsultingController;
 use App\Http\Controllers\DateController;
->>>>>>> 70b3db247e7408fa9f8238ee49e3373533998619
 use App\Http\Controllers\DropdownController;
 use App\Http\Controllers\ForumCategoryController;
 use App\Http\Controllers\TypeDocumentController;
@@ -154,7 +151,7 @@ Route::get('/configadmincont', function () {
 
 Route::get('/calendar', function () {
     return view('calendar.calendar');
-})->name('calendar'); // Asigna el nombre calendar.calendar
+})->name('calendar'); 
 
 
 Route::get('/perfilabogado', function () {
@@ -168,6 +165,10 @@ Route::get('/reseñaPublicada', function () {
 Route::get('/informaciones', function () {
     return view('informacion.informaciones');
 })->name('informaciones');
+
+Route::get('/informacionesLaboral', function () {
+    return view('informacion.informacionesLaboral');
+})->name('informacionesLaboral');
 
 Route::get('/derechosTrabajadores', function () {
     return view('informacion.derechosTrabajadores');
@@ -205,6 +206,50 @@ Route::get('/informacionConsumidor', function () {
     return view('informacion.derechoConsumidor');
 })->name('informacionConsumidor');
 
+Route::get('/informacionSeguridadSocial', function () {
+    return view('informacion.seguridadSocial');
+})->name('informacionSeguridadSocial');
+
+Route::get('/informacionSST',function(){
+    return view('informacion.seguridadSaludTrabajo');
+})->name('SST');
+
+Route::get('/informacionIntLab',function(){
+    return view('informacion.internacionalLaboral');
+})->name('informacionIntLab');
+
+Route::get('/informacionEducacion',function(){
+    return view('informacion.derechosInfantiles.derechoEducacion');
+})->name('informacionEducacion');
+
+Route::get('/informacionVidaFamiliar',function(){
+    return view('informacion.derechosInfantiles.vidaFamiliarYCuidados');
+})->name('informacionVidaFamiliar');
+
+Route::get('/informacionTrabajoInfantil',function(){
+    return view('informacion.derechosInfantiles.trabajoInfantil');
+})->name('informacionTrabajoInfantil');
+
+Route::get('/informacionContrato',function(){
+    return view('informacion.contratoTrabajo');
+})->name('informacionContrato');
+
+Route::get('/informacionSalud',function(){
+    return view('informacion.derechosInfantiles.saludBienestar');
+})->name('informacionSalud');
+
+Route::get('/informacionParticipacion',function(){
+    return view('informacion.derechosInfantiles.participacionDecisiones');
+})->name('informacionParticipacion');
+
+Route::get('/informacionVoto',function(){
+    return view('informacion.participacionCiudadana.derechoVoto');
+})->name('informacionVoto');
+
+Route::get('/informacionCargo',function(){
+    return view('informacion.participacionCiudadana.postulacionCargosPublicos');
+})->name('informacionCargo');
+
 Route::get('/terminosCondiciones', function () {
     return view('legal.TerminosCondiciones');
 })->name('terminosCondiciones');
@@ -217,19 +262,24 @@ Route::get('/answer', function () {
 
 Route::get('/privacidad', function (){
     return view('legal.privacidad');
-});
+})->name('politicaPrivacidad');;
 
 Route::get('/terminosUso', function () {
     return view('legal.terminos');
-});
+})->name('terminosUso');;
 
 Route::get('/cookies', function () {
     return view('legal.cookies');
-});
+})->name('cookies');;
 
 Route::get('/herramientas', function () {
     return view('herramientas.herramientasAnalisis');
-});
+})->name('herramientasAnalisis');;
+
+Route::get('/foror', function () {
+    return view('foro.foroRespuestas');
+})->name('jeje');
+
 
 Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');
 Route::post('typeDocuments', [TypeDocumentController::class, 'store'])->name('typeDocuments.store');
@@ -273,14 +323,6 @@ Route::get('administrators/{administrator}', [AdministratorController::class, 's
 Route::put('administrators/{administrator}', [AdministratorController::class, 'update'])->name('api.v1.administrators.update');
 Route::delete('administrators/{administrator}', [AdministratorController::class, 'destroy'])->name('api.v1.administrators.delete');
 
-
-Route::get('lawyer', [LawyerController::class, 'index'])->name('lawyer.index');
-Route::post('lawyer', [LawyerController::class, 'store'])->name('lawyer.store');
-Route::get('lawyer/{lawyer}', [LawyerController::class, 'show'])->name('lawyer.show');
-Route::put('lawyer/{lawyer}', [LawyerController::class, 'update'])->name('lawyer.update');
-Route::delete('lawyer/{lawyer}', [LawyerController::class, 'destroy'])->name('lawyer.delete');
-
-
 Route::get('lawyerProfile', [LawyerProfileController::class, 'index'])->name('lawyerProfile.index');
 Route::post('lawyerProfile', [LawyerProfileController::class, 'store'])->name('lawyerProfile.store');
 Route::get('lawyerProfile/{lawyerProfile}', [LawyerProfileController::class, 'show'])->name('lawyerProfile.show');
@@ -311,11 +353,11 @@ Route::get('areas/{area}', [AreaController::class, 'show'])->name('areas.show');
 Route::put('areas/{area}', [AreaController::class, 'update'])->name('areas.update');
 Route::delete('areas/{area}', [AreaController::class, 'destroy'])->name('areas.delete');
 
-Route::get('areaslawyer', [AreaLawyerController::class, 'index'])->name( 'areaslawyer.index');
-Route::post('areaslawyer', [AreaLawyerController::class, 'store'])->name('areaslawyer.store');
-Route::get('areaslawyer/{arealawyer}', [AreaLawyerController::class, 'show'])->name('areaslawyer.show');
-Route::put('areaslawyer/{arealawyer}', [AreaLawyerController::class, 'update'])->name('areaslawyer.update');
-Route::delete('areaslawyer/{arealawyer}', [AreaLawyerController::class, 'destroy'])->name('areaslawyer.delete');
+Route::get('areasLawyer', [AreaLawyerController::class, 'index'])->name('api.v1.areasLawyer.index');
+Route::post('areasLawyer', [AreaLawyerController::class, 'store'])->name('api.v1.areasLawyer.store');
+Route::get('areasLawyer/{areaLawyer}', [AreaLawyerController::class, 'show'])->name('api.v1.areasLawyer.show');
+Route::put('areasLawyer/{areaLawyer}', [AreaLawyerController::class, 'update'])->name('api.v1.areasLawyer.update');
+Route::delete('areasLawyer/{areaLawyer}', [AreaLawyerController::class, 'destroy'])->name('api.v1.areasLawyer.delete');
 
 Route::get('reviews', [ReviewController::class, 'index'])->name( 'reviews.index');
 Route::post('reviews', [ReviewController::class, 'store'])->name('reviews.store');
@@ -335,6 +377,7 @@ Route::get('searchs/{search}', [SearchController::class, 'show'])->name('searchs
 Route::put('searchs/{search}', [SearchController::class, 'update'])->name('searchs.update');
 Route::delete('searchs/{search}', [SearchController::class, 'destroy'])->name('searchs.delete');
 
+<<<<<<< HEAD
 Route::get('answers', [AnswerController::class, 'index'])->name('api.v1.answers.index');
 Route::post('answers', [AnswerController::class, 'store'])->name('api.v1.answers.store');
 Route::get('answers/{answer}', [AnswerController::class, 'show'])->name('api.v1.answers.show');
@@ -352,11 +395,13 @@ Route::post('forumCategories', [ForumCategoryController::class, 'store'])->name(
 Route::get('forumCategories/{forumCategory}', [ForumCategoryController::class, 'show'])->name('api.v1.forumCategories.show');
 Route::put('forumCategories/{forumCategory}', [ForumCategoryController::class, 'update'])->name('api.v1.forumCategories.update');
 Route::delete('forumCategories/{forumCategory}', [ForumCategoryController::class, 'destroy'])->name('api.v1.forumCategories.delete');
+=======
 Route::get('overhauls', [OverhaulReviewController::class, 'index'])->name('overhauls.index');
 Route::post('overhauls', [OverhaulReviewController::class, 'store'])->name('seoverhaulsarchs.store');
 Route::get('overhauls/{overhaul}', [OverhaulReviewController::class, 'show'])->name('overhauls.show');
 Route::put('overhauls/{overhaul}', [OverhaulReviewController::class, 'update'])->name('overhauls.update');
 Route::delete('overhauls/{overhaul}', [OverhaulReviewController::class, 'destroy'])->name('overhauls.delete');
+>>>>>>> 70b3db247e7408fa9f8238ee49e3373533998619
 
 Route::get('/faqs', function () {
     return view(view: 'faqs.faqs');
@@ -365,3 +410,7 @@ Route::get('/faqs', function () {
 Route::get('/faqss', function () {
     return view(view: 'faqs.faqs_recurso');
 })->name('faqs_recurso');
+
+Route::get('/nosotros', function () {
+    return view(view: 'sobreNosotros');
+})->name('mm');

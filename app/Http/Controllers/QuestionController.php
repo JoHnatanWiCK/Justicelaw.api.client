@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class QuestionController extends Controller
 {
@@ -20,13 +21,35 @@ class QuestionController extends Controller
     public function index()
     {
         $url = env('URL_SERVER_API');
+        $questions = $this->fetchDataFromApi($url . '/questions');
+        $answers =  $this->fetchDataFromApi($url . '/answers');
+        $users =  $this->fetchDataFromApi($url . '/users');
+        $lawyers =  $this->fetchDataFromApi($url . '/lawyers');
 
-        $question = $this->fetchDataFromApi($url . '/questions');
+        $categories =  $this->fetchDataFromApi($url . '/forumCategories');
 
-        return $question;
 
-        // return view('categories.index', compact('question'));
+        // Suponiendo que $questions es un array, deberías convertirlo a una colección
+        $questions = collect($questions);
+        $answers = collect($answers);
+        
+        $perPage = 5; // Número de elementos por página
+        $currentPage = request()->input('page', 1); // Obtenemos la página actual
+        $pagedData = $questions->forPage($currentPage, $perPage); // Dividimos los datos
+    
+        $pquestions = new \Illuminate\Pagination\LengthAwarePaginator(
+            $pagedData,
+            $questions->count(),
+            $perPage,
+            $currentPage,
+            ['path' => request()->url()]
+        );
+    
+        return view('foro.foro', compact('pquestions','answers','users','categories','lawyers'));
     }
+
+   
+    
 
     /**
      * Show the form for creating a new resource.
@@ -41,8 +64,35 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'affair' => 'required|string|max:255',
+            'user_id' => 'required|integer',
+            'forum_category_id' => 'required|integer',
+            'date_publication' => 'required|date',
+            'content' => 'required|string',
+        ]);
+
+        // Enviar los datos a la API usando Http::post
+        $response = Http::post('http://api.justicelaw.test/v1/questions', [
+            'affair' => $validatedData['affair'],
+            'user_id' => $validatedData['user_id'],
+            'forum_category_id' => $validatedData['forum_category_id'],
+            'date_publication' => $validatedData['date_publication'],
+            'content' => $validatedData['content'],
+        ]);
+
+        // Manejar la respuesta de la API
+        if ($response->successful()) {
+            // Redirigir con mensaje de éxito
+            return redirect()->back()->with('success', 'Pregunta creada exitosamente');
+        } else {
+            // Manejar el error (puedes personalizar este mensaje)
+            return redirect()->back()->withErrors(['message' => 'Error al crear la pregunta']);
+        }
+    
     }
+
+  
 
     /**
      * Display the specified resource.

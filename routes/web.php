@@ -377,12 +377,11 @@ Route::get('searchs/{search}', [SearchController::class, 'show'])->name('searchs
 Route::put('searchs/{search}', [SearchController::class, 'update'])->name('searchs.update');
 Route::delete('searchs/{search}', [SearchController::class, 'destroy'])->name('searchs.delete');
 
-<<<<<<< HEAD
-Route::get('answers', [AnswerController::class, 'index'])->name('api.v1.answers.index');
-Route::post('answers', [AnswerController::class, 'store'])->name('api.v1.answers.store');
-Route::get('answers/{answer}', [AnswerController::class, 'show'])->name('api.v1.answers.show');
-Route::put('answers/{answer}', [AnswerController::class, 'update'])->name('api.v1.answers.update');
-Route::delete('answers/{answer}', [AnswerController::class, 'destroy'])->name('api.v1.answers.delete');
+Route::get('overhauls', [OverhaulReviewController::class, 'index'])->name('overhauls.index');
+Route::post('overhauls', [OverhaulReviewController::class, 'store'])->name('seoverhaulsarchs.store');
+Route::get('overhauls/{overhaul}', [OverhaulReviewController::class, 'show'])->name('overhauls.show');
+Route::put('overhauls/{overhaul}', [OverhaulReviewController::class, 'update'])->name('overhauls.update');
+Route::delete('overhauls/{overhaul}', [OverhaulReviewController::class, 'destroy'])->name('overhauls.delete');
 
 Route::get('questions', [QuestionController::class, 'index'])->name('api.v1.questions.index');
 Route::post('questions', [QuestionController::class, 'store'])->name('api.v1.questions.store');
@@ -390,18 +389,20 @@ Route::get('questions/{question}', [QuestionController::class, 'show'])->name('a
 Route::put('questions/{question}', [QuestionController::class, 'update'])->name('api.v1.questions.update');
 Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('api.v1.questions.delete');
 
-Route::get('forumCategories', [ForumCategoryController::class, 'index'])->name('api.v1.forumCategories.index');
-Route::post('forumCategories', [ForumCategoryController::class, 'store'])->name('api.v1.forumCategories.store');
-Route::get('forumCategories/{forumCategory}', [ForumCategoryController::class, 'show'])->name('api.v1.forumCategories.show');
-Route::put('forumCategories/{forumCategory}', [ForumCategoryController::class, 'update'])->name('api.v1.forumCategories.update');
-Route::delete('forumCategories/{forumCategory}', [ForumCategoryController::class, 'destroy'])->name('api.v1.forumCategories.delete');
-=======
-Route::get('overhauls', [OverhaulReviewController::class, 'index'])->name('overhauls.index');
-Route::post('overhauls', [OverhaulReviewController::class, 'store'])->name('seoverhaulsarchs.store');
-Route::get('overhauls/{overhaul}', [OverhaulReviewController::class, 'show'])->name('overhauls.show');
-Route::put('overhauls/{overhaul}', [OverhaulReviewController::class, 'update'])->name('overhauls.update');
-Route::delete('overhauls/{overhaul}', [OverhaulReviewController::class, 'destroy'])->name('overhauls.delete');
->>>>>>> 70b3db247e7408fa9f8238ee49e3373533998619
+Route::get('answers', [QuestionController::class, 'indexr'])->name('api.v1.answers.index');
+Route::post('answers', [QuestionController::class, 'storer'])->name('api.v1.answers.store');
+Route::get('answers/{answer}', [QuestionController::class, 'showr'])->name('api.v1.answers.show');
+Route::put('answers/{answer}', [QuestionController::class, 'updater'])->name('api.v1.answers.update');
+Route::delete('answers/{answer}', [QuestionController::class, 'destroyr'])->name('api.v1.answers.delete');
+
+
+Route::get('lawyers', [LawyerController::class, 'index'])->name('api.v1.lawyers.index');
+Route::post('lawyers', [LawyerController::class, 'store'])->name('api.v1.lawyers.store');
+Route::get('lawyers/{lawyer}', [LawyerController::class, 'show'])->name('api.v1.lawyers.show');
+Route::put('lawyers/{lawyer}', [LawyerController::class, 'update'])->name('api.v1.lawyers.update');
+Route::delete('lawyers/{lawyer}', [LawyerController::class, 'destroy'])->name('api.v1.lawyers.delete');
+
+
 
 Route::get('/faqs', function () {
     return view(view: 'faqs.faqs');

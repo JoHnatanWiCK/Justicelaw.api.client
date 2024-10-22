@@ -65,6 +65,24 @@
         </div>
         <div class="bt"><button class="btn3" type="submit" id="btnInicio">Iniciar Sesión</button></div>
 
+
+
+
+
+
+
+
+
+
+
+        <form id="login-form">
+    @csrf
+    <input type="email" id="email" placeholder="Email" required>
+    <input type="password" id="password" placeholder="Password" required>
+    <button type="submit">Login</button>
+</form>
+
+
     </section>
 
 @endsection

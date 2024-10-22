@@ -10,31 +10,34 @@
         <section class="informaciones-home">
           <div class="columna-izquierda">
             <div class="encabezado">
-                <img src="../../img/Accidente.png" alt="Accidente">
-                <h2>Guía completa sobre los pasos a seguir después de un accidente de tráfico</h2>
+                <img src="../../img/contrato.jpg" alt="Accidente">
+                <h2>Contrato laboral</h2>
                 <h3>1 de febrero, 2024</h3>
-                <p>Este artículo podría ofrecer información detallada sobre qué hacer
-                    inmediatamente después de verse involucrado en un accidente de tráfico,
-                     cómo recopilar pruebas, cuándo y cómo comunicarse con las compañías de
-                      seguros y cómo buscar ayuda legal si es necesario.</p>
+                <p>ste artículo proporciona una explicación completa y detallada sobre los requisitos fundamentales para elaborar un contrato de trabajo
+                    de forma clara, precisa y legalmente válida. A través de esta guía, conocerás los elementos esenciales que debe incluir un contrato
+                    laboral, desde la identificación de las partes hasta las cláusulas adicionales, garantizando que cumpla con las normativas laborales
+                    vigentes y evitando posibles problemas legales o malentendidos entre empleador y trabajador.o</p>
                       <button id="btnGuia">Leer mas</button>
             </div>
 
 
         <div class="informaciones-contenedor">
           <div class="info-informacion">
-              <img src="../../img/Derechosdelconsumidor.png" alt="Derechos del consumidor">
-              <h2>Los derechos del consumidor</h2>
+              <img src="../../img/internacionalLaboral.jpg" alt="Derechos del consumidor">
+              <h2>Derecho Internacional Laboral</h2>
               <h3>1 de febrero, 2024</h3>
-              <p>Conoce tus derechos como consumidor y aprende cómo protegerte contra el fraude y las prácticas comerciales injustas</p>
+              <p>
+                Conoce tus derechos laborales a nivel internacional y aprende cómo protegerte frente a abusos y condiciones de trabajo injustas. Descubre las
+                normativas globales que garantizan un empleo digno, seguro y equitativo para todos los trabajadores del mundo.</p>
               <button id="btnConsu">Leer más</button>
           </div>
 
           <div class="info-informacion">
-              <img src="../../img/Iniciarunnegocio.png" alt="Iniciar un negocio">
-              <h2>Aspectos legales para iniciar un negocio</h2>
+              <img src="../../img/SST.jpg" alt="Iniciar un negocio">
+              <h2>Seguridad y Salud en el Trabajo</h2>
               <h3>1 de febrero, 2024</h3>
-              <p>Aprende los aspectos legales fundamentales al iniciar un negocio</p>
+              <p>Conoce tus derechos en materia de seguridad y salud en el trabajo y aprende cómo protegerte frente a riesgos laborales. Descubre las normativas que garantizan un
+                ambiente de trabajo seguro y saludable, promoviendo el bienestar físico y mental de los trabajadores en todos los sectores.</p>
               <button id="btnAspect">Leer más</button>
           </div>
 
@@ -47,10 +50,12 @@
           </div>
 
           <div class="info-informacion">
-              <img src="../../img/Derechosdeinquilinos.png" alt="Derechos del inquilino">
-              <h2>Cómo enfrentar problemas de arrendamiento y derechos del inquilino</h2>
+              <img src="../../img/seguridadSocial.jpg" alt="Derechos del inquilino">
+              <h2>Derecho a la Seguridad Social</h2>
               <h3>1 de febrero, 2024</h3>
-              <p>Obtén información sobre tus derechos como inquilino</p>
+              <p>Conoce tu derecho a la seguridad social y cómo garantiza tu bienestar en situaciones de enfermedad,
+                desempleo, invalidez o jubilación. Descubre cómo este derecho protege a los trabajadores y sus familias,
+                asegurando una vida digna y apoyo en momentos de necesidad.</p>
               <button id="btnInquilino">Leer más</button>
           </div>
 
@@ -78,8 +83,8 @@
         <div class="position-container">
             <h1>Categorías Derechos</h1>
             <div class="imagen-container">
-                <img src="../../img/Derecholaboralydeempleo.png" alt="Derecholaboralydeempleo">
-                <div class="texto-superpuesto">Laboral y de Empleo</div>
+                <img src="../../img/derechosNiños.jpg" alt="Derecholaboralydeempleo">
+                <div class="texto-superpuesto">Infantiles</div>
             </div>
             <div class="imagen-container">
                 <img src="../../img/DerechoComercial.png" alt="DerechoComercial">
@@ -90,17 +95,25 @@
                 <div class="texto-superpuesto">De Familia</div>
             </div>
             <div class="imagen-container">
+              <img src="../../img/ParticipaciónCiudadana.jpg" alt="Derecholaboralydeempleo">
+              <div class="texto-superpuesto">Participación Ciudadana</div>
+          </div>
+            <div class="imagen-container">
                 <img src="../../img/Derechopenalyprocesal.png" alt="Derechopenalyprocesal">
                 <div class="texto-superpuesto">Penal y Procesal</div>
             </div>
             <div class="imagen-container">
+              <img src="../../img/derechosDigitales.jpg" alt="Derechopenalyprocesal">
+              <div class="texto-superpuesto">Digitales</div>
+          </div>
+            <div class="imagen-container">
+              <img src="../../img/propIntelectual.jpg" alt="Derechopenalyprocesal">
+              <div class="texto-superpuesto">Propiedad Intelectuall</div>
+          </div>
+            <div class="imagen-container">
               <img src="../../img/derechoAmbiental.jpg" alt="Derechopenalyprocesal">
               <div class="texto-superpuesto">Ambiental</div>
           </div>
-          <div class="imagen-container">
-            <img src="../../img/derechosNiños.jpg" alt="Derecholaboralydeempleo">
-            <div class="texto-superpuesto">De los Niños</div>
-        </div>
           <div class="imagen-container">
             <img src="../../img/DerechoSalud.jpg" alt="DerechoSalud">
             <div class="texto-superpuesto">Salud</div>
@@ -138,7 +151,6 @@
                 <span>12 Sept, 2023</span>
             </div>
         </div>
-        
         <div class="article">
           <img src="../../img/Derechosdelconsumidor.png" alt="Artículo">
           <div class="article-info">
@@ -211,6 +223,7 @@
             <span>11 Sept, 2023</span>
         </div>
     </div>
+    
       </div>
 
     </div>

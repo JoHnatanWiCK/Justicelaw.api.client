@@ -46,7 +46,7 @@
         <div class="team-container">
             <div class="team-member">
               <img src="../../img/fotoPerfil.png" class="fotoperfil" alt="Juan Pérez" />
-              <h3>Juan Pérez</h3>
+              <h3>Alejandro Narvaez</h3>
                 <p>Abogado especializado en derecho penal con más de 10 años de experiencia.</p>
             </div>
             <div class="team-member">
@@ -56,8 +56,16 @@
             </div>
             <div class="team-member">
               <img src="../../img/fotoPerfil.png" class="fotoperfil" alt="Juan Pérez" />
-              <h3>Carlos Martínez</h3>
+              <h3>Eder Gomez</h3>
                 <p>Asesor legal en derecho corporativo y comercial con enfoque en pequeñas empresas.</p>
+
+               
+            </div>
+
+            <div class="team-member">
+              <img src="../../img/fotoPerfil.png" class="fotoperfil" alt="Juan Pérez" />
+              <h3>Andrea Solarte</h3>
+                <p>Asesora legal en derecho corporativo y comercial con enfoque en pequeñas empresas.</p>
             </div>
         </div>
     </section>

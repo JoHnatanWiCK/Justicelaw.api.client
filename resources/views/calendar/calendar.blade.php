@@ -32,26 +32,91 @@
                 <div class="navigation-days">
                     <button class="nextBtn" id="nextBtn">&gt;</button> 
                 </div>
-            </div>
-            <div class="schedule" id="scheduleArea">
-                <div class="hours">
+
+        </div>
+        <div class="schedule" id="scheduleArea">
+            <div class="hours">
+                <div class="hour">
+                    <div class="event-box"></div>
                     <div>10:00</div>
+                </div>
+                <div class="hour">
+                    <div class="event-box"></div>
                     <div>11:00</div>
+                </div>
+                <div class="hour">
+                    <div class="event-box"></div>
                     <div>12:00</div>
+                </div>
+                <div class="hour">
+                    <div class="event-box"></div>
                     <div>13:00</div>
+                </div>
+                <div class="hour">
+                    <div class="event-box"></div>
                     <div>14:00</div>
+                </div>
+                <div class="hour">
+                    <div class="event-box"></div>
                     <div>15:00</div>
+                </div>
+                <div class="hour">
+                    <div class="event-box"></div>
                     <div>16:00</div>
+                </div>
+                <div class="hour">
+                    <div class="event-box"></div>
                     <div>17:00</div>
+                </div>
+                <div class="hour">
+                    <div class="event-box"></div>
                     <div>18:00</div>
                 </div>
-                <div class="events">
-                    <div class="event time" id="event1" style="top: 10%;">Asesoría familiar con Mariana Santos</div>
-                    <div class="event task" id="event2" style="top: 30%;">Asesoría legal con Mariana Santos</div>
-                    <div class="event last" style="top: 50%;"></div>
+                <div class="hour">
+                    <div class="event-box"></div>
+                    <div>19:00</div>
+                </div>
+                <div class="hour">
+                    <div class="event-box"></div>
+                    <div>20:00</div>
+                </div>
+            </div>
+            <div class="events">
+                <div class="event-container" style="top: 10%;">
+                    <div class="event disponible" id="event1">Asesoría familiar con Mariana Santos</div>
+                </div>
+                <div class="event-container" style="top: 20%;">
+                    <div class="event vacio" id="event6">Evento vacío 1</div>
+                </div>
+                <div class="event-container" style="top: 30%;">
+                    <div class="event ocupado" id="event2">Asesoría legal con Mariana Santos</div>
+                </div>
+                <div class="event-container" style="top: 40%;">
+                    <div class="event vacio" id="event7">Evento vacío 2</div>
+                </div>
+                <div class="event-container" style="top: 50%;">
+                    <div class="event disponible" id="event3">Asesoría psicológica con Juan Pérez</div>
+                </div>
+                <div class="event-container" style="top: 60%;">
+                    <div class="event vacio" id="event8">Evento vacío 3</div>
+                </div>
+                <div class="event-container" style="top: 70%;">
+                    <div class="event ocupado" id="event4">Asesoría financiera con Laura Gómez</div>
+                </div>
+                <div class="event-container" style="top: 80%;">
+                    <div class="event vacio" id="event9">Evento vacío 4</div>
+                </div>
+                <div class="event-container" style="top: 90%;">
+                    <div class="event disponible" id="event5">Asesoría médica con Ana López</div>
+                </div>
+                <div class="event-container" style="top: 100%;">
+                    <div class="event vacio" id="event10">Evento vacío 5</div>
                 </div>
             </div>
         </div>
+        
+        
+    </div>
         <div class="profile">
             <img src="../../img/fotoPerfil.jfif" alt="David Astrada">
             <h2>David Astrada</h2>

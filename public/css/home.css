@@ -631,45 +631,40 @@
 }
 
 .informacion {
-    background-color: #003049;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    background-size: cover;
-    overflow: hidden;
+    margin: 2rem;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: center; 
+    align-items: flex-start;
+    text-align: center;
 }
 
 .content-informacion {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 90%;
-    padding: 2rem;
-    text-align: left;
-    gap: 2rem;
-    margin-bottom: 0;
+    max-width: 800px;
+    width: 100%;
 }
 
 .content-informacion img {
-    max-width: 50rem;
-    max-height: 22rem;
+    max-width: 50%;
+    height: auto;
+    margin-right: 2rem;
 }
 
-.content-informacion p {
-    color: white;
-    font-size: 1rem;
-    font-weight: 200;
-    margin: 0;
+.text-content {
+    max-width: 50%;
+    text-align: left;
 }
 
-.content-informacion h1 {
-    color: white;
-    font-size: 2.5rem;
-    line-height: 1.2;
-    margin-bottom: 1rem;
+.text-content a {
+    background-color: #003049;
+    color: #fff;
+    text-decoration: none;
+    padding: 1rem;
+    display: inline-block;
+    margin: 0.5rem 0;
+    border-radius: 2rem;
 }
+
 
 @media (max-width: 999px) {
 
@@ -711,22 +706,7 @@
         border-radius: 3rem;
     }
 
-        .content-informacion {
-            padding: 0 2rem;
-        }
 
-        .content-informacion img {
-            max-width: 40rem;
-            max-height: 18rem;
-        }
-
-        .content-informacion p {
-            font-size: 1.3rem;
-        }
-
-        .content-informacion h1 {
-            font-size: 2rem;
-        }
     }
 
 
@@ -770,22 +750,7 @@
     border-radius: 3rem;
 }
 
-    .content-informacion {
-        padding: 0 2rem;
-    }
 
-    .content-informacion img {
-        max-width: 40rem;
-        max-height: 18rem;
-    }
-
-    .content-informacion p {
-        font-size: 1.3rem;
-    }
-
-    .content-informacion h1 {
-        font-size: 2rem;
-    }
 }
 @media (max-width: 1200px) and (min-width: 1000px) {
 
@@ -872,22 +837,7 @@
         -webkit-box-orient: vertical;
         text-overflow: ellipsis;
     }
-    .content-informacion {
-        padding: 0 2rem;
-    }
 
-    .content-informacion img {
-        max-width: 40rem;
-        max-height: 18rem;
-    }
-
-    .content-informacion p {
-        font-size: 1.1rem;
-    }
-
-    .content-informacion h3 {
-        font-size: 2rem;
-    }
 }
 
 @media (max-width: 700px) {
@@ -903,13 +853,5 @@
         text-overflow: ellipsis;
     }
 
-    .content-informacion {
-        flex-direction: column;
-        text-align: center;
-    }
 
-    .content-informacion img {
-        margin-right: 0;
-        margin-bottom: 1rem;
-    }
 }

@@ -72,10 +72,26 @@
             <p class="card-description">Aprende a estructurar y redactar un testamento de forma clara y legalmente válida,
                 asegurando que tus deseos sean respetados y evitando futuros conflictos familiares.</p>
         </div>
+        <div class="card">
+            <img src="../../img/Testamento.jpg" alt="Noticia 2">
+            <h4 class="card-title">COMO REDACTAR UN TESTAMENTO</h4>
+            <p class="card-description">Aprende a estructurar y redactar un testamento de forma clara y legalmente válida,
+                asegurando que tus deseos sean respetados y evitando futuros conflictos familiares.</p>
+        </div>
+        <div class="card">
+            <img src="../../img/Testamento.jpg" alt="Noticia 2">
+            <h4 class="card-title">COMO REDACTAR UN TESTAMENTO</h4>
+            <p class="card-description">Aprende a estructurar y redactar un testamento de forma clara y legalmente válida,
+                asegurando que tus deseos sean respetados y evitando futuros conflictos familiares.</p>
+        </div>
+        
     </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
 </section>
 
-
+{{-- 
     <section id="tranding">
         <div class="container">
             <div class="swiper tranding-slider">
@@ -261,7 +277,7 @@
 
         </div>
         </div>
-    </section>
+    </section> --}}
 
     <section class="informacion">
         <div class="content-informacion">
@@ -285,13 +301,16 @@
 @endsection
 
 @push('styles')
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
 @endpush
 
 @push('scripts')
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>    
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
-    <script src="js/home.js"></script>
+    <script src="js/carrusel.js"></script>
 @endpush

@@ -233,10 +233,11 @@
     transform: translate(-50%, -50%) scale(1); /* Expande el brillo */
 }
 /* Botones de navegación del Swiper */
+
 .banner .btn-next,
 .banner .btn-prev {
-    width: 80px; /* Ajustar el tamaño de las miniaturas */
-    height: 80px; /* Ajustar el tamaño de las miniaturas */
+    width: 100px; /* Ajustar el tamaño de las miniaturas */
+    height: 100px; /* Ajustar el tamaño de las miniaturas */
     position: absolute;
     top: 50%;
     transform: translateY(-50%); /* Centrar verticalmente */
@@ -248,22 +249,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0.8;
 }
 .banner .btn-next img,
 .banner .btn-prev img {
     width: 100%;
     height: auto; /* Mantener proporciones */
+    filter: brightness(0) invert(1);
 }
 
 .banner .btn-next {
     right: 10px; /* Espaciado desde el borde derecho */
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo translúcido */
+
 }
 
 .banner .btn-prev {
     left: 10px; /* Espaciado desde el borde izquierdo */
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo translúcido */
+
 }
 
 /* Efecto hover en los botones */
@@ -399,6 +400,7 @@
 .carousel-title {
     font-size: 1.2em;
     color: #333;
+    color: #003049;
     margin: 0;
 }
 

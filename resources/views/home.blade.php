@@ -60,10 +60,10 @@
         </div>
         <!-- Botones de navegación -->
         <div class="btn-next">
-            <img id="prev-thumbnail" src="../img/swiper2.jpg" alt="Previous Thumbnail">
+            <img id="prev-thumbnail" src="../img/f-derecha.png" alt="Previous Thumbnail">
         </div>
         <div class="btn-prev">
-            <img id="prev-thumbnail" src="../img/swiper6.jpg" alt="Previous Thumbnail">
+            <img id="prev-thumbnail" src="../img/f-izquierda.png" alt="Previous Thumbnail">
         </div>
     </div>
 </section>

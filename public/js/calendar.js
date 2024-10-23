@@ -112,5 +112,20 @@ function getMonthName(monthIndex) {
     return months[monthIndex]; 
 }
 
+function renderEvents() {
+    const eventContainers = document.querySelectorAll('.event-container');
+    eventContainers.forEach(eventContainer => {
+        const hour = parseInt(eventContainer.getAttribute('data-hour'));
+        const hourIndex = hour - 10; // Suponiendo que la primera hora es a las 10:00
+        eventContainer.style.top = `${hourIndex * 10}%`; // Ajusta el valor según tu diseño
+    });
+}
+
 renderDays(); 
 renderMonths(); 
+renderEvents(); // Llama a esta función para alinear los eventos
+
+document.querySelector('.events').addEventListener('scroll', function() {
+    const hours = document.querySelector('.hours');
+    hours.style.transform = `translateY(-${this.scrollTop}px)`; // Mover las horas
+});

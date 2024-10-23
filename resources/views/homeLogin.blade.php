@@ -7,34 +7,62 @@
 
 @section('main')
 <section class="banner">
-    <div class="content-banner">
-        <h3>Conéctate con abogados experimentados y encuentra las respuestas que necesitas.</h3>
-        <p>Nuestro objetivo es brindar asesoría legal accesible y de calidad, ayudando a usuarios a navegar el sistema legal con confianza.</p>
-    </div>
-</section>
-<section class="servicios">
-    <h3>Nuestros servicios</h3>
-    <p>Explora nuestra amplia gama de servicios legales diseñados para satisfacer tus necesidades.</p>
-    <div class="contenedor-tarjetas">
-        <div class="tarjeta">
-            <i class="fa-solid fa-gavel"></i>
-            <h5>Consulta Legal Personalizada</h5>
-            <p>Recibe asesoría adaptada a tu situación legal específica.</p>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <!-- Información -->
+            <div class="swiper-slide" id="primer-swiper">
+                <div class="text">
+                    <h3>Conéctate con abogados experimentados y encuentra las respuestas que necesitas.</h3>
+                    <p>Accede a una red de abogados especializados listos para ayudarte en cualquier situación legal.</p>
+                    <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
+                </div>
+            </div>
+            <div class="swiper-slide" id="segundo-swiper">
+                <div class="text">
+                    <h2>Información Importante</h2>
+                    <p>Descubre cómo nuestros servicios pueden apoyarte en situaciones legales urgentes o planificadas.</p>
+                    <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
+                </div>
+            </div>
+            <!-- Abogado Estrella -->
+            <div class="swiper-slide" id="tercer-swiper">
+                <div class="text">
+                    <h2>Conoce a Nuestro Abogado Estrella</h2>
+                    <p>Juan Pérez, con más de 20 años de experiencia en derecho penal y familiar, está aquí para apoyarte.</p>
+                    <a href="ruta-a-perfil-abogado" class="btn">Ver Perfil</a>
+                </div>
+            </div>
+            <!-- Información -->
+            <div class="swiper-slide" id="cuarto-swiper">
+                <div class="text">
+                    <h2>Información Importante</h2>
+                    <p>Navega por nuestra plataforma para conocer las diversas áreas legales en las que podemos asesorarte.</p>
+                    <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
+                </div>
+            </div>
+            <div class="swiper-slide" id="quinto-swiper">
+                <div class="text">
+                    <h3>Conéctate con abogados experimentados y encuentra las respuestas que necesitas.</h3>
+                    <p>Contamos con una amplia variedad de abogados que se especializan en diferentes ramas del derecho.</p>
+                    <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
+                </div>
+            </div>
+            <!-- Tendencias -->
+            <div class="swiper-slide" id="trending-items">
+                <div class="text">
+                    <h2>Tendencias</h2>
+                    <h3>Conéctate con abogados experimentados y encuentra las respuestas que necesitas.</h3>
+                    <p>Explora las categorías más populares entre nuestros usuarios y las preguntas más frecuentes.</p>
+                    <a href="ruta-a-informacion-adicional" class="btn">Ver Más</a>
+                </div>
+            </div>
         </div>
-        <div class="tarjeta">
-            <i class="fa-solid fa-scale-balanced"></i>
-            <h5>Representación Legal</h5>
-            <p>Defiende tus derechos con representación de un abogado profesional.</p>
+        <!-- Botones de navegación -->
+        <div class="btn-next">
+            <img id="prev-thumbnail" src="../img/f-derecha.png" alt="Previous Thumbnail">
         </div>
-        <div class="tarjeta">
-            <i class="fa-solid fa-info"></i>
-            <h5>Acceso a Información Legal</h5>
-            <p>Obtén información relevante sobre derechos, leyes y procedimientos legales.</p>
-        </div>
-        <div class="tarjeta">
-            <i class="fa-solid fa-user-tie"></i>
-            <h5>Foro de Discusión</h5>
-            <p>Plataforma para compartir experiencias y hacer preguntas sobre temas legales.</p>
+        <div class="btn-prev">
+            <img id="prev-thumbnail" src="../img/f-izquierda.png" alt="Previous Thumbnail">
         </div>
     </div>
 </section>
@@ -263,4 +291,5 @@
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="js/home.js"></script>
+    <script src="js/forocarousel.js"></script>
 @endpush

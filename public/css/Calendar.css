@@ -1,4 +1,4 @@
-.container {
+.container { 
   display: flex;
   width: 100%;
   max-width: 1200px;
@@ -20,11 +20,10 @@
   margin-bottom: 20px;
 }
 
-/* Estilos para los meses */
 .months {
   display: flex;
   justify-content: space-between;
-  align-items: center; /* Alinear verticalmente */
+  align-items: center; 
   margin-bottom: 10px;
 }
 
@@ -36,17 +35,16 @@
 }
 
 .months button {
-  background: transparent; /* Sin fondo */
-  border: none; /* Sin borde */
-  font-size: 24px; /* Tamaño de la flecha */
-  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+  background: transparent; 
+  border: none;
+  font-size: 24px; 
+  cursor: pointer; 
 }
 
 .months button:hover {
-  color: blue; /* Cambiar color al pasar el ratón, puedes personalizarlo */
+  color: blue; 
 }
 
-/* Estilos para los días */
 .days {
   display: flex;
   justify-content: center; 
@@ -58,7 +56,7 @@
   color: #666;
   text-align: center;
   width: 14%; 
-  cursor: pointer; /* Cambiar el cursor a puntero al pasar sobre el día */
+  cursor: pointer; 
 }
 
 .day .date {
@@ -71,23 +69,21 @@
   font-size: smaller;
 }
 
-/* Estilo para días seleccionados */
 .day.selected .date {
-  font-size: 20px; /* Cambiar tamaño de la fuente al seleccionado */
-  color: #fff; /* Cambiar color del texto al seleccionado */
-  background-color: #003c74; /* Color de fondo azul para el día seleccionado */
-  width: 40px; /* Ajustar ancho */
-  height: 40px; /* Ajustar altura */
-  line-height: 40px; /* Centrar texto verticalmente */
-  border-radius: 50%; /* Hacer redondeado */
-  margin: 0 auto; /* Centrar horizontalmente */
+  font-size: 20px; 
+  color: #fff;
+  background-color: #003c74; 
+  width: 40px; 
+  height: 40px; 
+  line-height: 40px; 
+  border-radius: 50%; 
+  margin: 0 auto; 
 }
 
 .day.selected .day-name {
-  color: #666; /* Color del nombre del día al seleccionado */
+  color: #666; 
 }
 
-/* Navegación de días */
 .navigation-days {
   display: flex;
   justify-content: center;
@@ -96,11 +92,11 @@
 
 .prevBtn,
 .nextBtn {
-  background-color: #003049; /* Color azul para las flechas de los días */
+  background-color: #003049; 
   border: none; 
   color: white; 
   font-size: 17px; 
-  cursor: pointer; /* Cambia el cursor al pasar el ratón */
+  cursor: pointer; 
   padding: 5px; 
   border-radius: 5px; 
   transition: background-color 0.3s; 
@@ -111,14 +107,15 @@
 
 .prevBtn:hover,
 .nextBtn:hover {
-  background-color: #010c13; /* Color oscuro al pasar el cursor */
+  background-color: #010c13; 
 }
 
-/* Estilos para el horario */
+/* Estilos para la sección de eventos y horas */
 .schedule {
   display: flex;
   align-items: flex-start;
   margin: 20px 5%;
+  position: relative;
 }
 
 .hours {
@@ -128,50 +125,62 @@
   margin-right: 10px;
   font-size: 12px;
   color: #666;
+  position: absolute; 
+  top: 0;
 }
 
 .hours div {
   height: 40px;
   line-height: 40px;
+  text-align: right;
 }
 
-/* Estilos para eventos */
 .events {
   position: relative;
   flex: 1;
   border-left: 2px solid #ccc;
-  height: 400px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-left: 60px; 
+  margin-left: 60px;
 }
 
 .event {
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
   border-radius: 5px;
   padding: 10px;
   box-sizing: border-box;
   border: 2px solid transparent;
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+  height: 40px;
 }
 
-.event.time {
-  top: 10px;
-  height: 40px;
+/* Estilos para los eventos vacíos (color azul) */
+.event.vacio {
+  background-color: #DFE6E9;
+  color: #fff;
+}
+
+.event.vacio:hover {
+  background-color: #4887b1; 
+}
+
+/* Estilos para los eventos disponibles y ocupados (color rojo) */
+.event.disponible,
+.event.ocupado {
   background-color: #f3e6cd;
+  color: #fff;
 }
 
-.event.task {
-  top: 140px;
-  height: 40px;
-  background-color: #dfe6e9;
+.event.disponible:hover,
+.event.ocupado:hover {
+  background-color: #cc4e40;
 }
 
-.event.last {
-  top: 240px;
-  height: 40px;
-  background-color: #dfe6e9;
-}
-
-/* Estilos para el perfil */
+/* Perfil y estadísticas */
 .profile {
   width: 270px;
   text-align: center;
@@ -207,7 +216,6 @@
 }
 
 .profile .stats div p {
-  display: block;
   color: #4d5052;
   font-size: 16px;
 }
@@ -218,26 +226,10 @@
   font-size: 15px;
 }
 
-/* Estilos para disponibilidad */
-.ocupado {
+/* Otros estilos */
+.ocupado, .disponible {
   display: flex;
   flex-direction: column;
-}
-
-.disponible {
-  display: flex;
-  flex-direction: column;
-}
-
-.contenido {
-  display: flex;
-  align-items: center;
-}
-
-.disponible span,
-.ocupado span {
-  font-size: 35px;
-  font-weight: 600;
 }
 
 .circulo-disponible {
@@ -258,5 +250,4 @@
 
 .stats hr {
   border: 0.1px solid #cf9e3e;
-  width: 0px;
 }

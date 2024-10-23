@@ -16,7 +16,7 @@
 
           <div class="informacion-contenido">
             <img
-              src="../../img/internacionalLaboral"
+              src="../../img/internacionalLaboral.jpg"
               alt="seguridadSocial"
               class="imagen-arriba-derecha"
             />
@@ -29,7 +29,7 @@
                 el mundo. Su objetivo es garantizar que los derechos fundamentales de los
                 trabajadores sean respetados, sin importar en qué país se encuentren, y que
                 las condiciones laborales sean justas y seguras.
-                <br>
+                <br><br>
                 Esta rama del derecho es crucial en un mundo cada vez más
                 globalizado, donde las relaciones laborales a menudo cruzan fronteras
                 nacionales debido a la expansión de empresas multinacionales, la subcontratación
@@ -44,110 +44,92 @@
                 como de trabajadores a nivel internacional. Su principal objetivo es:
             </p>
             <ul>
-              <strong>Proteger los derechos fundamentales de los trabajadores.</strong>
-              <strong>Promover la igualdad y la no discriminación en el lugar de trabajo.</strong>
-              <strong>Fomentar condiciones laborales justas y equitativas</strong>
+              <li><strong>Proteger los derechos fundamentales de los trabajadores.</strong></li>
+              <li><strong>Promover la igualdad y la no discriminación en el lugar de trabajo.</strong></li>
+              <li><strong>Fomentar condiciones laborales justas y equitativas</strong></li>
               <li><strong>Asegurar el respeto a la dignidad humana </strong>en el empleo y mejorar las condiciones de trabajo a nivel global.</li>
             </ul>
-            <p>Este campo del derecho tiene como base los convenios y recomendaciones elaborados por la Organización Internacional del Trabajo (OIT) y otras instituciones supranacionales que buscan establecer normas universales aplicables en todos los países, con independencia de sus diferencias económicas, políticas y culturales.</p>
+            <p>Este campo del derecho tiene como base los convenios y recomendaciones elaborados por la Organización Internacional del Trabajo
+              (OIT) y otras instituciones supranacionales que buscan establecer normas universales aplicables en todos los países, con independencia
+              de sus diferencias económicas, políticas y culturales.</p>
 
-                <h3>Principios Fundamentales</h3>
-                <p>El Derecho de la Seguridad Social se basa en varios principios clave:
-
-                    <li><strong>Universalidad: </strong> Toda persona tiene derecho a acceder al sistema de Seguridad Social, sin importar su
-                         situación laboral.</li>
+                <h3>Principales Fuentes del Derecho Internacional Laboral</h3>
+                <p>El Derecho Internacional Laboral se basa en una serie de fuentes internacionales que son el fundamento de las normativas
+                  laborales aplicadas en todo el mundo. Las más importantes son:
+                  <br><br>
+                  <strong>A. Organización Internacional del Trabajo (OIT)</strong>
+                  <p>La OIT, fundada en 1919, es la principal institución que promueve la elaboración y adopción de normas laborales internacionales.
+                    La OIT trabaja a través de un modelo tripartito en el que participan gobiernos, empleadores y trabajadores. Sus funciones principales
+                    incluyen:</p>
+                    <ul>
+                    <li><strong>Adoptar convenios y recomendaciones </strong> que establecen estándares internacionales mínimos sobre condiciones de trabajo, salarios,
+                      seguridad, derechos de los trabajadores, etc.</li>
                          <br>
-                    <li><strong>Solidaridad: </strong>Los recursos para financiar el sistema provienen de contribuciones obligatorias de
-                        trabajadores y empleadores, basándose en la idea de que los más capaces de contribuir ayudan a
-                        quienes lo necesitan.</li>
-                        <br>
-                        <li><strong>Igualdad: </strong>Todos los asegurados deben recibir el mismo trato en cuanto al acceso y calidad de las
-                            prestaciones.</li>
-                            <br>
-                        <li><strong>Suficiencia: </strong>Las prestaciones deben ser adecuadas para cubrir las necesidades básicas del beneficiario.</li>
-                        <br>
-                        <li><strong>Responsabilidad Estatal: </strong> El Estado garantiza y supervisa el adecuado funcionamiento del sistema de Seguridad Social.</li>
-                </p>
+                    <li><strong>Supervisar el cumplimiento de estos estándares </strong>por parte de los Estados miembros.</li>
+                  </ul>
+                  <p>
+                  <strong>Convenios y Recomendaciones de la OIT:</strong>
+                  <li><strong>Convenios:</strong>Son tratados internacionales vinculantes para los países que los ratifican. Una vez ratificados, los convenios 
+                    deben ser implementados en la legislación nacional. Ejemplos importantes incluyen:</li>
+                  <ul>
+                    <li><strong>Convenio 87:</strong>Sobre la libertad sindical y la protección del derecho de sindicación.</li>
+                    <li><strong>Convenio 98:</strong>Sobre el derecho de negociación colectiva.</li>
+                    <li><strong>Convenio 182:</strong>Sobre la prohibición de las peores formas de trabajo infantil.</li>
+                  </ul>
+                  <li><strong>Recomendaciones:</strong>Son guías no vinculantes que sugieren medidas a los Estados miembros para mejorar las condiciones laborales.
+                    Las recomendaciones son menos formales que los convenios, pero igualmente importantes para la formulación de políticas laborales.</li>
+                  </p>
+                  <strong>B. Declaración Universal de los Derechos Humanos (1948)</strong>
+                  <p>La Declaración Universal de los Derechos Humanos, adoptada por la Asamblea General de las Naciones Unidas en 1948, establece varios derechos
+                    fundamentales que se aplican al trabajo. Entre ellos:</p>
+                    <ul>
+                      <li>El derecho a <strong>trabajar en condiciones dignas</strong></li>
+                      <li>El derecho a <strong>igual remuneración por trabajo de igual valor.</strong></li>
+                      <li>El derecho a la<strong>ibre elección de empleo.</strong></li>
+                      <li>El derecho a la <strong>protección contra el desempleo.</strong></li>
+                    </ul>
+                    <strong>C. Pacto Internacional de Derechos Económicos, Sociales y Culturales (PIDESC)</strong>
+                  <p>Este tratado, adoptado por las Naciones Unidas en 1966, incluye disposiciones específicas sobre los derechos laborales, como el derecho a
+                    la sindicación, a condiciones de trabajo justas y favorables, y a la seguridad social.</p>
 
-            <h3>Cobertura y Beneficiarios</h3>
-            <p>
-                El sistema de Seguridad Social está diseñado para cubrir una serie de riesgos o contingencias que afectan la capacidad de las personas para generar ingresos.
-                Los principales riesgos cubiertos son:
-                <li><strong>Enfermedad: </strong>Prestaciones médicas y económicas en caso de incapacidad temporal o permanente derivada de una enfermedad común.</li>
-                <br>
-                <li><strong>Maternidad: </strong>Protección económica y médica a la trabajadora durante el embarazo, parto y posparto.</li>
-                <br>
-                <li><strong>Invalidez: </strong>Protección en caso de que el trabajador sufra una incapacidad física o mental que le impida continuar trabajando.</li>
-                <br>
-                <li><strong>Vejez: </strong>Prestaciones que aseguran una pensión durante la jubilación, una vez que el trabajador cumple con los requisitos de edad y contribuciones.</li>
-                <br>
-                <li><strong>Accidentes de Trabajo y Enfermedades Profesionales: </strong>Asistencia médica y económica para quienes sufren accidentes o desarrollan enfermedades derivadas de su actividad laboral.</li>
-                <br>
-                <li><strong>Desempleo: </strong>Subsidios o ayudas para personas que han perdido su empleo involuntariamente y cumplen con los requisitos establecidos.</li>
-                <br>
-                <li><strong>Muerte: </strong>Prestaciones a favor de los familiares o dependientes del trabajador fallecido.</li>
-                <br>
-                Los beneficiarios de estas prestaciones incluyen no solo al trabajador asegurado, sino también a sus familiares directos (cónyuge, hijos, dependientes), quienes pueden recibir cobertura médica,
-                pensiones o subsidios en caso de muerte del titular o en otras circunstancias.
-            </p>
+                  <strong>D. Otros Tratados y Acuerdos Internacionales</strong>
+                  <ul>
+                    <li><strong>Convenios Regionales:</strong>cuerdos adoptados en el ámbito de bloques económicos o políticos regionales, como la
+                      <strong>Unión Europea (UE), el Mercado Común del Sur (MERCOSUR) o el Tratado de Libre Comercio de América del Norte (TLCAN),
+                        </strong>que contienen disposiciones laborales.</li>
+                        <li><strong>Convenios Bilaterales o Multilaterales: </strong>Algunos países celebran acuerdos bilaterales o multilaterales para proteger
+                          a los trabajadores migrantes y regular la movilidad laboral entre fronteras.</li>
+                  </ul>
 
-            <h3>Financiamiento de la Seguridad Social</h3>
+            <h3>Principios Fundamentales del Derecho Internacional Laboral</h3>
+            <p>El Derecho Internacional Laboral se fundamenta en varios principios clave: la libertad sindical, el derecho a la negociación colectiva,
+              la erradicación del trabajo infantil y del trabajo forzoso, y la no discriminación en el empleo. Estos principios buscan garantizar que
+              todos los trabajadores, independientemente de su ubicación, puedan ejercer sus derechos en condiciones de igualdad y dignidad.
+              Estos principios están recogidos en los Convenios Fundamentales de la OIT, considerados el pilar básico de los derechos laborales 
+              globales.</p>
+
+            <h3>Normas Internacionales del Trabajo</h3>
             <p>
-                El sistema de Seguridad Social se financia a través de contribuciones obligatorias que recaen
-                sobre los trabajadores y empleadores. Estas contribuciones se realizan mediante deducciones
-                salariales y pagos patronales que son administrados por las entidades de Seguridad Social del Estado.
-                <br>
-                En muchos países, el sistema puede complementarse con fondos estatales, especialmente para
-                cubrir déficits o financiar programas especiales de asistencia social para personas que no
-                tienen capacidad contributiva (como los desempleados de larga duración, ancianos sin pensiones, etc.).
+              Las normas internacionales elaboradas por la OIT y otras organizaciones internacionales abarcan una amplia
+              gama de temas, como la duración de la jornada laboral, los salarios mínimos, la seguridad y salud en el trabajo,
+              y la protección frente al despido injustificado. Estos estándares proporcionan un marco común para los Estados,
+              permitiendo que las condiciones laborales se ajusten a parámetros universales que beneficien tanto a los trabajadores
+              como a los empleadores.
             </p>
     
-            <h3>Prestaciones del Sistema de Seguridad Social</h3>
-            <p>Las prestaciones proporcionadas por el sistema de Seguridad Social pueden ser de dos tipos:
-                en especie y en dinero.
-            <li><strong>Prestaciones en especie: </strong>Estas incluyen la atención médica, los tratamientos, medicamentos, hospitalizaciones y cualquier
-                otro servicio relacionado con la salud.</li>
-                <br>
-                <li><strong>Prestaciones en dinero: </strong>Son pagos directos que el beneficiario recibe, como pensiones, subsidios por desempleo, incapacidad
-                    temporal o permanente, subsidios por maternidad, entre otros.</li>
+            <h3>Aplicación y Supervisión</h3>
+            <p>La supervisión del cumplimiento de las normas internacionales del trabajo es uno de los pilares del Derecho Internacional Laboral.
+              La OIT recibe informes periódicos de los Estados miembros sobre la implementación de los convenios ratificados, y cuenta con
+              mecanismos para investigar quejas y denuncias sobre violaciones de derechos laborales. Además, organizaciones como los sindicatos
+              internacionales juegan un papel activo en la presentación de denuncias cuando las normas no se cumplen.
+            </p>
+                <h3>Desafíos en la Aplicación</h3>
+                <p>A pesar de los avances, el Derecho Internacional Laboral enfrenta desafíos importantes. La falta de ratificación de los convenios por parte
+                  de algunos países y la insuficiente aplicación de los mismos en aquellos que los ratifican son problemas recurrentes. La globalización económica
+                  ha incrementado la presión para reducir costos laborales, lo que en ocasiones lleva a condiciones de trabajo precarias, especialmente en los países
+                  en desarrollo. Además, la aparición de nuevas formas de empleo, como el trabajo en plataformas digitales y el teletrabajo, plantea retos para aplicar
+                  las normas tradicionales del trabajo.</p>
 
-            </p>
-              <strong>Ejemplos de prestaciones económicas:</strong>
-              <p>
-              <li><strong>Pensiones por jubilación: </strong>Un ingreso mensual vitalicio para el trabajador retirado que ha alcanzado la edad de jubilación.</li>
-              <br>
-              <li><strong>Incapacidad temporal: </strong>Pago de un porcentaje del salario mientras el trabajador está incapacitado por una enfermedad o accidente no laboral.</li>
-              <br>
-              <li><strong>Seguro de desempleo: </strong>Pago periódico mientras la persona busca un nuevo empleo.</li>
-
-            </p>
-              <strong>Ejemplos de prestaciones en especie:</strong>
-              <p>
-              <li><strong>Atención médica gratuita: </strong>Servicios de salud para los asegurados y sus dependientes, que incluye desde consultas médicas hasta cirugías complejas.</li>
-              <br>
-              <li><strong>Rehabilitación laboral: </strong>Servicios destinados a la reincorporación de los trabajadores accidentados o con discapacidad.</li>
-            </p>
-             
-                <h3>Administración del Sistema de Seguridad Social</h3>
-                <p>Los sistemas de Seguridad Social pueden ser administrados por entidades públicas o privadas bajo supervisión estatal. En la mayoría de los países,
-                    el Estado juega un papel fundamental como garante del sistema, aunque algunas funciones pueden ser delegadas a instituciones especializadas o
-                    aseguradoras privadas bajo regulación estricta.</p>
-                    
-                    <li><strong>Institutos de Seguridad Social: </strong> Son las entidades públicas encargadas de gestionar las contribuciones y pagar las prestaciones.</li>
-                    <li><strong>Aseguradoras privadas: </strong> En algunos sistemas, las aseguradoras privadas participan ofreciendo planes complementarios o administrando fondos de pensiones bajo control estatal.</li>
-                       
-                    <h3>Evolución y Desafíos del Sistema de Seguridad Social</h3>
-                    <p>A lo largo del tiempo, los sistemas de Seguridad Social han evolucionado para adaptarse a los cambios demográficos, económicos y sociales. Sin embargo, también enfrentan
-                        desafíos importantes, como el envejecimiento de la población, el empleo informal y la necesidad de reformas para garantizar la sostenibilidad financiera a largo plazo.</p>
-                        <p>
-                        <strong>Desafíos actuales:</strong>
-                       <li><strong>Sostenibilidad financiera: </strong>El envejecimiento de la población y la baja tasa de natalidad en muchos países ponen presión sobre los sistemas de pensiones.</li>
-                       <br>
-                       <li><strong>Cobertura insuficiente: </strong> países con alta informalidad laboral, muchas personas quedan excluidas del sistema de Seguridad Social, lo que agrava 
-                        la pobreza y la desigualdad.</li>
-                        <br>
-                        <li><strong>Reformas necesarias: </strong> muchos países, los sistemas de pensiones y de seguridad social requieren reformas para garantizar su viabilidad y equidad en el futuro.</li>
-                        </p>
 
           </div>
         </div>
@@ -174,7 +156,19 @@
                     </div>
                   </li>
                 </a>
-
+                <a href="informacionSeguridadSaludTrabajo">
+                  <li class="article">
+                    <img src="../../img/SST.jpg" alt="Artículo 2" />
+                    <div class="article-content">
+                      <div class="article-title">
+                        Como redactar un testamento
+                      </div>
+                      <p class="article-description">
+                        Aprende lo necesario sobre seguridad y salud en el trabajo..
+                      </p>
+                    </div>
+                  </li>
+                </a>
                 <a href="/informacionArrendamiento">
                   <li class="article">
                     <img

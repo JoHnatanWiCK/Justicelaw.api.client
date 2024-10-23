@@ -57,6 +57,10 @@
 .faq-content {
     background-color: aqua;
 }
+.plus-icon, .minus-icon {
+    cursor: pointer; 
+}
+
 
 .plus-icon {
     width: 30px; 

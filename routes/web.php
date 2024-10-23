@@ -166,6 +166,10 @@ Route::get('/informaciones', function () {
     return view('informacion.informaciones');
 })->name('informaciones');
 
+Route::get('/informacionesLaboral', function () {
+    return view('informacion.informacionesLaboral');
+})->name('informacionesLaboral');
+
 Route::get('/derechosTrabajadores', function () {
     return view('informacion.derechosTrabajadores');
 })->name('derechosTrabajadores');
@@ -210,6 +214,42 @@ Route::get('/informacionSST',function(){
     return view('informacion.seguridadSaludTrabajo');
 })->name('SST');
 
+Route::get('/informacionIntLab',function(){
+    return view('informacion.internacionalLaboral');
+})->name('informacionIntLab');
+
+Route::get('/informacionEducacion',function(){
+    return view('informacion.derechosInfantiles.derechoEducacion');
+})->name('informacionEducacion');
+
+Route::get('/informacionVidaFamiliar',function(){
+    return view('informacion.derechosInfantiles.vidaFamiliarYCuidados');
+})->name('informacionVidaFamiliar');
+
+Route::get('/informacionTrabajoInfantil',function(){
+    return view('informacion.derechosInfantiles.trabajoInfantil');
+})->name('informacionTrabajoInfantil');
+
+Route::get('/informacionContrato',function(){
+    return view('informacion.contratoTrabajo');
+})->name('informacionContrato');
+
+Route::get('/informacionSalud',function(){
+    return view('informacion.derechosInfantiles.saludBienestar');
+})->name('informacionSalud');
+
+Route::get('/informacionParticipacion',function(){
+    return view('informacion.derechosInfantiles.participacionDecisiones');
+})->name('informacionParticipacion');
+
+Route::get('/informacionVoto',function(){
+    return view('informacion.participacionCiudadana.derechoVoto');
+})->name('informacionVoto');
+
+Route::get('/informacionCargo',function(){
+    return view('informacion.participacionCiudadana.postulacionCargosPublicos');
+})->name('informacionCargo');
+
 Route::get('/terminosCondiciones', function () {
     return view('legal.TerminosCondiciones');
 })->name('terminosCondiciones');
@@ -238,7 +278,7 @@ Route::get('/herramientas', function () {
 
 Route::get('/foror', function () {
     return view('foro.foroRespuestas');
-});
+})->name('jeje');
 
 
 Route::get('typeDocuments', [TypeDocumentController::class, 'index'])->name( 'typeDocuments.index');
@@ -282,14 +322,6 @@ Route::post('administrators', [AdministratorController::class, 'store'])->name('
 Route::get('administrators/{administrator}', [AdministratorController::class, 'show'])->name('api.v1.administrators.show');
 Route::put('administrators/{administrator}', [AdministratorController::class, 'update'])->name('api.v1.administrators.update');
 Route::delete('administrators/{administrator}', [AdministratorController::class, 'destroy'])->name('api.v1.administrators.delete');
-
-
-Route::get('lawyer', [LawyerController::class, 'index'])->name('lawyer.index');
-Route::post('lawyer', [LawyerController::class, 'store'])->name('lawyer.store');
-Route::get('lawyer/{lawyer}', [LawyerController::class, 'show'])->name('lawyer.show');
-Route::put('lawyer/{lawyer}', [LawyerController::class, 'update'])->name('lawyer.update');
-Route::delete('lawyer/{lawyer}', [LawyerController::class, 'destroy'])->name('lawyer.delete');
-
 
 Route::get('lawyerProfile', [LawyerProfileController::class, 'index'])->name('lawyerProfile.index');
 Route::post('lawyerProfile', [LawyerProfileController::class, 'store'])->name('lawyerProfile.store');
@@ -362,6 +394,15 @@ Route::post('answers', [QuestionController::class, 'storer'])->name('api.v1.answ
 Route::get('answers/{answer}', [QuestionController::class, 'showr'])->name('api.v1.answers.show');
 Route::put('answers/{answer}', [QuestionController::class, 'updater'])->name('api.v1.answers.update');
 Route::delete('answers/{answer}', [QuestionController::class, 'destroyr'])->name('api.v1.answers.delete');
+
+
+Route::get('lawyers', [LawyerController::class, 'index'])->name('api.v1.lawyers.index');
+Route::post('lawyers', [LawyerController::class, 'store'])->name('api.v1.lawyers.store');
+Route::get('lawyers/{lawyer}', [LawyerController::class, 'show'])->name('api.v1.lawyers.show');
+Route::put('lawyers/{lawyer}', [LawyerController::class, 'update'])->name('api.v1.lawyers.update');
+Route::delete('lawyers/{lawyer}', [LawyerController::class, 'destroy'])->name('api.v1.lawyers.delete');
+
+
 
 Route::get('/faqs', function () {
     return view(view: 'faqs.faqs');

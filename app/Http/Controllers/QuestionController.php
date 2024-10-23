@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class QuestionController extends Controller
 {
@@ -22,11 +23,16 @@ class QuestionController extends Controller
         $url = env('URL_SERVER_API');
         $questions = $this->fetchDataFromApi($url . '/questions');
         $answers =  $this->fetchDataFromApi($url . '/answers');
+        $users =  $this->fetchDataFromApi($url . '/users');
+        $lawyers =  $this->fetchDataFromApi($url . '/lawyers');
+
+        $categories =  $this->fetchDataFromApi($url . '/forumCategories');
+
+
         // Suponiendo que $questions es un array, deberías convertirlo a una colección
         $questions = collect($questions);
         $answers = collect($answers);
-
-        // Paginamos la colección, 10 elementos por página
+        
         $perPage = 5; // Número de elementos por página
         $currentPage = request()->input('page', 1); // Obtenemos la página actual
         $pagedData = $questions->forPage($currentPage, $perPage); // Dividimos los datos
@@ -39,31 +45,10 @@ class QuestionController extends Controller
             ['path' => request()->url()]
         );
     
-        return view('foro.foro', compact('pquestions','answers'));
+        return view('foro.foro', compact('pquestions','answers','users','categories','lawyers'));
     }
 
-    public function indexr()
-    {
-        $url = env('URL_SERVER_API');
-        $answers =  $this->fetchDataFromApi($url . '/answers');
-        // Suponiendo que $questions es un array, deberías convertirlo a una colección
-        $answers = collect($answers);
-    
-        // Paginamos la colección, 10 elementos por página
-        $perPage = 5; // Número de elementos por página
-        $currentPage = request()->input('page', 1); // Obtenemos la página actual
-        $pagedData = $answers->forPage($currentPage, $perPage); // Dividimos los datos
-    
-        $pquestions = new \Illuminate\Pagination\LengthAwarePaginator(
-            $pagedData,
-            $answers->count(),
-            $perPage,
-            $currentPage,
-            ['path' => request()->url()]
-        );
-    
-        return $answers;
-    }
+   
     
 
     /**
@@ -79,34 +64,35 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        // Validar los datos enviados desde el formulario
         $validatedData = $request->validate([
             'affair' => 'required|string|max:255',
-            'content' => 'required|string',
+            'user_id' => 'required|integer',
             'forum_category_id' => 'required|integer',
-            'user_id' => 'integer',
+            'date_publication' => 'required|date',
+            'content' => 'required|string',
         ]);
-    
-        // Enviar los datos validados a la API para crear una nueva pregunta
-        $url = env('URL_SERVER_API') . '/questions';
-        $response = $this->sendDataToApi($url, $validatedData);
-    
-        if ($response->successful()) {
-            // Si la pregunta fue creada exitosamente, redirigir al listado de preguntas
-            return redirect()->route('api.v1.questions.index')->with('success', 'Pregunta creada exitosamente.');
-        } else {
-            // Si hubo un error, redirigir de vuelta al formulario con un mensaje de error
-            return back()->withErrors('No se pudo crear la pregunta. Inténtalo nuevamente.');
-        }
-    }
-    
 
-    private function sendDataToApi($url, $data)
-{
-    // Envía una solicitud POST a la API con los datos proporcionados
-    $response = Http::post($url, $data);
-    return $response; // Devuelve la respuesta de la API
-}
+        // Enviar los datos a la API usando Http::post
+        $response = Http::post('http://api.justicelaw.test/v1/questions', [
+            'affair' => $validatedData['affair'],
+            'user_id' => $validatedData['user_id'],
+            'forum_category_id' => $validatedData['forum_category_id'],
+            'date_publication' => $validatedData['date_publication'],
+            'content' => $validatedData['content'],
+        ]);
+
+        // Manejar la respuesta de la API
+        if ($response->successful()) {
+            // Redirigir con mensaje de éxito
+            return redirect()->back()->with('success', 'Pregunta creada exitosamente');
+        } else {
+            // Manejar el error (puedes personalizar este mensaje)
+            return redirect()->back()->withErrors(['message' => 'Error al crear la pregunta']);
+        }
+    
+    }
+
+  
 
     /**
      * Display the specified resource.

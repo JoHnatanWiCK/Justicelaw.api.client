@@ -30,7 +30,12 @@
             <p>{{ $q['content'] }}</p>
             <div class="meta">
                 <span class="date">{{ $q['date_publication'] }}</span>
-                <span class="category">Categoría: {{ $q['forum_category_id'] }}</span>
+                @foreach ($categories as $c)
+                @if ($q['forum_category_id'] == $c['id'])  <!-- Verifica si id == a categoriaforo -->
+
+                <span class="category">Categoría: {{ $c['name'] }}</span>
+                @endif
+                @endforeach
                 <br>
 
             </div>
@@ -54,8 +59,13 @@
                     <div class="post-header">
                         <img src="../../img/fotoPerfil.png" class="avatar" alt="Ana Martínez">
                         <div class="user-details">
-                        <strong class="response-date">{{ $a['lawyer_id'] }}</strong></tr>
-                            
+                        @foreach ($lawyers as $lawyer)
+                        @if ($a['lawyer_id'] == $lawyer['id'])
+                           
+                        <strong class="response-date">{{ $lawyer['names'] }} {{ $lawyer['last_names'] }}</strong></tr>
+                       
+                        @endif
+                        @endforeach
                         </div>
                     </div>
                     
@@ -76,7 +86,11 @@
             <div class="user-info">
                 <img src="../../img/fotoPerfil.png" class="fotoperfil" alt="Andrés López" />
                 <br>
-                <span class="name_user">USER: {{ $q['user_id'] }}</span>
+                @foreach ($users as $user)
+                @if ($q['user_id'] == $user['id'])
+                <span class="name_user"> {{ $user['name'] }} {{$user['last_name']}}</span>
+                @endif
+                @endforeach
             </div>
         </td>
     </tr>
@@ -94,43 +108,37 @@
             <aside>
                 <div class="categories">
                     <h3>Categorías</h3>
+                    <br>
                     <ul>
-                        <li><a href="foro_familiar.html">Familiar</a></li>
+                        @foreach ($categories as $c)
+                        <li><a href="foro_familiar.html">{{$c['name']}}</a></li>
                         <br>
-                        <li><a href="#">Legal</a></li>
-                        <br>
-                        <li><a href="#">Laboral</a></li>
-                        <br>
-                        <li><a href="#">Propiedad</a></li>
-                        <br>
-                        <li><a href="#">Vivienda</a></li>
-                        <br>
-                        <li><a href="#">Negocio</a></li>
-                        <br>
-                        <li><a href="#">Inmigración</a></li>
-                        <br>
-                        <li><a href="#">Consumidor</a></li>
-                        <br>
-                        <li><a href="#">Propiedad Intelectual</a></li>
+                        @endforeach
+                        
+                        
                     </ul>
                 </div>
                 <div class="ask-question">
     <h3>Escribe tu duda....</h3>
-    <form action="{{ route('api.v1.questions.store') }}" method="POST">
+    <form action="{{ route('api.v1.questions.store') }}"  method="POST">
         @csrf 
         
         <input type="text" name="affair" placeholder="Asunto:" required />
+
+        <input type="number" name="user_id" placeholder="user_id:" required />
+
+
+        <input type="date" name="date_publication" placeholder="user_id:" required />
+
+
         
         <textarea name="content" placeholder="Contenido:" required></textarea>
         
-        <select name="forum_category_id" required>
-            <option value="">Categoría</option>
-            <option value="1">Familiar</option>
-            <option value="2">Legal</option>
-            <option value="3">Laboral</option>
-            <option value="4">Propiedad</option>
-            <option value="5">Vivienda</option>
-        </select>
+            <select name="forum_category_id" >
+                @foreach ($categories as $c)
+                        <option value="{{$c['id']}}">{{$c['name']}}</option>
+                @endforeach
+            </select>
 
         
         <button type="submit">Publicar</button>
@@ -147,29 +155,9 @@
 
       
 
-        @push('scripts')
-        <script src="js/foro.js"></script>   
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-       $(document).ready(function() {
-    // Cuando se hace clic en el enlace de "Ver respuestas"
-    $('.toggle-responses').on('click', function(e) {
-        e.preventDefault();
-        
-        console.log("Click en 'Ver respuestas'"); // Verifica si el evento click está funcionando
+      
 
-        // Obtén el id de la pregunta relacionada
-        var questionId = $(this).data('question-id');
-        
-        // Muestra u oculta las respuestas relacionadas a esa pregunta
-        $('#responses-' + questionId).toggle();
-    });
-});
 
-    </script>
-         @endpush
          @push('styles')
         
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -179,5 +167,18 @@
         <link href="https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
         @endpush
+
+
+
+        @push('scripts')
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <script src="{{ asset('js/foro.js') }}"></script>
+
+
+         @endpush
        
 

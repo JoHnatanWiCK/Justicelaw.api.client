@@ -76,34 +76,38 @@
         </div>
     </div>
         <div class="position-container">
-            <h1>Categorías</h1>
+            <h1>Categorías Derechos</h1>
             <div class="imagen-container">
                 <img src="../../img/Derecholaboralydeempleo.png" alt="Derecholaboralydeempleo">
-                <div class="texto-superpuesto">Derecho Laboral y de Empleo</div>
+                <div class="texto-superpuesto">Laboral y de Empleo</div>
             </div>
             <div class="imagen-container">
                 <img src="../../img/DerechoComercial.png" alt="DerechoComercial">
-                <div class="texto-superpuesto">Derecho Comercial</div>
+                <div class="texto-superpuesto">Comercial</div>
             </div>
             <div class="imagen-container">
                 <img src="../../img/Derechodefamilia.png" alt="Derechodefamilia">
-                <div class="texto-superpuesto">Derecho de Familia</div>
+                <div class="texto-superpuesto">De Familia</div>
             </div>
             <div class="imagen-container">
                 <img src="../../img/Derechopenalyprocesal.png" alt="Derechopenalyprocesal">
-                <div class="texto-superpuesto">Derecho Penal y Procesal</div>
+                <div class="texto-superpuesto">Penal y Procesal</div>
             </div>
             <div class="imagen-container">
               <img src="../../img/derechoAmbiental.jpg" alt="Derechopenalyprocesal">
-              <div class="texto-superpuesto">Derecho Ambiental</div>
+              <div class="texto-superpuesto">Ambiental</div>
           </div>
           <div class="imagen-container">
+            <img src="../../img/derechosNiños.jpg" alt="Derecholaboralydeempleo">
+            <div class="texto-superpuesto">De los Niños</div>
+        </div>
+          <div class="imagen-container">
             <img src="../../img/DerechoSalud.jpg" alt="DerechoSalud">
-            <div class="texto-superpuesto">Derecho Salud</div>
+            <div class="texto-superpuesto">Salud</div>
         </div>
         <div class="imagen-container">
           <img src="../../img/DerechoInternacional.jpg" alt="DerechoInternacional">
-          <div class="texto-superpuesto">Derecho Internacional</div>
+          <div class="texto-superpuesto">Internacional</div>
       </div>
         </div>
       </div>
@@ -134,6 +138,7 @@
                 <span>12 Sept, 2023</span>
             </div>
         </div>
+        
         <div class="article">
           <img src="../../img/Derechosdelconsumidor.png" alt="Artículo">
           <div class="article-info">

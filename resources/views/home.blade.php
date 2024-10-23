@@ -22,7 +22,7 @@
                 <div class="text">
                     <h2>Información Importante</h2>
                     <p>Descubre cómo nuestros servicios pueden apoyarte en situaciones legales urgentes o planificadas.</p>
-                    <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
+                    <a href="{{route('informacionDivorcio')}}" class="btn" >Leer Más</a>
                 </div>
             </div>
             <!-- Abogado Estrella -->
@@ -384,6 +384,6 @@
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="js/home.js"></script>
     <script src="js/forocarousel.js"></script>
-    
+
 
 @endpush

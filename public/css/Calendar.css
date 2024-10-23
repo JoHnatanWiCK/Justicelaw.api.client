@@ -1,4 +1,4 @@
-.container {
+.container { 
   display: flex;
   width: 100%;
   max-width: 1200px;
@@ -110,10 +110,12 @@
   background-color: #010c13; 
 }
 
+/* Estilos para la sección de eventos y horas */
 .schedule {
   display: flex;
   align-items: flex-start;
   margin: 20px 5%;
+  position: relative;
 }
 
 .hours {
@@ -123,54 +125,62 @@
   margin-right: 10px;
   font-size: 12px;
   color: #666;
+  position: absolute; 
+  top: 0;
 }
 
 .hours div {
   height: 40px;
   line-height: 40px;
+  text-align: right;
 }
 
 .events {
   position: relative;
   flex: 1;
   border-left: 2px solid #ccc;
-  max-height: 400px; /* Ajustar la altura máxima del contenedor */
-  overflow-y: auto; /* Permitir desplazamiento si hay muchos elementos */
+  max-height: 400px;
+  overflow-y: auto;
+  padding-left: 60px; 
+  margin-left: 60px;
 }
 
 .event {
-  position: relative; /* Cambiado de absolute a relative */
+  position: relative;
   left: 0;
   right: 0;
   border-radius: 5px;
   padding: 10px;
   box-sizing: border-box;
   border: 2px solid transparent;
-  margin-bottom: 10px; /* Separación entre eventos */
-  background-color: #f9f9f9; /* Fondo claro para todas las asesorías */
-  color: #333; /* Color de texto */
-  transition: background-color 0.3s; /* Transición suave para el color de fondo */
+  margin-bottom: 10px;
+  transition: background-color 0.3s;
+  height: 40px;
 }
 
-.event.disponible {
-  background-color: #DFE6E9; /* Color para eventos disponibles */
-  color: #333; /* Color de texto */
+/* Estilos para los eventos vacíos (color azul) */
+.event.vacio {
+  background-color: #DFE6E9;
+  color: #fff;
 }
 
+.event.vacio:hover {
+  background-color: #4887b1; 
+}
+
+/* Estilos para los eventos disponibles y ocupados (color rojo) */
+.event.disponible,
 .event.ocupado {
-  background-color: #f3e6cd; /* Color para eventos ocupados */
-  color: #333; /* Color de texto */
+  background-color: #f3e6cd;
+  color: #fff;
 }
 
-/* Efectos de hover para eventos disponibles y ocupados */
-.event.disponible:hover {
-  background-color: #c1d4db; /* Color más oscuro al pasar el cursor */
-}
-
+.event.disponible:hover,
 .event.ocupado:hover {
-  background-color: #e1c6a1; /* Color más oscuro al pasar el cursor */
+  background-color: #cc4e40;
 }
 
+/* Perfil y estadísticas */
 .profile {
   width: 270px;
   text-align: center;
@@ -206,7 +216,6 @@
 }
 
 .profile .stats div p {
-  display: block;
   color: #4d5052;
   font-size: 16px;
 }
@@ -217,32 +226,17 @@
   font-size: 15px;
 }
 
-.ocupado {
+/* Otros estilos */
+.ocupado, .disponible {
   display: flex;
   flex-direction: column;
-}
-
-.disponible {
-  display: flex;
-  flex-direction: column;
-}
-
-.contenido {
-  display: flex;
-  align-items: center;
-}
-
-.disponible span,
-.ocupado span {
-  font-size: 35px;
-  font-weight: 600;
 }
 
 .circulo-disponible {
   height: 10px;
   margin-right: 10px;
   width: 10px;
-  background: #DFE6E9; /* Color para el círculo disponible */
+  background: #DFE6E9;
   border-radius: 50%;
 }
 
@@ -250,11 +244,10 @@
   height: 10px;
   margin-right: 10px;
   width: 10px;
-  background: #f3e6cd; /* Color para el círculo ocupado */
+  background: #f3e6cd;
   border-radius: 50%;
 }
 
 .stats hr {
   border: 0.1px solid #cf9e3e;
-  width: 0px;
 }

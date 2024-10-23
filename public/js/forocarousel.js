@@ -31,10 +31,10 @@ function displayTrends() {
 // Inicializar Swiper
 var swiper = new Swiper('.swiper-container', {
     slidesPerView: 1, // Muestra un solo slide
-    spaceBetween: 30, // Espacio entre slides
+    spaceBetween: 0, // Espacio entre slides
     loop: true, //No se detiene el carousel
     autoplay: {
-        delay: 3000, // Cambia de slide automáticamente cada 3 segundos
+        delay: 3500, // Cambia de slide automáticamente cada 3 segundos
         disableOnInteraction: false, // Permite continuar el autoplay después de interacciones
     },
     navigation: {

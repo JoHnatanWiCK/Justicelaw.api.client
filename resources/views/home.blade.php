@@ -9,28 +9,52 @@
 
 
     <section class="banner">
-        <div class="content-banner">
-            <h3>Conéctate con abogados experimentados y encuentra las respuestas que necesitas.</h3>
-            <p>Nuestro objetivo es brindar asesoría legal accesible y de calidad, ayudando a usuarios a navegar el sistema legal con confianza.</p>
-        </div>
+
         <!-- Banner Section -->
+
 <section class="banner">
     <div class="swiper-container">
         <div class="swiper-wrapper">
+            <!--informacion -->
+            <div class="swiper-slide" id="primer-swiper">
+                <img src="ruta-a-imagen-informacion.jpg" alt="Información">
+                <div class="text">
+                    <h3>Conéctate con abogados experimentados y encuentra las respuestas que necesitas.</h3>
+                    <p>Nuestro objetivo es brindar asesoría legal accesible y de calidad, ayudando a usuarios a navegar el sistema legal con confianza.</p>
+                    <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
+                </div>
+            </div>
+            <div class="swiper-slide" id="segundo-swiper">
+                <img src="ruta-a-imagen-informacion.jpg" alt="Información Relevante">
+                <div class="text">
+                    <h2>Información Importante</h2>
+                    <p>Detalles sobre otros servicios o secciones de la página.</p>
+                    <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
+                </div>
+            </div>
             <!-- Abogado Estrella -->
-            <div class="swiper-slide">
-                <img src="ruta-a-imagen-abogado.jpg" alt="Abogado Estrella">
+            <div class="swiper-slide" id="tercer-swiper">
+                <img src="../../img/lawyer.jpg" alt="Abogado Estrella" id="abogoda">
                 <div class="text">
                     <h2>Conoce a Nuestro Abogado Estrella</h2>
                     <p>Descripción breve sobre el abogado y su especialidad.</p>
                     <a href="ruta-a-perfil-abogado" class="btn">Ver Perfil</a>
                 </div>
             </div>
-            <div class="swiper-slide">
+            <!--informacion -->
+            <div class="swiper-slide" id="cuarto-swiper">
                 <img src="ruta-a-imagen-informacion.jpg" alt="Información Relevante">
                 <div class="text">
                     <h2>Información Importante</h2>
                     <p>Detalles sobre otros servicios o secciones de la página.</p>
+                    <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
+                </div>
+            </div>
+            <div class="swiper-slide" id="quinto-swiper">
+                <img src="ruta-a-imagen-informacion.jpg" alt="Información">
+                <div class="text">
+                    <h3>Conéctate con abogados experimentados y encuentra las respuestas que necesitas.</h3>
+                    <p>Nuestro objetivo es brindar asesoría legal accesible y de calidad, ayudando a usuarios a navegar el sistema legal con confianza.</p>
                     <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
                 </div>
             </div>

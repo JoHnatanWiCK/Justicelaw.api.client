@@ -7,54 +7,44 @@
 
 @section('main')
 
-
-    <section class="banner">
-
-        <!-- Banner Section -->
-
 <section class="banner">
     <div class="swiper-container">
         <div class="swiper-wrapper">
-            <!--informacion -->
+            <!-- Información -->
             <div class="swiper-slide" id="primer-swiper">
-                <img src="ruta-a-imagen-informacion.jpg" alt="Información">
                 <div class="text">
                     <h3>Conéctate con abogados experimentados y encuentra las respuestas que necesitas.</h3>
-                    <p>Nuestro objetivo es brindar asesoría legal accesible y de calidad, ayudando a usuarios a navegar el sistema legal con confianza.</p>
+                    <p>Accede a una red de abogados especializados listos para ayudarte en cualquier situación legal.</p>
                     <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
                 </div>
             </div>
             <div class="swiper-slide" id="segundo-swiper">
-                <img src="ruta-a-imagen-informacion.jpg" alt="Información Relevante">
                 <div class="text">
                     <h2>Información Importante</h2>
-                    <p>Detalles sobre otros servicios o secciones de la página.</p>
+                    <p>Descubre cómo nuestros servicios pueden apoyarte en situaciones legales urgentes o planificadas.</p>
                     <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
                 </div>
             </div>
             <!-- Abogado Estrella -->
             <div class="swiper-slide" id="tercer-swiper">
-                <img src="../../img/lawyer.jpg" alt="Abogado Estrella" id="abogoda">
                 <div class="text">
                     <h2>Conoce a Nuestro Abogado Estrella</h2>
-                    <p>Descripción breve sobre el abogado y su especialidad.</p>
+                    <p>Juan Pérez, con más de 20 años de experiencia en derecho penal y familiar, está aquí para apoyarte.</p>
                     <a href="ruta-a-perfil-abogado" class="btn">Ver Perfil</a>
                 </div>
             </div>
-            <!--informacion -->
+            <!-- Información -->
             <div class="swiper-slide" id="cuarto-swiper">
-                <img src="ruta-a-imagen-informacion.jpg" alt="Información Relevante">
                 <div class="text">
                     <h2>Información Importante</h2>
-                    <p>Detalles sobre otros servicios o secciones de la página.</p>
+                    <p>Navega por nuestra plataforma para conocer las diversas áreas legales en las que podemos asesorarte.</p>
                     <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
                 </div>
             </div>
             <div class="swiper-slide" id="quinto-swiper">
-                <img src="ruta-a-imagen-informacion.jpg" alt="Información">
                 <div class="text">
                     <h3>Conéctate con abogados experimentados y encuentra las respuestas que necesitas.</h3>
-                    <p>Nuestro objetivo es brindar asesoría legal accesible y de calidad, ayudando a usuarios a navegar el sistema legal con confianza.</p>
+                    <p>Contamos con una amplia variedad de abogados que se especializan en diferentes ramas del derecho.</p>
                     <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
                 </div>
             </div>
@@ -62,17 +52,21 @@
             <div class="swiper-slide" id="trending-items">
                 <div class="text">
                     <h2>Tendencias</h2>
-                    <!-- Las tendencias se cargarán aquí -->
+                    <h3>Conéctate con abogados experimentados y encuentra las respuestas que necesitas.</h3>
+                    <p>Explora las categorías más populares entre nuestros usuarios y las preguntas más frecuentes.</p>
+                    <a href="ruta-a-informacion-adicional" class="btn">Ver Más</a>
                 </div>
             </div>
         </div>
         <!-- Botones de navegación -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
+        <div class="btn-next">
+            <img id="prev-thumbnail" src="../img/swiper2.jpg" alt="Previous Thumbnail">
+        </div>
+        <div class="btn-prev">
+            <img id="prev-thumbnail" src="../img/swiper6.jpg" alt="Previous Thumbnail">
+        </div>
     </div>
 </section>
-
-    </section>
 
     <section class="servicios">
         <h3>Nuestros servicios</h3>

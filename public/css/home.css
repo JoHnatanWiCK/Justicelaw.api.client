@@ -10,6 +10,13 @@
 #abogoda {
     width: 150px; /* Cambia este valor para hacerla más pequeña */
     height: auto; /* Mantiene las proporciones de la imagen */
+    
+}
+
+#divorcio {
+    width: 200px; /* Cambia este valor para hacerla más pequeña */
+    height: auto; /* Mantiene las proporciones de la imagen */
+    
 }
 
 
@@ -27,19 +34,20 @@
 }
 
 #tercer-swiper {
+    background-image: url("../img/swiper4.jpg");
+    background-size: cover;
+    background-position: center;
+    
+}
+
+#cuarto-swiper {
     background-image: url("../img/swiper3.jpeg");
     background-size: cover;
     background-position: center;
 }
 
-#cuarto-swiper {
-    background-image: url("../img/homeUno.png");
-    background-size: cover;
-    background-position: center;
-}
-
 #quinto-swiper {
-    background-image: url("../img/homeUno.png");
+    background-image: url("../img/swiper5.jpg");
     background-size: cover;
     background-position: center;
 }
@@ -50,8 +58,10 @@
     flex-direction: column; /* Organiza en columnas */
     align-items: center; /* Centra horizontalmente */
     justify-content: center; /* Centra verticalmente */
-    margin-top: 20px; /* Espaciado superior */
     color: white;
+    background-image: url("../img/swiper6.jpg");
+    background-size: cover;
+    background-position: center;
 }
 
 
@@ -86,8 +96,8 @@
     transform: translateY(-50%);
     height: 20px;
     width: 20px;
-    border-left: 4px solid #696969;
-    border-top: 4px solid #696969;
+    border-left: 4px solid #003049;
+    border-top: 4px solid #003049;
     cursor: pointer;
 }
 
@@ -133,8 +143,8 @@
     position: relative; /* Para que los botones de navegación se posicionen correctamente */
     float: right; /* Alinear el carrusel a la derecha */
     box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho total */
-    overflow: hidden;
-    margin-right: 30px;
+    overflow: visible;
+    
 }
 
 /* Estilos para los slides */
@@ -145,6 +155,7 @@
     align-items: center; /* Centra los elementos horizontalmente */
     text-align: center; /* Centra el texto */
     color: white;
+    width: calc(100% - 120px);
 }
 
 /* Estilos para las imágenes en los slides */
@@ -154,25 +165,165 @@
 
 
 
-/* Estilos para los textos dentro de los slides */
+/* Estilos para los textos en los slides */
 .text {
-    margin-top: 10px; /* Espaciado entre la imagen y el texto */
+    margin-top: 10px;
+    opacity: 0; /* Empieza invisible */
+    transform: translateY(30px); /* Empieza desde abajo */
+    transition: opacity 2s ease, transform 2s ease; /* Transiciones suaves */
 }
 
-/* Estilos para los botones */
+/* Mostrar el texto cuando el slide es visible */
+.swiper-slide-active .text {
+    opacity: 1; /* Aparece */
+    transform: translateY(0); /* Se mueve a su posición */
+}
+
+/* Animaciones específicas para títulos */
+.text h2, .text h3 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: white;
+    animation: fadeIn 2.2s ease-in-out forwards, slideInFromLeft 2s ease-in-out forwards;
+}
+
+/* Animaciones específicas para párrafos */
+.text p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #f0f0f0;
+    animation: fadeIn 2.5s ease-in-out forwards, slideInFromRight 2.2s ease-in-out forwards;
+}
+
+/* Botones con efecto de escala */
 .btn {
-    display: inline-block; /* Para que el botón se muestre como un bloque en línea */
-    margin-top: 10px; /* Espaciado superior */
-    padding: 10px 20px; /* Espaciado interno */
-    background-color: #007bff; /* Color de fondo */
-    color: white; /* Color del texto */
-    border-radius: 5px; /* Bordes redondeados */
-    text-decoration: none; /* Sin subrayado */
-    transition: background-color 0.3s; /* Transición suave */
+    display: inline-block;
+    padding: 12px 25px; /* Tamaño más grande para hacerlo más prominente */
+    background: linear-gradient(135deg, #003049, #0056b3); /* Gradiente suave */
+    color: white;
+    border-radius: 50px; /* Bordes redondeados y suaves */
+    text-decoration: none;
+    font-weight: bold; /* Letra más gruesa para dar énfasis */
+    transition: all 0.3s ease; /* Transición suave */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para dar profundidad */
+    position: relative;
+    overflow: hidden; /* Para los efectos de animación */
 }
 
 .btn:hover {
-    background-color: #0056b3; /* Color de fondo al pasar el cursor */
+    background: linear-gradient(135deg, #0056b3, #003049); /* Invertir el gradiente en hover */
+    transform: translateY(-3px); /* Efecto de levitar al pasar el cursor */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
+}
+
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.1); /* Brillo ligero al hacer hover */
+    transform: translate(-50%, -50%) scale(0); /* Empieza desde el centro, muy pequeño */
+    transition: transform 0.5s ease;
+    border-radius: 50%;
+}
+
+.btn:hover::before {
+    transform: translate(-50%, -50%) scale(1); /* Expande el brillo */
+}
+/* Botones de navegación del Swiper */
+.btn-next,
+.btn-prev {
+    width: 80px; /* Ajustar el tamaño de las miniaturas */
+    height: 80px; /* Ajustar el tamaño de las miniaturas */
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%); /* Centrar verticalmente */
+    z-index: 10;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0.8;
+}
+.btn-next img,
+.btn-prev img {
+    width: 100%;
+    height: auto; /* Mantener proporciones */
+}
+
+.btn-next {
+    right: 10px; /* Espaciado desde el borde derecho */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo translúcido */
+}
+
+.btn-prev {
+    left: 10px; /* Espaciado desde el borde izquierdo */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo translúcido */
+}
+
+/* Efecto hover en los botones */
+.btn-next:hover,
+.btn-prev:hover {
+    transform: scale(1.1); /* Efecto de agrandamiento */
+    opacity: 1;
+}
+
+/* Vista previa dentro de los botones */
+.btn-next::before,
+.btn-prev::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+
+/* Adaptación del botón en pantallas pequeñas */
+@media screen and (max-width: 768px) {
+    .btn {
+        padding: 10px 20px; /* Ajustar tamaño del botón en pantallas pequeñas */
+        font-size: 0.9rem; /* Reducir el tamaño de fuente */
+    }
+    
+}
+
+/* Keyframes para las animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    from {
+        transform: translateX(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
 }
 
 

@@ -159,10 +159,56 @@
         </div>
         <span onclick="slideLeft()" class="btn"></span>
     </div>
+
+    
+    <div class="card-container">
+        <div class="card">
+            <img src="../../img/Divorcio.jpg" alt="Noticia 1">
+            <h4 class="card-title">GUÍA SOBRE  <br> DIVORCIO</h4>
+            <p class="card-description">La guía sobre divorcio brinda información sobre cómo proceder durante la separación
+                matrimonial, incluyendo consejos legales y emocionales.</p>
+        </div>
+        <div class="card">
+            <img src="../../img/Despido.jpg" alt="Noticia 2">
+            <h4 class="card-title">REDACTAR UNA CARTA DE DESPIDO</h4>
+            <p class="card-description">Descubre los pasos clave para redactar una carta de despido correctamente. Te explicamos
+                cómo estructurarla, qué detalles legales incluir y cómo manejar esta situación de forma
+                profesional y clara.</p>
+        </div>
+        <div class="card">
+            <img src="../../img/Accidente.png" alt="Noticia 3">
+            <h4 class="card-title">GUÍA PARA ACCIDENTES DE TRÁFICO</h4>
+            <p class="card-description">Descubre los pasos clave para manejar un accidente de tráfico, desde la documentación
+                hasta las acciones legales necesarias.</p>
+        </div>
+        <div class="card">
+            <img src="../../img/Testamento.jpg" alt="Noticia 2">
+            <h4 class="card-title">COMO REDACTAR UN TESTAMENTO</h4>
+            <p class="card-description">Aprende a estructurar y redactar un testamento de forma clara y legalmente válida,
+                asegurando que tus deseos sean respetados y evitando futuros conflictos familiares.</p>
+        </div>
+        <div class="card">
+            <img src="../../img/Testamento.jpg" alt="Noticia 2">
+            <h4 class="card-title">COMO REDACTAR UN TESTAMENTO</h4>
+            <p class="card-description">Aprende a estructurar y redactar un testamento de forma clara y legalmente válida,
+                asegurando que tus deseos sean respetados y evitando futuros conflictos familiares.</p>
+        </div>
+        <div class="card">
+            <img src="../../img/Testamento.jpg" alt="Noticia 2">
+            <h4 class="card-title">COMO REDACTAR UN TESTAMENTO</h4>
+            <p class="card-description">Aprende a estructurar y redactar un testamento de forma clara y legalmente válida,
+                asegurando que tus deseos sean respetados y evitando futuros conflictos familiares.</p>
+        </div>
+        
+    </div>
+    <div class="swiper-pagination"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+</section>
+
+
 </div>
 
-
-{{-- <section id="tranding">
         <div class="container">
             <div class="swiper tranding-slider">
                 <div class="swiper-wrapper">
@@ -347,7 +393,8 @@
 
         </div>
         </div>
-    </section> --}}
+    </section> 
+
 
 
 
@@ -374,6 +421,7 @@
 @endsection
 
 @push('styles')
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="css/home.css" />
     <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-5YSOQ5KtZq2j9Vc1lYZn3vZ0rUubXsg9F9Z9RkVoThSKg/B0J9cuC0Rf5Gp6ueIa" crossorigin="anonymous">
@@ -381,9 +429,15 @@
 @endpush
 
 @push('scripts')
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>    
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+    <script src="js/carrusel.js"></script>
+
     <script src="js/home.js"></script>
     <script src="js/forocarousel.js"></script>
+
 @endpush

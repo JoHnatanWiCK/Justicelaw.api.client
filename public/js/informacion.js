@@ -46,6 +46,12 @@ document.querySelectorAll('.filter-menu button').forEach(button => {
           document.getElementById('btnDest').addEventListener('click', function(){
             window.location.href="/informacionPension"
           });
+
+          document.getElementById('btnDer').addEventListener('click', function(){
+            window.location.href="/informacionesLaboral"
+          });
+          
+         
         });
   
         

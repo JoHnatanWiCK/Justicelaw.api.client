@@ -20,9 +20,9 @@
             </div>
             <div class="swiper-slide" id="segundo-swiper">
                 <div class="text">
-                    <h2>Información Importante</h2>
+                    <h2 >Información Importante</h2>
                     <p>Descubre cómo nuestros servicios pueden apoyarte en situaciones legales urgentes o planificadas.</p>
-                    <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
+                    <a class="btn" id="infoImp">Leer Más</a>
                 </div>
             </div>
             <!-- Abogado Estrella -->
@@ -36,9 +36,9 @@
             <!-- Información -->
             <div class="swiper-slide" id="cuarto-swiper">
                 <div class="text">
-                    <h2>Información Importante</h2>
+                    <h2 >Información Importante</h2>
                     <p>Navega por nuestra plataforma para conocer las diversas áreas legales en las que podemos asesorarte.</p>
-                    <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
+                    <a class="btn" id="infoIm">Leer Más</a>
                 </div>
             </div>
             <div class="swiper-slide" id="quinto-swiper">

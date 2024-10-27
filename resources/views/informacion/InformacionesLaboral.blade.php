@@ -13,7 +13,7 @@
                 <img src="../../img/contrato.jpg" alt="Accidente">
                 <h2>Contrato laboral</h2>
                 <h3>1 de febrero, 2024</h3>
-                <p>ste artículo proporciona una explicación completa y detallada sobre los requisitos fundamentales para elaborar un contrato de trabajo
+                <p>Este artículo proporciona una explicación completa y detallada sobre los requisitos fundamentales para elaborar un contrato de trabajo
                     de forma clara, precisa y legalmente válida. A través de esta guía, conocerás los elementos esenciales que debe incluir un contrato
                     laboral, desde la identificación de las partes hasta las cláusulas adicionales, garantizando que cumpla con las normativas laborales
                     vigentes y evitando posibles problemas legales o malentendidos entre empleador y trabajador.o</p>

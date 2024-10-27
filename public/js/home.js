@@ -113,6 +113,16 @@ var TrandingSlider = new Swiper('.tranding-slider', {
   });
 
   document.addEventListener('DOMContentLoaded', function () {
+
+
+    document.getElementById('infoImp').addEventListener('click', function(){
+      window.location.href="/informacionAutor"
+      });
+
+      document.getElementById('infoIm').addEventListener('click', function(){
+        window.location.href="/informacionContrato"
+        });
+
     document.getElementById('btnDivorcio').addEventListener('click', function () {
         window.location.href = "/informacionDivorcio"
     });

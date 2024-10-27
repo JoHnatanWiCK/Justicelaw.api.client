@@ -10,13 +10,13 @@
 #abogoda {
     width: 150px; /* Cambia este valor para hacerla más pequeña */
     height: auto; /* Mantiene las proporciones de la imagen */
-    
+
 }
 
 #divorcio {
     width: 200px; /* Cambia este valor para hacerla más pequeña */
     height: auto; /* Mantiene las proporciones de la imagen */
-    
+
 }
 
 
@@ -37,7 +37,7 @@
     background-image: url("../img/swiper4.jpg");
     background-size: cover;
     background-position: center;
-    
+
 }
 
 #cuarto-swiper {
@@ -144,7 +144,7 @@
     float: right; /* Alinear el carrusel a la derecha */
     box-sizing: border-box; /* Asegura que el padding y el borde se incluyan en el ancho total */
     overflow: visible;
-    
+
 }
 
 /* Estilos para los slides */
@@ -160,7 +160,7 @@
 
 /* Estilos para las imágenes en los slides */
 .swiper-slide img {
-    
+
 }
 
 
@@ -196,7 +196,7 @@
 }
 
 /* Botones con efecto de escala */
-.btn {
+.banner .btn {
     display: inline-block;
     padding: 12px 25px; /* Tamaño más grande para hacerlo más prominente */
     background: linear-gradient(135deg, #003049, #0056b3); /* Gradiente suave */
@@ -210,13 +210,13 @@
     overflow: hidden; /* Para los efectos de animación */
 }
 
-.btn:hover {
+.banner .btn:hover {
     background: linear-gradient(135deg, #0056b3, #003049); /* Invertir el gradiente en hover */
     transform: translateY(-3px); /* Efecto de levitar al pasar el cursor */
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Sombra más intensa */
 }
 
-.btn::before {
+.banner .btn::before {
     content: '';
     position: absolute;
     top: 50%;
@@ -229,14 +229,15 @@
     border-radius: 50%;
 }
 
-.btn:hover::before {
+.banner .btn:hover::before {
     transform: translate(-50%, -50%) scale(1); /* Expande el brillo */
 }
 /* Botones de navegación del Swiper */
-.btn-next,
-.btn-prev {
-    width: 80px; /* Ajustar el tamaño de las miniaturas */
-    height: 80px; /* Ajustar el tamaño de las miniaturas */
+
+.banner .btn-next,
+.banner .btn-prev {
+    width: 100px; /* Ajustar el tamaño de las miniaturas */
+    height: 100px; /* Ajustar el tamaño de las miniaturas */
     position: absolute;
     top: 50%;
     transform: translateY(-50%); /* Centrar verticalmente */
@@ -248,34 +249,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    opacity: 0.8;
 }
-.btn-next img,
-.btn-prev img {
+.banner .btn-next img,
+.banner .btn-prev img {
     width: 100%;
     height: auto; /* Mantener proporciones */
+    filter: brightness(0) invert(1);
 }
 
-.btn-next {
+.banner .btn-next {
     right: 10px; /* Espaciado desde el borde derecho */
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo translúcido */
+
 }
 
-.btn-prev {
+.banner .btn-prev {
     left: 10px; /* Espaciado desde el borde izquierdo */
-    background-color: rgba(0, 0, 0, 0.5); /* Fondo translúcido */
+
 }
 
 /* Efecto hover en los botones */
-.btn-next:hover,
-.btn-prev:hover {
+.banner .btn-next:hover,
+.banner .btn-prev:hover {
     transform: scale(1.1); /* Efecto de agrandamiento */
     opacity: 1;
 }
 
 /* Vista previa dentro de los botones */
-.btn-next::before,
-.btn-prev::before {
+.banner .btn-next::before,
+.banner .btn-prev::before {
     content: "";
     display: block;
     width: 100%;
@@ -291,7 +292,7 @@
         padding: 10px 20px; /* Ajustar tamaño del botón en pantallas pequeñas */
         font-size: 0.9rem; /* Reducir el tamaño de fuente */
     }
-    
+
 }
 
 /* Keyframes para las animaciones */
@@ -399,6 +400,7 @@
 .carousel-title {
     font-size: 1.2em;
     color: #333;
+    color: #003049;
     margin: 0;
 }
 

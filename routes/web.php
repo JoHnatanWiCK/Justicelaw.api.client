@@ -250,6 +250,23 @@ Route::get('/informacionCargo',function(){
     return view('informacion.participacionCiudadana.postulacionCargosPublicos');
 })->name('informacionCargo');
 
+Route::get('/informacionConsulta',function(){
+    return view('informacion.participacionCiudadana.consultaPopular');
+})->name('informacionConsulta');
+
+Route::get('/informacionPeticiones',function(){
+    return view('informacion.participacionCiudadana.peticionesAutoridades');
+})->name('informacionPeticiones');
+
+Route::get('/informacionPlebiscito',function(){
+    return view('informacion.participacionCiudadana.plebiscito');
+})->name('informacionPlebiscito');
+
+Route::get('/informacionAutor',function(){
+    return view('informacion.propiedadIntelectual.derechoAutor');
+})->name('informacionAutor');
+
+
 Route::get('/terminosCondiciones', function () {
     return view('legal.TerminosCondiciones');
 })->name('terminosCondiciones');

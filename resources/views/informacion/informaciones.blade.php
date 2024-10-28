@@ -79,7 +79,7 @@
             <h1>Categorías Derechos</h1>
             <div class="imagen-container">
                 <img src="../../img/Derecholaboralydeempleo.png" alt="Derecholaboralydeempleo">
-                <div class="texto-superpuesto">Laboral y de Empleo</div>
+                <div class="texto-superpuesto" id="btnDer">Laboral y de Empleo</div>
             </div>
             <div class="imagen-container">
                 <img src="../../img/DerechoComercial.png" alt="DerechoComercial">

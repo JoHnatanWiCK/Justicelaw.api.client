@@ -2,7 +2,7 @@
   display: flex;
     width: 100%;
     height: auto;
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     overflow: hidden;
 }
 
@@ -22,7 +22,7 @@
 
 #progre{
   text-align: center;
-  width: 70%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -101,8 +101,6 @@ width: 350px;
 
 .notifications {
   width: 100%;
-  margin-left: 100px;
-  padding: 20px;
   height: auto;
   justify-content: center;
   align-items: center;
@@ -111,25 +109,27 @@ width: 350px;
 .contenido {
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
   width: 100%;
+  
 }
 
 .notification-list {
   display: flex;
   flex-direction: column;
-  width: 70%;
-  gap: 10px;
+  width: 100%;
   background-color: white;
-  padding: 10px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ 
+}
+
+.notification-list h2 {
+  margin-left: 20px;
 }
 
 .notification-item {
   display: flex;
   justify-content: space-between;
+  margin-left: 20px;
+  margin-right: 20px;
   align-items: center;
   border-bottom: 1px solid #e0e0e0;
   padding: 10px 0;

@@ -32,15 +32,41 @@ function displayTrends() {
 var swiper = new Swiper('.swiper-container', {
     slidesPerView: 1, // Muestra un solo slide
     spaceBetween: 0, // Espacio entre slides
-    loop: true, //No se detiene el carousel
+    loop: true, // No se detiene el carousel
     autoplay: {
-        delay: 3500, // Cambia de slide automáticamente cada 3 segundos
+        delay: 3500, // Cambia de slide automáticamente
         disableOnInteraction: false, // Permite continuar el autoplay después de interacciones
     },
     navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+        nextEl: '.btn-next',
+        prevEl: '.btn-prev',
     },
+    on: {
+        init: function () {
+            updateNavigationThumbnails(this); // Actualiza las miniaturas al inicializar
+        },
+        slideChange: function () {
+            updateNavigationThumbnails(this); // Actualiza las miniaturas al cambiar de slide
+        }
+    }
 });
+
+// Función para actualizar las miniaturas en los botones de navegación
+function updateNavigationThumbnails(swiper) {
+    const totalSlides = swiper.slides.length;
+    const currentSlideIndex = swiper.activeIndex;
+
+    // Calcula los índices de los slides siguiente y anterior
+    const nextSlideIndex = (currentSlideIndex + 1) % totalSlides;
+    const prevSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+
+    // Asigna las imágenes a los botones de navegación
+    const nextSlideBackground = swiper.slides[nextSlideIndex].style.backgroundImage;
+    const prevSlideBackground = swiper.slides[prevSlideIndex].style.backgroundImage;
+
+    document.querySelector('.btn-next').style.backgroundImage = nextSlideBackground;
+    document.querySelector('.btn-prev').style.backgroundImage = prevSlideBackground;
+}
+
 // Llama a fetchTrends al cargar la página
 window.onload = fetchTrends;

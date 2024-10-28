@@ -1,4 +1,4 @@
-let currentStartDay = 1; 
+let currentStartDay = 1;
 let currentMonthIndex = 0;
 let currentYear = 2024;
 
@@ -121,11 +121,58 @@ function renderEvents() {
     });
 }
 
+// Render initial UI
 renderDays(); 
 renderMonths(); 
-renderEvents(); // Llama a esta función para alinear los eventos
+renderEvents(); 
 
+// Scroll behavior for the events, ensure hours don't overlap with other sections
 document.querySelector('.events').addEventListener('scroll', function() {
     const hours = document.querySelector('.hours');
-    hours.style.transform = `translateY(-${this.scrollTop}px)`; // Mover las horas
+    // The 'hours' will move up/down but will stay within its container without overflowing
+    hours.style.transform = `translateY(${this.scrollTop}px)`;
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    // Seleccionar el modal y el botón de cierre
+    const modal = document.getElementById("availabilityModal");
+    const closeModalBtn = document.querySelector(".close");
+    const saveBtn = document.querySelector(".save");
+
+    // Función para abrir el modal al hacer clic en un evento vacío
+    document.querySelectorAll(".event.vacio").forEach(event => {
+        event.onclick = function () {
+            modal.style.display = "block";
+        };
+    });
+
+    // Cerrar el modal al hacer clic en la "X"
+    closeModalBtn.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    // Cerrar el modal al hacer clic fuera de él
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+        }
+    };
+
+    // Guardar la selección de hora
+    saveBtn.onclick = function() {
+        const selectedTime = document.getElementById("timePicker").value;
+        const fixedDate = document.getElementById("dateDisplay").innerText; // Obtiene la fecha fija
+
+        if (!selectedTime) {
+            alert("Por favor, selecciona una hora."); // Alerta si el campo de hora está vacío
+            return;
+        }
+
+        // Aquí puedes hacer lo que necesites con la fecha fija y la hora seleccionada
+        console.log("Fecha fija:", fixedDate);
+        console.log("Hora seleccionada:", selectedTime);
+
+        modal.style.display = "none"; // Cierra el modal
+    };
 });

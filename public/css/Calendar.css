@@ -123,7 +123,7 @@
   flex-direction: column;
   align-items: flex-end;
   margin-right: 10px;
-  font-size: 12px;
+  font-size: 13px;
   color: #666;
   position: absolute; 
   top: 0;
@@ -133,6 +133,7 @@
   height: 40px;
   line-height: 40px;
   text-align: right;
+  margin-bottom: 10px; /* Espacio adicional entre horas */
 }
 
 .events {
@@ -156,6 +157,7 @@
   margin-bottom: 10px;
   transition: background-color 0.3s;
   height: 40px;
+  font-size: 13.5px; /* Tamaño de letra reducido */
 }
 
 /* Estilos para los eventos vacíos (color azul) */
@@ -172,12 +174,17 @@
 .event.disponible,
 .event.ocupado {
   background-color: #f3e6cd;
-  color: #fff;
+  color: black; /* Color del texto por defecto */
 }
 
 .event.disponible:hover,
 .event.ocupado:hover {
   background-color: #cc4e40;
+}
+
+/* Estilo para el nombre de la persona en negrita dentro de los eventos */
+.event .nombre-asesoria {
+  font-weight: bold; /* Negrita solo para el nombre de la persona */
 }
 
 /* Perfil y estadísticas */
@@ -250,4 +257,72 @@
 
 .stats hr {
   border: 0.1px solid #cf9e3e;
+}
+/* Estilos del Modal */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed; /* Fijo en la ventana del navegador */
+  z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+  left: 0;
+  top: 0;
+  width: 100%; /* Ancho completo */
+  height: 100%; /* Alto completo */
+  overflow: auto; /* Habilitar scroll si es necesario */
+  background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: auto; /* Centrar horizontalmente */
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  max-width: 90%; /* Asegúrate de que no se desborde en pantallas pequeñas */
+  position: relative; /* Para que funcione el centrado */
+}
+
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000;
+}
+
+.modal h3 {
+  color: #40739e;
+  margin-bottom: 15px;
+}
+
+.date-time, .notification {
+  margin: 10px 0;
+}
+
+.add-availability, .save {
+  background-color: #003049;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.add-availability {
+  background: none;
+  color: #003049;
+  border: 1px solid #003049;
+  margin-bottom: 10px;
+}
+
+.add-availability:hover,
+.save:hover {
+  background-color: #0a3c6d;
+  color: white;
 }

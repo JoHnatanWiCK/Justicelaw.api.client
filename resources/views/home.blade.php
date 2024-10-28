@@ -15,14 +15,15 @@
                 <div class="text">
                     <h3>Conéctate con abogados experimentados y encuentra las respuestas que necesitas.</h3>
                     <p>Accede a una red de abogados especializados listos para ayudarte en cualquier situación legal.</p>
-                    <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
+                    <a href="{{route('mm')}}" class="btn">Leer Más</a>
                 </div>
             </div>
             <div class="swiper-slide" id="segundo-swiper">
                 <div class="text">
-                    <h2>Información Importante</h2>
+                    <h2 >Información Importante</h2>
                     <p>Descubre cómo nuestros servicios pueden apoyarte en situaciones legales urgentes o planificadas.</p>
-                    <a href="{{route('informacionDivorcio')}}" class="btn" >Leer Más</a>
+                    <a class="btn" id="infoImp">Leer Más</a>
+
                 </div>
             </div>
             <!-- Abogado Estrella -->
@@ -30,15 +31,15 @@
                 <div class="text">
                     <h2>Conoce a Nuestro Abogado Estrella</h2>
                     <p>Juan Pérez, con más de 20 años de experiencia en derecho penal y familiar, está aquí para apoyarte.</p>
-                    <a href="ruta-a-perfil-abogado" class="btn">Ver Perfil</a>
+                    <a href="{{route('perfil.abogado.creado')}}" class="btn">Ver Perfil</a>
                 </div>
             </div>
             <!-- Información -->
             <div class="swiper-slide" id="cuarto-swiper">
                 <div class="text">
-                    <h2>Información Importante</h2>
+                    <h2 >Información Importante</h2>
                     <p>Navega por nuestra plataforma para conocer las diversas áreas legales en las que podemos asesorarte.</p>
-                    <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
+                    <a class="btn" id="infoIm">Leer Más</a>
                 </div>
             </div>
             <div class="swiper-slide" id="quinto-swiper">
@@ -385,3 +386,4 @@
 
 
 @endpush
+    

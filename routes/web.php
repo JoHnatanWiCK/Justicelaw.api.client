@@ -167,11 +167,11 @@ Route::get('/informaciones', function () {
 })->name('informaciones');
 
 Route::get('/informacionesLaboral', function () {
-    return view('informacion.informacionesLaboral');
+    return view('informacion.laboralEmpleo.informacionesLaboral');
 })->name('informacionesLaboral');
 
 Route::get('/derechosTrabajadores', function () {
-    return view('informacion.derechosTrabajadores');
+    return view('informacion.laboralEmpleo.derechosTrabajadores');
 })->name('derechosTrabajadores');
 
 Route::get('/informacionArrendamiento', function () {
@@ -179,43 +179,76 @@ Route::get('/informacionArrendamiento', function () {
 })->name('informacionArrendamiento');
 
 Route::get('/informacionDespido', function () {
-    return view('informacion.despido');
+    return view('informacion.laboralEmpleo.despido');
 })->name('informacionDespido');
 
 Route::get('/informacionDivorcio', function () {
-    return view('informacion.divorcio');
+    return view('informacion.familia.divorcio');
 })->name('informacionDivorcio');
 
 Route::get('/informacionNegocio', function () {
-    return view('informacion.negocio');
+    return view('informacion.comercial.negocio');
 })->name('informacionNegocio');
 
+Route::get('/obligacionFiscal', function () {
+    return view('informacion.comercial.obligacionFiscal');
+})->name('obligacionFiscal');
+
+Route::get('/obligacionFiscal', function () {
+    return view('informacion.comercial.obligacionFiscal');
+})->name('obligacionFiscal');
+
+Route::get('/marca', function () {
+    return view('informacion.comercial.protegerMarca');
+})->name('marca');
+
+Route::get('/reglasPublicidad', function () {
+    return view('informacion.comercial.reglasPublicidad');
+})->name('reglasPublicidad');
+
+Route::get('/informacionFamilia', function () {
+    return view('informacion.familia.informacionFamilia');
+})->name('informacionFamilia');
+
 Route::get('/informacionPension', function () {
-    return view('informacion.pension');
+    return view('informacion.familia.pension');
 })->name('informacionPension');
 
+Route::get('violenciaIntrafamiliar',function(){
+    return view('informacion.familia.violenciaIntrafamiliar');
+})->name('violenciaIntrafamiliar');
+
 Route::get('/informacionTestamento', function () {
-    return view('informacion.testamento');
+    return view('informacion.familia.testamento');
 })->name('informacionTestamento');
+
+Route::get('/Planificacion', function () {
+    return view('informacion.familia.planificacion');
+})->name('Planificacion');
 
 Route::get('/informacionAccidente', function () {
     return view('informacion.accidente');
 })->name('informacionAccidente');
 
 Route::get('/informacionConsumidor', function () {
-    return view('informacion.derechoConsumidor');
+    return view('informacion.comercial.derechoConsumidor');
 })->name('informacionConsumidor');
 
+Route::get('/Comercial', function () {
+    return view('informacion.comercial.infoComercial');
+})->name('Comercial');
+
+
 Route::get('/informacionSeguridadSocial', function () {
-    return view('informacion.seguridadSocial');
+    return view('informacion.laboralEmpleo.seguridadSocial');
 })->name('informacionSeguridadSocial');
 
 Route::get('/informacionSST',function(){
-    return view('informacion.seguridadSaludTrabajo');
+    return view('informacion.laboralEmpleo.seguridadSaludTrabajo');
 })->name('SST');
 
 Route::get('/informacionIntLab',function(){
-    return view('informacion.internacionalLaboral');
+    return view('informacion.laboralEmpleo.internacionalLaboral');
 })->name('informacionIntLab');
 
 Route::get('/informacionEducacion',function(){
@@ -242,6 +275,15 @@ Route::get('/informacionParticipacion',function(){
     return view('informacion.derechosInfantiles.participacionDecisiones');
 })->name('informacionParticipacion');
 
+Route::get('/informacionInfantil',function(){
+    return view('informacion.derechosInfantiles.informacionesInfantil');
+})->name('informacionInfantil');
+
+Route::get('/infoCiudadana',function(){
+    return view('informacion.participacionCiudadana.informacionesParticipacion');
+})->name('infoCiudadana');
+
+
 Route::get('/informacionVoto',function(){
     return view('informacion.participacionCiudadana.derechoVoto');
 })->name('informacionVoto');
@@ -249,6 +291,47 @@ Route::get('/informacionVoto',function(){
 Route::get('/informacionCargo',function(){
     return view('informacion.participacionCiudadana.postulacionCargosPublicos');
 })->name('informacionCargo');
+
+Route::get('/informacionConsulta',function(){
+    return view('informacion.participacionCiudadana.consultaPopular');
+})->name('informacionConsulta');
+
+Route::get('/informacionPeticiones',function(){
+    return view('informacion.participacionCiudadana.peticionesAutoridades');
+})->name('informacionPeticiones');
+
+Route::get('/informacionPlebiscito',function(){
+    return view('informacion.participacionCiudadana.plebiscito');
+})->name('informacionPlebiscito');
+
+Route::get('/informacionSec',function(){
+    return view('informacion.propiedadIntelectual.secretoComercial');
+})->name('informacionSec');
+
+Route::get('/informacionIntelec',function(){
+    return view('informacion.propiedadIntelectual.informacionIntelectual');
+})->name('informacionIntelec');
+
+Route::get('/informacionAutor',function(){
+    return view('informacion.propiedadIntelectual.derechoAutor');
+})->name('informacionAutor');
+
+Route::get('/informacionPatente',function(){
+    return view('informacion.propiedadIntelectual.patente');
+})->name('informacionPatente');
+
+Route::get('/informacionMarca',function(){
+    return view('informacion.propiedadIntelectual.marcaRegistrada');
+})->name('informacionMarca');
+
+Route::get('/informacionDiseño',function(){
+    return view('informacion.propiedadIntelectual.diseñoIndustrial');
+})->name('informacionDiseño');
+
+Route::get('/informacionSec',function(){
+    return view('informacion.propiedadIntelectual.secretoComercial');
+})->name('informacionSec');
+
 
 Route::get('/terminosCondiciones', function () {
     return view('legal.TerminosCondiciones');

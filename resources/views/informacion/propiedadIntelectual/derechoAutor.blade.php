@@ -10,73 +10,66 @@
 @section('main')
       <div class="container">
         <div class="news-column">
-          <h2 class="titulo-informacion">Derecho a postularse para cargos públicos.</h2>
+          <h2 class="titulo-informacion">Derechos de autor: protegen las obras literarias, artísticas y científicas.</h2>
           <span>14 agosto 2024</span>
-          <span class="categoria">Categoria: Participación Cuidadana</span>
+          <span class="categoria">Categoria: Propiedad Intelectual</span>
 
           <div class="informacion-contenido">
             <img
-              src="../../img/cargosPublicos.jpeg"
+              src="../../img/derechoAutor.jpg"
               alt="tutela"
               class="imagen-arriba-derecha"
             />
-
-            <p>El derecho a postularse para cargos públicos es una extensión fundamental del derecho a la participación política y
-                un componente central de las democracias modernas. Este derecho, también conocido como el derecho de elegibilidad
-                o sufragio pasivo, permite a los ciudadanos no solo votar, sino también presentarse como candidatos para ocupar
-                puestos de representación en el gobierno o en otras instituciones públicas. Garantiza que cualquier persona que
-                cumpla con los requisitos legales establecidos tenga la oportunidad de competir por un cargo público, contribuyendo
-                de manera directa a la conducción del Estado y a la toma de decisiones que afectan a la sociedad en su conjunto.</p>
-                <h3>Fundamentación del derecho a postularse para cargos públicos</h3>
-                <p>El derecho a postularse para cargos públicos está consagrado en varios instrumentos internacionales de derechos humanos.
-                    La Declaración Universal de los Derechos Humanos (1948) establece en su artículo 21 que "toda persona tiene el derecho
-                    de participar en el gobierno de su país, directamente o por medio de representantes libremente escogidos". Además,
-                    el Pacto Internacional de Derechos Civiles y Políticos (1966), en su artículo 25, afirma que todos los ciudadanos
-                    tienen el derecho de "tener acceso, en condiciones generales de igualdad, a las funciones públicas de su país".
-                    Estos tratados proporcionan un marco jurídico internacional que garantiza el acceso equitativo a la posibilidad
-                    de ser elegido para un cargo público.
+            <p>Los derechos de autor son un conjunto de normas jurídicas que protegen <strong>las obras literarias, artísticas y científicas</strong>,
+                otorgando a sus creadores la capacidad de controlar el uso y la distribución de sus creaciones. Estos derechos no solo
+                garantizan que los autores reciban el reconocimiento adecuado por su obra, sino que también permiten que se beneficien
+                económicamente de la explotación de sus trabajos, ya sea mediante la reproducción, distribución, o la comunicación
+                pública de los mismos.
                 <br><br>
-                    El derecho a postularse es esencial porque asegura que la competencia política sea inclusiva y refleje la
-                    diversidad de la sociedad. Un sistema político verdaderamente democrático no puede limitar este derecho
-                    arbitrariamente ni permitir que solo ciertos grupos o élites tengan acceso a los cargos de poder. Las
-                    restricciones al derecho a postularse deben estar justificadas por razones legítimas, como el cumplimiento
-                    de requisitos de edad, ciudadanía, o en algunos casos, no haber cometido ciertos delitos, pero no deben ser
-                    discriminatorias ni excluyentes por motivos de género, raza, religión, orientación sexual o condición económica.</p>
+                El derecho de autor surge automáticamente cuando una obra es creada, sin la necesidad de registro o formalidades adicionales,
+                aunque en muchos países existen registros de propiedad intelectual que refuerzan los derechos del creador. Esta protección
+                legal se aplica en todos los campos de la creación artística y científica, asegurando que los autores puedan ejercer control
+                sobre el uso de sus obras por terceros y que reciban compensación por su trabajo.</p>
 
-                    <h3>Requisitos y limitaciones para postularse</h3>
-                    <p>Aunque el derecho a postularse está ampliamente reconocido, los países pueden imponer ciertas condiciones
-                        para asegurar que los candidatos sean aptos para ocupar un cargo público. Estas condiciones varían entre 
-                        diferentes naciones, pero en general, incluyen:
-                        <ul>
-                            <li><strong>Edad mínima:</strong>En la mayoría de los países, existe una edad mínima para postularse a
-                                determinados cargos. Por ejemplo, en muchos lugares la edad mínima para postularse como miembro de
-                                un parlamento puede ser de 18 a 25 años, mientras que para la presidencia suele ser más alta,
-                                generalmente entre 30 y 35 años. Estas edades buscan garantizar que los candidatos tengan la
-                                madurez necesaria para ejercer funciones de responsabilidad pública.</li>
-                            
-                            <li><strong>Ciudadanía:</strong>Para la mayoría de los cargos públicos, es necesario ser ciudadano
-                                del país. En algunos países, los ciudadanos naturalizados pueden tener restricciones para
-                                postularse a ciertos cargos de alto rango, como la presidencia o el gobierno, aunque esta es
-                                una cuestión sujeta a debate y variación según las constituciones nacionales.</li>
+                <h3>Ámbito de Protección de los Derechos de Autor</h3>
+                <p>El ámbito de protección de los derechos de autor es amplio e incluye diversas obras del intelecto humano.
+                    Entre ellas se encuentran:</p>
+                    <ul>
+                        <li><strong>Obras literarias:</strong>como novelas, cuentos, ensayos, artículos periodísticos, poemas, y cualquier forma de
+                            creación escrita. Estas obras son protegidas desde el momento de su creación, y el autor tiene derechos exclusivos sobre 
+                            la reproducción, distribución y comunicación pública de las mismas.</li>
 
-                            <li><strong>Residencia:</strong>Algunos cargos requieren que los candidatos hayan residido en el
-                                país o en una región específica durante un cierto período antes de las elecciones.
-                                Esta condición asegura que los candidatos estén familiarizados con las realidades 
-                                necesidades de la comunidad a la que aspiran representar.</li>
+                        <li><strong>Obras artísticas: </strong>que incluyen desde pinturas y esculturas hasta obras de arte digital. Dentro de esta
+                            categoría se consideran también las obras cinematográficas, las composiciones musicales, los guiones teatrales y las
+                            coreografías. Incluso los programas de ordenador, conocidos como software, están protegidos bajo las leyes de derechos 
+                            de autor.</li>
 
-                            <li><strong>No tener antecedentes penales graves:</strong>En algunos países, las personas condenadas por
-                                ciertos delitos graves pueden ser descalificadas para postularse a cargos públicos, ya sea temporal o
-                                permanentemente. Sin embargo, esta medida es controvertida, ya que algunos argumentan que, una vez
-                                cumplida la condena, las personas deberían recuperar sus derechos civiles, incluyendo el derecho
-                                a postularse.</li>
-                        </ul>
-                                A pesar de la existencia de estos requisitos, es importante que las leyes no impongan barreras excesivas
-                                que limiten injustificadamente el acceso a los cargos públicos. Las restricciones desproporcionadas o
-                                discriminatorias pueden socavar los principios de equidad y participación igualitaria que son fundamentales
-                                 para una democracia inclusiva.
-                    </p>
+                        <li><strong>Obras científicas:</strong>que abarca artículos de investigación, estudios, tesis doctorales, trabajos
+                            de divulgación científica, y teorías o descubrimientos. En el campo de la ciencia, los derechos de autor protegen
+                            tanto la expresión original de una idea como el modo en que se transmite el conocimiento, pero no protegen las
+                            ideas o métodos científicos en sí.</li>
+                    </ul>
+                    <p>Esta protección se extiende a cualquier creación que tenga una forma tangible, ya sea en formato físico o digital. Así,
+                    tanto los libros impresos como los archivos electrónicos de texto o imágenes digitales están cubiertos por la normativa
+                    de derechos de autor.</p>
 
-            
+                <h3>Tipos de Derechos de Autor</h3>
+                <p>Los derechos de autor se dividen en dos grandes categorías: los <strong>derechos morales</strong> y los
+                    <strong>derechos patrimoniales</strong>, cada uno con funciones y características particulares.
+                <br><br>
+                Los <strong>derechos morales</strong> son aquellos que vinculan al autor de manera personal e intransferible con su obra.
+                Estos derechos reconocen la autoría de una persona y su capacidad para proteger la integridad de su creación.
+                Entre los más destacados se encuentran el derecho a la <strong>paternidad</strong>, que asegura que el autor sea identificado
+                como creador de la obra, y el derecho a la integridad, que impide que la obra sea modificada sin su consentimiento,
+                especialmente si esos cambios pueden dañar su reputación o la naturaleza de la creación. Los derechos morales,
+                a diferencia de los patrimoniales, suelen ser inalienables, lo que significa que no pueden ser cedidos o vendidos.
+                <br><br>
+                Por otro lado, los derechos patrimoniales son aquellos que permiten al autor obtener una retribución económica por
+                la explotación de su obra. Estos derechos incluyen la reproducción, la distribución y la comunicación pública de la
+                obra, así como su transformación, que puede implicar adaptaciones, traducciones u otras formas de modificarla. A
+                diferencia de los derechos morales, los derechos patrimoniales sí pueden ser transferidos a terceros, ya sea
+                mediante venta, cesión, o licencia.
+        </p>
           </div>
         </div>
         <div class="recommendations-column">
@@ -145,19 +138,6 @@
                       </div>
                     </li>
                   </a>
-                  <a href="informacionAutor">
-                    <li class="article">
-                      <img src="../../img/derechoAutor.jpeg" alt="Artículo 2" />
-                      <div class="article-content">
-                        <div class="article-title">
-                          Derechos de Autor
-                        </div>
-                        <p class="article-description">
-                         Conoce que son los derechos de autor y cuando los puedes usar
-                        </p>
-                      </div>
-                    </li>
-                  </a>
                   <a href="/derechosTrabajadores">
                     <li class="article">
                       <img
@@ -170,19 +150,6 @@
                         </div>
                         <p class="article-description">
                           Todo lo que necesitas saber sobre los derechos del trabajador.
-                        </p>
-                      </div>
-                    </li>
-                  </a>
-                  <a href="informacionPatente">
-                    <li class="article">
-                      <img src="../../img/patente.jpg" alt="Artículo 2" />
-                      <div class="article-content">
-                        <div class="article-title">
-                          Patentes
-                        </div>
-                        <p class="article-description">
-                         Conoce que son las patentes y cuales son sus diferentes tipos y usos
                         </p>
                       </div>
                     </li>

@@ -42,21 +42,13 @@
                     <div class="hour"><div>14:00</div></div>
                     <div class="hour"><div>15:00</div></div>
                     <div class="hour"><div>16:00</div></div>
-                    <div class="hour"><div>17:00</div></div>
-                    <div class="hour"><div>18:00</div></div>
-                    <div class="hour"><div>19:00</div></div>
-                    <div class="hour"><div>20:00</div></div>
+                    <div class="hour"><div>17:00</div></div>  
                 </div>
                 <div class="events">
                     <div class="event-container" data-hour="10" style="top: 0%;">
                         <div class="event disponible" id="event1">Asesoría familiar con Mariana Santos</div>
                     </div>
-                    <div class="event-container" data-hour="11" style="top: 10%;">
-                        <div class="event vacio" id="event6"></div>
-                    </div>
-                    <div class="event-container" data-hour="12" style="top: 20%;">
-                        <div class="event ocupado" id="event2">Asesoría legal con Mariana Santos</div>
-                    </div>
+                    
                     <div class="event-container" data-hour="13" style="top: 30%;">
                         <div class="event vacio" id="event7"></div>
                     </div>
@@ -103,12 +95,35 @@
                     <span class="valor">7</span>
                 </div>
             </div>
+            <div id="availabilityModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3>Disponibilidad de asesoría</h3>
+                    <div class="modal-body">
+                        <div class="date-time">
+                            <label for="dateDisplay">📅 Fecha actual:</label>
+                            <span id="dateDisplay">2024-10-27</span> <!-- Aquí pones la fecha fija -->
+                            
+                            <label for="timePicker">🕒</label> <!-- Solo el ícono del reloj -->
+                            <input type="time" id="timePicker" />
+                        </div>
+                        <button class="add-availability">Agregar nueva disponibilidad</button>
+                        <div class="notification">
+                            <span>🔔</span> Notificar 
+                            <select>
+                                <option>1 hora antes</option>
+                                <option>30 minutos antes</option>
+                                <option>15 minutos antes</option>
+                            </select>
+                        </div>
+                        <button class="save">Guardar</button>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
 </section>
-
-
-
 @endsection
 
 @section('footer')

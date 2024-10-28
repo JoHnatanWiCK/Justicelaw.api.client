@@ -29,29 +29,44 @@
                 productos y servicios de calidad, respetando las normas establecidas. En definitiva, entender y ejercer tus derechos como consumidor te empodera para proteger tus intereses
                  y contribuir a un mercado más justo y equitativo.
 
-            <h3>Conocimientos necesarios <s></s>obre tus derechos</h3>
+            <h3>Conocimientos necesarios sobre tus derechos</h3>
 
             <p>
+              <ul>
+                <strong>Derecho a la Protección de la Salud y Seguridad</strong>
+                <p>Este derecho garantiza que los consumidores tengan acceso a productos y servicios que no representen un riesgo para
+                  su salud o seguridad. Esto incluye la obligación de los productores y vendedores de cumplir con estándares de calidad y
+                  seguridad, así como de proporcionar información clara sobre cualquier riesgo potencial asociado con un producto. En caso de
+                  que un producto represente un peligro, las autoridades tienen la responsabilidad de retirar dicho producto del mercado y
+                  notificar a los consumidores.</p>
 
-             <li>Derecho a la Información: Tienes derecho a recibir información clara, veraz y completa sobre los productos o servicios que adquieres. Esto incluye detalles sobre
-              el precio, características, garantías, y cualquier condición especial que pueda aplicar.
-             </li>
-             <li>Derecho a la Protección contra Publicidad Engañosa: Es crucial saber que estás protegido contra prácticas de publicidad falsa o engañosa.
-               Las empresas deben presentar sus productos de manera honesta, sin exagerar beneficios ni ocultar riesgos.
+                <strong>Derecho a la Información</strong>
+                <p>Los consumidores tienen el derecho a recibir información clara, veraz y completa sobre los productos y servicios que desean adquirir. Esto incluye detalles sobre el precio,
+                    características, uso, y cualquier otro dato relevante que pueda influir en la decisión de compra. La publicidad y las promociones deben ser precisas y no engañosas, y
+                    los consumidores deben ser advertidos sobre cualquier restricción o condición asociada al uso de un producto o servicio.</p>
 
-             </li>
-             <li>Derecho a la Seguridad y Calidad: Los productos y servicios que consumes deben cumplir con estándares de seguridad y calidad. Tienes derecho a recibir bienes
-              que sean seguros para su uso y que funcionen como se espera.</li>
-             <li>Derecho a la Garantía: Conoce tus derechos sobre las garantías de productos y servicios. Esto incluye el derecho a reparación, reemplazo o
-              reembolso si un producto o servicio no cumple con lo prometido o presenta defectos.
-             </li>
-             <li>Derecho a la Protección de tus Datos: Estás protegido contra el uso indebido de tu información personal. Las empresas deben manejar tus datos de manera
-              segura y solo para los fines que tú has autorizado.</li>
-             <li>Derecho a Reclamar y Obtener Reparaciones: Tienes derecho a presentar quejas y reclamar si un producto o servicio no cumple con las expectativas o condiciones
-              establecidas. Además, tienes derecho a obtener compensaciones justas, ya sea mediante reembolsos, reparaciones o indemnizaciones.</li>
-             <li>Derecho a la Protección contra Cláusulas Abusivas: Los contratos de consumo no deben incluir cláusulas que perjudiquen injustamente tus derechos como consumidor.
-              Tienes derecho a exigir que cualquier cláusula abusiva sea eliminada o modificada.Derecho a la Protección contra Cláusulas Abusivas: Los contratos de consumo no deben
-              incluir cláusulas que perjudiquen injustamente tus derechos como consumidor. Tienes derecho a exigir que cualquier cláusula abusiva sea eliminada o modificada.</li>
+                <strong>Derecho a la Elección</strong>
+                <p>Los consumidores tienen derecho a elegir entre una variedad de productos y servicios en el mercado. Este derecho fomenta
+                  la competencia y garantiza que los consumidores puedan acceder a opciones que se ajusten a sus necesidades y preferencias.
+                  La existencia de un mercado competitivo es esencial para mantener precios razonables y calidad en los bienes y servicios.</p>
+
+                <strong>Derecho a ser Escuchado</strong>
+                <p>Los consumidores tienen derecho a expresar sus quejas y preocupaciones sobre productos o servicios, y deben ser escuchados por las empresas
+                    y autoridades competentes. Este derecho implica que las empresas deben tener mecanismos adecuados para recibir y gestionar las reclamaciones
+                    de los consumidores. Además, las autoridades deben tomar en cuenta las opiniones de los consumidores al desarrollar políticas y regulaciones
+                    que afecten el mercado.</p>
+
+                <strong>Derecho a la Educación y a la Información sobre Consumo</strong>
+                <p>Los consumidores tienen derecho a recibir educación y formación sobre sus derechos y responsabilidades. Esto incluye información sobre cómo
+                  hacer compras informadas, cómo utilizar los productos de manera segura, y cómo presentar quejas o reclamaciones. La educación del consumidor
+                  es esencial para empoderar a los individuos y fomentar un comportamiento de compra responsable.</p>
+
+                <strong>Derecho a la Privacidad y a la Protección de Datos</strong>
+                <p>Con el crecimiento del comercio electrónico y el uso de datos personales, los consumidores tienen derecho a la privacidad y a la protección de
+                  sus datos. Las empresas deben ser transparentes sobre cómo recopilan, utilizan y protegen la información personal de los consumidores. Además,
+                  los consumidores deben tener la opción de acceder a sus datos, corregir errores y, en ciertos casos, optar por la eliminación de su información
+                  personal.</p>
+              </ul>
             </p>
 
             <h3>Cual es lo mas importante de conocer tus derechos</h3>
@@ -89,6 +104,32 @@
                     </div>
                   </li>
                 </a>
+                <a href="informacionAutor">
+                  <li class="article">
+                    <img src="../../img/derechoAutor.jpeg" alt="Artículo 2" />
+                    <div class="article-content">
+                      <div class="article-title">
+                        Derechos de Autor
+                      </div>
+                      <p class="article-description">
+                       Conoce que son los derechos de autor y cuando los puedes usar
+                      </p>
+                    </div>
+                  </li>
+                </a>
+                <a href="informacionPatente">
+                  <li class="article">
+                    <img src="../../img/patente.jpg" alt="Artículo 2" />
+                    <div class="article-content">
+                      <div class="article-title">
+                        Patentes
+                      </div>
+                      <p class="article-description">
+                       Conoce que son las patentes y cuales son sus diferentes tipos y usos
+                      </p>
+                    </div>
+                  </li>
+                </a>
                 <a href="informacionSeguridadSaludTrabajo">
                   <li class="article">
                     <img src="../../img/SST.jpg" alt="Artículo 2" />
@@ -102,6 +143,7 @@
                     </div>
                   </li>
                 </a>
+                
                 <a href="/informacionArrendamiento">
                   <li class="article">
                     <img

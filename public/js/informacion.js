@@ -19,6 +19,8 @@ document.querySelectorAll('.filter-menu button').forEach(button => {
           });
         });
 
+        
+
 
 
         document.addEventListener('DOMContentLoaded', function () {
@@ -46,6 +48,58 @@ document.querySelectorAll('.filter-menu button').forEach(button => {
           document.getElementById('btnDest').addEventListener('click', function(){
             window.location.href="/informacionPension"
           });
+
+          document.getElementById('btnDer').addEventListener('click', function(){
+            window.location.href="/informacionesLaboral"
+          });
+          
+         
         });
-  
+
         
+const legalFiles = {
+  'informacion': '/informaciones',
+  'laboral': '/informacionesLaboral',
+  'trabajadores': '/derechosTrabajadores',
+  'arrendamiento': '/informacionArrendamiento',
+  'despido': '/informacionDespido',
+  'divorcio': '/informacionDivorcio',
+  'negocio': '/informacionNegocio',
+  'pension': '/informacionPension',
+  'testamento': '/informacionTestamento',
+  'accidente': '/informacionAccidente',
+  'consumidor': '/informacionConsumidor',
+  'seguridad social': '/informacionSeguridadSocial',
+  'sst': '/informacionSST',
+  'internacional laboral': '/informacionIntLab',
+  'educacion': '/informacionEducacion',
+  'vida familiar': '/informacionVidaFamiliar',
+  'trabajo infantil': '/informacionTrabajoInfantil',
+  'contrato': '/informacionContrato',
+  'salud': '/informacionSalud',
+  'participacion': '/informacionParticipacion',
+  'voto': '/informacionVoto',
+  'cargo': '/informacionCargo',
+  'consulta': '/informacionConsulta',
+  'peticiones': '/informacionPeticiones',
+  'plebiscito': '/informacionPlebiscito',
+  'autor': '/informacionAutor'
+};
+
+
+document.getElementById('buscarBtn').addEventListener('click', function(e) {
+  e.preventDefault(); 
+  
+
+  var searchQuery = document.querySelector('.search-bar input').value.trim().toLowerCase();
+
+  const ruta = legalFiles[searchQuery];
+  
+  if (ruta) {
+
+      window.location.href = ruta;
+  } else {
+
+      alert("No se encontró información con esa búsqueda.");
+  }
+});

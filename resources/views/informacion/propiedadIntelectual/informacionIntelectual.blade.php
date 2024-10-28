@@ -88,10 +88,7 @@
               <img src="../../img/general.jpg" alt="DerechosGenerales">
               <div class="texto-superpuesto"><a href={{route('informaciones')}}>General</a></div>
           </div>
-            <div class="imagen-container">
-                <img src="../../img/DerechoComercial.png" alt="DerechoComercial">
-                <div class="texto-superpuesto"><a href={{route('Comercial')}}>Comercial</a></div>
-            </div>
+
             <div class="imagen-container">
                 <img src="../../img/Derechodefamilia.png" alt="Derechodefamilia">
                 <div class="texto-superpuesto"><a href={{route('informacionFamilia')}}>De Familia</a></div>
@@ -124,6 +121,10 @@
           <img src="../../img/DerechoInternacional.jpg" alt="DerechoInternacional">
           <div class="texto-superpuesto">Internacional</div>
       </div>--}}
+      <div class="imagen-container">
+        <img src="../../img/DerechoComercial.png" alt="DerechoComercial">
+        <div class="texto-superpuesto"><a href={{route('Comercial')}}>Comercial</a></div>
+    </div>
       <div class="imagen-container">
         <img src="../../img/Derecholaboralydeempleo.png" alt="Derecholaboralydeempleo">
         <div class="texto-superpuesto"><a href={{route('informacionesLaboral')}}>Laboral y de Empleo</a></div>

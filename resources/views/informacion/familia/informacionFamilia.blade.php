@@ -75,9 +75,10 @@
         <div class="position-container">
             <h1>Categorías Derechos</h1>
             <div class="imagen-container">
-                <img src="../../img/DerechoComercial.png" alt="DerechoComercial">
-                <div class="texto-superpuesto"><a href="#">Comercial</a></div>
-            </div>
+              <img src="../../img/general.jpg" alt="DerechosGenerales">
+              <div class="texto-superpuesto"><a href={{route('informaciones')}}>General</a></div>
+          </div>
+
            {{--<div class="imagen-container">
                 <img src="../../img/Derechodefamilia.png" alt="Derechodefamilia">
                 <div class="texto-superpuesto"><a href="#">De Familia</a></div>
@@ -87,19 +88,24 @@
               <img src="../../img/ParticipaciónCiudadana.jpg" alt="Derecholaboralydeempleo">
               <div class="texto-superpuesto"><a href={{route('infoCiudadana')}}>Participación Ciudadana</a></div>
           </div>
-            <div class="imagen-container">
+          <div class="imagen-container">
+            <img src="../../img/propIntelectual.jpg" alt="Derechopenalyprocesal">
+            <div class="texto-superpuesto"><a href={{route('informacionIntelec')}}>Propiedad Intelectual</a></div>
+        </div>
+
+            {{--<div class="imagen-container">
                 <img src="../../img/Derechopenalyprocesal.png" alt="Derechopenalyprocesal">
                 <div class="texto-superpuesto"><a href="#">Penal y Procesal</a></div>
             </div>
             <div class="imagen-container">
               <img src="../../img/derechosDigitales.jpg" alt="Derechopenalyprocesal">
               <div class="texto-superpuesto"><a href="#">Digitales</a></div>
-          </div>
+          </div>--}}
           <div class="imagen-container">
             <img src="../../img/derechosNiños.jpg" alt="Derecholaboralydeempleo">
             <div class="texto-superpuesto"><a href="{{route('informacionInfantil')}}">Infantiles</a></div>
         </div>
-            <div class="imagen-container">
+            {{--<div class="imagen-container">
               <img src="../../img/derechoAmbiental.jpg" alt="Derechopenalyprocesal">
               <div class="texto-superpuesto">Ambiental</div>
           </div>
@@ -110,7 +116,11 @@
         <div class="imagen-container">
           <img src="../../img/DerechoInternacional.jpg" alt="DerechoInternacional">
           <div class="texto-superpuesto">Internacional</div>
-      </div>
+      </div>--}}
+      <div class="imagen-container">
+        <img src="../../img/DerechoComercial.png" alt="DerechoComercial">
+        <div class="texto-superpuesto"><a href={{route('Comercial')}}>Comercial</a></div>
+    </div>
       <div class="imagen-container">
         <img src="../../img/Derecholaboralydeempleo.png" alt="Derecholaboralydeempleo">
         <div class="texto-superpuesto"><a href={{route('informacionesLaboral')}}>Laboral y de Empleo</a></div>

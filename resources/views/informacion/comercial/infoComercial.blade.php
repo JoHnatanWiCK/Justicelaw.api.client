@@ -10,59 +10,48 @@
         <section class="informaciones-home">
           <div class="columna-izquierda">
             <div class="encabezado">
-                <img src="../../img/educacion.jpg" alt="Educacion">
-                <h2>Derecho a la educacion</h2>
+                <img src="../../img/DerechosConsumidor.jpg" alt="Educacion">
+                <h2>Derechos del Consumidor</h2>
                 <h3>1 de febrero, 2024</h3>
-                <p>Este artículo ofrecerá una visión general del derecho a la educación como un derecho infantil,
-                    destacando su importancia en el desarrollo integral de los niños y su impacto en el futuro.
-                    Se abordarán las normas internacionales que respaldan este derecho, los obstáculos que
-                    enfrentan los niños en diversas regiones para acceder a la educación, y las iniciativas
-                    que buscan garantizar que todos los niños tengan la oportunidad de aprender y crecer en
-                    un entorno seguro e inclusivo.</p>
-                      <button><a href={{route('informacionEducacion')}}>Leer mas</a></button>
+                <p>Este artículo ofrecerá una visión general del derechos que tienen los consumidores,
+                    destacando su importancia en el desarrollo integral de la sociedad y su impacto en el futuro.</p>
+                      <button><a href={{route('informacionConsumidor')}}>Leer mas</a></button>
             </div>
 
 
         <div class="informaciones-contenedor">
           <div class="info-informacion">
-              <img src="../../img/participacionInfantil.jpg" alt="Participacion Infantil">
-              <h2>Derecho a la participación en decisiones</h2>
+              <img src="../../img/IniciarNegocio.jpg" alt="Participacion Infantil">
+              <h2> Como Iniciar un Negocio</h2>
               <h3>1 de febrero, 2024</h3>
               <p>Este artículo abordará el derecho de los niños a participar en decisiones que les afectan,
-                destacando su importancia para el desarrollo personal y social. Se explorarán las normativas
-                internacionales que respaldan este derecho y se ofrecerán ejemplos de cómo fomentar la
-                participación infantil en contextos familiares, escolares y comunitarios.</p>
-              <button><a href={{route('informacionParticipacion')}}>Leer mas</a></button>
+                destacandEste artículo podría ofrecer información sobre cómo iniciar un negocio, incluyendo la identificación de una idea de negocio, la elaboración de un plan de negocios, y la selección de la estructura legal adecuada. También se abordarán aspectos como la obtención de financiamiento, la estrategia de marketing, y los recursos disponibles para emprendedores.
+              </p>
+              <button><a href={{route('informacionNegocio')}}>Leer mas</a></button>
           </div>
 
           <div class="info-informacion">
-              <img src="../../img/saludNiños.png" alt="Salud Niños">
-              <h2>Derecho a la salud y el bienestar en los niños</h2>
+              <img src="../../img/marca.jpg" alt="Salud Niños">
+              <h2>Cómo Proteger Tu Marca</h2>
               <h3>1 de febrero, 2024</h3>
-              <p>Este artículo examinará el derecho de los niños a la salud y el bienestar, resaltando
-                su importancia para un desarrollo integral. Se abordarán los principios que sustentan
-                este derecho, los desafíos en su acceso y la necesidad de promover entornos saludables
-                para todos los niños.</p>
-              <button><a href={{route('informacionSalud')}}>Leer mas</a></button>
+              <p>Este artículo ofrecerá una guía sobre cómo proteger tu marca, destacando estrategias clave como el registro de la marca, el uso de derechos de autor y patentes, y la importancia de monitorear y hacer cumplir tus derechos para evitar infracciones.</p>
+              <button><a href={{route('marca')}}>Leer mas</a></button>
           </div>
 
           <div class="info-informacion">
-              <img src="../../img/trabajoInfantil.jpg" alt="Trabajo Infantil">
-              <h2>Protección contra el trabajo infantil</h2>
+              <img src="../../img/obligacionesFiscales.jpg" alt="Trabajo Infantil">
+              <h2>Obligaciones Fiscales para Nuevos Negocios</h2>
               <h3>1 de febrero, 2024</h3>
-              <p>Este artículo examinará el derecho de los niños a estar protegidos contra el trabajo infantil,
-                abordando su importancia y las normativas que prohíben esta práctica para garantizar su bienestar y desarrollo.</p>
-              <button><a href={{route('informacionTrabajoInfantil')}}>Leer mas</a></button>
+              <p>EEste artículo presentará un resumen de las obligaciones fiscales para nuevos negocios, abordando aspectos clave como la inscripción en el registro fiscal, la declaración de impuestos, y la importancia de llevar una contabilidad adecuada para cumplir con las normativas legales.</p>
+              <button><a href={{route('obligacionFiscal')}}>Leer mas</a></button>
           </div>
 
           <div class="info-informacion">
-              <img src="../../img/vidaFamiliar.jpg" alt="Vida Familiar">
-              <h2>Vida familiar y cuidados adecuados</h2>
+              <img src="../../img/relasNegocio.png" alt="Vida Familiar">
+              <h2>Reglas Básicas de Publicidad</h2>
               <h3>1 de febrero, 2024</h3>
-              <p>Este artículo abordará el derecho de los niños a una vida familiar y cuidados adecuados, destacando su importancia para un
-                desarrollo seguro y estable. Se explorarán los principios que garantizan este derecho y las políticas que promueven entornos
-                familiares protectores y afectuosos.</p>
-              <button><a href={{route('informacionVidaFamiliar')}}></a>Leer más</button>
+              <p>Este artículo ofrecerá un resumen de las reglas básicas de publicidad, incluyendo la verdad en la comunicación, la ética publicitaria y estrategias efectivas para llegar a la audiencia adecuada.</p>
+              <button><a href={{route('reglasPublicidad')}}></a>Leer más</button>
           </div>
 
         </div>
@@ -92,7 +81,14 @@
               <img src="../../img/general.jpg" alt="DerechosGenerales">
               <div class="texto-superpuesto"><a href={{route('informaciones')}}>General</a></div>
           </div>
-       
+            {{--<div class="imagen-container">
+                <img src="../../img/DerechoComercial.png" alt="DerechoComercial">
+                <div class="texto-superpuesto"><a href="#">Comercial</a></div>
+            </div>--}}
+            <div class="imagen-container">
+              <img src="../../img/derechosNiños.jpg" alt="Derecholaboralydeempleo">
+              <div class="texto-superpuesto"><a href="{{route('informacionInfantil')}}">Infantiles</a></div>
+          </div>
             <div class="imagen-container">
                 <img src="../../img/Derechodefamilia.png" alt="Derechodefamilia">
                 <div class="texto-superpuesto"><a href={{route('informacionFamilia')}}>De Familia</a></div>
@@ -125,10 +121,6 @@
           <img src="../../img/DerechoInternacional.jpg" alt="DerechoInternacional">
           <div class="texto-superpuesto">Internacional</div>
       </div>--}}
-      <div class="imagen-container">
-        <img src="../../img/DerechoComercial.png" alt="DerechoComercial">
-        <div class="texto-superpuesto"><a href={{route('Comercial')}}>Comercial</a></div>
-    </div>
       <div class="imagen-container">
         <img src="../../img/Derecholaboralydeempleo.png" alt="Derecholaboralydeempleo">
         <div class="texto-superpuesto"><a href={{route('informacionesLaboral')}}>Laboral y de Empleo</a></div>

@@ -190,6 +190,22 @@ Route::get('/informacionNegocio', function () {
     return view('informacion.comercial.negocio');
 })->name('informacionNegocio');
 
+Route::get('/obligacionFiscal', function () {
+    return view('informacion.comercial.obligacionFiscal');
+})->name('obligacionFiscal');
+
+Route::get('/obligacionFiscal', function () {
+    return view('informacion.comercial.obligacionFiscal');
+})->name('obligacionFiscal');
+
+Route::get('/marca', function () {
+    return view('informacion.comercial.protegerMarca');
+})->name('marca');
+
+Route::get('/reglasPublicidad', function () {
+    return view('informacion.comercial.reglasPublicidad');
+})->name('reglasPublicidad');
+
 Route::get('/informacionFamilia', function () {
     return view('informacion.familia.informacionFamilia');
 })->name('informacionFamilia');
@@ -217,6 +233,11 @@ Route::get('/informacionAccidente', function () {
 Route::get('/informacionConsumidor', function () {
     return view('informacion.comercial.derechoConsumidor');
 })->name('informacionConsumidor');
+
+Route::get('/Comercial', function () {
+    return view('informacion.comercial.infoComercial');
+})->name('Comercial');
+
 
 Route::get('/informacionSeguridadSocial', function () {
     return view('informacion.laboralEmpleo.seguridadSocial');

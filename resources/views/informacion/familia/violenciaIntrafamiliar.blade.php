@@ -10,66 +10,61 @@
 @section('main')
       <div class="container">
         <div class="news-column">
-          <h2 class="titulo-informacion">Derechos de autor: protegen las obras literarias, artísticas y científicas.</h2>
+          <h2 class="titulo-informacion">Violencia Intrafamiliar: Un Problema Social y Legal</h2>
           <span>14 agosto 2024</span>
-          <span class="categoria">Categoria: Propiedad Intelectual</span>
+          <span class="categoria">Categoria: Familia</span>
 
           <div class="informacion-contenido">
             <img
-              src="../../img/derechoAutor.jpg"
-              alt="tutela"
+              src="../../img/violenciaIntrafam.jpg"
+              alt="patente"
               class="imagen-arriba-derecha"
             />
-            <p>Los derechos de autor son un conjunto de normas jurídicas que protegen <strong>las obras literarias, artísticas y científicas</strong>,
-                otorgando a sus creadores la capacidad de controlar el uso y la distribución de sus creaciones. Estos derechos no solo
-                garantizan que los autores reciban el reconocimiento adecuado por su obra, sino que también permiten que se beneficien
-                económicamente de la explotación de sus trabajos, ya sea mediante la reproducción, distribución, o la comunicación
-                pública de los mismos.
-                <br><br>
-                El derecho de autor surge automáticamente cuando una obra es creada, sin la necesidad de registro o formalidades adicionales,
-                aunque en muchos países existen registros de propiedad intelectual que refuerzan los derechos del creador. Esta protección
-                legal se aplica en todos los campos de la creación artística y científica, asegurando que los autores puedan ejercer control
-                sobre el uso de sus obras por terceros y que reciban compensación por su trabajo.</p>
+            <p>La violencia intrafamiliar se refiere a cualquier acto de violencia que se produce en el ámbito familiar y puede incluir agresiones físicas, psicológicas, sexuales y económicas.
+                Este fenómeno es un grave problema social que afecta a millones de personas en todo el mundo, independientemente de su origen, edad o condición socioeconómica.
+                La violencia intrafamiliar no solo afecta a la víctima directa, sino que también impacta en otros miembros de la familia, incluidos niños y ancianos, perpetuando
+                ciclos de violencia y afectando el bienestar emocional y físico de todos los involucrados.</p>
 
-                <h3>Ámbito de Protección de los Derechos de Autor</h3>
-                <p>El ámbito de protección de los derechos de autor es amplio e incluye diversas obras del intelecto humano.
-                    Entre ellas se encuentran:</p>
+                <h3>Tipos de Violencia Intrafamiliar</h3>
+                <p>La violencia intrafamiliar puede manifestarse de diversas formas:
                     <ul>
-                        <li><strong>Obras literarias:</strong>como novelas, cuentos, ensayos, artículos periodísticos, poemas, y cualquier forma de
-                            creación escrita. Estas obras son protegidas desde el momento de su creación, y el autor tiene derechos exclusivos sobre 
-                            la reproducción, distribución y comunicación pública de las mismas.</li>
-
-                        <li><strong>Obras artísticas: </strong>que incluyen desde pinturas y esculturas hasta obras de arte digital. Dentro de esta
-                            categoría se consideran también las obras cinematográficas, las composiciones musicales, los guiones teatrales y las
-                            coreografías. Incluso los programas de ordenador, conocidos como software, están protegidos bajo las leyes de derechos 
-                            de autor.</li>
-
-                        <li><strong>Obras científicas:</strong>que abarca artículos de investigación, estudios, tesis doctorales, trabajos
-                            de divulgación científica, y teorías o descubrimientos. En el campo de la ciencia, los derechos de autor protegen
-                            tanto la expresión original de una idea como el modo en que se transmite el conocimiento, pero no protegen las
-                            ideas o métodos científicos en sí.</li>
+                        <li><strong>Violencia física:</strong>Implica cualquier tipo de agresión física, como golpes, empujones, o cualquier otro tipo de contacto que cause daño físico.</li>
+                        <li><strong>Violencia psicológica: </strong>Se refiere a acciones que causan daño emocional o mental a la víctima, incluyendo amenazas, humillaciones, aislamiento
+                            y control de la vida diaria.</li>
+                        <li><strong>Violencia sexual:</strong>Incluye cualquier tipo de agresión sexual o coerción, así como el abuso sexual de menores dentro del entorno familiar.</li>
+                        <li><strong>Violencia económica:</strong> Implica el control de los recursos económicos de la víctima, restringiendo su acceso a dinero o propiedades y limitando su
+                            capacidad de ser independiente.</li>
                     </ul>
-                    <p>Esta protección se extiende a cualquier creación que tenga una forma tangible, ya sea en formato físico o digital. Así,
-                    tanto los libros impresos como los archivos electrónicos de texto o imágenes digitales están cubiertos por la normativa
-                    de derechos de autor.</p>
+                </p>
 
-                <h3>Tipos de Derechos de Autor</h3>
-                <p>Los derechos de autor se dividen en dos grandes categorías: los <strong>derechos morales</strong> y los
-                    <strong>derechos patrimoniales</strong>, cada uno con funciones y características particulares.
-                <br><br>
-                Los <strong>derechos morales</strong> son aquellos que vinculan al autor de manera personal e intransferible con su obra.
-                Estos derechos reconocen la autoría de una persona y su capacidad para proteger la integridad de su creación.
-                Entre los más destacados se encuentran el derecho a la <strong>paternidad</strong>, que asegura que el autor sea identificado
-                como creador de la obra, y el derecho a la integridad, que impide que la obra sea modificada sin su consentimiento,
-                especialmente si esos cambios pueden dañar su reputación o la naturaleza de la creación. Los derechos morales,
-                a diferencia de los patrimoniales, suelen ser inalienables, lo que significa que no pueden ser cedidos o vendidos.
-                <br><br>
-                Por otro lado, los derechos patrimoniales son aquellos que permiten al autor obtener una retribución económica por
-                la explotación de su obra. Estos derechos incluyen la reproducción, la distribución y la comunicación pública de la
-                obra, así como su transformación, que puede implicar adaptaciones, traducciones u otras formas de modificarla. A
-                diferencia de los derechos morales, los derechos patrimoniales sí pueden ser transferidos a terceros, ya sea
-                mediante venta, cesión, o licencia.
-        </p>
+                <h3>Legislación sobre Violencia Intrafamiliar</h3>
+                <p>Las leyes sobre violencia intrafamiliar varían según el país, pero en muchas jurisdicciones, se han implementado legislaciones específicas para abordar este problema.
+                    Estas leyes buscan proteger a las víctimas, sancionar a los agresores y proporcionar recursos para la recuperación. Por lo general, las leyes permiten a las víctimas
+                    solicitar órdenes de protección, que son medidas legales diseñadas para mantener a los agresores alejados de las víctimas y evitar que tengan contacto con ellas.
+                    También se pueden establecer protocolos para la intervención de las autoridades y servicios de apoyo para las víctimas.</p>
+
+                <h3>Recursos y Apoyo para Víctimas de Violencia Intrafamiliar</h3>
+                <p>Si usted o alguien que conoce es víctima de violencia intrafamiliar, es fundamental actuar. Aquí hay algunas recomendaciones sobre qué hacer:
+                    <ul>
+                        <li><strong>Buscar ayuda inmediata: </strong>En situaciones de emergencia, llame a los servicios de emergencia o acuda a un hospital. La salud y la seguridad deben ser la prioridad principal.</li>
+                        <li><strong>Contactar a una línea de ayuda:</strong>Existen organizaciones y líneas de ayuda que brindan apoyo y asesoramiento a las víctimas de violencia intrafamiliar. Estas organizaciones
+                            pueden ofrecer recursos, refugios y asistencia legal.</li>
+                        <li><strong>Hablar con alguien de confianza:</strong>Compartir su situación con amigos, familiares o profesionales puede proporcionar el apoyo emocional necesario para tomar decisiones sobre su futuro.</li>
+                        <li><strong>Consultar a un abogado:</strong>Obtener asesoría legal es crucial para entender sus derechos y opciones. Un abogado especializado en violencia intrafamiliar puede ayudar a presentar una orden
+                            de protección, iniciar procesos legales y asesorar sobre los pasos a seguir.</li>
+                        <li><strong>Documentar la violencia: </strong>Mantener un registro de los incidentes de violencia, incluyendo fechas, detalles de lo sucedido y cualquier evidencia (como fotos de lesiones o mensajes amenazantes),
+                            puede ser útil para acciones legales futuras.</li>
+                        <li><strong>Buscar refugio: </strong>Si es necesario, considere la posibilidad de abandonar el hogar y buscar refugio en un centro especializado. Estos refugios ofrecen un lugar seguro y, a menudo,
+                            brindan servicios adicionales como asesoramiento y apoyo legal.</li>
+                    </ul>
+                </p>
+
+                <h3>Prevención de la Violencia Intrafamiliar</h3>
+                <p>La prevención de la violencia intrafamiliar requiere un enfoque integral que involucre a la comunidad, las autoridades y las organizaciones gubernamentales. La educación y
+                    la sensibilización son fundamentales para desmantelar los mitos y estigmas asociados con la violencia. Las campañas de concientización pueden ayudar a identificar señales
+                    de alerta y fomentar la denuncia de estos actos. También es esencial promover relaciones sanas y la resolución pacífica de conflictos en el hogar, así como proporcionar
+                    recursos educativos sobre la igualdad de género y el respeto mutuo.</p>
+                
           </div>
         </div>
         <div class="recommendations-column">
@@ -108,6 +103,19 @@
                       </div>
                       <p class="article-description">
                         Obtén información sobre tus derechos como inquilino.
+                      </p>
+                    </div>
+                  </li>
+                </a>
+                <a href="informacionAutor">
+                  <li class="article">
+                    <img src="../../img/derechoAutor.jpeg" alt="Artículo 2" />
+                    <div class="article-content">
+                      <div class="article-title">
+                        Derechos de Autor
+                      </div>
+                      <p class="article-description">
+                       Conoce que son los derechos de autor y cuando los puedes usar
                       </p>
                     </div>
                   </li>
@@ -171,6 +179,19 @@
                     </div>
                   </li>
                 </a>
+                <a href="informacionPatente">
+                    <li class="article">
+                      <img src="../../img/patente.jpg" alt="Artículo 2" />
+                      <div class="article-content">
+                        <div class="article-title">
+                          Patentes
+                        </div>
+                        <p class="article-description">
+                         Conoce que son las patentes y cuales son sus diferentes tipos y usos
+                        </p>
+                      </div>
+                    </li>
+                  </a>
                 <a href="informacionConsumidor">
                   <li class="article">
                     <img

@@ -10,66 +10,77 @@
 @section('main')
       <div class="container">
         <div class="news-column">
-          <h2 class="titulo-informacion">Derechos de autor: protegen las obras literarias, artísticas y científicas.</h2>
+          <h2 class="titulo-informacion">Patentes: protegen invenciones o mejoras tecnológicas.</h2>
           <span>14 agosto 2024</span>
           <span class="categoria">Categoria: Propiedad Intelectual</span>
 
           <div class="informacion-contenido">
             <img
-              src="../../img/derechoAutor.jpg"
-              alt="tutela"
+              src="../../img/patente.jpg"
+              alt="patente"
               class="imagen-arriba-derecha"
             />
-            <p>Los derechos de autor son un conjunto de normas jurídicas que protegen <strong>las obras literarias, artísticas y científicas</strong>,
-                otorgando a sus creadores la capacidad de controlar el uso y la distribución de sus creaciones. Estos derechos no solo
-                garantizan que los autores reciban el reconocimiento adecuado por su obra, sino que también permiten que se beneficien
-                económicamente de la explotación de sus trabajos, ya sea mediante la reproducción, distribución, o la comunicación
-                pública de los mismos.
-                <br><br>
-                El derecho de autor surge automáticamente cuando una obra es creada, sin la necesidad de registro o formalidades adicionales,
-                aunque en muchos países existen registros de propiedad intelectual que refuerzan los derechos del creador. Esta protección
-                legal se aplica en todos los campos de la creación artística y científica, asegurando que los autores puedan ejercer control
-                sobre el uso de sus obras por terceros y que reciban compensación por su trabajo.</p>
+            <p>Las <strong>patentes</strong> son un mecanismo de propiedad intelectual que proporciona a los inventores derechos exclusivos
+              sobre sus invenciones o mejoras tecnológicas por un periodo limitado. Este sistema de protección no solo
+              busca salvaguardar los intereses de los inventores, sino también fomentar la innovación al asegurar que
+              los creadores puedan beneficiarse económicamente de sus trabajos. En un mundo cada vez más competitivo
+              y basado en la tecnología, las patentes juegan un papel crucial en la economía global al incentivar
+              el desarrollo y la divulgación de nuevos conocimientos</p>
 
-                <h3>Ámbito de Protección de los Derechos de Autor</h3>
-                <p>El ámbito de protección de los derechos de autor es amplio e incluye diversas obras del intelecto humano.
-                    Entre ellas se encuentran:</p>
+                <h3>Tipos de Patentes</h3>
+                <p>Existen varios tipos de patentes, que varían según el tipo de invención que protegen:</p>
                     <ul>
-                        <li><strong>Obras literarias:</strong>como novelas, cuentos, ensayos, artículos periodísticos, poemas, y cualquier forma de
-                            creación escrita. Estas obras son protegidas desde el momento de su creación, y el autor tiene derechos exclusivos sobre 
-                            la reproducción, distribución y comunicación pública de las mismas.</li>
+                        <li><strong>Patentes de invención:</strong>protegen nuevos productos, procesos o técnicas que ofrecen una
+                          solución a un problema técnico. Estas patentes son el tipo más común y son aplicables a una amplia gama
+                          de sectores, desde la farmacéutica hasta la ingeniería..</li>
 
-                        <li><strong>Obras artísticas: </strong>que incluyen desde pinturas y esculturas hasta obras de arte digital. Dentro de esta
-                            categoría se consideran también las obras cinematográficas, las composiciones musicales, los guiones teatrales y las
-                            coreografías. Incluso los programas de ordenador, conocidos como software, están protegidos bajo las leyes de derechos 
-                            de autor.</li>
+                        <li><strong>Patentes de modelo de utilidad:</strong>protegen mejoras menores en productos o procesos existentes.
+                          A menudo requieren un proceso de registro menos riguroso que las patentes de invención, lo que las hace más
+                          accesibles para pequeños inventores y empresas.</li>
 
-                        <li><strong>Obras científicas:</strong>que abarca artículos de investigación, estudios, tesis doctorales, trabajos
-                            de divulgación científica, y teorías o descubrimientos. En el campo de la ciencia, los derechos de autor protegen
-                            tanto la expresión original de una idea como el modo en que se transmite el conocimiento, pero no protegen las
-                            ideas o métodos científicos en sí.</li>
+                        <li><strong>Patentes de diseño: </strong>protegen la apariencia ornamental o estética de un producto,
+                          en lugar de su funcionalidad. Esto es especialmente relevante en industrias como la moda y el
+                          diseño industrial, donde la forma y el estilo son críticos.</li>
                     </ul>
-                    <p>Esta protección se extiende a cualquier creación que tenga una forma tangible, ya sea en formato físico o digital. Así,
-                    tanto los libros impresos como los archivos electrónicos de texto o imágenes digitales están cubiertos por la normativa
-                    de derechos de autor.</p>
 
-                <h3>Tipos de Derechos de Autor</h3>
-                <p>Los derechos de autor se dividen en dos grandes categorías: los <strong>derechos morales</strong> y los
-                    <strong>derechos patrimoniales</strong>, cada uno con funciones y características particulares.
-                <br><br>
-                Los <strong>derechos morales</strong> son aquellos que vinculan al autor de manera personal e intransferible con su obra.
-                Estos derechos reconocen la autoría de una persona y su capacidad para proteger la integridad de su creación.
-                Entre los más destacados se encuentran el derecho a la <strong>paternidad</strong>, que asegura que el autor sea identificado
-                como creador de la obra, y el derecho a la integridad, que impide que la obra sea modificada sin su consentimiento,
-                especialmente si esos cambios pueden dañar su reputación o la naturaleza de la creación. Los derechos morales,
-                a diferencia de los patrimoniales, suelen ser inalienables, lo que significa que no pueden ser cedidos o vendidos.
-                <br><br>
-                Por otro lado, los derechos patrimoniales son aquellos que permiten al autor obtener una retribución económica por
-                la explotación de su obra. Estos derechos incluyen la reproducción, la distribución y la comunicación pública de la
-                obra, así como su transformación, que puede implicar adaptaciones, traducciones u otras formas de modificarla. A
-                diferencia de los derechos morales, los derechos patrimoniales sí pueden ser transferidos a terceros, ya sea
-                mediante venta, cesión, o licencia.
-        </p>
+                <h3>Requisitos para la Protección de Patente</h3>
+                <p>Para que una invención sea patentable, debe cumplir con ciertos requisitos. Primero, debe ser nueva, lo que
+                  significa que no debe haber sido divulgada al público antes de la fecha de presentación de la solicitud de patente.
+                  Segundo, la invención debe mostrar actividad inventiva, es decir, no debe ser obvia para un experto en el campo
+                  correspondiente. Finalmente, la invención debe ser susceptible de aplicación industrial, lo que implica que
+                  debe poder producirse o utilizarse de manera práctica en un sector productivo.</p>
+
+                <h3>Proceso de Solicitud de Patente</h3>
+                <p>El proceso para obtener una patente implica varios pasos. Inicialmente, es recomendable realizar una búsqueda de
+                  patentes para asegurarse de que la invención no haya sido patentada previamente. Luego, se presenta la solicitud,
+                  que debe incluir una descripción detallada de la invención y reivindicaciones que definan el alcance de la protección
+                  solicitada. Posteriormente, la solicitud es sometida a un examen donde se evalúa si la invención cumple con los requisitos
+                  de patentabilidad. Si la solicitud es aprobada, se otorga la patente, que confiere al titular derechos exclusivos sobre
+                  la invención durante un periodo que generalmente oscila entre 20 y 25 años, dependiendo de la jurisdicción.</p>
+
+                <h3>Derechos Conferidos por las Patentes</h3>
+                <p>La concesión de una patente otorga al titular una serie de derechos exclusivos. Estos incluyen el derecho a explorar la invención,
+                  lo que permite al titular fabricar, utilizar, vender o importar la invención sin la intervención de terceros. También incluye el
+                  derecho a otorgar licencias, permitiendo a otros utilizar la invención a cambio de una compensación económica, así como el derecho
+                  a iniciar acciones legales en caso de uso no autorizado de la invención.</p>
+
+                <h3>Limitaciones y Excepciones</h3>
+                <p>A pesar de los derechos exclusivos conferidos por las patentes, existen limitaciones y excepciones que permiten el uso de invenciones patentadas sin infringir
+                  los derechos del titular. Por ejemplo, en muchos países se permite el uso personal de una invención patentada sin autorización del titular, siempre que no sea
+                  comercial. Asimismo, las actividades de investigación y desarrollo pueden llevarse a cabo sin infringir patentes, siempre que no se comercialice la invención
+                  patentada. Una vez que expira la protección de la patente, la invención entra en el dominio público y puede ser utilizada libremente por cualquier persona.</p>
+
+                <h3>Importancia de las Patentes</h3>
+                <p>Las patentes son esenciales para incentivar la innovación y el progreso tecnológico. Proporcionan a los inventores la seguridad necesaria para invertir tiempo y
+                  recursos en el desarrollo de nuevas tecnologías. Sin este sistema de protección, los innovadores pueden ser reacios a compartir sus descubrimientos, temiendo que
+                  sus ideas sean copiadas sin compensación. Las patentes también promueven la inversión en investigación y desarrollo, ya que las empresas están más dispuestas a
+                  financiar proyectos si pueden asegurarse una ventaja competitiva mediante la obtención de patentes.</p>
+
+                <h3>Críticas al Sistema de Patentes</h3>
+                <p>A pesar de su importancia, el sistema de patentes ha enfrentado críticas en los últimos años. Algunas críticas se centran en la duración excesiva de la protección,
+                  que puede impedir el acceso a tecnologías que beneficiarían a la sociedad. También se cuestionan los altos costos asociados con la obtención y mantenimiento de patentes,
+                  que pueden limitar el acceso a la protección de patentes para pequeños inventores o startups. Adicionalmente, algunas empresas han sido criticadas por obtener patentes
+                  sobre ideas que son consideradas obvias o que no presentan una innovación significativa, lo que puede dificultar la competencia y el desarrollo de nuevas soluciones.</p>
           </div>
         </div>
         <div class="recommendations-column">
@@ -108,6 +119,19 @@
                       </div>
                       <p class="article-description">
                         Obtén información sobre tus derechos como inquilino.
+                      </p>
+                    </div>
+                  </li>
+                </a>
+                <a href="informacionAutor">
+                  <li class="article">
+                    <img src="../../img/derechoAutor.jpeg" alt="Artículo 2" />
+                    <div class="article-content">
+                      <div class="article-title">
+                        Derechos de Autor
+                      </div>
+                      <p class="article-description">
+                       Conoce que son los derechos de autor y cuando los puedes usar
                       </p>
                     </div>
                   </li>

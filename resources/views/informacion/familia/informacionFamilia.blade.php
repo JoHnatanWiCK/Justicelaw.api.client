@@ -10,48 +10,45 @@
         <section class="informaciones-home">
           <div class="columna-izquierda">
             <div class="encabezado">
-                <img src="../../img/Accidente.png" alt="Accidente">
-                <h2>Guía completa sobre los pasos a seguir después de un accidente de tráfico</h2>
+                <img src="../../img/violenciaIntrafam.jpg" alt="Testamento">
+                <h2>Que hacer en caso de sufrir violencia intrafamiliar</h2>
                 <h3>1 de febrero, 2024</h3>
-                <p>Este artículo podría ofrecer información detallada sobre qué hacer
-                    inmediatamente después de verse involucrado en un accidente de tráfico,
-                     cómo recopilar pruebas, cuándo y cómo comunicarse con las compañías de
-                      seguros y cómo buscar ayuda legal si es necesario.</p>
-                      <button id="btnGuia">Leer mas</button>
+                <p>Este artículo podría ofrecer información sobre qué hacer en caso de sufrir violencia intrafamiliar, incluyendo cómo reconocer las señales de abuso, garantizar tu seguridad, buscar apoyo emocional y legal, y acceder a recursos como líneas de ayuda y refugios. También se abordarán pasos para documentar incidentes y presentar denuncias ante las autoridades.</p>
+                      <button><a href={{route('violenciaIntrafamiliar')}}>Leer mas</a></button>
             </div>
 
 
         <div class="informaciones-contenedor">
           <div class="info-informacion">
-              <img src="../../img/Derechosdelconsumidor.png" alt="Derechos del consumidor">
-              <h2>Los derechos del consumidor</h2>
+              <img src="../../img/Testamento.jpg " alt="Marca Registrada">
+              <h2>Como redactar un testamento</h2>
               <h3>1 de febrero, 2024</h3>
-              <p>Conoce tus derechos como consumidor y aprende cómo protegerte contra el fraude y las prácticas comerciales injustas</p>
-              <button id="btnConsu">Leer más</button>
+              <p>Este artículo podría ofrecer información sobre cómo redactar un testamento, incluyendo sus elementos esenciales, la designación de beneficiarios y albaceas, y la importancia de la validación legal.</p>
+              <button><a href={{route('informacionTestamento')}}>Leer mas</a></button>
           </div>
 
           <div class="info-informacion">
-              <img src="../../img/Iniciarunnegocio.png" alt="Iniciar un negocio">
-              <h2>Aspectos legales para iniciar un negocio</h2>
+              <img src="../../img/Divorcio.jpg" alt="Derecho Autor">
+              <h2>Divorcio</h2>
               <h3>1 de febrero, 2024</h3>
-              <p>Aprende los aspectos legales fundamentales al iniciar un negocio</p>
-              <button id="btnAspect">Leer más</button>
+              <p>Este artículo podría ofrecer información sobre qué hacer en caso de un divorcio, incluyendo los pasos para iniciar el proceso legal, la división de bienes y deudas, y la custodia de los hijos. También se abordarán recursos útiles como la mediación y la asesoría legal.</p>
+              <button><a href={{route('informacionDivorcio')}}>Leer mas</a></button>
           </div>
 
           <div class="info-informacion">
-              <img src="../../img/Despidoinjustificado.png" alt="Despido injustificado">
-              <h2>Qué hacer en caso de despido injustificado</h2>
+              <img src="../../img/planificacion.jpg" alt="Patente">
+              <h2>Planificacion Familiar</h2>
               <h3>1 de febrero, 2024</h3>
-              <p>Explora tus opciones legales y los pasos a seguir si te enfrentas a un despido injustificado</p>
-              <button id="btnDesp">Leer más</button>
+              <p>Este artículo podría ofrecer información sobre la planificación familiar, incluyendo métodos anticonceptivos, la importancia de la educación sexual, y cómo tomar decisiones informadas sobre el número y el espaciamiento de los hijos. También se discutirán recursos y servicios disponibles para el asesoramiento y la salud reproductiva.</p>
+              <button><a href={{route('Planificacion')}}>Leer mas</a></button>
           </div>
 
           <div class="info-informacion">
-              <img src="../../img/Derechosdeinquilinos.png" alt="Derechos del inquilino">
-              <h2>Cómo enfrentar problemas de arrendamiento y derechos del inquilino</h2>
+              <img src="../../img/PensionAliemnticia.jpg" alt="Pension Alimenticia">
+              <h2>Pension Alienticia</h2>
               <h3>1 de febrero, 2024</h3>
-              <p>Obtén información sobre tus derechos como inquilino</p>
-              <button id="btnInquilino">Leer más</button>
+              <p>Este artículo podría ofrecer información sobre la pensión alimenticia, incluyendo su definición, cómo se determina la cantidad a pagar, y los derechos y responsabilidades de ambas partes. También se abordarán los pasos para solicitarla, cómo modificarla en caso de cambios en la situación económica, y recursos legales disponibles para ayudar en el proceso.</p>
+              <button><a href={{route('informacionPension')}}>Leer más</a></button>
           </div>
 
         </div>
@@ -72,35 +69,40 @@
             <img src="../../img/lomasdestacado.png" alt="lomasdestacado">
             <h3>Pensión alimenticia: Todo lo que necesitas saber</h3>
             <h4>1 de febrero, 2024</h4>
-            <button id="btnDest">Leer más</button>
+            <button><a href={{route('informacionPension')}}>Leer más</a></button>
         </div>
     </div>
         <div class="position-container">
             <h1>Categorías Derechos</h1>
             <div class="imagen-container">
-                <img src="../../img/Derecholaboralydeempleo.png" alt="Derecholaboralydeempleo">
-                <div class="texto-superpuesto"><a href={{route('informacionesLaboral')}}>Laboral y de Empleo</a></div>
-            </div>
-            <div class="imagen-container">
                 <img src="../../img/DerechoComercial.png" alt="DerechoComercial">
-                <div class="texto-superpuesto">Comercial</div>
+                <div class="texto-superpuesto"><a href="#">Comercial</a></div>
             </div>
-            <div class="imagen-container">
+           {{--<div class="imagen-container">
                 <img src="../../img/Derechodefamilia.png" alt="Derechodefamilia">
-                <div class="texto-superpuesto"><a href={{route('informacionFamilia')}}>De Familia</a></div>
-            </div>
+                <div class="texto-superpuesto"><a href="#">De Familia</a></div>
+            </div>--}}
+
+            <div class="imagen-container">
+              <img src="../../img/ParticipaciónCiudadana.jpg" alt="Derecholaboralydeempleo">
+              <div class="texto-superpuesto"><a href={{route('infoCiudadana')}}>Participación Ciudadana</a></div>
+          </div>
             <div class="imagen-container">
                 <img src="../../img/Derechopenalyprocesal.png" alt="Derechopenalyprocesal">
-                <div class="texto-superpuesto">Penal y Procesal</div>
+                <div class="texto-superpuesto"><a href="#">Penal y Procesal</a></div>
             </div>
             <div class="imagen-container">
-              <img src="../../img/derechoAmbiental.jpg" alt="Derechopenalyprocesal">
-              <div class="texto-superpuesto">Ambiental</div>
+              <img src="../../img/derechosDigitales.jpg" alt="Derechopenalyprocesal">
+              <div class="texto-superpuesto"><a href="#">Digitales</a></div>
           </div>
           <div class="imagen-container">
             <img src="../../img/derechosNiños.jpg" alt="Derecholaboralydeempleo">
             <div class="texto-superpuesto"><a href="{{route('informacionInfantil')}}">Infantiles</a></div>
         </div>
+            <div class="imagen-container">
+              <img src="../../img/derechoAmbiental.jpg" alt="Derechopenalyprocesal">
+              <div class="texto-superpuesto">Ambiental</div>
+          </div>
           <div class="imagen-container">
             <img src="../../img/DerechoSalud.jpg" alt="DerechoSalud">
             <div class="texto-superpuesto">Salud</div>
@@ -109,6 +111,10 @@
           <img src="../../img/DerechoInternacional.jpg" alt="DerechoInternacional">
           <div class="texto-superpuesto">Internacional</div>
       </div>
+      <div class="imagen-container">
+        <img src="../../img/Derecholaboralydeempleo.png" alt="Derecholaboralydeempleo">
+        <div class="texto-superpuesto"><a href={{route('informacionesLaboral')}}>Laboral y de Empleo</a></div>
+    </div>
         </div>
       </div>
         </section>
@@ -138,7 +144,6 @@
                 <span>12 Sept, 2023</span>
             </div>
         </div>
-        
         <div class="article">
           <img src="../../img/Derechosdelconsumidor.png" alt="Artículo">
           <div class="article-info">
@@ -211,6 +216,7 @@
             <span>11 Sept, 2023</span>
         </div>
     </div>
+    
       </div>
 
     </div>

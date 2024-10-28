@@ -10,66 +10,63 @@
 @section('main')
       <div class="container">
         <div class="news-column">
-          <h2 class="titulo-informacion">Derechos de autor: protegen las obras literarias, artísticas y científicas.</h2>
+          <h2 class="titulo-informacion">Secretos comerciales: protegen información empresarial confidencial.</h2>
           <span>14 agosto 2024</span>
           <span class="categoria">Categoria: Propiedad Intelectual</span>
 
           <div class="informacion-contenido">
             <img
-              src="../../img/derechoAutor.jpg"
-              alt="tutela"
+              src="../../img/secretoComercial.jpg"
+              alt="patente"
               class="imagen-arriba-derecha"
             />
-            <p>Los derechos de autor son un conjunto de normas jurídicas que protegen <strong>las obras literarias, artísticas y científicas</strong>,
-                otorgando a sus creadores la capacidad de controlar el uso y la distribución de sus creaciones. Estos derechos no solo
-                garantizan que los autores reciban el reconocimiento adecuado por su obra, sino que también permiten que se beneficien
-                económicamente de la explotación de sus trabajos, ya sea mediante la reproducción, distribución, o la comunicación
-                pública de los mismos.
-                <br><br>
-                El derecho de autor surge automáticamente cuando una obra es creada, sin la necesidad de registro o formalidades adicionales,
-                aunque en muchos países existen registros de propiedad intelectual que refuerzan los derechos del creador. Esta protección
-                legal se aplica en todos los campos de la creación artística y científica, asegurando que los autores puedan ejercer control
-                sobre el uso de sus obras por terceros y que reciban compensación por su trabajo.</p>
+            <p>Los secretos comerciales son un elemento crucial de la propiedad intelectual que protege la información confidencial y valiosa de
+                una empresa. Esta información puede incluir fórmulas, prácticas, procesos, diseños y cualquier otra información que otorgue a
+                una empresa una ventaja competitiva. A diferencia de las patentes, los secretos comerciales no requieren un registro formal
+                y su protección se basa en la confidencialidad y en la implementación de medidas adecuadas para mantener esa confidencialidad.</p>
 
-                <h3>Ámbito de Protección de los Derechos de Autor</h3>
-                <p>El ámbito de protección de los derechos de autor es amplio e incluye diversas obras del intelecto humano.
-                    Entre ellas se encuentran:</p>
-                    <ul>
-                        <li><strong>Obras literarias:</strong>como novelas, cuentos, ensayos, artículos periodísticos, poemas, y cualquier forma de
-                            creación escrita. Estas obras son protegidas desde el momento de su creación, y el autor tiene derechos exclusivos sobre 
-                            la reproducción, distribución y comunicación pública de las mismas.</li>
+                <h3>Concepto y Alcance de los Secretos Comerciales</h3>
+                <p>Un secreto comercial se define generalmente como cualquier información que no sea de dominio público, tenga valor económico
+                    y sea objeto de esfuerzos razonables para mantener su confidencialidad. Esto implica que la información no debe ser
+                    generalmente conocida o fácilmente accesible, debe conferir algún tipo de ventaja competitiva y la empresa debe
+                    tomar medidas para protegerla, como acuerdos de confidencialidad, controles de acceso y políticas de seguridad.
 
-                        <li><strong>Obras artísticas: </strong>que incluyen desde pinturas y esculturas hasta obras de arte digital. Dentro de esta
-                            categoría se consideran también las obras cinematográficas, las composiciones musicales, los guiones teatrales y las
-                            coreografías. Incluso los programas de ordenador, conocidos como software, están protegidos bajo las leyes de derechos 
-                            de autor.</li>
+                    Los secretos comerciales pueden abarcar una amplia gama de información, tales como fórmulas y recetas, datos
+                    y listas de clientes, métodos de producción y planes de negocio. Por ejemplo, la fórmula de la Coca-Cola es
+                    un secreto comercial famoso que ha contribuido a su éxito a largo plazo en el mercado.</p>
 
-                        <li><strong>Obras científicas:</strong>que abarca artículos de investigación, estudios, tesis doctorales, trabajos
-                            de divulgación científica, y teorías o descubrimientos. En el campo de la ciencia, los derechos de autor protegen
-                            tanto la expresión original de una idea como el modo en que se transmite el conocimiento, pero no protegen las
-                            ideas o métodos científicos en sí.</li>
-                    </ul>
-                    <p>Esta protección se extiende a cualquier creación que tenga una forma tangible, ya sea en formato físico o digital. Así,
-                    tanto los libros impresos como los archivos electrónicos de texto o imágenes digitales están cubiertos por la normativa
-                    de derechos de autor.</p>
+                <h3>RProtección Legal de los Secretos Comerciales</h3>
+                <p>A diferencia de otros tipos de propiedad intelectual, como patentes o marcas registradas, los secretos
+                    comerciales no requieren registro formal. Sin embargo, existen mecanismos legales que protegen estos
+                    secretos a través de legislaciones específicas. La protección se aplica cuando se produce divulgación
+                    indebida o uso no autorizado de la información. Las acciones legales pueden incluir demandas por
+                    competencia desleal o incumplimiento de contrato. Si un competidor obtiene acceso a un secreto
+                    comercial mediante métodos desleales, la empresa puede demandar por competencia desleal.
+                    Igualmente, si un empleado viola un acuerdo de confidencialidad, la empresa puede tomar
+                    medidas legales por incumplimiento de contrato.</p>
 
-                <h3>Tipos de Derechos de Autor</h3>
-                <p>Los derechos de autor se dividen en dos grandes categorías: los <strong>derechos morales</strong> y los
-                    <strong>derechos patrimoniales</strong>, cada uno con funciones y características particulares.
-                <br><br>
-                Los <strong>derechos morales</strong> son aquellos que vinculan al autor de manera personal e intransferible con su obra.
-                Estos derechos reconocen la autoría de una persona y su capacidad para proteger la integridad de su creación.
-                Entre los más destacados se encuentran el derecho a la <strong>paternidad</strong>, que asegura que el autor sea identificado
-                como creador de la obra, y el derecho a la integridad, que impide que la obra sea modificada sin su consentimiento,
-                especialmente si esos cambios pueden dañar su reputación o la naturaleza de la creación. Los derechos morales,
-                a diferencia de los patrimoniales, suelen ser inalienables, lo que significa que no pueden ser cedidos o vendidos.
-                <br><br>
-                Por otro lado, los derechos patrimoniales son aquellos que permiten al autor obtener una retribución económica por
-                la explotación de su obra. Estos derechos incluyen la reproducción, la distribución y la comunicación pública de la
-                obra, así como su transformación, que puede implicar adaptaciones, traducciones u otras formas de modificarla. A
-                diferencia de los derechos morales, los derechos patrimoniales sí pueden ser transferidos a terceros, ya sea
-                mediante venta, cesión, o licencia.
-        </p>
+                <h3>Ventajas de Mantener Secretos Comerciales</h3>
+                <p>La protección de los secretos comerciales ofrece varias ventajas significativas. En primer lugar,
+                    permite a las empresas mantener información valiosa que les otorga una ventaja competitiva en
+                    el mercado. En segundo lugar, a diferencia de las patentes, que tienen una duración limitada,
+                    los secretos comerciales pueden protegerse indefinidamente mientras se mantenga la confidencialidad.
+                    Además, no hay costos asociados al registro formal, lo que es especialmente ventajoso para pequeñas
+                    empresas o startups con recursos limitados. Por último, las empresas tienen la libertad de decidir
+                    qué información clasificar como secreto comercial y cómo compartirla, lo que les brinda una mayor
+                    flexibilidad.</p>
+
+                <h3>Desafíos en la Protección de Secretos Comerciales</h3>
+                <p>A pesar de sus ventajas, la protección de secretos comerciales también enfrenta desafíos. Mantener
+                    la confidencialidad de la información puede ser complicado, especialmente cuando los empleados
+                    tienen acceso a ella. Las fugas involuntarias pueden ocurrir debido a la falta de formación o a
+                    medidas de seguridad inadecuadas. Además, implementar medidas para proteger secretos comerciales
+                    puede ser costoso y requerir recursos significativos. Las empresas también son vulnerables al
+                    espionaje industrial, donde competidores o agentes maliciosos intentan obtener información
+                    confidencial, un riesgo que ha aumentado en la era digital. Además, en un litigio por
+                    violación de secretos comerciales, la carga de la prueba recae en el titular del secreto,
+                    lo que puede complicar la demostración de que un competidor ha utilizado un secreto de
+                    manera indebida.</p>
+                
           </div>
         </div>
         <div class="recommendations-column">
@@ -108,6 +105,19 @@
                       </div>
                       <p class="article-description">
                         Obtén información sobre tus derechos como inquilino.
+                      </p>
+                    </div>
+                  </li>
+                </a>
+                <a href="informacionAutor">
+                  <li class="article">
+                    <img src="../../img/derechoAutor.jpeg" alt="Artículo 2" />
+                    <div class="article-content">
+                      <div class="article-title">
+                        Derechos de Autor
+                      </div>
+                      <p class="article-description">
+                       Conoce que son los derechos de autor y cuando los puedes usar
                       </p>
                     </div>
                   </li>
@@ -171,6 +181,19 @@
                     </div>
                   </li>
                 </a>
+                <a href="informacionPatente">
+                    <li class="article">
+                      <img src="../../img/patente.jpg" alt="Artículo 2" />
+                      <div class="article-content">
+                        <div class="article-title">
+                          Patentes
+                        </div>
+                        <p class="article-description">
+                         Conoce que son las patentes y cuales son sus diferentes tipos y usos
+                        </p>
+                      </div>
+                    </li>
+                  </a>
                 <a href="informacionConsumidor">
                   <li class="article">
                     <img

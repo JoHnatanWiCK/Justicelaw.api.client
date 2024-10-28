@@ -10,7 +10,7 @@
 @section('main')
       <div class="container">
         <div class="news-column">
-          <h2 class="titulo-informacion">GDerecho a la protección contra el trabajo infantil</h2>
+          <h2 class="titulo-informacion">Derecho a la protección contra el trabajo infantil</h2>
           <span>14 agosto 2024</span>
           <span class="categoria">Categoria: Infantil</span>
 
@@ -213,6 +213,19 @@
                     </div>
                   </li>
                 </a>
+                <a href="informacionAutor">
+                  <li class="article">
+                    <img src="../../img/derechoAutor.jpeg" alt="Artículo 2" />
+                    <div class="article-content">
+                      <div class="article-title">
+                        Derechos de Autor
+                      </div>
+                      <p class="article-description">
+                       Conoce que son los derechos de autor y cuando los puedes usar
+                      </p>
+                    </div>
+                  </li>
+                </a>
                   <a href="informacionTestamento">
                     <li class="article">
                       <img src="../../img/Testamento.jpg" alt="Artículo 2" />
@@ -235,6 +248,19 @@
                         </div>
                         <p class="article-description">
                           Aprende lo necesario sobre seguridad y salud en el trabajo..
+                        </p>
+                      </div>
+                    </li>
+                  </a>
+                  <a href="informacionPatente">
+                    <li class="article">
+                      <img src="../../img/patente.jpg" alt="Artículo 2" />
+                      <div class="article-content">
+                        <div class="article-title">
+                          Patentes
+                        </div>
+                        <p class="article-description">
+                         Conoce que son las patentes y cuales son sus diferentes tipos y usos
                         </p>
                       </div>
                     </li>

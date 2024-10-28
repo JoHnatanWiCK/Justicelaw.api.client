@@ -120,7 +120,7 @@ var TrandingSlider = new Swiper('.tranding-slider', {
       });
 
       document.getElementById('infoIm').addEventListener('click', function(){
-        window.location.href="/informacionContrato"
+        window.location.href="/derechosTrabajadores"
         });
 
     document.getElementById('btnDivorcio').addEventListener('click', function () {

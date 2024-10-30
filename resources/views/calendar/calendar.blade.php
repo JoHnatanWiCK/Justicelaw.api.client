@@ -45,30 +45,45 @@
                     <div class="hour"><div>17:00</div></div>  
                 </div>
                 <div class="events">
-                    <div class="event-container" data-hour="10" style="top: 0%;">
-                        <div class="event disponible" id="event1">Asesoría familiar con Mariana Santos</div>
-                    </div>
-                    
-                    <div class="event-container" data-hour="13" style="top: 30%;">
-                        <div class="event vacio" id="event7"></div>
-                    </div>
-                    <div class="event-container" data-hour="14" style="top: 40%;">
-                        <div class="event disponible" id="event3">Asesoría psicológica con Juan Pérez</div>
+                    <div class="event">
+                        <img src="../../img/mujer.png" alt="Foto de perfil" class="event-image">
+                        <div class="event-details">
+                            <p class="nombre-asesoria">Asesoría familiar con <strong>Mariana Santos</strong></p>
+                            <p class="hora-evento">10:00 - 11:00</p>
+                        </div>
                     </div>
                     <div class="event-container" data-hour="15" style="top: 50%;">
                         <div class="event vacio" id="event8"></div>
                     </div>
-                    <div class="event-container" data-hour="16" style="top: 60%;">
-                        <div class="event ocupado" id="event4">Asesoría financiera con Laura Gómez</div>
+                    <div class="event">
+                        <img src="../../../../img/hombre.png" alt="Foto de perfil" class="event-image">
+                        <div class="event-details">
+                            <p class="nombre-asesoria">Asesoría psicológica con <strong>Juan Pérez</strong></p>
+                            <p class="hora-evento">12:00 - 13:00</p>
+                        </div>
                     </div>
-                    <div class="event-container" data-hour="17" style="top: 70%;">
-                        <div class="event vacio" id="event9"></div>
+                    <div class="event-container" data-hour="15" style="top: 50%;">
+                        <div class="event vacio" id="event8"></div>
                     </div>
-                    <div class="event-container" data-hour="18" style="top: 80%;">
-                        <div class="event disponible" id="event5">Asesoría médica con Ana López</div>
+                    <div class="event">
+                        <img src="../../img/mujer.png" alt="Foto de perfil" class="event-image">
+                        <div class="event-details">
+                            <p class="nombre-asesoria">Asesoría financiaera <strong>Laura Gómez</strong></p>
+                            <p class="hora-evento">14:00 - 15:00</p>
+                        </div>
                     </div>
-                    <div class="event-container" data-hour="19" style="top: 90%;">
-                        <div class="event vacio" id="event10"></div>
+                    <div class="event-container" data-hour="15" style="top: 50%;">
+                        <div class="event vacio" id="event8"></div>
+                    </div>
+                    <div class="event">
+                        <img src="../../img/mujer.png" alt="Foto de perfil" class="event-image">
+                        <div class="event-details">
+                            <p class="nombre-asesoria">Asesoría médica con <strong>Ana López</strong></p>
+                            <p class="hora-evento">16:00 - 17:00</p>
+                        </div>
+                    </div>
+                    <div class="event-container" data-hour="15" style="top: 50%;">
+                        <div class="event vacio" id="event8"></div>
                     </div>
                 </div>
             </div>

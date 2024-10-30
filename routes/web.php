@@ -77,12 +77,25 @@ Route::get('/configuracionAbogado', function () {
     return view(view: 'configuracion.configuracionAbogado');
 })->name('configuracionAbogado');
 
+Route::get('/confiCuenta', function () {
+    return view(view: 'confiCuenta.confi');
+})->name('confiCuenta');
 
+Route::get('/Privacidad', function () {
+    return view(view: 'confiCuenta.privacidad');
+})->name('Privacidad');
+
+Route::get('/Region', function () {
+    return view(view: 'confiCuenta.region');
+})->name('Region');
+
+Route::get('/NormasComuntarias', function () {
+    return view(view: 'legal.normasComunitarias');
+})->name('NormasComuntarias');
 
 Route::get('/olvidarContraseña', function () {
     return view(view: 'olvido-contraseña.olvidoContraseña');
 })->name('olvidarContraseña');
-
 
 Route::get('/verificarAbogado', function () {
     return view(view: 'verificacion.verificacionUno');
@@ -336,6 +349,10 @@ Route::get('/informacionSec',function(){
 Route::get('/terminosCondiciones', function () {
     return view('legal.TerminosCondiciones');
 })->name('terminosCondiciones');
+
+Route::get('/PermisosUso', function () {
+    return view('legal.permisos');
+})->name('PermisosUso');
 
 
 Route::get('/answer', function () {

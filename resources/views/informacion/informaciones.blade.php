@@ -94,10 +94,10 @@
               <div class="texto-superpuesto"><a href={{route('infoCiudadana')}}>Participación Ciudadana</a></div>
           </div>
 
-            {{--<div class="imagen-container">
+            <div class="imagen-container">
                 <img src="../../img/Derechopenalyprocesal.png" alt="Derechopenalyprocesal">
                 <div class="texto-superpuesto">Penal y Procesal</div>
-            </div>--}}
+            </div>
 
             <div class="imagen-container">
               <img src="../../img/propIntelectual.jpg" alt="Derechopenalyprocesal">
@@ -107,19 +107,19 @@
             <img src="../../img/DerechoComercial.png" alt="DerechoComercial">
             <div class="texto-superpuesto"><a href={{route('Comercial')}}>Comercial</a></div>
         </div>
-            {{--<div class="imagen-container">
+            <div class="imagen-container">
               <img src="../../img/derechoAmbiental.jpg" alt="Derechopenalyprocesal">
               <div class="texto-superpuesto">Ambiental</div>
-          </div>--}}
+          </div>
           
-          {{--<div class="imagen-container">
+          <div class="imagen-container">
             <img src="../../img/DerechoSalud.jpg" alt="DerechoSalud">
             <div class="texto-superpuesto">Salud</div>
         </div>
         <div class="imagen-container">
           <img src="../../img/DerechoInternacional.jpg" alt="DerechoInternacional">
           <div class="texto-superpuesto">Internacional</div>
-      </div>--}}
+      </div>
         </div>
       </div>
         </section>

@@ -26,6 +26,14 @@ document.getElementById('home').addEventListener('click', function(event) {
 
 
 
+document.getElementById('show-more').addEventListener('click', function() {
+    document.querySelectorAll('.extra-category').forEach(function(category) {
+        category.style.display = 'list-item';
+    });
+    this.style.display = 'none'; 
+});
+
+
 
 
     

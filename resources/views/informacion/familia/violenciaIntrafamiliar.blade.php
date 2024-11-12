@@ -109,7 +109,7 @@
                 </a>
                 <a href="informacionAutor">
                   <li class="article">
-                    <img src="../../img/derechoAutor.jpeg" alt="Artículo 2" />
+                    <img src="../../img/derechoAutor.jpg" alt="Artículo 2" />
                     <div class="article-content">
                       <div class="article-title">
                         Derechos de Autor

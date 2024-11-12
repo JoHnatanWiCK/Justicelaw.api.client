@@ -77,12 +77,25 @@ Route::get('/configuracionAbogado', function () {
     return view(view: 'configuracion.configuracionAbogado');
 })->name('configuracionAbogado');
 
+Route::get('/confiCuenta', function () {
+    return view(view: 'confiCuenta.confi');
+})->name('confiCuenta');
 
+Route::get('/Privacidad', function () {
+    return view(view: 'confiCuenta.privacidad');
+})->name('Privacidad');
+
+Route::get('/Region', function () {
+    return view(view: 'confiCuenta.region');
+})->name('Region');
+
+Route::get('/NormasComuntarias', function () {
+    return view(view: 'legal.normasComunitarias');
+})->name('NormasComuntarias');
 
 Route::get('/olvidarContraseña', function () {
     return view(view: 'olvido-contraseña.olvidoContraseña');
 })->name('olvidarContraseña');
-
 
 Route::get('/verificarAbogado', function () {
     return view(view: 'verificacion.verificacionUno');
@@ -337,6 +350,10 @@ Route::get('/terminosCondiciones', function () {
     return view('legal.TerminosCondiciones');
 })->name('terminosCondiciones');
 
+Route::get('/PermisosUso', function () {
+    return view('legal.permisos');
+})->name('PermisosUso');
+
 
 Route::get('/answer', function () {
     return view('answer');
@@ -471,6 +488,14 @@ Route::post('questions', [QuestionController::class, 'store'])->name('api.v1.que
 Route::get('questions/{question}', [QuestionController::class, 'show'])->name('api.v1.questions.show');
 Route::put('questions/{question}', [QuestionController::class, 'update'])->name('api.v1.questions.update');
 Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('api.v1.questions.delete');
+
+Route::get('foro', [QuestionController::class, 'index'])->name('foro');
+Route::post('questions', [QuestionController::class, 'store'])->name('api.v1.questions.store');
+Route::get('questions/{question}', [QuestionController::class, 'show'])->name('api.v1.questions.show');
+Route::put('questions/{question}', [QuestionController::class, 'update'])->name('api.v1.questions.update');
+Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('api.v1.questions.delete');
+
+
 
 Route::get('answers', [QuestionController::class, 'indexr'])->name('api.v1.answers.index');
 Route::post('answers', [QuestionController::class, 'storer'])->name('api.v1.answers.store');

@@ -151,7 +151,7 @@ Route::get('/configadmincont', function () {
 
 Route::get('/calendar', function () {
     return view('calendar.calendar');
-})->name('calendar'); 
+})->name('calendar');
 
 
 Route::get('/perfilabogado', function () {

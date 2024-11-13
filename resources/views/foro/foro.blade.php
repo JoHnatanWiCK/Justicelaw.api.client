@@ -54,33 +54,101 @@
     <div class="cards-scroll">
         <div class="cards-container">
             @foreach ($pquestions as $q)
-                <div class="card" onclick="showModal({{ $q['id'] }}, '{{ $q['affair'] }}', '{{ $q['content'] }}', '{{ $q['date_publication'] }}')">
+            @foreach ($users as $user)
+            @if ($q['user_id'] == $user['id'])
+
+                <div class="card" onclick="showModal('{{ $q['id'] }}', '{{ $q['affair'] }}', '{{ $q['content'] }}', '{{ $q['date_publication'] }}','{{ $user['name'] }}','{{ $user['last_name'] }}')">
+                @endif
+
+                @endforeach
+  
+
+
                     <div class="profile">
                         <img src="../../img/fotoPerfil.png" class="fotoperfil" alt="Foto de perfil" />
                         @foreach ($users as $user)
-                            @if ($q['user_id'] == $user['id'])
+
+                        @if ($q['user_id'] == $user['id'])
+                          
                                 <span class="name_user"> {{ $user['name'] }} {{ $user['last_name'] }}</span>
                             @endif
                         @endforeach
                     </div>
                     <div class="card-content">
                         <h2 class="title">{{ $q['affair'] }}</h2>
-                        <p class="description">{{ $q['content'] }}</p>
+                        <p class="description">{{ \Illuminate\Support\Str::limit($q['content'], 60) }}</p>
                         <div class="footer">
-                            <span class="date">{{ $q['date_publication'] }}</span>
-                            @foreach ($categories as $c)
+                        @foreach ($categories as $c)
                                 @if ($q['forum_category_id'] == $c['id'])
                                     <span class="category">Categoría: {{ $c['name'] }}</span>
                                 @endif
                             @endforeach
+                            <span class="date">{{ $q['date_publication'] }}</span>
+                           
                             <br>
                             <a href="#" class="link">Ver respuestas</a>
                         </div>
                     </div>
                 </div>
-            @endforeach
+                
+              
+@endforeach    
         </div>
 
+        <div id="modal" class="modal" style="display: none;" >
+                    <div class="modal-content">
+                            <span class="close-button" onclick="closeModal()">×</span>
+                            
+                        <div class="profile">
+                            <img src="../../img/fotoPerfil.png" class="fotoperfil" alt="Foto de perfil" />
+                            <span class="name_user" id="modal-user"></span>
+                         
+                        </div>
+                            <h2 id="modal-title"></h2>
+                            <p id="modal-content"></p>
+                            <span id="modal-date"></span>
+
+                            <h3>Respuestas:</h3>
+                        @foreach ($answers as $a)
+                        
+                        
+                                    
+                                  <div class="post" data-question-id="{{ $a['question_id'] }}">
+                                    <div class="post-header">
+                                    <img src="../../img/fotoPerfil.png" class="avatar" alt="Ana Martínez">
+                                <div class="user-details">
+                                @foreach ($lawyers as $lawyer)
+                                    @if ($a['lawyer_id'] == $lawyer['id'])
+                           
+                                        <strong class="response-date">{{ $lawyer['name'] }} {{ $lawyer['last_names'] }}</strong></tr>
+                       
+                                    @endif
+                       
+                                @endforeach
+                                </div>
+                                </div>
+                    
+                                <span>{{ $a['content'] }}</span>
+                                <br><br>
+                                <span class="date-1">{{ $a['date_publication'] }}</span>
+                   
+                                </div>
+               
+
+                            
+           
+                        @endforeach
+           
+        <div class="new-answer-section">
+            <h4>Escribe tu respuesta:</h4>
+            <textarea id="new-answer" placeholder="Escribe aquí tu respuesta..."></textarea>
+            <button onclick="submitAnswer()">Responder</button>
+        </div>
+       
+    </div>
+    
+</div>
+       
         <div class="pagination">
             {{ $pquestions->links('pagination::bootstrap-4') }}
         </div>
@@ -88,17 +156,7 @@
 </div>
 
 
-<div id="modal" class="modal" style="display: none;">
-    <div class="modal-content">
-        <span class="close-button" onclick="closeModal()">×</span>
-        <h2 id="modal-title"></h2>
-        <p id="modal-content"></p>
-        <span id="modal-date"></span>
 
-        <h3>Respuestas:</h3>
-        <div id="modal-responses"></div>
-    </div>
-</div>
 
 @endsection
 
@@ -118,40 +176,6 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="{{ asset('js/foro.js') }}"></script>
 
-<script>
-    function showModal(id, title, content, date) {
-        document.getElementById('modal').style.display = 'flex';
-        document.getElementById('modal-title').innerText = title;
-        document.getElementById('modal-content').innerText = content;
-        document.getElementById('modal-date').innerText = date;
 
-        // Simulando la carga de respuestas, puedes cargar estas respuestas desde una API
-        // Aquí debes reemplazar con una llamada a tu backend para obtener respuestas reales
-        document.getElementById('modal-responses').innerHTML = `<p>Cargando respuestas para la pregunta ${id}...</p>`;
-        
-        fetch(`/api/v1/questions/${id}/answers`)
-            .then(response => response.json())
-            .then(data => {
-                let responsesHtml = '';
-                data.forEach(response => {
-                    responsesHtml += `<div><strong>${response.user_name}</strong>: ${response.content}</div>`;
-                });
-                document.getElementById('modal-responses').innerHTML = responsesHtml;
-            })
-            .catch(error => {
-                document.getElementById('modal-responses').innerHTML = `<p>Error al cargar respuestas.</p>`;
-            });
-    }
-
-    function closeModal() {
-        document.getElementById('modal').style.display = 'none';
-    }
-
-    document.getElementById('show-more').addEventListener('click', function() {
-        document.querySelectorAll('.extra-category').forEach(function(category) {
-            category.style.display = 'list-item';
-        });
-        this.style.display = 'none'; 
-    });
-</script>
+   
 @endpush

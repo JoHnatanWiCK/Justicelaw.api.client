@@ -417,3 +417,171 @@ body {
     margin-bottom: 10px;
 }
 
+
+.post {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    max-width: 100%;
+    font-family: 'Faustina', serif;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.user-details {
+    font-size: 1em;
+    color: #333;
+}
+
+.response-date {
+    font-weight: bold;
+    font-size: 1em;
+    color: #003049;
+}
+
+.post span {
+    display: block;
+    font-size: 1em;
+    color: #555;
+    line-height: 1.5;
+}
+
+.date-1 {
+    display: inline-block;
+    font-size: 0.9em;
+    color: #888;
+    margin-top: 10px;
+}
+
+/* Estilos para el modal */
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(124, 124, 124, 0.7);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #ffffff;
+    padding: 30px; /* Incrementa el relleno para más espacio interior */
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px; /* Aumenta el ancho máximo del modal */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    max-height: 85%; /* Aumenta la altura máxima del modal */
+    position: relative;
+}
+
+.close-button {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover {
+    color: #d9534f;
+}
+
+#modal-title {
+    font-size: 26px; /* Aumenta el tamaño del título */
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#modal-content {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+#modal-date {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Estilos para las respuestas */
+.post {
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+}
+
+
+.new-answer-section {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f1f1f1;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.new-answer-section h4 {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#new-answer {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 16px;
+    color: #555;
+    resize: vertical; /* Permite ajustar el tamaño verticalmente */
+    min-height: 80px;
+    margin-bottom: 10px;
+}
+
+.new-answer-section button {
+    background-color: #003049;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.new-answer-section button:hover {
+    background-color: #044b72;
+}

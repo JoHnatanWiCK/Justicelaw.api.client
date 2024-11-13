@@ -1,42 +1,39 @@
-document.getElementById('btnInicio').addEventListener('click', function(e) {
-    window.location.href = "/homeLogin";
-});
+document.getElementById('btnInicioWeb').addEventListener('click', login);
+
+async function login() {
+    // Obtener los valores de los campos del formulario
+    const email = document.getElementById('gmailWeb').value;
+    const password = document.getElementById('contraseñaWeb').value;
+
+    try {
+
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ email, password })
+        });
+
+        const data = await response.json();
+        console.log('Respuesta del backend:', data); // Verificar qué datos llegan
+
+        // Verificar si el login fue exitoso y el access_token está presente
+        if (response.ok && data.access_token) {
+            // Guardar el token en localStorage y redirigir
+            localStorage.setItem('token', data.access_token); // Cambiado a access_token
+            window.location.href = '/homeLogin'; // Redirige a la página principal
+        } else {
+            alert('Credenciales no válidas o error en el servidor.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Ocurrió un error al intentar iniciar sesión.');
+    }
+}
+
 
 document.querySelector('a').addEventListener('click', function(e) {
     window.location.href = this.href;
 });
 
-
-document.getElementById('btnInicio').addEventListener('click', function (event) {
-    // Prevenir la redirección si hay errores
-    event.preventDefault();
-
-    // Obtener los valores de los campos
-    const email = document.getElementById('gmail').value.trim();
-    const password = document.getElementById('contraseña').value.trim();
-
-    // Mensajes de error
-    let errores = [];
-
-    // Validaciones
-    if (email === '' || !validarEmail(email)) {
-        errores.push('Introduce un correo electrónico válido.');
-    }
-    if (password === '') {
-        errores.push('El campo "Contraseña" es obligatorio.');
-    }
-
-    // Si hay errores, se muestran y se evita la redirección
-    if (errores.length > 0) {
-        alert(errores.join('\n'));
-    } else {
-        // Si no hay errores, puedes permitir el envío del formulario
-        document.getElementById('formLogin').submit();
-    }
-});
-
-// Función para validar el formato del email
-function validarEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-}

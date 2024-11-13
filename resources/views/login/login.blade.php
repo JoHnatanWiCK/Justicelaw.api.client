@@ -24,15 +24,22 @@
                 <h1>Inicio Sesión</h1>
             </div>
 
-            <label for="gmail">Email</label>
-            <input id="gmail" type="email" name="gmail">
+            <form action="#" onclick="login()">
 
-            <label for="contraseña">Contraseña</label>
-            <input id="contraseña" type="password" name="contraseña">
-            <div class="bot"><button type="submit" id="btnInicio">Iniciar Sesión</button></div>
+                <label for="gmailWeb">Email</label>
+                <input id="gmailWeb" type="email" name="gmailWeb">
+
+                <label for="contraseñaWeb">Contraseña</label>
+                <input id="contraseñaWeb" type="password" name="contraseñaWeb">
+
+                <button type="submit" id="btnInicioWeb">Iniciar Sesión</button>
+
+            </form>
+
             <div class="parrafo">
                 <a id="olvidarContraseña" href="{{ route('olvidarContraseña') }}">¿Olvidaste tu contraseña?</a>
             </div>
+
             <div class="par"><a href="{{ route('registro') }}">¿No tienes una cuenta?</a></div>
         </div>
 
@@ -76,11 +83,11 @@
 
 
         <form id="login-form">
-    @csrf
-    <input type="email" id="email" placeholder="Email" required>
-    <input type="password" id="password" placeholder="Password" required>
-    <button type="submit">Login</button>
-</form>
+            @csrf
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
 
 
     </section>

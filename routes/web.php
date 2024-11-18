@@ -134,7 +134,7 @@ Route::get('/perfilAbogadoCreado', function () {
 })->name('perfil.abogado.creado');
 
 
-Route::get('/notification', function () {
+Route::get('/notifications', function () {
     return view('notification.notification');
 })->name('notificaciones');;
 
@@ -465,11 +465,6 @@ Route::get('reviews/{review}', [ReviewController::class, 'show'])->name('reviews
 Route::put('reviews/{review}', [ReviewController::class, 'update'])->name('reviews.update');
 Route::delete('reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.delete');
 
-Route::get('notifications', [NotificationController::class, 'index'])->name('api.v1.notifications.index');
-Route::post('notifications', [NotificationController::class, 'store'])->name('api.v1.notifications.store');
-Route::get('notifications/{notification}', [NotificationController::class, 'show'])->name('api.v1.notifications.show');
-Route::put('notifications/{notification}', [NotificationController::class, 'update'])->name('api.v1.notifications.update');
-Route::delete('notifications/{notification}', [NotificationController::class, 'destroy'])->name('api.v1.notifications.delete');
 
 Route::get('searchs', [SearchController::class, 'index'])->name('searchs.index');
 Route::post('searchs', [SearchController::class, 'store'])->name('searchs.store');

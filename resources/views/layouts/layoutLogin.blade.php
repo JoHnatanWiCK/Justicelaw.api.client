@@ -84,7 +84,7 @@
                     <a href="../perfil_usuario/perfil_creado.html"><i class="fa-regular fa-user"></i>Perfil</a>
                 </li>
                 <li>
-                    <a href="../notification/notification.html"><i class="fa-regular fa-bell"></i>Notificaciones</a>
+                    <a href="{{ route('notificaciones')}}">Notificaciones</a>
                 </li>
                 <li>
                     <a href="../historial/historial.html"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>

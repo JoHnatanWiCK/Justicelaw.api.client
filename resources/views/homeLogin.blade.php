@@ -58,7 +58,7 @@
             </div>
         </div>
         <!-- Botones de navegación -->
-        <div class="btn-next">
+        <div class="btn-next"> 
             <img id="prev-thumbnail" src="../img/f-derecha.png" alt="Previous Thumbnail">
         </div>
         <div class="btn-prev">

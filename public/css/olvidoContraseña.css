@@ -271,20 +271,16 @@
     }
 
     .btn-contraseña{
-        background-color: #fff;
-        color: #0a3b55;
+        background-color: #0a3b55;
+        color: #fff;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        width: 100%;
+        width: 20%;
         border: none;
-        padding: 14px 40px;
+        padding: 14px 5px;
         cursor: pointer;
-        text-align: left;
+        text-align: center;
         border-radius: 10px;
         font-weight: 600;
-    }
-
-    .btn-contraseña i{
-        margin-right: 1rem;
     }
     .parrafo {
         color: #0a3b55;

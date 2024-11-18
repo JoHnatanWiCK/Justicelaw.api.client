@@ -22,14 +22,12 @@
     </div>
 </div>
 <div class="reg">
-    <div class="ti"><h1>¿Olvidaste tu contraseña?</h1></div>
+    <div class="ti"><h1>Reestablecimiento exitoso</h1></div>
 
-    <p>Ingrese su correo electronico para realizar la renovacion de su contraseña de manera exitosa:</p>
+    <p>Su nueva contraseña esta actualizada, inicie secsion nuevamente:</p>
 
-    <h1>Email</h1>
-    <input type="text" name="Email">
 
-    <button id="recu" class="btn-contraseña" type="submit">Confirmar</button>
+    <button id="exito" class="btn-contraseña" type="submit">Iniciar sesion</button>
 
 
     </div>
@@ -68,6 +66,6 @@
     @endpush
 
     @push('scripts')
-    <script src="js/olvidoContraseña.js"></script>
+    <script src="js/confirmar.js"></script>
     @endpush
 

@@ -24,12 +24,12 @@
 <div class="reg">
     <div class="ti"><h1>¿Olvidaste tu contraseña?</h1></div>
 
-    <p>Ingrese su correo electronico para realizar la renovacion de su contraseña de manera exitosa:</p>
+    <p>Ingrese el codigo de validacion que ha sido enviado a su correo </p>
 
-    <h1>Email</h1>
-    <input type="text" name="Email">
+    <h1>Ingrese el Codigo</h1>
+    <input type="text" name="Codigo">
 
-    <button id="recu" class="btn-contraseña" type="submit">Confirmar</button>
+    <button class="btn-contraseña" type="submit">Confirmar</button>
 
 
     </div>
@@ -68,6 +68,6 @@
     @endpush
 
     @push('scripts')
-    <script src="js/olvidoContraseña.js"></script>
+    <script src="js/olvidoContraseñaCodigo.js"></script>
     @endpush
 

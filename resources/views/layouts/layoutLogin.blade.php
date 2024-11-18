@@ -37,7 +37,7 @@
         </nav>
         <div class="user-menu">
             <img class="img-perfil" src="../../img/fotoPerfil.png" alt="foto de Perfil" />
-            <span>Alfonso Juan</span>
+            <span></span>
             <input type="checkbox" id="dropdownToggle" class="dropdown-checkbox" />
             <label for="dropdownToggle">
                 <img class="img-flecha" src="../../img/flechaPerfil.png" alt="flecha" />

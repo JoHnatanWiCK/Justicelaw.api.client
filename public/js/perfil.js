@@ -1,73 +1,134 @@
+document.addEventListener('DOMContentLoaded', () => {
+    fetchCountries();
+    fetchStates();
+    fetchCities();
+});
 
-    document.addEventListener('DOMContentLoaded', () => {
-        console.log('Script cargado correctamente');
-        fetchCountries();
-        fetchStates();
-        fetchCities();
-    });
-    function fetchCountries() {
-        fetch('https://apijusticelaw-production.up.railway.app/v1/countries')
-            .then(response => response.json())
-            .then(data => {
-                console.log('Countries Data:', data);  // Verificar que los datos son correctos
-                let countriesSelect = document.getElementById('pais');
-                countriesSelect.innerHTML = '<option value="">Selecciona un país:</option>'; // Limpiar opciones
-                if (Array.isArray(data)) {
-                    data.forEach(country => {
-                        let option = document.createElement('option');
-                        option.value = country.id;
-                        option.textContent = country.name;
-                        countriesSelect.appendChild(option);
-                    });
-                } else {
-                    console.error('Data format error: Expected array of countries');
-                }
-            })
-            .catch(error => console.error('Error fetching countries:', error));
+document.addEventListener('DOMContentLoaded', async () => {
+
+    console.log('Script cargado y DOM completamente cargado');
+
+    const userNameElement = document.getElementById('userName');
+    const userRolElement = document.getElementById('userRol');
+    const userNameInput =  document.getElementById('nombre');
+    const lastNameInput =  document.getElementById('apellidos');
+    const emailInput = document.getElementById('email');
+
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+        console.error('Token no encontrado. Asegúrate de que el usuario esté autenticado.');
+        return;
     }
 
-    function fetchStates() {
-        fetch('https://apijusticelaw-production.up.railway.app/v1/states')
-            .then(response => response.json())
-            .then(data => {
-                console.log('States Data:', data);  // Verificar que los datos son correctos
-                let statesSelect = document.getElementById('estado');
-                statesSelect.innerHTML = '<option value="">Selecciona un estado:</option>';
-                if (Array.isArray(data)) {
-                    data.forEach(state => {
-                        let option = document.createElement('option');
-                        option.value = state.id;
-                        option.textContent = state.name;
-                        statesSelect.appendChild(option);
-                    });
-                } else {
-                    console.error('Data format error: Expected array of states');
-                }
-            })
-            .catch(error => console.error('Error fetching states:', error));
-    }
+    try {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/auth/me', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+        });
 
-    function fetchCities() {
-        fetch('https://apijusticelaw-production.up.railway.app/v1/cities')
-            .then(response => response.json())
-            .then(data => {
-                console.log('Cities Data:', data);  // Verificar que los datos son correctos
-                let citiesSelect = document.getElementById('ciudad');
-                citiesSelect.innerHTML = '<option value="">Selecciona una ciudad:</option>';
-                if (Array.isArray(data)) {
-                    data.forEach(city => {
-                        let option = document.createElement('option');
-                        option.value = city.id;
-                        option.textContent = city.name;
-                        citiesSelect.appendChild(option);
-                    });
-                } else {
-                    console.error('Data format error: Expected array of cities');
-                }
-            })
-            .catch(error => console.error('Error fetching cities:', error));
-    }
+        if (!response.ok) {
+            if (response.status === 401) {
 
+                console.error('Tu sesión ha expirado. Debes iniciar sesión nuevamente.');
+                return;
+            } else {
+                throw new Error('Error al obtener datos del usuario');
+            }
+        } else {
+            const data = await response.json();
+            console.log('Datos del usuario:', data);
+
+            const { name, last_name, rol, email } = data;
+            userNameElement.textContent = `${name} ${last_name}`;
+            userRolElement.textContent = rol || 'Usuario';
+            userNameInput.value = `${name}`;
+            lastNameInput.value = `${last_name}`;
+            emailInput.value = `${email}`;
+        }
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+});
+
+async function fetchCountries() {
+    const countriesSelect = document.getElementById('pais');
+    countriesSelect.innerHTML = '<option value="">Selecciona un país:</option>';
+
+    try {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/countries');
+        const data = await response.json();
+
+        console.log('Countries Data:', data);
+
+        if (Array.isArray(data)) {
+            data.forEach(country => {
+                const option = document.createElement('option');
+                option.value = country.id;
+                option.textContent = country.name;
+                countriesSelect.appendChild(option);
+            });
+        } else {
+            console.error('Data format error: Expected array of countries');
+        }
+    } catch (error) {
+        console.error('Error fetching countries:', error);
+    }
+}
+
+
+async function fetchStates() {
+    const statesSelect = document.getElementById('estado');
+    statesSelect.innerHTML = '<option value="">Selecciona un estado:</option>';
+
+    try {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/states');
+        const data = await response.json();
+
+        console.log('States Data:', data);
+
+        if (Array.isArray(data)) {
+            data.forEach(state => {
+                const option = document.createElement('option');
+                option.value = state.id;
+                option.textContent = state.name;
+                statesSelect.appendChild(option);
+            });
+        } else {
+            console.error('Data format error: Expected array of states');
+        }
+    } catch (error) {
+        console.error('Error fetching states:', error);
+    }
+}
+
+async function fetchCities() {
+    const citiesSelect = document.getElementById('ciudad');
+    citiesSelect.innerHTML = '<option value="">Selecciona una ciudad:</option>';
+
+    try {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/cities');
+        const data = await response.json();
+
+        console.log('Cities Data:', data);
+
+        if (Array.isArray(data)) {
+            data.forEach(city => {
+                const option = document.createElement('option');
+                option.value = city.id;
+                option.textContent = city.name;
+                citiesSelect.appendChild(option);
+            });
+        } else {
+            console.error('Data format error: Expected array of cities');
+        }
+    } catch (error) {
+        console.error('Error fetching cities:', error);
+    }
+}
 
 
 const button = document.querySelector("#boton-guardar");
@@ -173,20 +234,17 @@ function handleFileSelection() {
 
 }
 
-const navLinks = document.querySelectorAll('.nav-links a');
+// const navLinks = document.querySelectorAll('.nav-links a');
 
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(event) {
-                window.location.href = this.href;
-                event.preventDefault();
-            });
-        });
-
-
+//         navLinks.forEach(link => {
+//             link.addEventListener('click', function(event) {
+//                 window.location.href = this.href;
+//                 event.preventDefault();
+//             });
+//         });
 
 
 
-        // Lista de términos legales con sus rutas correspondientes
 const legalFiles = {
     'informacion': '/informaciones',
     'laboral': '/informacionesLaboral',

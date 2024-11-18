@@ -172,10 +172,11 @@
         <a href="../foro/foro.html"><i class="fa-solid fa-users"></i></a>
     </footer>
 
-    <script src="script.js"></script>
+    {{-- <script src="script.js"></script> --}}
     <script src="js/modal.js"></script>
     @stack('scripts')
 
     <script src="js/layoutLogin.js"></script>
+    <script src="js/perfil.js"></script>
 </body>
 </html>

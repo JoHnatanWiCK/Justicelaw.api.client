@@ -1,106 +1,105 @@
-@extends('layouts.layout')
+    @extends('layouts.layout')
 
-@section('title', 'Login')
+    @section('title', 'Login')
 
-@section('nav')
-@endsection
+    @section('nav')
+    @endsection
 
-@section('main')
+    @section('main')
 
-    <section class="loginlweb">
+        <section class="loginlweb">
 
-        <div class="columna-izquierda">
-            <div class="justice">
-                <h1>Justice</h1>
-                <h2>Leyes claras</h2>
+            <div class="columna-izquierda">
+                <div class="justice">
+                    <h1>Justice</h1>
+                    <h2>Leyes claras</h2>
+                </div>
+                <div class="law">
+                    <h1>Law</h1>
+                    <h2>justicia real</h2>
+                </div>
             </div>
-            <div class="law">
-                <h1>Law</h1>
-                <h2>justicia real</h2>
+            <div class="reg">
+                <div class="ti">
+                    <h1>Inicio Sesión</h1>
+                </div>
+
+                <form id="loginForm">
+                    <label for="gmailWeb">Email</label>
+                    <input id="gmailWeb" type="email" name="gmailWeb">
+
+                    <label for="contraseñaWeb">Contraseña</label>
+                    <input id="contraseñaWeb" type="password" name="contraseñaWeb">
+
+                    <button type="button" id="btnInicioWeb">Iniciar Sesión</button>
+                </form>
+
+
+                <div class="parrafo">
+                    <a id="olvidarContraseña" href="{{ route('olvidarContraseña') }}">¿Olvidaste tu contraseña?</a>
+                </div>
+
+                <div class="par"><a href="{{ route('registro') }}">¿No tienes una cuenta?</a></div>
             </div>
-        </div>
-        <div class="reg">
-            <div class="ti">
-                <h1>Inicio Sesión</h1>
+
+        </section>
+        <section class="loginlmovil">
+            <div class="tit">
+                <div class="titulo1">
+                    <h1>Justice</h1>
+                </div>
+                <div class="titulo2">
+                    <h1>Law</h1>
+                </div>
             </div>
+            <div class="subt">
+                <h2>Leyes claras, justicia real</h2>
+            </div>
+            <div class="contenedor">
+                <button class="btn1" type="submit">Iniciar sesion</button>
+                <button class="btn2" type="submit">Registrarse</button>
+            </div>
+            <div class="re">
 
-            <form action="#" onclick="login()">
+                <label for="gmail">Email</label>
+                <input id="gmail" type="email" name="gmail">
 
-                <label for="gmailWeb">Email</label>
-                <input id="gmailWeb" type="email" name="gmailWeb">
+                <label for="contraseña">Contraseña</label>
+                <input id="contraseña" type="password" name="contraseña">
+                <label for="concontraseña">Confirmar Contraseña</label>
+                <input id="concontraseña" type="password" name="concontraseña">
+            </div>
+            <div class="bt"><button class="btn3" type="submit" id="btnInicio">Iniciar Sesión</button></div>
 
-                <label for="contraseñaWeb">Contraseña</label>
-                <input id="contraseñaWeb" type="password" name="contraseñaWeb">
 
-                <button type="submit" id="btnInicioWeb">Iniciar Sesión</button>
 
+
+
+
+
+
+
+
+
+            <form id="login-form">
+                @csrf
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="password" id="password" placeholder="Password" required>
+                <button type="submit">Login</button>
             </form>
 
-            <div class="parrafo">
-                <a id="olvidarContraseña" href="{{ route('olvidarContraseña') }}">¿Olvidaste tu contraseña?</a>
-            </div>
 
-            <div class="par"><a href="{{ route('registro') }}">¿No tienes una cuenta?</a></div>
-        </div>
+        </section>
 
-    </section>
-    <section class="loginlmovil">
-        <div class="tit">
-            <div class="titulo1">
-                <h1>Justice</h1>
-            </div>
-            <div class="titulo2">
-                <h1>Law</h1>
-            </div>
-        </div>
-        <div class="subt">
-            <h2>Leyes claras, justicia real</h2>
-        </div>
-        <div class="contenedor">
-            <button class="btn1" type="submit">Iniciar sesion</button>
-            <button class="btn2" type="submit">Registrarse</button>
-        </div>
-        <div class="re">
+    @endsection
 
-            <label for="gmail">Email</label>
-            <input id="gmail" type="email" name="gmail">
+    @section('footer')
+    @endsection
 
-            <label for="contraseña">Contraseña</label>
-            <input id="contraseña" type="password" name="contraseña">
-            <label for="concontraseña">Confirmar Contraseña</label>
-            <input id="concontraseña" type="password" name="concontraseña">
-        </div>
-        <div class="bt"><button class="btn3" type="submit" id="btnInicio">Iniciar Sesión</button></div>
+    @push('styles')
+        <link rel="stylesheet" href="css/login.css">
+    @endpush
 
-
-
-
-
-
-
-
-
-
-
-        <form id="login-form">
-            @csrf
-            <input type="email" id="email" placeholder="Email" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <button type="submit">Login</button>
-        </form>
-
-
-    </section>
-
-@endsection
-
-@section('footer')
-@endsection
-
-@push('styles')
-    <link rel="stylesheet" href="css/login.css">
-@endpush
-
-@push('scripts')
-    <script src="js/login.js"></script>
-@endpush
+    @push('scripts')
+        <script src="js/login.js"></script>
+    @endpush

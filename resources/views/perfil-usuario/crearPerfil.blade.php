@@ -41,59 +41,64 @@
                     <img id="fotoPerfil" src="../../img/fotoPerfil.png" alt="fotoPerfil">
                     <a href="#modal-foto"><img id="circuloPerfil" src="../../img/circuloPerfil.png" alt="circuloPerfil">
                         <img id="agregarFoto" src="../../img/camaraAgreFoto.png" alt="camaraAgreFoto"></a>
-                        <div id="modal-foto" class="modalDialog">
-                            <div>
-                              <a href="#close" title="Close" class="close"><i class="fa-solid fa-xmark close"></i></a>
-                              <h2>¡Haz que tu perfil sea más <br> personal!</h2>
-                              <p>Sube una foto de perfil para que te reconozcan fácilmente.</p>
-                              <img id="avatarUno" src="../../img/avatarUno.png" alt="avatarUno">
-                              <img id="avatarTres" src="../../img/avatarTres.png" alt="avatarTres">
-                              <img id="avatarDos" src="../../img/avatarDos.png" alt="avatarDos">
-                              <div class="subir-foto" id="seleccionarFoto">
-                                <input type="file" name="seleccionarFoto" aria-label="Subir foto" onchange="handleFileSelection()">
-                              </div>
-                            </div>
+
+                    <div id="modal-foto" class="modalDialog">
+                        <div>
+                          <a href="#close" title="Close" class="close"><i class="fa-solid fa-xmark close"></i></a>
+                          <h2>¡Haz que tu perfil sea más <br> personal!</h2>
+                          <p>Sube una foto de perfil para que te reconozcan fácilmente.</p>
+                          <img id="avatarUno" src="../../img/avatarUno.png" alt="avatarUno">
+                          <img id="avatarTres" src="../../img/avatarTres.png" alt="avatarTres">
+                          <img id="avatarDos" src="../../img/avatarDos.png" alt="avatarDos">
+                          <div class="subir-foto" id="seleccionarFoto">
+                            <input type="file" name="seleccionarFoto" aria-label="Subir foto" onchange="handleFileSelection()">
                           </div>
+                        </div>
+                    </div>
+
                     <div class="nombre-perfil">
-                        <h3>Alfonso Juan</h3>
-                        <span>Popayan, Colombia</span>
+                        <h3 id="userName">Alfonso Juan</h3>
+                        <span id="userLocation">Popayan, Colombia</span>
                         <div class="tabletModal">
-                          <a href="#modal-foto">Agregar foto</a>
+                            <a href="#modal-foto">Agregar foto</a>
                         </div>
                     </div>
                 </div>
+
                 <div class="info">
                     <form name="infouser">
                         <div class="container">
                             <div class="form-left">
                                 <label for="nombre">Nombre</label>
-                                <input type="text" name="nombre" value="eder">
+                                <input type="text" id="nombre" name="nombre">
                                 <label for="email">Email</label>
-                                <input type="email" name="email" value="edefa@gmail.com">
+                                <input type="email" id="email" name="email">
                                 <label for="pais">País</label>
-                                <select name="pais">
+                                <select name="pais" id="pais">
                                     <option value="">Selecciona un país:</option>
                                 </select>
 
-                                <select name="ciudad">
+                                <label for="ciudad">Ciudad</label>
+                                <select name="ciudad" id="ciudad">
                                     <option value="">Selecciona una ciudad:</option>
                                 </select>
                             </div>
                             <div class="form-right">
                                 <label for="apellidos">Apellidos</label>
-                                <input type="text" name="apellidos" value="gomez">
+                                <input type="text" id="apellidos" name="apellidos">
                                 <label for="telefono">Teléfono</label>
-                                <input type="text" name="telefono" value="311312313">
-                                <label for="provincia">Ciudad</label>
-                                <select name="estado">
+                                <input type="text" id="telefono" name="telefono">
+                                <label for="estado">Estado</label>
+                                <select name="estado" id="estado">
                                     <option value="">Selecciona un estado:</option>
                                 </select>
                             </div>
                         </div>
-                        <a id="boton-guardar" >Guardar datos</a>
+                        <a id="boton-guardar" href="javascript:void(0)" onclick="guardarDatos()">Guardar datos</a>
                     </form>
                 </div>
-            </div>
+      
+
         </section>
 
         <section class="perfil-movil">
@@ -189,5 +194,6 @@
         @endpush
 
         @push('scripts')
+        <script src="{{ asset('js/layoutLogin.js') }}"></script>
         <script src="{{ asset('js/perfil.js') }}"></script>
         @endpush

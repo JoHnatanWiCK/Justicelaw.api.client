@@ -33,7 +33,7 @@ class QuestionController extends Controller
         $questions = collect($questions);
         $answers = collect($answers);
         
-        $perPage = 5; // Número de elementos por página
+        $perPage = 12; // Número de elementos por página
         $currentPage = request()->input('page', 1); // Obtenemos la página actual
         $pagedData = $questions->forPage($currentPage, $perPage); // Dividimos los datos
     

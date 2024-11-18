@@ -121,7 +121,6 @@ function renderEvents() {
     });
 }
 
-// Render initial UI
 renderDays(); 
 renderMonths(); 
 renderEvents(); 

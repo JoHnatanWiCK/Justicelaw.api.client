@@ -36,31 +36,14 @@
             <hr>
             <div class="configuration-content">
                 <div class="configuration-header">
-                    <h3>Configuración</h3>
-                    <div class="search-configuration">
-                         <img id="lupa" src="../../img/Lupa.png" alt="Buscar" />
-                        <input type="text" placeholder="" />
-                      </div>
+                    <h3>Configuración > Preferencias</h3>
+
                 </div>
+
                             <div class="container">
-                                <h4>Herramientas y Recursos</h4>
-                                <a href={{route('confiCuenta')}}><p>Configuracion de la cuenta</p></a>
-                                <a href={{route('PermisosUso')}}><p>Permisos y Derechos de uso</p></a>
-                            </div>
-                            <div class="container">
-                                <h4>Preferencias</h4>
-                                <a href={{route('Privacidad')}}><p>Privacidad</p></a>
-                                <a href={{route('Region')}}><p>Region</p></a>
-                            </div>
-                            <div class="container">
-                                <h4>Normas Comunitarias y Politicas Legales</h4>
-                                <a href="{{route('terminosCondiciones')}}"><p>Terminos y condiciones</p></a>
-                                <a href={{route('politicaPrivacidad')}}><p>Política de Privacidad</p></a>
-                                <a href={{route('cookies')}}><p>Política de Cookies</p></a>
-                                <a href={{route('NormasComuntarias')}}><p>Normas Comunitarias</p></a>
-                            </div>
-                            <div class="container">
-                                <a href=""><p>Soporte Tecnico</p></a>
+                                <h4>Privacidad</h4>
+                                <a href=""><p>Estado Anonimo</p></a>
+
                             </div>
                         </div>
         </section>

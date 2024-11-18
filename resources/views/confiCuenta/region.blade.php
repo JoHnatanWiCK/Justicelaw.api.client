@@ -36,23 +36,29 @@
             <hr>
             <div class="configuration-content">
                 <div class="configuration-header">
-                    <h3>Configuración</h3>
-                    <div class="search-configuration">
-                         <img id="lupa" src="../../img/Lupa.png" alt="Buscar" />
-                        <input type="text" placeholder="" />
-                      </div>
+                    <h3>Configuración > Preferencias</h3>
+
                 </div>
-                            <div class="container">
-                                <h4>Informacion personal</h4>
-                                <p>Nombre</p>
-                                <input type="text">
-                                <p>Apellido</p>
-                                <input type="text">
-                                <p>Foto de perfil</p>
-                                <input type="image">
-                                <p>Correo electronico</p>
-                                <input type="email">
-                            </div>   
+
+                    <div class="container">
+                        <h4>Region</h4>
+                        <a href=""><p>América del Norte</p></a>
+                        <a href=""><p>América Central</p></a>
+                        <a href=""><p>América del Sur</p></a>
+                        <a href=""><p>Europa Occidental</p></a>
+                        <a href=""><p>Europa Oriental</p></a>
+                        <a href=""><p>África del Norte</p></a>
+                        <a href=""><p>África Subsahariana</p></a>
+                        <a href=""><p>Medio Oriente</p></a>
+                        <a href=""><p>Asia del Este</p></a>
+                        <a href=""><p>Asia del Sur</p></a>
+                        <a href=""><p>Sudeste Asiático</p></a>
+                        <a href=""><p>Oceanía</p></a>
+                        <a href=""><p>Ártico</p></a>
+                        <a href=""><p>Antártida</p></a>
+
+                            </div>
+                        </div>
         </section>
 
         <section class="configuration-small">

@@ -294,6 +294,7 @@
     padding: 0 2rem;
 }
 
+
 .container p, .container h4{
     padding: 0.1rem;
     margin: 0.5rem;
@@ -365,3 +366,22 @@
   .checkbox-wrapper-18 .round input[type="checkbox"]:checked + label:after {
     opacity: 1;
   }
+  .language-options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinea a la izquierda */
+}
+
+.language-button {
+    margin: 5px 0;
+    padding: 10px;
+    background-color: transparent; /* Sin color de fondo */
+    color: black; /* Color del texto */
+    text-decoration: none; /* Sin subrayado */
+    border: none; /* Sin borde */
+    text-align: left; /* Alinear el texto a la izquierda */
+}
+
+.language-button:hover {
+    color: #007bff; /* Cambia el color del texto al pasar el mouse */
+}

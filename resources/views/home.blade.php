@@ -356,13 +356,11 @@
             <img src="../../img/homeTres.png" alt="">
             <div class="text-content">
                 <h1>¿Que hacemos?</h1>
-                <p>Principalmente facilitamos el acceso a la información <br>
-                    referente a la rama judicial y a través de un foro <br>
-                    buscamos aclarar las dudas y necesidades de nuestros <br>
-                    usuarios en sus procesos legales. Como segundo punto <br>
-                    ofrecemos el servicio de accesorias con el objetivo de <br>
-                    que los abogados registrados obtengan una experiencia <br>
-                    empirica y un ingreso extra a travez de nuestra web</p>
+                <p>Facilitamos el acceso a la información
+                    referente a la rama judicial y a través de un foro
+                    buscamos aclarar las dudas y necesidades de nuestros
+                    usuarios en sus procesos legales. </p>
+                    <a href="{{route('sobreNosotros')}}">Conoce más sobre nosotros</a>
             </div>
         </div>
     </section>

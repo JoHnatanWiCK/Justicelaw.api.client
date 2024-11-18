@@ -8,10 +8,22 @@ use Illuminate\Support\Facades\Http;
 class NotificationController extends Controller
 {
     private function fetchDataFromApi($url)
-    {
+{
+    try {
         $response = Http::get($url);
-        return $response->json();
+
+        // Verificar si la respuesta fue exitosa
+        if ($response->successful()) {
+            return $response->json();
+        } else {
+            // Manejar errores si la respuesta no es exitosa
+            throw new \Exception('Error en la API: ' . $response->status());
+        }
+    } catch (\Exception $e) {
+        // Manejar excepciones
+        return response()->json(['error' => $e->getMessage()], 500);
     }
+}
 
     /**
      * Display a listing of the resource.
@@ -22,9 +34,9 @@ class NotificationController extends Controller
 
         $notifications = $this->fetchDataFromApi($url . '/notifications');
 
-        return $notifications;
+        
 
-        // return view('notifications.index', compact('notifications'));
+        return view('notification.notification');
     }
 
     

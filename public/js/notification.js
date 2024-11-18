@@ -1,10 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Manejo de los corazones
     const corazones = document.querySelectorAll('.corazon');
+    let estadoCorazon = 'vacio';
 
     corazones.forEach(corazon => {
-        let estadoCorazon = 'vacio';
-
         corazon.addEventListener('click', function() {
             if (estadoCorazon === 'vacio') {
                 corazon.src = '../../img/Like2.png';
@@ -44,44 +43,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Filtrado de notificaciones
-    const dropdownItems = document.querySelectorAll('.dropdown1 a');
-    const notifications = document.querySelectorAll('.notification');
-
-    dropdownItems.forEach(item => {
-        item.addEventListener('click', (event) => {
-            event.preventDefault();
-            const filter = item.getAttribute('data-filter');
-            filterNotifications(filter);
-        });
-    });
-
-    function filterNotifications(filter) {
-        notifications.forEach(notification => {
-            const isFavorite = notification.classList.contains('favorite');
-            const isArchived = notification.classList.contains('archived');
-            const isUnread = notification.classList.contains('unread');
-
-            switch (filter) {
-                case 'favoritas':
-                    notification.style.display = isFavorite ? 'block' : 'none';
-                    break;
-                case 'archivadas':
-                    notification.style.display = isArchived ? 'block' : 'none';
-                    break;
-                case 'noleidas':
-                    notification.style.display = isUnread ? 'block' : 'none';
-                    break;
-                case 'todas':
-                default:
-                    notification.style.display = 'block';
-                    break;
-            }
-        });
-    }
-
-    filterNotifications('todas');
-
     // Mostrar mensaje de éxito
     function showSuccessMessage(action) {
         const toastMessage = document.querySelector('#toastMessage');
@@ -100,24 +61,53 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Marcar todo como leído
     const marcarTodoLeido = document.querySelector('#marcarTodoLeido');
-
     marcarTodoLeido.addEventListener('click', function() {
-        notifications.forEach(notification => {
-            notification.classList.remove('unread');
-        });
-        showSuccessMessage('todas marcadas como leídas');
+        fetchNotificationsAction('markAllAsRead');
     });
 
     // Archivar todo
     const archivarTodo = document.querySelector('#archivarTodo');
     archivarTodo.addEventListener('click', function() {
-        notifications.forEach(notification => {
-            notification.style.display = 'none';
-        });
-        showSuccessMessage('todas archivadas');
+        fetchNotificationsAction('archiveAll');
     });
 
+    // Eliminar todo
+    const eliminarTodo = document.querySelector('#eliminarTodo');
+    eliminarTodo.addEventListener('click', function() {
+        fetchNotificationsAction('deleteAll');
+    });
+
+    // Función para manejar las acciones de las notificaciones
+    async function fetchNotificationsAction(action, notificationId = null) {
+        const token = localStorage.getItem('jwtToken'); // Obtener el token JWT
+        let url = `https://apijusticelaw-production.up.railway.app/v1/notifications`;
+
+        if (action !== 'markAllAsRead' && action !== 'archiveAll' && action !== 'deleteAll') {
+            url = `https://apijusticelaw-production.up.railway.app/v1/notifications/${notificationId}`;
+        }
+
+        try {
+            const response = await fetch(url, {
+                method: action === 'markAllAsRead' ? 'POST' : 'DELETE', // Dependiendo de la acción (POST para marcar, DELETE para eliminar)
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: action !== 'markAllAsRead' ? JSON.stringify({ notificationId }) : null, // Solo para algunas acciones
+            });
+
+            if (!response.ok) {
+                throw new Error(`Error al realizar la acción: ${action}`);
+            }
+
+            showSuccessMessage(action === 'markAllAsRead' ? 'todas marcadas como leídas' : action === 'archiveAll' ? 'todas archivadas' : 'todas eliminadas');
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
     // Manejo de las opciones individuales de las notificaciones
+    const notifications = document.querySelectorAll('.notification');
     notifications.forEach(notificacion => {
         const marcarLeido = notificacion.querySelector('a[href="m-leido"]');
         const archivar = notificacion.querySelector('a[href="archivar"]');
@@ -126,32 +116,22 @@ document.addEventListener('DOMContentLoaded', function() {
         // Marcar como leído
         marcarLeido.addEventListener('click', function(event) {
             event.preventDefault();
-            notificacion.classList.remove('unread');
-            showSuccessMessage('marcada como leída');
+            const notificationId = notificacion.getAttribute('data-id');
+            fetchNotificationsAction('markAsRead', notificationId);
         });
 
         // Archivar notificación
         archivar.addEventListener('click', function(event) {
             event.preventDefault();
-            notificacion.style.display = 'none';
-            showSuccessMessage('archivada');
+            const notificationId = notificacion.getAttribute('data-id');
+            fetchNotificationsAction('archive', notificationId);
         });
 
         // Eliminar notificación
         eliminar.addEventListener('click', function(event) {
             event.preventDefault();
-            notificacion.remove();
-            showSuccessMessage('eliminada');
-        });
-    });
-
-    // Navegación en los links del sidebar (si es necesario)
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    navLinks.forEach(link => {
-        link.addEventListener('click', function(event) {
-            window.location.href = this.href;
-            event.preventDefault();
+            const notificationId = notificacion.getAttribute('data-id');
+            fetchNotificationsAction('delete', notificationId);
         });
     });
 });

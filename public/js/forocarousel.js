@@ -19,7 +19,6 @@ function displayTrends() {
         const div = document.createElement('div');
         div.classList.add('trending-item');
         div.innerHTML = `
-            <img src="${item.image_url}" alt="${item.title}" />
             <h3>${item.title}</h3>
             <p>${item.description}</p>
             <a href="${item.link}" class="btn">Ver Más</a>

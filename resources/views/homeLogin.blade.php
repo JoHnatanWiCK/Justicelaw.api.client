@@ -13,7 +13,7 @@
             <div class="swiper-slide" id="primer-swiper">
                 <div class="text">
                     <h3>Conéctate con abogados experimentados y encuentra las respuestas que necesitas.</h3>
-                    <p>Accede a una red de abogados especializados listos para ayudarte en cualquier situación legal.</p>
+                    <p>Accede a una red de abogados especializados li stos para ayudarte en cualquier situación legal.</p>
                     <a href="ruta-a-informacion-adicional" class="btn">Leer Más</a>
                 </div>
             </div>

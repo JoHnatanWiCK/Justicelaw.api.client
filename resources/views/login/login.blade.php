@@ -100,6 +100,10 @@
         <link rel="stylesheet" href="css/login.css">
     @endpush
 
-    @push('scripts')
-        <script src="js/login.js"></script>
-    @endpush
+
+@push('scripts')
+    <script src="js/login.js"></script>
+@endpush
+
+
+

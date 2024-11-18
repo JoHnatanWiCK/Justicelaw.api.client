@@ -42,7 +42,7 @@ Route::get('/', function () {
     return view(view: 'home');
 })->name('home');
 
-Route::get('/homeLogin', function () {
+Route::get(' ', function () {
     return view(view: 'homeLogin');
 })->name('homeLogin');
 
@@ -96,6 +96,14 @@ Route::get('/NormasComuntarias', function () {
 Route::get('/olvidarContraseña', function () {
     return view(view: 'olvido-contraseña.olvidoContraseña');
 })->name('olvidarContraseña');
+
+Route::get('/olvidarContraseñaCodigo', function () {
+    return view(view: 'olvido-contraseña.olvidoContraseñaCodigo');
+})->name('olvidarContraseñaCodigo');
+
+Route::get('/confirmacion', function () {
+    return view(view: 'olvido-contraseña.confirmacion');
+})->name('confirmacion');
 
 Route::get('/verificarAbogado', function () {
     return view(view: 'verificacion.verificacionUno');

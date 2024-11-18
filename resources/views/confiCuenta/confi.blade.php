@@ -49,7 +49,9 @@
                                 <p>Apellido</p>
                                 <input type="text">
                                 <p>Foto de perfil</p>
-                                <input type="image">
+                                <input type="file" accept="image/*">
+
+                                
                                 <p>Correo electronico</p>
                                 <input type="email">
                             </div>   

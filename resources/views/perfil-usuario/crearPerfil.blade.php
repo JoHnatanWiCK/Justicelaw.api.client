@@ -57,8 +57,8 @@
                     </div>
 
                     <div class="nombre-perfil">
-                        <h3 id="userName">Alfonso Juan</h3>
-                        <span id="userLocation">Popayan, Colombia</span>
+                        <h3 id="userName"></h3>
+                        <span id="userRol"></span>
                         <div class="tabletModal">
                             <a href="#modal-foto">Agregar foto</a>
                         </div>
@@ -97,7 +97,7 @@
                         <a id="boton-guardar" href="javascript:void(0)" onclick="guardarDatos()">Guardar datos</a>
                     </form>
                 </div>
-      
+            </div>
 
         </section>
 

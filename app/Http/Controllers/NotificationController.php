@@ -91,6 +91,10 @@ class NotificationController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $url = env('URL_SERVER_API');
+
+        $notification = $this->fetchDataFromApi($url . '/notifications/' . $id);
+
+        return view('notifications', compact('{id}'));
     }
 }

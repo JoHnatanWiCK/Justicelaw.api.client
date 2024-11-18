@@ -23,29 +23,32 @@
     </div>
     <div class="reg">
         <div class="ti"><h1>Registro</h1></div>
+
+        <form action="#" onsubmit="registro(event)">
     <label for="nombre">Nombres</label>
     <input id="nombre" type="text" name="nombre">
 
     <label for="apellido">Apellidos</label>
     <input id="apellido" type="text" name="apellido">
 
-    <label for="tip_doc">Tipo de Documento</label>
-    <input id="tip_doc" type="text" name="tip_doc">
 
-    <label for="num_doc">Numero de Documento</label>
-    <select id="num_doc" name="num_doc">
-          <option value="tarjeta_identidad">Tarjeta de identidad</option>
-          <option value="cedula_ciudadania">Cedula</option>
-          <option value="cedula_extranjera">Cedula Extranjera</option>
-          <option value="pasaporte">Pasaporte</option>
+    <label for="tip_doc">Tipo de Documento</label>
+    <select id="tip_doc_web" name="tip_doc">
+
     </select class="loginlweb">
 
-    <label for="gmial">Email</label>
+    <label for="num_doc">Numero de Documento</label>
+    <input id="num_doc" type="text" name="num_doc">
+
+
+
+    <label for="gmail">Email</label>
     <input id="gmail" type="email" name="gmail">
 
     <label for="contraseña">Contraseña</label>
     <input id="contraseña" type="password" name="contraseña">
     <div class="bot"><button type="submit" id="btnRegistro">Registrarse</button></div>
+</form>
     <div class="parrafo">
         <p>Al crear la cuenta, aceptas los <a href="#">Términos de uso</a> y la <a href="#">Política de Privacidad</a> de justicelaw.com</p>
     </div>

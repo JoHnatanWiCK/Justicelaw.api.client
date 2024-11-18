@@ -250,6 +250,19 @@
                     </div>
                   </li>
                 </a>
+                <a href="informacionAutor">
+                  <li class="article">
+                    <img src="../../img/derechoAutor.jpeg" alt="Artículo 2" />
+                    <div class="article-content">
+                      <div class="article-title">
+                        Derechos de Autor
+                      </div>
+                      <p class="article-description">
+                       Conoce que son los derechos de autor y cuando los puedes usar
+                      </p>
+                    </div>
+                  </li>
+                </a>
                 <a href="/informacionNegocio">
                   <li class="article">
                     <img src="../../img/IniciarNegocio.jpg" alt="Artículo 2" />

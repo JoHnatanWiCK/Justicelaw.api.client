@@ -191,6 +191,32 @@
                       </div>
                     </li>
                   </a>
+                  <a href="informacionAutor">
+                    <li class="article">
+                      <img src="../../img/derechoAutor.jpg" alt="Artículo 2" />
+                      <div class="article-content">
+                        <div class="article-title">
+                          Derechos de Autor
+                        </div>
+                        <p class="article-description">
+                         Conoce que son los derechos de autor y cuando los puedes usar
+                        </p>
+                      </div>
+                    </li>
+                  </a>
+                  <a href="informacionPatente">
+                    <li class="article">
+                      <img src="../../img/patente.jpg" alt="Artículo 2" />
+                      <div class="article-content">
+                        <div class="article-title">
+                          Patentes
+                        </div>
+                        <p class="article-description">
+                         Conoce que son las patentes y cuales son sus diferentes tipos y usos
+                        </p>
+                      </div>
+                    </li>
+                  </a>
                   <a href="informacionSeguridadSaludTrabajo">
                     <li class="article">
                       <img src="../../img/SST.jpg" alt="Artículo 2" />

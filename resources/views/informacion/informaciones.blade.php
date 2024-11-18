@@ -79,28 +79,39 @@
             <h1>Categorías Derechos</h1>
             <div class="imagen-container">
                 <img src="../../img/Derecholaboralydeempleo.png" alt="Derecholaboralydeempleo">
-                <div class="texto-superpuesto">Laboral y de Empleo</div>
+                <div class="texto-superpuesto"><a href={{route('informacionesLaboral')}}>Laboral y de Empleo</a></div>
             </div>
             <div class="imagen-container">
-                <img src="../../img/DerechoComercial.png" alt="DerechoComercial">
-                <div class="texto-superpuesto">Comercial</div>
-            </div>
+              <img src="../../img/derechosNiños.jpg" alt="Derecholaboralydeempleo">
+              <div class="texto-superpuesto"><a href="{{route('informacionInfantil')}}">Infantiles</a></div>
+          </div>
             <div class="imagen-container">
                 <img src="../../img/Derechodefamilia.png" alt="Derechodefamilia">
-                <div class="texto-superpuesto">De Familia</div>
+                <div class="texto-superpuesto"><a href={{route('informacionFamilia')}}>De Familia</a></div>
             </div>
+            <div class="imagen-container">
+              <img src="../../img/ParticipaciónCiudadana.jpg" alt="Derecholaboralydeempleo">
+              <div class="texto-superpuesto"><a href={{route('infoCiudadana')}}>Participación Ciudadana</a></div>
+          </div>
+
             <div class="imagen-container">
                 <img src="../../img/Derechopenalyprocesal.png" alt="Derechopenalyprocesal">
                 <div class="texto-superpuesto">Penal y Procesal</div>
             </div>
+
+            <div class="imagen-container">
+              <img src="../../img/propIntelectual.jpg" alt="Derechopenalyprocesal">
+              <div class="texto-superpuesto"><a href={{route('informacionIntelec')}}>Propiedad Intelectual</a></div>
+          </div>
+          <div class="imagen-container">
+            <img src="../../img/DerechoComercial.png" alt="DerechoComercial">
+            <div class="texto-superpuesto"><a href={{route('Comercial')}}>Comercial</a></div>
+        </div>
             <div class="imagen-container">
               <img src="../../img/derechoAmbiental.jpg" alt="Derechopenalyprocesal">
               <div class="texto-superpuesto">Ambiental</div>
           </div>
-          <div class="imagen-container">
-            <img src="../../img/derechosNiños.jpg" alt="Derecholaboralydeempleo">
-            <div class="texto-superpuesto">De los Niños</div>
-        </div>
+          
           <div class="imagen-container">
             <img src="../../img/DerechoSalud.jpg" alt="DerechoSalud">
             <div class="texto-superpuesto">Salud</div>

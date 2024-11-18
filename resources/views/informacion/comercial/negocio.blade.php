@@ -12,7 +12,7 @@
         <div class="news-column">
           <h2 class="titulo-informacion">Aspectos legales para iniciar un negocio</h2>
           <span>14 agosto 2024</span>
-          <span class="categoria">Categoria: Legal</span>
+          <span class="categoria">Categoria:Laboral y de Empleo</span>
 
           <div class="informacion-contenido">
             <img
@@ -389,6 +389,19 @@
                     </div>
                   </li>
                 </a>
+                <a href="informacionPatente">
+                  <li class="article">
+                    <img src="../../img/patente.jpg" alt="Artículo 2" />
+                    <div class="article-content">
+                      <div class="article-title">
+                        Patentes
+                      </div>
+                      <p class="article-description">
+                       Conoce que son las patentes y cuales son sus diferentes tipos y usos
+                      </p>
+                    </div>
+                  </li>
+                </a>
                 <a href="informacionSeguridadSaludTrabajo">
                   <li class="article">
                     <img src="../../img/SST.jpg" alt="Artículo 2" />
@@ -398,6 +411,19 @@
                       </div>
                       <p class="article-description">
                         Aprende lo necesario sobre seguridad y salud en el trabajo..
+                      </p>
+                    </div>
+                  </li>
+                </a>
+                <a href="informacionAutor">
+                  <li class="article">
+                    <img src="../../img/derechoAutor.jpg" alt="Artículo 2" />
+                    <div class="article-content">
+                      <div class="article-title">
+                        Derechos de Autor
+                      </div>
+                      <p class="article-description">
+                       Conoce que son los derechos de autor y cuando los puedes usar
                       </p>
                     </div>
                   </li>

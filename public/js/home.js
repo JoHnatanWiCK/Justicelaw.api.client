@@ -113,6 +113,16 @@ var TrandingSlider = new Swiper('.tranding-slider', {
   });
 
   document.addEventListener('DOMContentLoaded', function () {
+
+
+    document.getElementById('infoImp').addEventListener('click', function(){
+      window.location.href="/informacionAutor"
+      });
+
+      document.getElementById('infoIm').addEventListener('click', function(){
+        window.location.href="/derechosTrabajadores"
+        });
+
     document.getElementById('btnDivorcio').addEventListener('click', function () {
         window.location.href = "/informacionDivorcio"
     });
@@ -187,6 +197,9 @@ var TrandingSlider = new Swiper('.tranding-slider', {
   document.getElementById('btnRegistro').addEventListener('click', function(e) {
     window.location.href = this.href;
 });
+
+
+
 
 
 

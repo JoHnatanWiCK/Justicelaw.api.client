@@ -1,61 +1,69 @@
-document.getElementById('btnRegistro').addEventListener('click', function(e) {
-    window.location.href = "/homeLogin";
+document.addEventListener('DOMContentLoaded', async () => {
+    const selectTypeDoc = document.querySelector('#tip_doc_web');
+
+    try {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/typeDocuments');
+        const typeDocuments = await response.json();
+
+        typeDocuments.forEach(doc => {
+            const option = document.createElement('option');
+            option.value = doc.id;
+            option.textContent = doc.code;
+            selectTypeDoc.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error al cargar los tipos de documento:', error);
+    }
 });
+
+
+async function registro(event) {
+
+    event.preventDefault();
+
+    const name = document.querySelector('[name="nombre"]').value;
+    const last_name = document.querySelector('[name="apellido"]').value;
+    const type_document_id = document.querySelector('[name="tip_doc"]').value;
+    const document_number = document.querySelector('[name="num_doc"]').value;
+    const email = document.querySelector('[name="gmail"]').value;
+    const password = document.querySelector('[name="contraseña"]').value;
+
+    try{
+         const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/auth/register',{
+
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(
+                {
+                    name,
+                    last_name,
+                    type_document_id,
+                    document_number,
+                    email,
+                    password,
+                }),
+         });
+
+         const data = await response.json();
+
+         if(response.ok){
+            alert('Registro exitoso');
+
+            window.location.href = '/homeLogin';
+         }else{
+            alert('Error registro' + JSON.stringify(data));
+         }
+    } catch (error){
+
+        console.error('Error en e registro'+error);
+        alert('Error en el registro');
+    }
+}
+
 
 document.querySelector('a').addEventListener('click', function(e) {
     window.location.href = this.href;
 });
 
-
-document.getElementById('btnRegistro').addEventListener('click', function (event) {
-    // Prevenir la redirección si hay errores
-    event.preventDefault();
-
-    // Obtener los valores de los campos
-    const nombre = document.getElementById('nombre').value.trim();
-    const apellido = document.getElementById('apellido').value.trim();
-    const tip_doc = document.getElementById('tip_doc').value.trim();
-    const num_doc = document.getElementById('num_doc').value;
-    const email = document.getElementById('gmail').value.trim();
-    const contraseña = document.getElementById('contraseña').value;
-
-    // Mensajes de error
-    let errores = [];
-
-    // Validaciones
-    if (nombre === '') {
-        errores.push('El campo "Nombres" es obligatorio.');
-    }
-    if (apellido === '') {
-        errores.push('El campo "Apellidos" es obligatorio.');
-    }
-    if (tip_doc === '') {
-        errores.push('El campo "Tipo de Documento" es obligatorio.');
-    }
-    if (num_doc === '') {
-        errores.push('Debes seleccionar un tipo de documento.');
-    }
-    if (email === '' || !validarEmail(email)) {
-        errores.push('Introduce un correo electrónico válido.');
-    }
-    if (contraseña === '') {
-        errores.push('El campo "Contraseña" es obligatorio.');
-    }
-
-
-    // Si hay errores, se muestran y se evita la redirección
-    if (errores.length > 0) {
-        alert(errores.join('\n'));
-    } else {
-        // Si no hay errores, puedes permitir el envío del formulario o hacer redirección
-        alert('Registro exitoso');
-        // Aquí podrías permitir la redirección
-        // event.target.form.submit(); // Esto simula el envío del formulario
-    }
-});
-
-// Función para validar el formato del email
-function validarEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-}

@@ -42,41 +42,48 @@
                     <div class="hour"><div>14:00</div></div>
                     <div class="hour"><div>15:00</div></div>
                     <div class="hour"><div>16:00</div></div>
-                    <div class="hour"><div>17:00</div></div>
-                    <div class="hour"><div>18:00</div></div>
-                    <div class="hour"><div>19:00</div></div>
-                    <div class="hour"><div>20:00</div></div>
+                    <div class="hour"><div>17:00</div></div>  
                 </div>
                 <div class="events">
-                    <div class="event-container" data-hour="10" style="top: 0%;">
-                        <div class="event disponible" id="event1">Asesoría familiar con Mariana Santos</div>
-                    </div>
-                    <div class="event-container" data-hour="11" style="top: 10%;">
-                        <div class="event vacio" id="event6"></div>
-                    </div>
-                    <div class="event-container" data-hour="12" style="top: 20%;">
-                        <div class="event ocupado" id="event2">Asesoría legal con Mariana Santos</div>
-                    </div>
-                    <div class="event-container" data-hour="13" style="top: 30%;">
-                        <div class="event vacio" id="event7"></div>
-                    </div>
-                    <div class="event-container" data-hour="14" style="top: 40%;">
-                        <div class="event disponible" id="event3">Asesoría psicológica con Juan Pérez</div>
+                    <div class="event">
+                        <img src="../../img/mujer.png" alt="Foto de perfil" class="event-image">
+                        <div class="event-details">
+                            <p class="nombre-asesoria">Asesoría familiar con <strong>Mariana Santos</strong></p>
+                            <p class="hora-evento">10:00 - 11:00</p>
+                        </div>
                     </div>
                     <div class="event-container" data-hour="15" style="top: 50%;">
                         <div class="event vacio" id="event8"></div>
                     </div>
-                    <div class="event-container" data-hour="16" style="top: 60%;">
-                        <div class="event ocupado" id="event4">Asesoría financiera con Laura Gómez</div>
+                    <div class="event">
+                        <img src="../../../../img/hombre.png" alt="Foto de perfil" class="event-image">
+                        <div class="event-details">
+                            <p class="nombre-asesoria">Asesoría psicológica con <strong>Juan Pérez</strong></p>
+                            <p class="hora-evento">12:00 - 13:00</p>
+                        </div>
                     </div>
-                    <div class="event-container" data-hour="17" style="top: 70%;">
-                        <div class="event vacio" id="event9"></div>
+                    <div class="event-container" data-hour="15" style="top: 50%;">
+                        <div class="event vacio" id="event8"></div>
                     </div>
-                    <div class="event-container" data-hour="18" style="top: 80%;">
-                        <div class="event disponible" id="event5">Asesoría médica con Ana López</div>
+                    <div class="event">
+                        <img src="../../img/mujer.png" alt="Foto de perfil" class="event-image">
+                        <div class="event-details">
+                            <p class="nombre-asesoria">Asesoría financiaera <strong>Laura Gómez</strong></p>
+                            <p class="hora-evento">14:00 - 15:00</p>
+                        </div>
                     </div>
-                    <div class="event-container" data-hour="19" style="top: 90%;">
-                        <div class="event vacio" id="event10"></div>
+                    <div class="event-container" data-hour="15" style="top: 50%;">
+                        <div class="event vacio" id="event8"></div>
+                    </div>
+                    <div class="event">
+                        <img src="../../img/mujer.png" alt="Foto de perfil" class="event-image">
+                        <div class="event-details">
+                            <p class="nombre-asesoria">Asesoría médica con <strong>Ana López</strong></p>
+                            <p class="hora-evento">16:00 - 17:00</p>
+                        </div>
+                    </div>
+                    <div class="event-container" data-hour="15" style="top: 50%;">
+                        <div class="event vacio" id="event8"></div>
                     </div>
                 </div>
             </div>
@@ -103,12 +110,35 @@
                     <span class="valor">7</span>
                 </div>
             </div>
+            <div id="availabilityModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h3>Disponibilidad de asesoría</h3>
+                    <div class="modal-body">
+                        <div class="date-time">
+                            <label for="dateDisplay">📅 Fecha actual:</label>
+                            <span id="dateDisplay">2024-10-27</span> <!-- Aquí pones la fecha fija -->
+                            
+                            <label for="timePicker">🕒</label> <!-- Solo el ícono del reloj -->
+                            <input type="time" id="timePicker" />
+                        </div>
+                        <button class="add-availability">Agregar nueva disponibilidad</button>
+                        <div class="notification">
+                            <span>🔔</span> Notificar 
+                            <select>
+                                <option>1 hora antes</option>
+                                <option>30 minutos antes</option>
+                                <option>15 minutos antes</option>
+                            </select>
+                        </div>
+                        <button class="save">Guardar</button>
+                    </div>
+                </div>
+            </div>
+            
         </div>
     </div>
 </section>
-
-
-
 @endsection
 
 @section('footer')

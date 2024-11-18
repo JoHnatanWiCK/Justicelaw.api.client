@@ -10,35 +10,35 @@
         <section class="informaciones-home">
           <div class="columna-izquierda">
             <div class="encabezado">
-                <img src="../../img/contrato.jpg" alt="Accidente">
+                <img src="../../img/contrato.jpg" alt="Contrato">
                 <h2>Contrato laboral</h2>
                 <h3>1 de febrero, 2024</h3>
-                <p>ste artículo proporciona una explicación completa y detallada sobre los requisitos fundamentales para elaborar un contrato de trabajo
+                <p>Este artículo proporciona una explicación completa y detallada sobre los requisitos fundamentales para elaborar un contrato de trabajo
                     de forma clara, precisa y legalmente válida. A través de esta guía, conocerás los elementos esenciales que debe incluir un contrato
                     laboral, desde la identificación de las partes hasta las cláusulas adicionales, garantizando que cumpla con las normativas laborales
                     vigentes y evitando posibles problemas legales o malentendidos entre empleador y trabajador.o</p>
-                      <button id="btnGuia">Leer mas</button>
+                      <button><a href={{route('informacionContrato')}}>Leer mas</a></button>
             </div>
 
 
         <div class="informaciones-contenedor">
           <div class="info-informacion">
-              <img src="../../img/internacionalLaboral.jpg" alt="Derechos del consumidor">
+              <img src="../../img/internacionalLaboral.jpg" alt="Internacional Laboral">
               <h2>Derecho Internacional Laboral</h2>
               <h3>1 de febrero, 2024</h3>
               <p>
                 Conoce tus derechos laborales a nivel internacional y aprende cómo protegerte frente a abusos y condiciones de trabajo injustas. Descubre las
                 normativas globales que garantizan un empleo digno, seguro y equitativo para todos los trabajadores del mundo.</p>
-              <button id="btnConsu">Leer más</button>
+              <button><a href={{route('informacionIntLab')}}>Leer mas</a></button>
           </div>
 
           <div class="info-informacion">
-              <img src="../../img/SST.jpg" alt="Iniciar un negocio">
+              <img src="../../img/SST.jpg" alt="SST">
               <h2>Seguridad y Salud en el Trabajo</h2>
               <h3>1 de febrero, 2024</h3>
               <p>Conoce tus derechos en materia de seguridad y salud en el trabajo y aprende cómo protegerte frente a riesgos laborales. Descubre las normativas que garantizan un
                 ambiente de trabajo seguro y saludable, promoviendo el bienestar físico y mental de los trabajadores en todos los sectores.</p>
-              <button id="btnAspect">Leer más</button>
+              <button><a href={{route('SST')}}>Leer mas</a></button>
           </div>
 
           <div class="info-informacion">
@@ -46,17 +46,17 @@
               <h2>Qué hacer en caso de despido injustificado</h2>
               <h3>1 de febrero, 2024</h3>
               <p>Explora tus opciones legales y los pasos a seguir si te enfrentas a un despido injustificado</p>
-              <button id="btnDesp">Leer más</button>
+              <button><a href={{route('informacionDespido')}}>Leer mas</a></button>
           </div>
 
           <div class="info-informacion">
-              <img src="../../img/seguridadSocial.jpg" alt="Derechos del inquilino">
+              <img src="../../img/seguridadSocial.jpg" alt="seguridadSocial">
               <h2>Derecho a la Seguridad Social</h2>
               <h3>1 de febrero, 2024</h3>
               <p>Conoce tu derecho a la seguridad social y cómo garantiza tu bienestar en situaciones de enfermedad,
                 desempleo, invalidez o jubilación. Descubre cómo este derecho protege a los trabajadores y sus familias,
                 asegurando una vida digna y apoyo en momentos de necesidad.</p>
-              <button id="btnInquilino">Leer más</button>
+              <button><a href={{route('informacionSeguridadSocial')}}>Leer mas</a></button>
           </div>
 
         </div>
@@ -77,39 +77,46 @@
             <img src="../../img/lomasdestacado.png" alt="lomasdestacado">
             <h3>Pensión alimenticia: Todo lo que necesitas saber</h3>
             <h4>1 de febrero, 2024</h4>
-            <button id="btnDest">Leer más</button>
+            <button><a href={{route('informacionPension')}}>Leer más</a></button>
         </div>
     </div>
         <div class="position-container">
             <h1>Categorías Derechos</h1>
             <div class="imagen-container">
-                <img src="../../img/derechosNiños.jpg" alt="Derecholaboralydeempleo">
-                <div class="texto-superpuesto">Infantiles</div>
-            </div>
+              <img src="../../img/general.jpg" alt="DerechosGenerales">
+              <div class="texto-superpuesto"><a href={{route('informaciones')}}>General</a></div>
+          </div>
             <div class="imagen-container">
-                <img src="../../img/DerechoComercial.png" alt="DerechoComercial">
-                <div class="texto-superpuesto">Comercial</div>
+                <img src="../../img/derechosNiños.jpg" alt="Derecholaboralydeempleo">
+                <div class="texto-superpuesto"><a href="{{route('informacionInfantil')}}">Infantiles</a></div>
             </div>
+            
+           
             <div class="imagen-container">
                 <img src="../../img/Derechodefamilia.png" alt="Derechodefamilia">
-                <div class="texto-superpuesto">De Familia</div>
+                <div class="texto-superpuesto"><a href={{route('informacionFamilia')}}>De Familia</a></div>
             </div>
             <div class="imagen-container">
               <img src="../../img/ParticipaciónCiudadana.jpg" alt="Derecholaboralydeempleo">
-              <div class="texto-superpuesto">Participación Ciudadana</div>
+              <div class="texto-superpuesto"><a href={{route('infoCiudadana')}}>Participación Ciudadana</a></div>
           </div>
             <div class="imagen-container">
                 <img src="../../img/Derechopenalyprocesal.png" alt="Derechopenalyprocesal">
-                <div class="texto-superpuesto">Penal y Procesal</div>
+                <div class="texto-superpuesto"><a href="#">Penal y Procesal</a></div>
             </div>
             <div class="imagen-container">
               <img src="../../img/derechosDigitales.jpg" alt="Derechopenalyprocesal">
-              <div class="texto-superpuesto">Digitales</div>
+              <div class="texto-superpuesto"><a href="#">Digitales</a></div>
           </div>
+          <div class="imagen-container">
+            <img src="../../img/DerechoComercial.png" alt="DerechoComercial">
+            <div class="texto-superpuesto"><a href={{route('Comercial')}}>Comercial</a></div>
+        </div>
             <div class="imagen-container">
               <img src="../../img/propIntelectual.jpg" alt="Derechopenalyprocesal">
-              <div class="texto-superpuesto">Propiedad Intelectuall</div>
+              <div class="texto-superpuesto"><a href={{route('informacionIntelec')}}>Propiedad Intelectual</a></div>
           </div>
+
             <div class="imagen-container">
               <img src="../../img/derechoAmbiental.jpg" alt="Derechopenalyprocesal">
               <div class="texto-superpuesto">Ambiental</div>

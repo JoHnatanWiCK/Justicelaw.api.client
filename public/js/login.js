@@ -1,44 +1,53 @@
-document.getElementById('btnInicio').addEventListener('click', function(e) {
-    window.location.href = "/homeLogin";
-});
+document.getElementById('btnInicioWeb').addEventListener('click', login);
 
-document.querySelector('a').addEventListener('click', function(e) {
-    window.location.href = this.href;
-});
-
-
-document.getElementById('btnInicio').addEventListener('click', function (event) {
-    // Prevenir la redirección si hay errores
+async function login(event) {
+    // Evitar comportamiento predeterminado del formulario
     event.preventDefault();
 
-    // Obtener los valores de los campos
-    const email = document.getElementById('gmail').value.trim();
-    const password = document.getElementById('contraseña').value.trim();
+    // Obtener los valores de los campos del formulario
+    const email = document.getElementById('gmailWeb').value.trim();
+    const password = document.getElementById('contraseñaWeb').value.trim();
 
-    // Mensajes de error
-    let errores = [];
-
-    // Validaciones
-    if (email === '' || !validarEmail(email)) {
-        errores.push('Introduce un correo electrónico válido.');
-    }
-    if (password === '') {
-        errores.push('El campo "Contraseña" es obligatorio.');
+    // Validar que los campos no estén vacíos
+    if (!email || !password) {
+        alert('Por favor, completa ambos campos.');
+        return;
     }
 
-    // Si hay errores, se muestran y se evita la redirección
-    if (errores.length > 0) {
-        alert(errores.join('\n'));
-    } else {
-        // Si no hay errores, puedes permitir el envío del formulario
-        document.getElementById('formLogin').submit();
-    }
-});
+    try {
+        // Enviar la solicitud al servidor
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({ email, password })
+        });
 
-// Función para validar el formato del email
-function validarEmail(email) {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
+        // Parsear la respuesta del servidor
+        const data = await response.json();
+
+        // Depuración: imprimir los datos recibidos
+        console.log('Respuesta del backend:', data);
+
+        // Verificar si la respuesta fue exitosa
+        if (response.ok && data.access_token) {
+            // Guardar el token en localStorage
+            localStorage.setItem('token', data.access_token);
+
+            // Redirigir al usuario
+            window.location.href = '/homeLogin';
+        } else {
+            // Mostrar un mensaje de error específico si el backend lo envía
+            const errorMessage = data.message || 'Credenciales no válidas o error en el servidor.';
+            alert(errorMessage);
+        }
+    } catch (error) {
+        // Manejar errores de red o del cliente
+        console.error('Error:', error);
+        alert('Ocurrió un error al intentar iniciar sesión.');
+    }
 }
 
 

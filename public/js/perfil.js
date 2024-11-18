@@ -1,34 +1,74 @@
-var provincias_1=new Array("-","Andalucía","Asturias","Baleares","Canarias","Castilla y León","Castilla-La Mancha","...");
-  var provincias_2=new Array("-","Salta","San Juan","San Luis","La Rioja","La Pampa","...");
-  var provincias_3=new Array("-","Cali","Santamarta","Medellin","Cartagena","Popayan","...");
-  var provincias_4=new Array("-","Aisne","Creuse","Dordogne","Essonne","Gironde ","...");
 
-  var todasProvincias = [
-    [],
-    provincias_1,
-    provincias_2,
-    provincias_3,
-    provincias_4,
-  ];
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('Script cargado correctamente');
+        fetchCountries();
+        fetchStates();
+        fetchCities();
+    });
+    function fetchCountries() {
+        fetch('https://apijusticelaw-production.up.railway.app/v1/countries')
+            .then(response => response.json())
+            .then(data => {
+                console.log('Countries Data:', data);  // Verificar que los datos son correctos
+                let countriesSelect = document.getElementById('pais');
+                countriesSelect.innerHTML = '<option value="">Selecciona un país:</option>'; // Limpiar opciones
+                if (Array.isArray(data)) {
+                    data.forEach(country => {
+                        let option = document.createElement('option');
+                        option.value = country.id;
+                        option.textContent = country.name;
+                        countriesSelect.appendChild(option);
+                    });
+                } else {
+                    console.error('Data format error: Expected array of countries');
+                }
+            })
+            .catch(error => console.error('Error fetching countries:', error));
+    }
 
-  function cambia_provincia(){
-   	var pais
-   	pais = document.infouser.pais[document.infouser.pais.selectedIndex].value
-   	if (pais != 0) {
-      	mis_provincias=todasProvincias[pais]
-      	num_provincias = mis_provincias.length
-      	document.infouser.provincia.length = num_provincias
-      	for(i=0;i<num_provincias;i++){
-         	document.infouser.provincia.options[i].value=mis_provincias[i]
-         	document.infouser.provincia.options[i].text=mis_provincias[i]
-      	}
-   	}else{
-      	document.infouser.provincia.length = 1
-      	document.infouser.provincia.options[0].value = "-"
-      	document.infouser.provincia.options[0].text = "-"
-   	}
-   	document.infouser.provincia.options[0].selected = true
-}
+    function fetchStates() {
+        fetch('https://apijusticelaw-production.up.railway.app/v1/states')
+            .then(response => response.json())
+            .then(data => {
+                console.log('States Data:', data);  // Verificar que los datos son correctos
+                let statesSelect = document.getElementById('estado');
+                statesSelect.innerHTML = '<option value="">Selecciona un estado:</option>';
+                if (Array.isArray(data)) {
+                    data.forEach(state => {
+                        let option = document.createElement('option');
+                        option.value = state.id;
+                        option.textContent = state.name;
+                        statesSelect.appendChild(option);
+                    });
+                } else {
+                    console.error('Data format error: Expected array of states');
+                }
+            })
+            .catch(error => console.error('Error fetching states:', error));
+    }
+
+    function fetchCities() {
+        fetch('https://apijusticelaw-production.up.railway.app/v1/cities')
+            .then(response => response.json())
+            .then(data => {
+                console.log('Cities Data:', data);  // Verificar que los datos son correctos
+                let citiesSelect = document.getElementById('ciudad');
+                citiesSelect.innerHTML = '<option value="">Selecciona una ciudad:</option>';
+                if (Array.isArray(data)) {
+                    data.forEach(city => {
+                        let option = document.createElement('option');
+                        option.value = city.id;
+                        option.textContent = city.name;
+                        citiesSelect.appendChild(option);
+                    });
+                } else {
+                    console.error('Data format error: Expected array of cities');
+                }
+            })
+            .catch(error => console.error('Error fetching cities:', error));
+    }
+
+
 
 const button = document.querySelector("#boton-guardar");
 const toast = document.querySelector(".toast");
@@ -141,3 +181,56 @@ const navLinks = document.querySelectorAll('.nav-links a');
                 event.preventDefault();
             });
         });
+
+
+
+
+
+        // Lista de términos legales con sus rutas correspondientes
+const legalFiles = {
+    'informacion': '/informaciones',
+    'laboral': '/informacionesLaboral',
+    'trabajadores': '/derechosTrabajadores',
+    'arrendamiento': '/informacionArrendamiento',
+    'despido': '/informacionDespido',
+    'divorcio': '/informacionDivorcio',
+    'negocio': '/informacionNegocio',
+    'pension': '/informacionPension',
+    'testamento': '/informacionTestamento',
+    'accidente': '/informacionAccidente',
+    'consumidor': '/informacionConsumidor',
+    'seguridad social': '/informacionSeguridadSocial',
+    'sst': '/informacionSST',
+    'internacional laboral': '/informacionIntLab',
+    'educacion': '/informacionEducacion',
+    'vida familiar': '/informacionVidaFamiliar',
+    'trabajo infantil': '/informacionTrabajoInfantil',
+    'contrato': '/informacionContrato',
+    'salud': '/informacionSalud',
+    'participacion': '/informacionParticipacion',
+    'voto': '/informacionVoto',
+    'cargo': '/informacionCargo',
+    'consulta': '/informacionConsulta',
+    'peticiones': '/informacionPeticiones',
+    'plebiscito': '/informacionPlebiscito',
+    'autor': '/informacionAutor'
+};
+
+// Escucha el evento de clic en el botón de búsqueda
+document.getElementById('buscarBtn').addEventListener('click', function(e) {
+    e.preventDefault(); // Prevenir el comportamiento por defecto si es un formulario
+
+    // Obtener el valor del campo de búsqueda y transformarlo a minúsculas
+    var searchQuery = document.querySelector('.search-bar input').value.trim().toLowerCase();
+
+    // Buscar la ruta correspondiente en la lista de archivos legales
+    const ruta = legalFiles[searchQuery];
+
+    if (ruta) {
+        // Si se encuentra la palabra clave, redirige a la ruta correspondiente
+        window.location.href = ruta;
+    } else {
+        // Mostrar un mensaje si la búsqueda no tiene coincidencias
+        alert("No se encontró información con esa búsqueda.");
+    }
+});

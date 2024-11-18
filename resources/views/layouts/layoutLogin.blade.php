@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="../../css/styles.css" />
     <script src="https://kit.fontawesome.com/bfdeae7cfe.js" crossorigin="anonymous"></script>
@@ -36,7 +37,7 @@
         </nav>
         <div class="user-menu">
             <img class="img-perfil" src="../../img/fotoPerfil.png" alt="foto de Perfil" />
-            <span>Alfonso Juan</span>
+            <span></span>
             <input type="checkbox" id="dropdownToggle" class="dropdown-checkbox" />
             <label for="dropdownToggle">
                 <img class="img-flecha" src="../../img/flechaPerfil.png" alt="flecha" />
@@ -83,7 +84,7 @@
                     <a href="../perfil_usuario/perfil_creado.html"><i class="fa-regular fa-user"></i>Perfil</a>
                 </li>
                 <li>
-                    <a href="../notification/notification.html"><i class="fa-regular fa-bell"></i>Notificaciones</a>
+                    <a href="{{ route('notificaciones')}}">Notificaciones</a>
                 </li>
                 <li>
                     <a href="../historial/historial.html"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>

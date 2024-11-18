@@ -77,19 +77,25 @@ Route::get('/configuracionAbogado', function () {
     return view(view: 'configuracion.configuracionAbogado');
 })->name('configuracionAbogado');
 
+Route::get('/confiCuenta', function () {
+    return view(view: 'confiCuenta.confi');
+})->name('confiCuenta');
 
+Route::get('/Privacidad', function () {
+    return view(view: 'confiCuenta.privacidad');
+})->name('Privacidad');
+
+Route::get('/Region', function () {
+    return view(view: 'confiCuenta.region');
+})->name('Region');
+
+Route::get('/NormasComuntarias', function () {
+    return view(view: 'legal.normasComunitarias');
+})->name('NormasComuntarias');
 
 Route::get('/olvidarContraseña', function () {
     return view(view: 'olvido-contraseña.olvidoContraseña');
 })->name('olvidarContraseña');
-
-Route::get('/olvidarContraseñaCodigo', function () {
-    return view(view: 'olvido-contraseña.olvidoContraseñaCodigo');
-})->name('olvidarContraseñaCodigo');
-
-Route::get('/confirmacion', function () {
-    return view(view: 'olvido-contraseña.confirmacion');
-})->name('confirmacion');
 
 Route::get('/verificarAbogado', function () {
     return view(view: 'verificacion.verificacionUno');
@@ -128,7 +134,7 @@ Route::get('/perfilAbogadoCreado', function () {
 })->name('perfil.abogado.creado');
 
 
-Route::get('/notification', function () {
+Route::get('/notifications', function () {
     return view('notification.notification');
 })->name('notificaciones');;
 
@@ -158,7 +164,7 @@ Route::get('/configadmincont', function () {
 
 Route::get('/calendar', function () {
     return view('calendar.calendar');
-})->name('calendar'); 
+})->name('calendar');
 
 
 Route::get('/perfilabogado', function () {
@@ -174,11 +180,11 @@ Route::get('/informaciones', function () {
 })->name('informaciones');
 
 Route::get('/informacionesLaboral', function () {
-    return view('informacion.informacionesLaboral');
+    return view('informacion.laboralEmpleo.informacionesLaboral');
 })->name('informacionesLaboral');
 
 Route::get('/derechosTrabajadores', function () {
-    return view('informacion.derechosTrabajadores');
+    return view('informacion.laboralEmpleo.derechosTrabajadores');
 })->name('derechosTrabajadores');
 
 Route::get('/informacionArrendamiento', function () {
@@ -186,43 +192,76 @@ Route::get('/informacionArrendamiento', function () {
 })->name('informacionArrendamiento');
 
 Route::get('/informacionDespido', function () {
-    return view('informacion.despido');
+    return view('informacion.laboralEmpleo.despido');
 })->name('informacionDespido');
 
 Route::get('/informacionDivorcio', function () {
-    return view('informacion.divorcio');
+    return view('informacion.familia.divorcio');
 })->name('informacionDivorcio');
 
 Route::get('/informacionNegocio', function () {
-    return view('informacion.negocio');
+    return view('informacion.comercial.negocio');
 })->name('informacionNegocio');
 
+Route::get('/obligacionFiscal', function () {
+    return view('informacion.comercial.obligacionFiscal');
+})->name('obligacionFiscal');
+
+Route::get('/obligacionFiscal', function () {
+    return view('informacion.comercial.obligacionFiscal');
+})->name('obligacionFiscal');
+
+Route::get('/marca', function () {
+    return view('informacion.comercial.protegerMarca');
+})->name('marca');
+
+Route::get('/reglasPublicidad', function () {
+    return view('informacion.comercial.reglasPublicidad');
+})->name('reglasPublicidad');
+
+Route::get('/informacionFamilia', function () {
+    return view('informacion.familia.informacionFamilia');
+})->name('informacionFamilia');
+
 Route::get('/informacionPension', function () {
-    return view('informacion.pension');
+    return view('informacion.familia.pension');
 })->name('informacionPension');
 
+Route::get('violenciaIntrafamiliar',function(){
+    return view('informacion.familia.violenciaIntrafamiliar');
+})->name('violenciaIntrafamiliar');
+
 Route::get('/informacionTestamento', function () {
-    return view('informacion.testamento');
+    return view('informacion.familia.testamento');
 })->name('informacionTestamento');
+
+Route::get('/Planificacion', function () {
+    return view('informacion.familia.planificacion');
+})->name('Planificacion');
 
 Route::get('/informacionAccidente', function () {
     return view('informacion.accidente');
 })->name('informacionAccidente');
 
 Route::get('/informacionConsumidor', function () {
-    return view('informacion.derechoConsumidor');
+    return view('informacion.comercial.derechoConsumidor');
 })->name('informacionConsumidor');
 
+Route::get('/Comercial', function () {
+    return view('informacion.comercial.infoComercial');
+})->name('Comercial');
+
+
 Route::get('/informacionSeguridadSocial', function () {
-    return view('informacion.seguridadSocial');
+    return view('informacion.laboralEmpleo.seguridadSocial');
 })->name('informacionSeguridadSocial');
 
 Route::get('/informacionSST',function(){
-    return view('informacion.seguridadSaludTrabajo');
+    return view('informacion.laboralEmpleo.seguridadSaludTrabajo');
 })->name('SST');
 
 Route::get('/informacionIntLab',function(){
-    return view('informacion.internacionalLaboral');
+    return view('informacion.laboralEmpleo.internacionalLaboral');
 })->name('informacionIntLab');
 
 Route::get('/informacionEducacion',function(){
@@ -249,6 +288,15 @@ Route::get('/informacionParticipacion',function(){
     return view('informacion.derechosInfantiles.participacionDecisiones');
 })->name('informacionParticipacion');
 
+Route::get('/informacionInfantil',function(){
+    return view('informacion.derechosInfantiles.informacionesInfantil');
+})->name('informacionInfantil');
+
+Route::get('/infoCiudadana',function(){
+    return view('informacion.participacionCiudadana.informacionesParticipacion');
+})->name('infoCiudadana');
+
+
 Route::get('/informacionVoto',function(){
     return view('informacion.participacionCiudadana.derechoVoto');
 })->name('informacionVoto');
@@ -257,9 +305,54 @@ Route::get('/informacionCargo',function(){
     return view('informacion.participacionCiudadana.postulacionCargosPublicos');
 })->name('informacionCargo');
 
+Route::get('/informacionConsulta',function(){
+    return view('informacion.participacionCiudadana.consultaPopular');
+})->name('informacionConsulta');
+
+Route::get('/informacionPeticiones',function(){
+    return view('informacion.participacionCiudadana.peticionesAutoridades');
+})->name('informacionPeticiones');
+
+Route::get('/informacionPlebiscito',function(){
+    return view('informacion.participacionCiudadana.plebiscito');
+})->name('informacionPlebiscito');
+
+Route::get('/informacionSec',function(){
+    return view('informacion.propiedadIntelectual.secretoComercial');
+})->name('informacionSec');
+
+Route::get('/informacionIntelec',function(){
+    return view('informacion.propiedadIntelectual.informacionIntelectual');
+})->name('informacionIntelec');
+
+Route::get('/informacionAutor',function(){
+    return view('informacion.propiedadIntelectual.derechoAutor');
+})->name('informacionAutor');
+
+Route::get('/informacionPatente',function(){
+    return view('informacion.propiedadIntelectual.patente');
+})->name('informacionPatente');
+
+Route::get('/informacionMarca',function(){
+    return view('informacion.propiedadIntelectual.marcaRegistrada');
+})->name('informacionMarca');
+
+Route::get('/informacionDiseño',function(){
+    return view('informacion.propiedadIntelectual.diseñoIndustrial');
+})->name('informacionDiseño');
+
+Route::get('/informacionSec',function(){
+    return view('informacion.propiedadIntelectual.secretoComercial');
+})->name('informacionSec');
+
+
 Route::get('/terminosCondiciones', function () {
     return view('legal.TerminosCondiciones');
 })->name('terminosCondiciones');
+
+Route::get('/PermisosUso', function () {
+    return view('legal.permisos');
+})->name('PermisosUso');
 
 
 Route::get('/answer', function () {
@@ -372,11 +465,6 @@ Route::get('reviews/{review}', [ReviewController::class, 'show'])->name('reviews
 Route::put('reviews/{review}', [ReviewController::class, 'update'])->name('reviews.update');
 Route::delete('reviews/{review}', [ReviewController::class, 'destroy'])->name('reviews.delete');
 
-Route::get('notifications', [NotificationController::class, 'index'])->name('api.v1.notifications.index');
-Route::post('notifications', [NotificationController::class, 'store'])->name('api.v1.notifications.store');
-Route::get('notifications/{notification}', [NotificationController::class, 'show'])->name('api.v1.notifications.show');
-Route::put('notifications/{notification}', [NotificationController::class, 'update'])->name('api.v1.notifications.update');
-Route::delete('notifications/{notification}', [NotificationController::class, 'destroy'])->name('api.v1.notifications.delete');
 
 Route::get('searchs', [SearchController::class, 'index'])->name('searchs.index');
 Route::post('searchs', [SearchController::class, 'store'])->name('searchs.store');
@@ -395,6 +483,14 @@ Route::post('questions', [QuestionController::class, 'store'])->name('api.v1.que
 Route::get('questions/{question}', [QuestionController::class, 'show'])->name('api.v1.questions.show');
 Route::put('questions/{question}', [QuestionController::class, 'update'])->name('api.v1.questions.update');
 Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('api.v1.questions.delete');
+
+Route::get('foro', [QuestionController::class, 'index'])->name('foro');
+Route::post('questions', [QuestionController::class, 'store'])->name('api.v1.questions.store');
+Route::get('questions/{question}', [QuestionController::class, 'show'])->name('api.v1.questions.show');
+Route::put('questions/{question}', [QuestionController::class, 'update'])->name('api.v1.questions.update');
+Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('api.v1.questions.delete');
+
+
 
 Route::get('answers', [QuestionController::class, 'indexr'])->name('api.v1.answers.index');
 Route::post('answers', [QuestionController::class, 'storer'])->name('api.v1.answers.store');

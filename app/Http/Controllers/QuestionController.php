@@ -44,11 +44,7 @@ class QuestionController extends Controller
         return view('foro.foro', compact('pquestions','answers','users','categories','lawyers'));
     }
 
-    private function fetchDataFromApi($url)
-    {
-        $response = Http::get($url);
-        return $response->json();
-    }
+   
     
 
     /**

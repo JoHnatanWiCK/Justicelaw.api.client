@@ -19,7 +19,6 @@
             <form action="{{ route('api.v1.questions.store') }}" method="POST">
                 @csrf
                 <input type="text" name="affair" placeholder="Asunto:" required />
-                <input type="number" name="user_id" placeholder="user_id:" required />
                 <input type="date" name="date_publication" required />
                 <textarea name="content" placeholder="Contenido:" required></textarea>
                 <select name="forum_category_id">

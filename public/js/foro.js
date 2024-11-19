@@ -1,5 +1,24 @@
+
+document.getElementById('category-filter').addEventListener('change', function () {
+    const selectedCategory = this.value;
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+        const categoryId = card.getAttribute('data-category-id');
+        if (selectedCategory === '' || categoryId === selectedCategory) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+});
+
+
+
+
+
 function showModal(id, title, content, date,user,last) {
-    document.getElementById('modal').style.display = 'flex';
+    document.getElementById('smodal').style.display = 'flex';
     
 
     document.getElementById('modal-user').innerText = user+" "+last;
@@ -18,14 +37,18 @@ function showModal(id, title, content, date,user,last) {
 }
 
 function closeModal() {
-    document.getElementById('modal').style.display = 'none';
+    document.getElementById('smodal').style.display = 'none';
 }
 
 document.getElementById('show-more').addEventListener('click', function() {
-    document.querySelectorAll('.extra-category').forEach(function(category) {
-        category.style.display = 'list-item';
+    const extraCategories = document.querySelectorAll('.extra-category');
+    const isHidden = extraCategories[0].style.display === 'none';
+
+    extraCategories.forEach(function(category) {
+        category.style.display = isHidden ? 'list-item' : 'none';
     });
-    this.style.display = 'none'; 
+
+    this.textContent = isHidden ? 'Ocultar' : 'Ver más';
 });
 
 

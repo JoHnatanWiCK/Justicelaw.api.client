@@ -9,11 +9,7 @@ use Illuminate\Support\Facades\Log;
 class QuestionController extends Controller
 {
 
-    private function fetchDataFromApi($url)
-    {
-        $response = Http::get($url);
-        return $response->json();
-    }
+   
 
     /**
      * Display a listing of the resource.
@@ -33,7 +29,7 @@ class QuestionController extends Controller
         $questions = collect($questions);
         $answers = collect($answers);
         
-        $perPage = 12; // Número de elementos por página
+        $perPage = 9; // Número de elementos por página
         $currentPage = request()->input('page', 1); // Obtenemos la página actual
         $pagedData = $questions->forPage($currentPage, $perPage); // Dividimos los datos
     
@@ -48,7 +44,11 @@ class QuestionController extends Controller
         return view('foro.foro', compact('pquestions','answers','users','categories','lawyers'));
     }
 
-   
+    private function fetchDataFromApi($url)
+    {
+        $response = Http::get($url);
+        return $response->json();
+    }
     
 
     /**
@@ -73,7 +73,7 @@ class QuestionController extends Controller
         ]);
 
         // Enviar los datos a la API usando Http::post
-        $response = Http::post('http://api.justicelaw.test/v1/questions', [
+        $response = Http::post('https://apijusticelaw-production.up.railway.app/v1/questions', [
             'affair' => $validatedData['affair'],
             'user_id' => $validatedData['user_id'],
             'forum_category_id' => $validatedData['forum_category_id'],
@@ -101,7 +101,7 @@ class QuestionController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $question = $this->fetchDataFromApi($url . '/questions/' . $id);
+        $question = $this->fetchDataFromApi($url . '/questions' . $id);
 
         return $question;
         

@@ -19,7 +19,6 @@
             <form action="{{ route('api.v1.questions.store') }}" method="POST">
                 @csrf
                 <input type="text" name="affair" placeholder="Asunto:" required />
-                <input type="number" name="user_id" placeholder="user_id:" required />
                 <input type="date" name="date_publication" required />
                 <textarea name="content" placeholder="Contenido:" required></textarea>
                 <select name="forum_category_id">
@@ -31,28 +30,22 @@
             </form>
         </div>
 
-        <div class="categories">
-            <h3>Categorías</h3>
-            <ul>
-                @php $count = 0; @endphp
-                @foreach ($categories as $c)
-                    @if ($count < 13)
-                        <li><a href="foro_familiar.html">{{ $c['name'] }}</a></li>
-                    @else
-                        <li class="extra-category" style="display: none;"><a href="foro_familiar.html">{{ $c['name'] }}</a></li>
-                    @endif
-                    @php $count++; @endphp
-                @endforeach
-            </ul>
-            @if (count($categories) > 13)
-                <button id="show-more">Ver más</button>
-            @endif
-        </div>
+        
     </aside>
 
     <!-- Contenedor con scroll para las tarjetas -->
     <div class="cards-scroll">
+    <div class="filter-bar">
+        <label for="category-filter">Filtrar por categoría:</label>
+        <select id="category-filter" class="category-dropdown">
+            <option value="">Todas las categorías</option>
+            @foreach ($categories as $c)
+                <option value="{{ $c['id'] }}">{{ $c['name'] }}</option>
+            @endforeach
+        </select>
+    </div>
         <div class="cards-container">
+       
             @foreach ($pquestions as $q)
             @foreach ($users as $user)
             @if ($q['user_id'] == $user['id'])
@@ -95,7 +88,7 @@
 @endforeach    
         </div>
 
-        <div id="modal" class="modal" style="display: none;" >
+        <div id="smodal" class="modal" style="display: none;" >
                     <div class="modal-content">
                             <span class="close-button" onclick="closeModal()">×</span>
                             

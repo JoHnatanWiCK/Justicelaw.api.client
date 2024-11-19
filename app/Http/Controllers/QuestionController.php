@@ -33,7 +33,7 @@ class QuestionController extends Controller
         $questions = collect($questions);
         $answers = collect($answers);
         
-        $perPage = 12; // Número de elementos por página
+        $perPage = 9; // Número de elementos por página
         $currentPage = request()->input('page', 1); // Obtenemos la página actual
         $pagedData = $questions->forPage($currentPage, $perPage); // Dividimos los datos
     
@@ -64,23 +64,26 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
+        // Obtener el ID del usuario autenticado
+        $userId = auth()->id();
+    
+        // Validar los datos enviados desde el formulario (sin user_id)
         $validatedData = $request->validate([
             'affair' => 'required|string|max:255',
-            'user_id' => 'required|integer',
             'forum_category_id' => 'required|integer',
             'date_publication' => 'required|date',
             'content' => 'required|string',
         ]);
-
+    
         // Enviar los datos a la API usando Http::post
-        $response = Http::post('http://api.justicelaw.test/v1/questions', [
+        $response = Http::post('https://apijusticelaw-production.up.railway.app/v1/questions', [
             'affair' => $validatedData['affair'],
-            'user_id' => $validatedData['user_id'],
+            'user_id' => $userId, // Agregar automáticamente el user_id
             'forum_category_id' => $validatedData['forum_category_id'],
             'date_publication' => $validatedData['date_publication'],
             'content' => $validatedData['content'],
         ]);
-
+    
         // Manejar la respuesta de la API
         if ($response->successful()) {
             // Redirigir con mensaje de éxito
@@ -89,8 +92,8 @@ class QuestionController extends Controller
             // Manejar el error (puedes personalizar este mensaje)
             return redirect()->back()->withErrors(['message' => 'Error al crear la pregunta']);
         }
-    
     }
+    
 
   
 
@@ -101,7 +104,7 @@ class QuestionController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $question = $this->fetchDataFromApi($url . '/questions/' . $id);
+        $question = $this->fetchDataFromApi($url . '/questions' . $id);
 
         return $question;
         

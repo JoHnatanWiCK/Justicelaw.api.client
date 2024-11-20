@@ -95,10 +95,10 @@ document.addEventListener('DOMContentLoaded', function () {
     // Función para manejar las acciones
     async function fetchNotificationsAction(action, notificationId = null) {
         const token = localStorage.getItem('jwtToken'); // Cambiar por tu sistema de autenticación JWT
-        let url = `/api/v1/notifications`;
+        let url = `/api/notifications`;
 
         if (notificationId) {
-            url = `/api/v1/notifications/${notificationId}`;
+            url = `/api/notifications/${notificationId}`;
         }
 
         let method = 'POST';

@@ -102,7 +102,7 @@
                 <hr>
             </ul>
         </div>
-        <a href="../notification/notification.html"><i class="fa-regular fa-bell"></i></a>
+        <a href="{{ route('notificaciones')}}"><i class="fa-regular fa-bell"></i></a>
         <a href="../perfil_usuario/crearPerfil.html"><img class="img-perfil" src="../../img/fotoPerfil.png"
                 alt="foto de Perfil" /></a>
     </header>

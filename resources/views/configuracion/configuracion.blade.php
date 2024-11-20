@@ -86,7 +86,7 @@
             <a href="#"><i class="fa-solid fa-location-dot"></i><p>Ubicacion</p></a>
           </div>
           <div class="opcion">
-            <a href="../notification/notification.html"><i class="fa-regular fa-bell"></i><p>Notificaciones</p></a>
+            <a href="{{ route('notificaciones')}}"><i class="fa-regular fa-bell"></i><p>Notificaciones</p></a>
           </div>
           <div class="opcion">
             <a href="../historial/historial.html"><i class="fa-solid fa-clock-rotate-left"></i><p>Historial de busqueda</p></a>

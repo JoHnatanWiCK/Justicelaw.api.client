@@ -42,14 +42,14 @@
 
 </div>
 <div class="contenedor">
-    <button class="btn1" type="submit">¿Olvidaste tu contraseña?</button>
+    <button class="btn1" type="submit">Reestablecimiento exitoso</button>
 </div>
 
 <div class="re">
 
-    <p>ingrese su correo electronico donde para enviar el link de confirmacion de olvido de contraseña:</p>
+    <p>Su nueva contraseña esta actualizada, inicie secsion nuevamente:</p>
 
-    <button class="btn-contraseña" type="submit"><i class="fa-regular fa-envelope"></i>Email</button>
+    <button id="exito" class="btn-contraseña" type="submit">Iniciar sesion</button>
     </div>
     </section>
 

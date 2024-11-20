@@ -49,7 +49,9 @@
 
 <div class="re">
 
-    <p>ingrese su correo electronico donde para enviar el link de confirmacion de olvido de contraseña:</p>
+    <p>Ingrese el codigo de validacion que ha sido enviado a su correo</p>
+        <h1>Ingrese el Codigo</h1>
+    <input type="text" name="Codigo">
 
     <button class="btn-contraseña" type="submit"><i class="fa-regular fa-envelope"></i>Email</button>
     </div>

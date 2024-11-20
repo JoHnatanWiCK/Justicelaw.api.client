@@ -27,7 +27,7 @@
     <p>Ingrese su correo electronico para realizar la renovacion de su contraseña de manera exitosa:</p>
 
     <h1>Email</h1>
-    <input type="text" name="Email">
+    <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
 
     <button id="recu" class="btn-contraseña" type="submit">Confirmar</button>
 
@@ -49,9 +49,12 @@
 
 <div class="re">
 
-    <p>ingrese su correo electronico donde para enviar el link de confirmacion de olvido de contraseña:</p>
+    <p>Ingrese su correo electronico para realizar la renovacion de su contraseña de manera exitosa:</p>
 
-    <button class="btn-contraseña" type="submit"><i class="fa-regular fa-envelope"></i>Email</button>
+    <h1>Email</h1>
+    <input type="email" id="email" name="email" placeholder="Ingresa tu correo electrónico" required>
+
+    <button class="btn-contraseña" type="submit"><i class="fa-regular fa-envelope"></i>confirmar</button>
     </div>
     </section>
 

@@ -9,7 +9,11 @@ use Illuminate\Support\Facades\Log;
 class QuestionController extends Controller
 {
 
-   
+    private function fetchDataFromApi($url)
+    {
+        $response = Http::get($url);
+        return $response->json();
+    }
 
     /**
      * Display a listing of the resource.
@@ -44,11 +48,7 @@ class QuestionController extends Controller
         return view('foro.foro', compact('pquestions','answers','users','categories','lawyers'));
     }
 
-    private function fetchDataFromApi($url)
-    {
-        $response = Http::get($url);
-        return $response->json();
-    }
+   
     
 
     /**
@@ -64,23 +64,26 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
+        // Obtener el ID del usuario autenticado
+        $userId = auth()->id();
+    
+        // Validar los datos enviados desde el formulario (sin user_id)
         $validatedData = $request->validate([
             'affair' => 'required|string|max:255',
-            'user_id' => 'required|integer',
             'forum_category_id' => 'required|integer',
             'date_publication' => 'required|date',
             'content' => 'required|string',
         ]);
-
+    
         // Enviar los datos a la API usando Http::post
         $response = Http::post('https://apijusticelaw-production.up.railway.app/v1/questions', [
             'affair' => $validatedData['affair'],
-            'user_id' => $validatedData['user_id'],
+            'user_id' => $userId, // Agregar automáticamente el user_id
             'forum_category_id' => $validatedData['forum_category_id'],
             'date_publication' => $validatedData['date_publication'],
             'content' => $validatedData['content'],
         ]);
-
+    
         // Manejar la respuesta de la API
         if ($response->successful()) {
             // Redirigir con mensaje de éxito
@@ -89,8 +92,8 @@ class QuestionController extends Controller
             // Manejar el error (puedes personalizar este mensaje)
             return redirect()->back()->withErrors(['message' => 'Error al crear la pregunta']);
         }
-    
     }
+    
 
   
 

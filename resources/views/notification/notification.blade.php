@@ -52,74 +52,27 @@
             </div>
         </div>
         <div class="notifications-list">
-            <div class="notification favorite container2">
-                <img class="img-perfil" src="../../img/fotoPerfil.png" alt="f-perfil">
-            <a href="notify">Eder Nicolas ha respondido tu pregunta: "¿Qué pasos debo seguir en un proceso de divorcio?"</a>
-            <img class="corazon" src="../../img/Like.png" alt="Like">
-            <div class="user-menu2">
-                <label class="dropdown-toggle">
-                    <img class="img-3puntos" src="../../img/trespuntos.png" alt="flecha">
-                </label>
-                <div class="dropdown2">
-                    <ul>
-                        <li><a href="m-leido">Marcar como leído</a></li>
-                        <li><a href="archivar">Archivar notificación</a></li>
-                        <li><a href="eliminar">Eliminar notificación</a></li>
-                    </ul>
-                </div>
-            </div>
-            </div>
-            <div class="notification archived container2">
-                <img class="img-perfil" src="../../img/fotoPerfil.png" alt="f-perfil">
-            <a href="notify">Eder Nicolas ha respondido tu pregunta: "¿Qué pasos debo seguir en un proceso de divorcio?"</a>
-            <img class="corazon" src="../../img/Like.png" alt="Like">
-            <div class="user-menu2">
-                <label class="dropdown-toggle">
-                    <img class="img-3puntos" src="../../img/trespuntos.png" alt="flecha">
-                </label>
-                <div class="dropdown2">
-                    <ul>
-                        <li><a href="m-leido">Marcar como leído</a></li>
-                        <li><a href="archivar">Archivar notificación</a></li>
-                        <li><a href="eliminar">Eliminar notificación</a></li>
-                    </ul>
-                </div>
-            </div>
-            </div>
-            <div class="notification unread container2">
-                <img class="img-perfil" src="../../img/fotoPerfil.png" alt="f-perfil">
-            <a href="notify">Eder Nicolas ha respondido tu pregunta: "¿Qué pasos debo seguir en un proceso de divorcio?"</a>
-            <img class="corazon" src="../../img/Like.png" alt="Like">
-            <div class="user-menu2">
-                <label class="dropdown-toggle">
-                    <img class="img-3puntos" src="../../img/trespuntos.png" alt="flecha">
-                </label>
-                <div class="dropdown2">
-                    <ul>
-                        <li><a href="m-leido">Marcar como leído</a></li>
-                        <li><a href="archivar">Archivar notificación</a></li>
-                        <li><a href="eliminar">Eliminar notificación</a></li>
-                    </ul>
-                </div>
-            </div>
-            </div>
-            <div class="notification container2">
-                <img class="img-perfil" src="../../img/fotoPerfil.png" alt="f-perfil">
-                <a href="notify">Eder Nicolas ha respondido tu pregunta: "¿Qué pasos debo seguir en un proceso de divorcio?"</a>
-                <img class="corazon" src="../../img/Like.png" alt="Like">
-                <div class="user-menu2">
-                    <label class="dropdown-toggle">
-                        <img class="img-3puntos" src="../../img/trespuntos.png" alt="flecha">
-                    </label>
-                    <div class="dropdown2">
-                        <ul>
-                            <li><a href="m-leido">Marcar como leído</a></li>
-                            <li><a href="archivar">Archivar notificación</a></li>
-                            <li><a href="eliminar">Eliminar notificación</a></li>
-                        </ul>
+            @foreach ($notifications as $notification)
+                <div class="notification {{ $notification->read_at ? '' : 'unread' }} container2" data-id="{{ $notification->id }}">
+                    <img class="img-perfil" src="{{ asset('img/fotoPerfil.png') }}" alt="f-perfil">
+                    <a href="{{ $notification->data['url'] ?? '#' }}">
+                        {{ $notification->data['message'] ?? 'Notificación sin mensaje' }}
+                    </a>
+                    <img class="corazon" src="{{ asset('img/Like.png') }}" alt="Like">
+                    <div class="user-menu2">
+                        <label class="dropdown-toggle">
+                            <img class="img-3puntos" src="{{ asset('img/trespuntos.png') }}" alt="flecha">
+                        </label>
+                        <div class="dropdown2">
+                            <ul>
+                                <li><a href="#" class="mark-read" data-id="{{ $notification->id }}">Marcar como leído</a></li>
+                                <li><a href="#" class="archive" data-id="{{ $notification->id }}">Archivar notificación</a></li>
+                                <li><a href="#" class="delete" data-id="{{ $notification->id }}">Eliminar notificación</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
         <div class="notifications-actions">
             <button id="marcarTodoLeido">Marcar todo como leído</button>

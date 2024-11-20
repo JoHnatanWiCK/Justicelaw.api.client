@@ -57,49 +57,38 @@ document.querySelectorAll('.filter-menu button').forEach(button => {
         });
 
         
-const legalFiles = {
-  'informacion': '/informaciones',
-  'laboral': '/informacionesLaboral',
-  'trabajadores': '/derechosTrabajadores',
-  'arrendamiento': '/informacionArrendamiento',
-  'despido': '/informacionDespido',
-  'divorcio': '/informacionDivorcio',
-  'negocio': '/informacionNegocio',
-  'pension': '/informacionPension',
-  'testamento': '/informacionTestamento',
-  'accidente': '/informacionAccidente',
-  'consumidor': '/informacionConsumidor',
-  'seguridad social': '/informacionSeguridadSocial',
-  'sst': '/informacionSST',
-  'internacional laboral': '/informacionIntLab',
-  'educacion': '/informacionEducacion',
-  'vida familiar': '/informacionVidaFamiliar',
-  'trabajo infantil': '/informacionTrabajoInfantil',
-  'contrato': '/informacionContrato',
-  'salud': '/informacionSalud',
-  'participacion': '/informacionParticipacion',
-  'voto': '/informacionVoto',
-  'cargo': '/informacionCargo',
-  'consulta': '/informacionConsulta',
-  'peticiones': '/informacionPeticiones',
-  'plebiscito': '/informacionPlebiscito',
-  'autor': '/informacionAutor'
-};
+document.getElementById('buscarBtn').addEventListener('click', async function(e) {
+  e.preventDefault(); // Prevenir recarga de página
 
+  // Obtener el término de búsqueda
+  const searchQuery = document.querySelector('.search-bar input').value.trim();
 
-document.getElementById('buscarBtn').addEventListener('click', function(e) {
-  e.preventDefault(); 
-  
+  if (!searchQuery) {
+      alert('Por favor, ingresa un término de búsqueda.');
+      return;
+  }
 
-  var searchQuery = document.querySelector('.search-bar input').value.trim().toLowerCase();
+  try {
+      // Realizar la solicitud al backend
+      const response = await fetch('/api/informations/search', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+          },
+          body: JSON.stringify({ query: searchQuery })
+      });
 
-  const ruta = legalFiles[searchQuery];
-  
-  if (ruta) {
+      const data = await response.json();
 
-      window.location.href = ruta;
-  } else {
-
-      alert("No se encontró información con esa búsqueda.");
+      if (data.results.length > 0) {
+          // Mostrar resultados en la pantalla
+          console.log('Resultados encontrados:', data.results);
+      } else {
+          alert('No se encontraron resultados.');
+      }
+  } catch (error) {
+      console.error('Error al realizar la búsqueda:', error);
+      alert('Ocurrió un error al buscar la información.');
   }
 });

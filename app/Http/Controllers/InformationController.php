@@ -24,9 +24,9 @@ class InformationController extends Controller
 
         $informations = $this->fetchDataFromApi($url . '/informations');
 
-        return $informations;
+        //return $informations;
 
-        // return view('information.index', compact('informations'));
+         return view('information.index', compact('informations'));
 
     }
 
@@ -55,9 +55,9 @@ class InformationController extends Controller
 
         $information = $this->fetchDataFromApi($url . '/informations/' . $id);
 
-        return $information;
+        //return $information;
 
-        // return view('information.show', compact('information'));
+         return view('information.show', compact('information'));
 
     }
 

@@ -187,6 +187,10 @@ Route::get('/informaciones', function () {
     return view('informacion.informaciones');
 })->name('informaciones');
 
+Route::get('/index', function () {
+    return view('informacion.index');
+})->name('index');
+
 Route::get('/informacionesLaboral', function () {
     return view('informacion.laboralEmpleo.informacionesLaboral');
 })->name('informacionesLaboral');

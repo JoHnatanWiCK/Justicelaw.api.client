@@ -5,25 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class NotificationController extends Controller
+class UserProfileController extends Controller
 {
-    private function fetchDataFromApi($url)
-{
-    try {
-        $response = Http::get($url);
 
-        // Verificar si la respuesta fue exitosa
-        if ($response->successful()) {
-            return $response->json();
-        } else {
-            // Manejar errores si la respuesta no es exitosa
-            throw new \Exception('Error en la API: ' . $response->status());
-        }
-    } catch (\Exception $e) {
-        // Manejar excepciones
-        return response()->json(['error' => $e->getMessage()], 500);
+    private function fetchDataFromApi($url)
+    {
+        $response = Http::get($url);
+        return $response->json();
     }
-}
 
     /**
      * Display a listing of the resource.
@@ -34,12 +23,11 @@ class NotificationController extends Controller
 
         $notifications = $this->fetchDataFromApi($url . '/notifications');
 
-        
+        return $notifications;
 
-        return view('notification.notification');
+        // return view('user-profile.index', compact('usersProfile'));
     }
 
-    
     /**
      * Show the form for creating a new resource.
      */
@@ -67,7 +55,7 @@ class NotificationController extends Controller
 
         return $notification;
 
-        // return view('notifications.show', compact('notification'));
+        // return view('user-profile.show', compact('userProfile'));
     }
 
     /**

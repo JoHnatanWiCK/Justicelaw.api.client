@@ -38,11 +38,13 @@ use Illuminate\Support\Facades\Route;
 // });
 
 
+
+
 Route::get('/', function () {
     return view(view: 'home');
 })->name('home');
 
-Route::get(' ', function () {
+Route::get('/homeLogin', function () {
     return view(view: 'homeLogin');
 })->name('homeLogin');
 
@@ -492,6 +494,10 @@ Route::get('questions/{question}', [QuestionController::class, 'show'])->name('a
 Route::put('questions/{question}', [QuestionController::class, 'update'])->name('api.v1.questions.update');
 Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('api.v1.questions.delete');
 
+Route::get('forologin', [QuestionController::class, 'indexlogin'])->name('forologin');
+
+
+
 Route::get('foro', [QuestionController::class, 'index'])->name('foro');
 Route::post('questions', [QuestionController::class, 'store'])->name('api.v1.questions.store');
 Route::get('questions/{question}', [QuestionController::class, 'show'])->name('api.v1.questions.show');
@@ -513,6 +519,7 @@ Route::get('lawyers/{lawyer}', [LawyerController::class, 'show'])->name('api.v1.
 Route::put('lawyers/{lawyer}', [LawyerController::class, 'update'])->name('api.v1.lawyers.update');
 Route::delete('lawyers/{lawyer}', [LawyerController::class, 'destroy'])->name('api.v1.lawyers.delete');
 
+Route::get('verificar', [QuestionController::class, 'verificar']);
 
 
 Route::get('/faqs', function () {

@@ -1,49 +1,70 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Manejo de los corazones
+document.addEventListener('DOMContentLoaded', function () {
+    // Estado del corazón
     const corazones = document.querySelectorAll('.corazon');
-    let estadoCorazon = 'vacio';
 
     corazones.forEach(corazon => {
-        corazon.addEventListener('click', function() {
-            if (estadoCorazon === 'vacio') {
-                corazon.src = '../../img/Like2.png';
-                estadoCorazon = 'lleno';
-            } else {
-                corazon.src = '../../img/Like.png';
-                estadoCorazon = 'vacio';
-            }
+        corazon.addEventListener('click', function () {
+            const notificationId = corazon.closest('.notification').getAttribute('data-id');
+            toggleLike(notificationId, corazon);
         });
     });
 
-    // Manejo de los dropdowns con JavaScript
+    async function toggleLike(notificationId, corazon) {
+        try {
+            const response = await fetch(`/notifications/${notificationId}/like`, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Error al intentar dar me gusta');
+            }
+
+            const result = await response.json();
+
+            // Cambia el estado del corazón en el frontend
+            if (corazon.src.includes('Like.png')) {
+                corazon.src = '../../img/Like2.png'; // Cambia al estado "me gusta"
+            } else {
+                corazon.src = '../../img/Like.png'; // Cambia al estado "no me gusta"
+            }
+
+            console.log(result.message); // Mensaje en consola
+        } catch (error) {
+            console.error('Error al manejar el me gusta:', error);
+        }
+    }
+
+    // Manejo de dropdowns
     const dropdowns = document.querySelectorAll('.user-menu1, .user-menu2');
 
     dropdowns.forEach(menu => {
         const toggleButton = menu.querySelector('label');
         const dropdown = menu.querySelector('.dropdown1, .dropdown2');
 
-        toggleButton.addEventListener('click', function(event) {
+        toggleButton.addEventListener('click', function (event) {
             event.preventDefault();
-            closeAllDropdowns(); // Cerrar todos los demás dropdowns primero
-            dropdown.classList.toggle('active'); // Mostrar/Ocultar el dropdown actual
+            closeAllDropdowns();
+            dropdown.classList.toggle('active');
         });
     });
 
-    // Función para cerrar todos los dropdowns
     function closeAllDropdowns() {
         document.querySelectorAll('.dropdown1, .dropdown2').forEach(dropdown => {
             dropdown.classList.remove('active');
         });
     }
 
-    // Cerrar dropdowns si se hace clic fuera
-    document.addEventListener('click', function(event) {
+    document.addEventListener('click', function (event) {
         if (!event.target.closest('.user-menu1') && !event.target.closest('.user-menu2')) {
             closeAllDropdowns();
         }
     });
 
-    // Mostrar mensaje de éxito
+    // Función para mostrar mensajes de éxito
     function showSuccessMessage(action) {
         const toastMessage = document.querySelector('#toastMessage');
         const toast = document.querySelector('.toast');
@@ -56,82 +77,127 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             toast.classList.remove('active');
             progress.classList.remove('active');
-        }, 3000); // Ocultar el toast después de 3 segundos
+        }, 3000);
     }
 
-    // Marcar todo como leído
+    // Botones de acciones globales
     const marcarTodoLeido = document.querySelector('#marcarTodoLeido');
-    marcarTodoLeido.addEventListener('click', function() {
+    const archivarTodo = document.querySelector('#archivarTodo');
+
+    marcarTodoLeido.addEventListener('click', function () {
         fetchNotificationsAction('markAllAsRead');
     });
 
-    // Archivar todo
-    const archivarTodo = document.querySelector('#archivarTodo');
-    archivarTodo.addEventListener('click', function() {
+    archivarTodo.addEventListener('click', function () {
         fetchNotificationsAction('archiveAll');
     });
 
-    // Eliminar todo
-    const eliminarTodo = document.querySelector('#eliminarTodo');
-    eliminarTodo.addEventListener('click', function() {
-        fetchNotificationsAction('deleteAll');
-    });
-
-    // Función para manejar las acciones de las notificaciones
+    // Función para manejar las acciones
     async function fetchNotificationsAction(action, notificationId = null) {
-        const token = localStorage.getItem('jwtToken'); // Obtener el token JWT
-        let url = `https://apijusticelaw-production.up.railway.app/v1/notifications`;
+        const token = localStorage.getItem('jwtToken'); // Cambiar por tu sistema de autenticación JWT
+        let url = `/api/v1/notifications`;
 
-        if (action !== 'markAllAsRead' && action !== 'archiveAll' && action !== 'deleteAll') {
-            url = `https://apijusticelaw-production.up.railway.app/v1/notifications/${notificationId}`;
+        if (notificationId) {
+            url = `/api/v1/notifications/${notificationId}`;
+        }
+
+        let method = 'POST';
+        if (action === 'archive' || action === 'delete') {
+            method = 'DELETE';
         }
 
         try {
             const response = await fetch(url, {
-                method: action === 'markAllAsRead' ? 'POST' : 'DELETE', // Dependiendo de la acción (POST para marcar, DELETE para eliminar)
+                method: method,
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json'
                 },
-                body: action !== 'markAllAsRead' ? JSON.stringify({ notificationId }) : null, // Solo para algunas acciones
+                body: notificationId ? JSON.stringify({ action }) : null
             });
 
             if (!response.ok) {
                 throw new Error(`Error al realizar la acción: ${action}`);
             }
 
-            showSuccessMessage(action === 'markAllAsRead' ? 'todas marcadas como leídas' : action === 'archiveAll' ? 'todas archivadas' : 'todas eliminadas');
+            const message = 
+                action === 'markAllAsRead' ? 'todas marcadas como leídas' :
+                action === 'archiveAll' ? 'todas archivadas' :
+                action === 'deleteAll' ? 'todas eliminadas' :
+                'realizada';
+
+            showSuccessMessage(message);
+
+            // Actualiza la lista de notificaciones
+            fetchAndRenderNotifications();
         } catch (error) {
             console.error('Error:', error);
         }
     }
 
-    // Manejo de las opciones individuales de las notificaciones
-    const notifications = document.querySelectorAll('.notification');
-    notifications.forEach(notificacion => {
-        const marcarLeido = notificacion.querySelector('a[href="m-leido"]');
-        const archivar = notificacion.querySelector('a[href="archivar"]');
-        const eliminar = notificacion.querySelector('a[href="eliminar"]');
+    // Renderizar notificaciones desde la base de datos
+    async function fetchAndRenderNotifications() {
+        const token = localStorage.getItem('jwtToken');
+        const notificationsList = document.querySelector('.notifications-list');
 
-        // Marcar como leído
-        marcarLeido.addEventListener('click', function(event) {
-            event.preventDefault();
-            const notificationId = notificacion.getAttribute('data-id');
-            fetchNotificationsAction('markAsRead', notificationId);
-        });
+        try {
+            const response = await fetch('/api/notifications', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
 
-        // Archivar notificación
-        archivar.addEventListener('click', function(event) {
-            event.preventDefault();
-            const notificationId = notificacion.getAttribute('data-id');
-            fetchNotificationsAction('archive', notificationId);
-        });
+            if (!response.ok) {
+                throw new Error('Error al obtener las notificaciones');
+            }
 
-        // Eliminar notificación
-        eliminar.addEventListener('click', function(event) {
-            event.preventDefault();
-            const notificationId = notificacion.getAttribute('data-id');
-            fetchNotificationsAction('delete', notificationId);
-        });
-    });
+            const notifications = await response.json();
+
+            // Limpia la lista actual
+            notificationsList.innerHTML = '';
+
+            // Renderiza las notificaciones
+            notifications.forEach(notification => {
+                const notificationElement = document.createElement('div');
+                notificationElement.className = `notification ${notification.type} container2`;
+                notificationElement.setAttribute('data-id', notification.id);
+
+                notificationElement.innerHTML = `
+                    <img class="img-perfil" src="${notification.userImage}" alt="perfil">
+                    <a href="${notification.link}">${notification.message}</a>
+                    <img class="corazon" src="../../img/Like.png" alt="Like">
+                    <div class="user-menu2">
+                        <label class="dropdown-toggle">
+                            <img class="img-3puntos" src="../../img/trespuntos.png" alt="Opciones">
+                        </label>
+                        <div class="dropdown2">
+                            <ul>
+                                <li><a href="#" data-action="markAsRead">Marcar como leído</a></li>
+                                <li><a href="#" data-action="archive">Archivar</a></li>
+                                <li><a href="#" data-action="delete">Eliminar</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                `;
+
+                notificationsList.appendChild(notificationElement);
+
+                // Agrega eventos a las acciones individuales
+                const actions = notificationElement.querySelectorAll('[data-action]');
+                actions.forEach(actionElement => {
+                    const action = actionElement.dataset.action;
+                    actionElement.addEventListener('click', function (event) {
+                        event.preventDefault();
+                        fetchNotificationsAction(action, notification.id);
+                    });
+                });
+            });
+        } catch (error) {
+            console.error('Error al renderizar notificaciones:', error);
+        }
+    }
+
+    // Inicializar la lista de notificaciones
+    fetchAndRenderNotifications();
 });

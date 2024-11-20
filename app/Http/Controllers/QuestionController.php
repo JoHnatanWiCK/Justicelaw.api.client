@@ -19,37 +19,92 @@ class QuestionController extends Controller
      * Display a listing of the resource.
      */
     public function index()
-    {
-        $url = env('URL_SERVER_API');
-        $questions = $this->fetchDataFromApi($url . '/questions');
-        $answers =  $this->fetchDataFromApi($url . '/answers');
-        $users =  $this->fetchDataFromApi($url . '/users');
-        $lawyers =  $this->fetchDataFromApi($url . '/lawyers');
+{
+    $url = env('URL_SERVER_API');
 
-        $categories =  $this->fetchDataFromApi($url . '/forumCategories');
+    // Obtener datos desde la API
+    $questions = $this->fetchDataFromApi($url . '/questions');
+    $answers = $this->fetchDataFromApi($url . '/answers');
+    $users = $this->fetchDataFromApi($url . '/users');
+    $lawyers = $this->fetchDataFromApi($url . '/lawyers');
+    $categories = $this->fetchDataFromApi($url . '/forumCategories');
 
+    // Convertir los arrays a colecciones
+    $questions = collect($questions);
 
-        // Suponiendo que $questions es un array, deberías convertirlo a una colección
-        $questions = collect($questions);
-        $answers = collect($answers);
-        
-        $perPage = 12; // Número de elementos por página
-        $currentPage = request()->input('page', 1); // Obtenemos la página actual
-        $pagedData = $questions->forPage($currentPage, $perPage); // Dividimos los datos
+    // Asegurar que las fechas sean interpretadas correctamente
+    $questions = $questions->map(function ($question) {
+        $question['created_at'] = \Carbon\Carbon::parse($question['created_at']);
+        return $question;
+    });
+
+    // Ordenar las preguntas por `created_at` en orden descendente
+    $questions = $questions->sortByDesc('created_at')->values();
+
+    // Configurar la paginación
+    $perPage = 9; // Número de elementos por página
+    $currentPage = request()->input('page', 1); // Obtener la página actual
+    $pagedData = $questions->forPage($currentPage, $perPage); // Dividir los datos
+
+    $pquestions = new \Illuminate\Pagination\LengthAwarePaginator(
+        $pagedData->values(), // Asegurar que los índices estén bien configurados
+        $questions->count(),
+        $perPage,
+        $currentPage,
+        ['path' => request()->url()]
+    );
+
+    // Pasar datos a la vista
+    return view('foro.foro', compact('pquestions', 'answers', 'users', 'categories', 'lawyers'));
+}
+
+public function indexlogin()
+{
+    $url = env('URL_SERVER_API');
+
+    // Obtener datos desde la API
+    $questions = $this->fetchDataFromApi($url . '/questions');
+    $answers = $this->fetchDataFromApi($url . '/answers');
+    $users = $this->fetchDataFromApi($url . '/users');
+    $lawyers = $this->fetchDataFromApi($url . '/lawyers');
+    $categories = $this->fetchDataFromApi($url . '/forumCategories');
+
+    // Convertir los arrays a colecciones
+    $questions = collect($questions);
+
+    // Asegurar que las fechas sean interpretadas correctamente
+    $questions = $questions->map(function ($question) {
+        $question['created_at'] = \Carbon\Carbon::parse($question['created_at']);
+        return $question;
+    });
+
+    // Ordenar las preguntas por `created_at` en orden descendente
+    $questions = $questions->sortByDesc('created_at')->values();
+
+    // Configurar la paginación
+    $perPage = 9; // Número de elementos por página
+    $currentPage = request()->input('page', 1); // Obtener la página actual
+    $pagedData = $questions->forPage($currentPage, $perPage); // Dividir los datos
+
+    $pquestions = new \Illuminate\Pagination\LengthAwarePaginator(
+        $pagedData->values(), // Asegurar que los índices estén bien configurados
+        $questions->count(),
+        $perPage,
+        $currentPage,
+        ['path' => request()->url()]
+    );
+
+    // Pasar datos a la vista
+    return view('foro.forologin', compact('pquestions', 'answers', 'users', 'categories', 'lawyers'));
+} 
     
-        $pquestions = new \Illuminate\Pagination\LengthAwarePaginator(
-            $pagedData,
-            $questions->count(),
-            $perPage,
-            $currentPage,
-            ['path' => request()->url()]
-        );
-    
-        return view('foro.foro', compact('pquestions','answers','users','categories','lawyers'));
-    }
 
+   public function verificar(){
+
+    $userId = auth()->id(); 
+    return $userId;
+   }
    
-    
 
     /**
      * Show the form for creating a new resource.
@@ -64,6 +119,10 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
+        // Obtener el ID del usuario autenticado
+        $userId = auth()->id();
+    
+        // Validar los datos enviados desde el formulario (sin user_id)
         $validatedData = $request->validate([
             'affair' => 'required|string|max:255',
             'user_id' => 'required|integer',
@@ -71,16 +130,17 @@ class QuestionController extends Controller
             'date_publication' => 'required|date',
             'content' => 'required|string',
         ]);
-
+    
         // Enviar los datos a la API usando Http::post
-        $response = Http::post('http://api.justicelaw.test/v1/questions', [
+        $response = Http::post('https://apijusticelaw-production.up.railway.app/v1/questions', [
             'affair' => $validatedData['affair'],
             'user_id' => $validatedData['user_id'],
+
             'forum_category_id' => $validatedData['forum_category_id'],
             'date_publication' => $validatedData['date_publication'],
             'content' => $validatedData['content'],
         ]);
-
+    
         // Manejar la respuesta de la API
         if ($response->successful()) {
             // Redirigir con mensaje de éxito
@@ -89,8 +149,8 @@ class QuestionController extends Controller
             // Manejar el error (puedes personalizar este mensaje)
             return redirect()->back()->withErrors(['message' => 'Error al crear la pregunta']);
         }
-    
     }
+    
 
   
 
@@ -101,7 +161,7 @@ class QuestionController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $question = $this->fetchDataFromApi($url . '/questions/' . $id);
+        $question = $this->fetchDataFromApi($url . '/questions' . $id);
 
         return $question;
         

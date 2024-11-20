@@ -47,7 +47,7 @@
 
     <label for="contraseña">Contraseña</label>
     <input id="contraseña" type="password" name="contraseña">
-    <div class="bot"><button type="submit" id="btnRegistro">Registrarse</button></div>
+    <div class="bot"><button type="submit" class="btn-registro" id="btnRegistro">Registrarse</button></div>
 </form>
     <div class="parrafo">
         <p>Al crear la cuenta, aceptas los <a href="#">Términos de uso</a> y la <a href="#">Política de Privacidad</a> de justicelaw.com</p>
@@ -70,16 +70,16 @@
     <div class="re">
 
         <label for="nombre">Nombres</label>
-        <input id="nombre" type="text" name="nombre">
+        <input id="nombre" type="text" name="nombre" required>
 
         <label for="apellido">Apellidos</label>
-        <input id="apellido" type="text" name="apellido">
+        <input id="apellido" type="text" name="apellido" required>
 
         <label for="tip_doc">Tipo de Documento</label>
-        <input id="tip_doc" type="text" name="tip_doc">
+        <input id="tip_doc" type="text" name="tip_doc" required>
 
         <label for="num_doc">Numero de Documento</label>
-        <select id="num_doc" name="num_doc">
+        <select id="num_doc" name="num_doc" required>
               <option value="tarjeta_identidad">Tarjeta de identidad</option>
               <option value="cedula_ciudadania">Cedula</option>
               <option value="cedula_extranjera">Cedula Extranjera</option>
@@ -87,14 +87,14 @@
         </select class="loginlweb">
 
         <label for="gmial">Email</label>
-        <input id="gmail" type="email" name="gmail">
+        <input id="gmail" type="email" name="gmail" required>
 
         <label for="contraseña">Contraseña</label>
         <input id="contraseña" type="password" name="contraseña">
         <label for="concontraseña">Confirmar Contraseña</label>
-        <input id="concontraseña" type="password" name="concontraseña">
+        <input id="concontraseña" type="password" name="concontraseña" required>
         </div>
-        <div class="bt"><button class="btn3" type="submit" id="btnRegistro">Registrarme</button></div>
+        <div class="bt"><button class="btn-registro" type="submit" id="btnRegistro">Registrarme</button></div>
         <div class="parrafo">
             <p>Al crear la cuenta, aceptas los <a href="#">Términos de uso</a> y la <a href="#">Política de Privacidad</a> de justicelaw.com</p>
         </div>

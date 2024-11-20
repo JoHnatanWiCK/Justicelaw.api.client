@@ -32,7 +32,7 @@
         <nav class="nav-links">
 
             <a id="about-us" href="#">Sobre nosotros</a>
-            <a id="foro" href="{{ route('foro')}}">Foro</a>
+            <a id="foro" href="{{ route('forologin')}}">Foro</a>
             <a id="informaciones" href="{{ route('informaciones')}}">Informaciones</a>
         </nav>
         <div class="user-menu">

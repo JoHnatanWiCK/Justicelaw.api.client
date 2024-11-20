@@ -1,5 +1,7 @@
+const baseUrl = 'https://apijusticelaw-production.up.railway.app/v1';
+
+// Función para inicializar el DOM
 document.addEventListener('DOMContentLoaded', function () {
-    // Estado del corazón
     const corazones = document.querySelectorAll('.corazon');
 
     corazones.forEach(corazon => {
@@ -8,35 +10,6 @@ document.addEventListener('DOMContentLoaded', function () {
             toggleLike(notificationId, corazon);
         });
     });
-
-    async function toggleLike(notificationId, corazon) {
-        try {
-            const response = await fetch(`/notifications/${notificationId}/like`, {
-                method: 'POST',
-                headers: {
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
-                    'Content-Type': 'application/json',
-                },
-            });
-
-            if (!response.ok) {
-                throw new Error('Error al intentar dar me gusta');
-            }
-
-            const result = await response.json();
-
-            // Cambia el estado del corazón en el frontend
-            if (corazon.src.includes('Like.png')) {
-                corazon.src = '../../img/Like2.png'; // Cambia al estado "me gusta"
-            } else {
-                corazon.src = '../../img/Like.png'; // Cambia al estado "no me gusta"
-            }
-
-            console.log(result.message); // Mensaje en consola
-        } catch (error) {
-            console.error('Error al manejar el me gusta:', error);
-        }
-    }
 
     // Manejo de dropdowns
     const dropdowns = document.querySelectorAll('.user-menu1, .user-menu2');
@@ -92,28 +65,57 @@ document.addEventListener('DOMContentLoaded', function () {
         fetchNotificationsAction('archiveAll');
     });
 
-    // Función para manejar las acciones
+    // Función para dar "Me gusta" a una notificación
+    async function toggleLike(notificationId, corazon) {
+        try {
+            const response = await fetch(`${baseUrl}/notifications/${notificationId}/like`, {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`,
+                    'Content-Type': 'application/json',
+                },
+            });
+
+            if (!response.ok) {
+                throw new Error('Error al intentar dar me gusta');
+            }
+
+            const result = await response.json();
+
+            corazon.src = corazon.src.includes('Like.png') 
+                ? '../../img/Like2.png' 
+                : '../../img/Like.png';
+
+            console.log(result.message);
+        } catch (error) {
+            console.error('Error al manejar el me gusta:', error);
+        }
+    }
+
+    // Función para manejar acciones en notificaciones
     async function fetchNotificationsAction(action, notificationId = null) {
-        const token = localStorage.getItem('jwtToken'); // Cambiar por tu sistema de autenticación JWT
-        let url = `/api/notifications`;
+        let url = `${baseUrl}/notifications`;
 
         if (notificationId) {
-            url = `/api/notifications/${notificationId}`;
+            url = `${url}/${notificationId}`;
         }
 
-        let method = 'POST';
-        if (action === 'archive' || action === 'delete') {
-            method = 'DELETE';
-        }
+        const method = {
+            markAsRead: 'POST',
+            archive: 'POST',
+            delete: 'DELETE',
+            archiveAll: 'POST',
+            deleteAll: 'DELETE'
+        }[action] || 'POST';
 
         try {
             const response = await fetch(url, {
                 method: method,
                 headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
+                    'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`,
+                    'Content-Type': 'application/json',
                 },
-                body: notificationId ? JSON.stringify({ action }) : null
+                body: notificationId ? JSON.stringify({ action }) : null,
             });
 
             if (!response.ok) {
@@ -127,25 +129,22 @@ document.addEventListener('DOMContentLoaded', function () {
                 'realizada';
 
             showSuccessMessage(message);
-
-            // Actualiza la lista de notificaciones
-            fetchAndRenderNotifications();
+            fetchAndRenderNotifications(); // Actualiza las notificaciones
         } catch (error) {
-            console.error('Error:', error);
+            console.error('Error al realizar acción:', error);
         }
     }
 
     // Renderizar notificaciones desde la base de datos
     async function fetchAndRenderNotifications() {
-        const token = localStorage.getItem('jwtToken');
         const notificationsList = document.querySelector('.notifications-list');
 
         try {
-            const response = await fetch('/api/notifications', {
+            const response = await fetch(`${baseUrl}/notifications`, {
                 headers: {
-                    'Authorization': `Bearer ${token}`,
-                    'Content-Type': 'application/json'
-                }
+                    'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`,
+                    'Content-Type': 'application/json',
+                },
             });
 
             if (!response.ok) {
@@ -154,10 +153,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const notifications = await response.json();
 
-            // Limpia la lista actual
-            notificationsList.innerHTML = '';
+            notificationsList.innerHTML = ''; // Limpia la lista actual
 
-            // Renderiza las notificaciones
             notifications.forEach(notification => {
                 const notificationElement = document.createElement('div');
                 notificationElement.className = `notification ${notification.type} container2`;

@@ -31,7 +31,7 @@
                     <label for="contraseñaWeb">Contraseña</label>
                     <input id="contraseñaWeb" type="password" name="contraseñaWeb">
 
-                    <button type="button" id="btnInicioWeb">Iniciar Sesión</button>
+                    <button type="button" id="btnInicioWeb" class="btn-login">Iniciar Sesión</button>
                 </form>
 
 

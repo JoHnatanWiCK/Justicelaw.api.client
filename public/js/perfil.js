@@ -129,110 +129,218 @@ async function fetchCities() {
         console.error('Error fetching cities:', error);
     }
 }
+async function guardarDatos() {
+    const token = localStorage.getItem('token');
 
-
-const button = document.querySelector("#boton-guardar");
-const toast = document.querySelector(".toast");
-const progress = document.querySelector(".progress");
-
-let timer1, timer2;
-
-if (button && toast) {
-
-
-button.addEventListener("click", () => {
-    toast.classList.add("active");
-    progress.classList.add("active");
-
-
-    timer1 = setTimeout(() => {
-        toast.classList.remove("active");
-
-        window.location.href = window.routes.perfilCreado;
-
-
-    }, 5000);
-
-    timer2 = setTimeout(() => {
-        progress.classList.remove("active");
-    }, 5300);
-
-});}
-
-const buttonMovil = document.querySelector("#boton-movil");
-const toastMovil = document.querySelector(".toast");
-const progressMovil = document.querySelector(".progress");
-
-let timerM1, timerM2;
-
-
-
-if (buttonMovil && toastMovil) {
-
-
-  buttonMovil.addEventListener("click", () => {
-  toastMovil.classList.add("active");
-  progressMovil.classList.add("active");
-
-
-  timerM1 = setTimeout(() => {
-      toastMovil.classList.remove("active");
-
-
-      window.location.href = window.routes.perfilCreado;
-
-
-    }, 5000);
-
-    timerM2 = setTimeout(() => {
-      progressMovil.classList.remove("active");
-    }, 5300);
-
-});}
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    const btnActualizar = document.getElementById('boton-actualizar');
-    if (btnActualizar) {
-        btnActualizar.addEventListener('click', function(event) {
-            event.preventDefault();
-            window.location.href = window.routes.editarPerfil;
-        });
+    if (!token) {
+        alert('No estás autenticado.');
+        return;
     }
-});
 
+    const formData = new FormData();
+    formData.append('cell_phone', document.getElementById('telefono').value);
+    formData.append('country_id', document.getElementById('pais').value);
+    formData.append('state_id', document.getElementById('estado').value);
+    formData.append('city_id', document.getElementById('ciudad').value);
 
-document.addEventListener('DOMContentLoaded', function() {
-    const links = document.querySelectorAll('a i.fa-pen-to-square');
+    const photoInput = document.querySelector('input[type="file"][name="seleccionarFoto"]');
+    if (photoInput.files.length > 0) {
+        formData.append('photo', photoInput.files[0]);
+    }
 
-    links.forEach(function(icon) {
-        const parentLink = icon.parentElement;
+    try {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/profile', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            },
+            body: formData
+        });
 
-        if (parentLink.tagName.toLowerCase() === 'a') {
-            parentLink.addEventListener('click', function(event) {
-                event.preventDefault();
+        if (response.ok) {
+            // Mostrar el mensaje de éxito en el modal
+            const modalTitle = document.querySelector('#modal-foto h2');
+            const modalMessage = document.querySelector('#modal-foto p');
+            modalTitle.textContent = '¡Foto subida exitosamente!';
+            modalMessage.textContent = '¿Deseas actualizarla?';
 
-                window.location.href = window.routes.editarPerfil;
-            });
+            // Mostrar el toast de éxito
+            const toast = document.querySelector('.toast');
+            toast.classList.add('active');
+            setTimeout(() => {
+                toast.classList.remove('active');
+            }, 3000);
+
+            // Actualizar la imagen de perfil en la página
+            const photo = photoInput.files[0];
+            const reader = new FileReader();
+            reader.onloadend = function () {
+                document.getElementById('fotoPerfil').src = reader.result;
+            }
+            reader.readAsDataURL(photo);
+        } else {
+            const errorData = await response.json();
+            console.error('Error:', errorData);
+            alert('Hubo un error al actualizar el perfil.');
         }
-    });
-});
-
-
-function handleFileSelection() {
-
-  document.getElementById("modal-foto").style.display = "none";
-
-  const toast = document.querySelector('.toast');
-  toast.classList.add('active');
-
-  setTimeout(() => {
-    toast.classList.remove('active');
-    window.location.hash = '';
-    window.location.reload();
-  }, 3000);
-
+    } catch (error) {
+        console.error('Error:', error);
+        alert('No se pudo actualizar el perfil.');
+    }
 }
+
+// Manejo de selección de archivo y validación de extensión
+function handleFileSelection() {
+    const photoInput = document.querySelector('input[type="file"][name="seleccionarFoto"]');
+    const file = photoInput.files[0];
+
+    if (file) {
+        const fileExtension = file.name.split('.').pop().toLowerCase();
+        if (['png', 'jpg', 'jpeg'].includes(fileExtension)) {
+            // Si el archivo tiene la extensión correcta, actualizamos la imagen en el modal
+            const modalTitle = document.querySelector('#modal-foto h2');
+            const modalMessage = document.querySelector('#modal-foto p');
+            modalTitle.textContent = '¡Foto subida exitosamente!';
+            modalMessage.textContent = '¿Deseas actualizarla?';
+
+            // Mostrar el toast de éxito
+            const toast = document.querySelector('.toast');
+            toast.classList.add('active');
+            setTimeout(() => {
+                toast.classList.remove('active');
+            }, 3000);
+
+            // Actualizar la imagen de vista previa
+            const reader = new FileReader();
+            reader.onloadend = function () {
+                document.getElementById('avatarUno').src = reader.result;
+                document.getElementById('avatarTres').src = reader.result;
+                document.getElementById('avatarDos').src = reader.result;
+            }
+            reader.readAsDataURL(file);
+        } else {
+            alert('Solo se permiten archivos de tipo PNG, JPG o JPEG.');
+        }
+    }
+}
+
+// Función para cerrar el modal sin hacer cambios
+function closeModal() {
+    const modal = document.getElementById('modal-foto');
+    modal.style.display = 'none';
+}
+
+// Función para confirmar la actualización y cerrar el modal
+function confirmUpdate() {
+    const modal = document.getElementById('modal-foto');
+    modal.style.display = 'none';
+}
+
+
+
+
+// const button = document.querySelector("#boton-guardar");
+// const toast = document.querySelector(".toast");
+// const progress = document.querySelector(".progress");
+
+// let timer1, timer2;
+
+// if (button && toast) {
+
+
+// button.addEventListener("click", () => {
+//     toast.classList.add("active");
+//     progress.classList.add("active");
+
+
+//     timer1 = setTimeout(() => {
+//         toast.classList.remove("active");
+
+//         window.location.href = window.routes.perfilCreado;
+
+
+//     }, 5000);
+
+//     timer2 = setTimeout(() => {
+//         progress.classList.remove("active");
+//     }, 5300);
+
+// });}
+
+// const buttonMovil = document.querySelector("#boton-movil");
+// const toastMovil = document.querySelector(".toast");
+// const progressMovil = document.querySelector(".progress");
+
+// let timerM1, timerM2;
+
+
+
+// if (buttonMovil && toastMovil) {
+
+
+//   buttonMovil.addEventListener("click", () => {
+//   toastMovil.classList.add("active");
+//   progressMovil.classList.add("active");
+
+
+//   timerM1 = setTimeout(() => {
+//       toastMovil.classList.remove("active");
+
+
+//       window.location.href = window.routes.perfilCreado;
+
+
+//     }, 5000);
+
+//     timerM2 = setTimeout(() => {
+//       progressMovil.classList.remove("active");
+//     }, 5300);
+
+// });}
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     const btnActualizar = document.getElementById('boton-actualizar');
+//     if (btnActualizar) {
+//         btnActualizar.addEventListener('click', function(event) {
+//             event.preventDefault();
+//             window.location.href = window.routes.editarPerfil;
+//         });
+//     }
+// });
+
+
+// document.addEventListener('DOMContentLoaded', function() {
+//     const links = document.querySelectorAll('a i.fa-pen-to-square');
+
+//     links.forEach(function(icon) {
+//         const parentLink = icon.parentElement;
+
+//         if (parentLink.tagName.toLowerCase() === 'a') {
+//             parentLink.addEventListener('click', function(event) {
+//                 event.preventDefault();
+
+//                 window.location.href = window.routes.editarPerfil;
+//             });
+//         }
+//     });
+// });
+
+
+// function handleFileSelection() {
+
+//   document.getElementById("modal-foto").style.display = "none";
+
+//   const toast = document.querySelector('.toast');
+//   toast.classList.add('active');
+
+//   setTimeout(() => {
+//     toast.classList.remove('active');
+//     window.location.hash = '';
+//     window.location.reload();
+//   }, 3000);
+
+// }
 
 // const navLinks = document.querySelectorAll('.nav-links a');
 

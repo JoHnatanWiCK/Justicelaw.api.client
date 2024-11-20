@@ -39,20 +39,28 @@
             <div class="perfil-content">
                 <div class="perfil-main">
                     <img id="fotoPerfil" src="../../img/fotoPerfil.png" alt="fotoPerfil">
-                    <a href="#modal-foto"><img id="circuloPerfil" src="../../img/circuloPerfil.png" alt="circuloPerfil">
+                    <a href="#modal-foto">
+                        <img id="circuloPerfil" src="../../img/circuloPerfil.png" alt="circuloPerfil">
                         <img id="agregarFoto" src="../../img/camaraAgreFoto.png" alt="camaraAgreFoto"></a>
 
                     <div id="modal-foto" class="modalDialog">
                         <div>
                           <a href="#close" title="Close" class="close"><i class="fa-solid fa-xmark close"></i></a>
-                          <h2>¡Haz que tu perfil sea más <br> personal!</h2>
-                          <p>Sube una foto de perfil para que te reconozcan fácilmente.</p>
+                          <h2 id="modal-title">¡Haz que tu perfil sea más <br> personal!</h2>
+                          <p id="modal-message">Sube una foto de perfil para que te reconozcan fácilmente.</p>
                           <img id="avatarUno" src="../../img/avatarUno.png" alt="avatarUno">
                           <img id="avatarTres" src="../../img/avatarTres.png" alt="avatarTres">
                           <img id="avatarDos" src="../../img/avatarDos.png" alt="avatarDos">
                           <div class="subir-foto" id="seleccionarFoto">
                             <input type="file" name="seleccionarFoto" aria-label="Subir foto" onchange="handleFileSelection()">
                           </div>
+
+                          <div id="confirmation-buttons" style="display:none;">
+                            <p id="confirmation-text"></p>
+                            <button onclick="confirmarFoto()">Sí, actualizar foto</button>
+                            <button onclick="cancelarFoto()">Cancelar</button>
+                        </div>
+
                         </div>
                     </div>
 

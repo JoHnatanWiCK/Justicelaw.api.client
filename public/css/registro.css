@@ -352,3 +352,17 @@
         margin-bottom: 6rem;
     }
 }
+
+
+.btn-registro{
+    margin-top: 1rem;
+    background-color: #fff;
+    color: #0a3b55;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 28%;
+    border: none;
+    padding: 10px 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: 600;
+}

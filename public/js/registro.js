@@ -51,7 +51,7 @@ async function registro(event) {
          if(response.ok){
             alert('Registro exitoso');
 
-            window.location.href = '/homeLogin';
+            window.location.href = '/login';
          }else{
             alert('Error registro' + JSON.stringify(data));
          }

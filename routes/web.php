@@ -42,7 +42,7 @@ Route::get('/', function () {
     return view(view: 'home');
 })->name('home');
 
-Route::get(' ', function () {
+Route::get('/homeLogin', function () {
     return view(view: 'homeLogin');
 })->name('homeLogin');
 

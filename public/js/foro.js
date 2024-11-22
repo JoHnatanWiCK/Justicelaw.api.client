@@ -1,3 +1,30 @@
+function closeModal() {
+    console.log('Cerrando modal...');
+
+    document.getElementById('respuestas').style.display = 'none';
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('questionForm');
+    const userInput = document.getElementById('userInput');
+
+    form.addEventListener('submit', function (e) {
+        if (!userInput.value) {
+            e.preventDefault(); // Evita el envío del formulario
+            alert('Es necesario iniciar sesión para acceder a esta función.');
+        }
+    });
+});
+
+
+
+
+
+
+
+
+
 const dateInput = document.getElementById('dateInput');
 
 const today = new Date();
@@ -45,14 +72,19 @@ document.addEventListener('DOMContentLoaded', async () => {
             const data = await response.json();
             console.log('Datos del usuario:', data);
 
+            
             const { id,name, last_name, rol, email } = data;
-            userNameElement.textContent = `${id} `;
-            const userInput = document.getElementById('userInput');
-            userInput.value = userNameElement.textContent.trim();
-            userRolElement.textContent = rol || 'Usuario';
-            userNameInput.value = `${name}`;
-            lastNameInput.value = `${last_name}`;
-            emailInput.value = `${email}`;
+
+            
+                userNameElement.textContent = `${id} `;
+                const userInput = document.getElementById('userInput');
+                userInput.value = userNameElement.textContent.trim();
+                userRolElement.textContent = rol || 'Usuario';
+                userNameInput.value = `${name}`;
+                lastNameInput.value = `${last_name}`;
+                emailInput.value = `${email}`;
+          
+          
         }
     } catch (error) {
         console.error('Error:', error.message);
@@ -85,7 +117,7 @@ document.getElementById('category-filter').addEventListener('change', function (
 
 
 function showModal(id, title, content, date,user,last) {
-    document.getElementById('smodal').style.display = 'flex';
+    document.getElementById('respuestas').style.display = 'flex';
     
 
     document.getElementById('modal-user').innerText = user+" "+last;
@@ -103,9 +135,6 @@ function showModal(id, title, content, date,user,last) {
    
 }
 
-function closeModal() {
-    document.getElementById('smodal').style.display = 'none';
-}
 
 document.getElementById('show-more').addEventListener('click', function() {
     const extraCategories = document.querySelectorAll('.extra-category');

@@ -158,9 +158,15 @@ async function guardarDatos() {
         });
 
         if (response.ok) {
+            const data = await response.json();
+            const photoUrl = data.photo;  // Asume que la API devuelve la URL de la foto en 'photo'
+
+            // Actualizar la imagen de perfil en la página
+            document.getElementById('fotoPerfil').src = photoUrl;
+
             // Mostrar el mensaje de éxito en el modal
-            const modalTitle = document.querySelector('#modal-foto h2');
-            const modalMessage = document.querySelector('#modal-foto p');
+            const modalTitle = document.getElementById('modal-title');
+            const modalMessage = document.getElementById('modal-message');
             modalTitle.textContent = '¡Foto subida exitosamente!';
             modalMessage.textContent = '¿Deseas actualizarla?';
 
@@ -171,13 +177,8 @@ async function guardarDatos() {
                 toast.classList.remove('active');
             }, 3000);
 
-            // Actualizar la imagen de perfil en la página
-            const photo = photoInput.files[0];
-            const reader = new FileReader();
-            reader.onloadend = function () {
-                document.getElementById('fotoPerfil').src = reader.result;
-            }
-            reader.readAsDataURL(photo);
+            // Cerrar el modal después de la actualización
+            closeModal();
         } else {
             const errorData = await response.json();
             console.error('Error:', errorData);
@@ -189,8 +190,6 @@ async function guardarDatos() {
     }
 }
 
-// Manejo de selección de archivo y validación de extensión
-// Mostrar botones de confirmación y ocultar botón de subir foto
 function handleFileSelection() {
     const photoInput = document.querySelector('input[type="file"][name="seleccionarFoto"]');
     const file = photoInput.files[0];
@@ -201,13 +200,25 @@ function handleFileSelection() {
             // Mostrar vista previa de la imagen seleccionada
             const reader = new FileReader();
             reader.onloadend = function () {
-                document.getElementById('avatarUno').src = reader.result;
-                document.getElementById('avatarDos').src = reader.result;
-                document.getElementById('avatarTres').src = reader.result;
+                document.getElementById('photo-preview').src = reader.result;
+                document.getElementById('photo-preview-container').style.display = 'block';
+
+                // Ocultar los avatares y mostrar solo la imagen seleccionada
+                const avatarsContainer = document.getElementById('avatars-container');
+                avatarsContainer.style.display = 'none';
             };
             reader.readAsDataURL(file);
 
-            // Mostrar los botones de confirmación
+            // Actualizar el título y mensaje del modal
+            const modalTitle = document.getElementById('modal-title');
+            const modalMessage = document.getElementById('modal-message');
+            modalTitle.textContent = 'Foto escogida correctamente';
+            modalMessage.textContent = '¿Seguro de actualizar esta foto de perfil?';
+
+            // Ocultar el botón de subir foto y mostrar los botones de confirmación
+            const seleccionarFoto = document.getElementById('seleccionarFoto');
+            seleccionarFoto.style.display = 'none';
+
             const confirmationButtons = document.getElementById('confirmation-buttons');
             confirmationButtons.style.display = 'block';
         } else {
@@ -217,66 +228,24 @@ function handleFileSelection() {
 }
 
 function confirmarFoto() {
-    const photoInput = document.querySelector('input[type="file"][name="seleccionarFoto"]');
-    const file = photoInput.files[0];
-    const token = localStorage.getItem('token');
-
-    if (!file || !token) {
-        alert('No hay ninguna foto seleccionada o no estás autenticado.');
-        return;
-    }
-
-    const formData = new FormData();
-    formData.append('photo', file);
-
-    // Llamada a la API para subir la foto
-    fetch('https://apijusticelaw-production.up.railway.app/v1/profile', {
-        method: 'POST',
-        headers: {
-            'Authorization': `Bearer ${token}`
-        },
-        body: formData
-    })
-    .then(response => {
-        if (response.ok) {
-            return response.json();
-        } else {
-            throw new Error('Error al subir la foto');
-        }
-    })
-    .then(data => {
-        console.log('Foto actualizada:', data);
-
-        // Actualizar la foto de perfil
-        const reader = new FileReader();
-        reader.onloadend = function () {
-            document.getElementById('fotoPerfil').src = reader.result;
-        };
-        reader.readAsDataURL(file);
-
-        // Mostrar toast de éxito
-        const toast = document.querySelector('.toast');
-        toast.classList.add('active');
-        setTimeout(() => {
-            toast.classList.remove('active');
-        }, 3000);
-
-        // Ocultar el modal y los botones de confirmación
-        document.getElementById('confirmation-buttons').style.display = 'none';
-        closeModal();
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('No se pudo actualizar la foto.');
-    });
+    guardarDatos();
 }
 
 function cancelarFoto() {
     // Ocultar los botones de confirmación y limpiar la selección del archivo
     const confirmationButtons = document.getElementById('confirmation-buttons');
     confirmationButtons.style.display = 'none';
+
+    // Mostrar el botón de subir foto
+    const seleccionarFoto = document.getElementById('seleccionarFoto');
+    seleccionarFoto.style.display = 'block';
+
+    // Volver a mostrar los avatares
+    const avatarsContainer = document.getElementById('avatars-container');
+    avatarsContainer.style.display = 'flex';
+
     const photoInput = document.querySelector('input[type="file"][name="seleccionarFoto"]');
-    photoInput.value = ''; // Limpia el input de archivo
+    photoInput.value = '';
 }
 
 function closeModal() {

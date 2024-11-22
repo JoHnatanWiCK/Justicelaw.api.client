@@ -72,7 +72,6 @@
 
                                 <!-- Botones de confirmación (ocultos por defecto) -->
                                 <div id="confirmation-buttons" style="display: none;">
-                                    <p id="confirmation-text">¿Deseas actualizar esta foto de perfil?</p>
                                     <button onclick="confirmarFoto()">Sí, actualizar foto</button>
                                     <button onclick="cancelarFoto()">Cancelar</button>
                                 </div>

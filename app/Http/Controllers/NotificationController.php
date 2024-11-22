@@ -25,7 +25,7 @@ class NotificationController extends Controller
 
         return $notifications;
 
-        // return view('user-profile.index', compact('usersProfile'));
+        // return view('notification.notification', compact('$notifications'));
     }
 
     /**

@@ -1,9 +1,11 @@
+// URL base para las notificaciones
 const baseUrl = 'https://apijusticelaw-production.up.railway.app/v1';
 
 // Función para inicializar el DOM
 document.addEventListener('DOMContentLoaded', function () {
     const corazones = document.querySelectorAll('.corazon');
 
+    // Manejo del evento de "Me gusta"
     corazones.forEach(corazon => {
         corazon.addEventListener('click', function () {
             const notificationId = corazon.closest('.notification').getAttribute('data-id');
@@ -157,12 +159,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
             notifications.forEach(notification => {
                 const notificationElement = document.createElement('div');
-                notificationElement.className = `notification ${notification.type} container2`;
+                notificationElement.className = `notification ${notification.read_at ? '' : 'unread'} container2`;
                 notificationElement.setAttribute('data-id', notification.id);
 
                 notificationElement.innerHTML = `
-                    <img class="img-perfil" src="${notification.userImage}" alt="perfil">
-                    <a href="${notification.link}">${notification.message}</a>
+                    <img class="img-perfil" src="../../img/fotoPerfil.png" alt="perfil">
+                    <a href="${notification.data.url || '#'}">${notification.data.message || 'Notificación sin mensaje'}</a>
                     <img class="corazon" src="../../img/Like.png" alt="Like">
                     <div class="user-menu2">
                         <label class="dropdown-toggle">

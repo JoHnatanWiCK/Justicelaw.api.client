@@ -34,7 +34,7 @@
         </div>
         <nav class="nav-links">
             <a id="about-us" href="{{ route('sobreNosotros')}}">Sobre nosotros</a>
-            <a id="foro" href="{{ route('informaciones')}}">Informaciones</a>
+            <a id="foro" href="{{ route('index')}}">Informaciones</a>
             <a id="foro" href="{{ route('foro')}}">Foro</a>
             <a id="login" href="{{ route('login')}}">Iniciar Sesión</a>
         </nav>

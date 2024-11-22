@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="search-bar">
-            <input type="text" placeholder="" />
+            <input type="text"  id="search-input" placeholder="" />
             <button id="buscarBtn">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
@@ -33,7 +33,7 @@
 
             <a id="about-us" href="#">Sobre nosotros</a>
             <a id="foro" href="{{ route('forologin')}}">Foro</a>
-            <a id="informaciones" href="{{ route('informaciones')}}">Informaciones</a>
+            <a id="informaciones" href="{{ route('index')}}">Informaciones</a>
         </nav>
         <div class="user-menu">
             <img class="img-perfil" src="../../img/fotoPerfil.png" alt="foto de Perfil" />

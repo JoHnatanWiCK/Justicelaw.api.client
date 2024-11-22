@@ -1,4 +1,4 @@
- @extends('layouts.layout')
+@extends('layouts.layout')
 
 @section('title', 'Foro')
 
@@ -20,7 +20,7 @@
     <aside class="sidebar">
         <div class="ask-question">
             <h3>Escribe tu duda....</h3>
-            <form action="{{ route('api.v1.questions.store') }}" method="POST">
+            <form id="questionForm" action="{{ route('api.v1.questions.store') }}" method="POST">
                 @csrf
                 <input type="text" name="affair" placeholder="Asunto:" required />
                 <input type="date" id="dateInput" name="date_publication" style="display: none;" required>
@@ -95,7 +95,7 @@
 @endforeach    
         </div>
 
-        <div id="smodal" class="modal" style="display: none;" >
+        <div id="respuestas" class="modal" style="display: none;" >
                     <div class="modal-content">
                             <span class="close-button" onclick="closeModal()">×</span>
                             

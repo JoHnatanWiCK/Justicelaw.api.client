@@ -18,9 +18,10 @@
 @endsection
 
 @push('styles')
-<link rel="stylesheet" href="{{ asset('css/informaciones.css') }}">
+<link rel="stylesheet" href="css/informaciones.css">
 @endpush
 
+
 @push('scripts')
-<script src="{{ asset('js/informacion.js') }}"></script>
+<script src="js/informacion.js"></script>
 @endpush

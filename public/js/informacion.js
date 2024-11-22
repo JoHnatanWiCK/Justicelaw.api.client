@@ -58,34 +58,30 @@ document.querySelectorAll('.filter-menu button').forEach(button => {
 
         
         document.addEventListener("DOMContentLoaded", function () {
-          const container = document.getElementById("information-container"); // Asegúrate de que este ID exista en tu HTML
-          const searchInput = document.getElementById("search-input");
-          const buscarBtn = document.getElementById("buscarBtn");
+          const container = document.getElementById("information-container"); // Contenedor donde se mostrarán las informaciones
+          const searchInput = document.getElementById("search-input"); // Campo de búsqueda
+          const buscarBtn = document.getElementById("buscarBtn"); // Botón de búsqueda
       
-          // Función para cargar las informaciones desde la API
-          function loadInformations(query = "") {
-              // Crear la URL para la API
-              const apiUrl = query ? `/api/v1/informations?search=${encodeURIComponent(query)}` : `/api/v1/informations`;
+          // Función para cargar las informaciones filtradas desde la API
+          function loadInformations(query) {
+              const apiUrl = `/api/v1/informations/search?search=${encodeURIComponent(query)}`;
       
-              // Hacer la solicitud a la API
+              // Cambié la URL de la solicitud para que utilice la API correcta
               fetch(apiUrl)
                   .then(response => response.json())
                   .then(data => {
-                      // Limpiar el contenedor antes de insertar nuevas tarjetas
-                      container.innerHTML = "";
+                      container.innerHTML = ""; // Limpiar el contenedor
       
-                      // Manejar el caso en que no se encuentren datos
                       if (data.length === 0) {
                           container.innerHTML = `
                               <p class="text-center text-muted">No se encontraron artículos.</p>
                           `;
                       } else {
-                          // Insertar dinámicamente las tarjetas
                           data.forEach(information => {
                               const card = `
                                   <div class="col-md-4">
                                       <div class="card mb-4">
-                                          <img class="card-img-top" src="${information.cover_photo ?? 'default-image.jpg'}" alt="${information.title}">
+                                          <img class="card-img-top" src="${information.cover_photo ?? 'default-image.jpg'}" alt="${information.name}">
                                           <div class="card-body">
                                               <h5 class="card-title">${information.name}</h5>
                                               <p class="card-text">${information.body.substring(0, 150)}...</p>
@@ -106,8 +102,8 @@ document.querySelectorAll('.filter-menu button').forEach(button => {
                   });
           }
       
-          // Cargar todas las informaciones al iniciar
-          loadInformations();
+          // Llamar a la función con una búsqueda vacía para cargar todas las informaciones inicialmente
+          loadInformations("");
       
           // Listener para el botón de búsqueda
           buscarBtn.addEventListener("click", function (event) {

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
-class UserProfileController extends Controller
+class NotificationController extends Controller
 {
 
     private function fetchDataFromApi($url)
@@ -25,7 +25,7 @@ class UserProfileController extends Controller
 
         return $notifications;
 
-        // return view('user-profile.index', compact('usersProfile'));
+        // return view('notification.notification', compact('$notifications'));
     }
 
     /**

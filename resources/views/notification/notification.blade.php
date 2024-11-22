@@ -20,7 +20,7 @@
                 <a href="{{ route('historial') }}"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>
             </li>
             <li>
-                <a href="{{ route('configuracion') }}"><i class="fa-solid fa-gear"></i>Configuracion</a>
+                <a href="{{ route('configuracion') }}"><i class="fa-solid fa-gear"></i>Configuración</a>
             </li>
             <li>
                 <a href="{{ route('notificaciones') }}"><i class="fa-regular fa-bell"></i>Notificaciones</a>
@@ -54,14 +54,14 @@
         <div class="notifications-list">
             @foreach ($notifications as $notification)
                 <div class="notification {{ $notification->read_at ? '' : 'unread' }} container2" data-id="{{ $notification->id }}">
-                    <img class="img-perfil" src="{{ asset('img/fotoPerfil.png') }}" alt="f-perfil">
+                    <img class="img-perfil" src="{{ asset('img/fotoPerfil.png') }}" alt="Foto de perfil">
                     <a href="{{ $notification->data['url'] ?? '#' }}">
                         {{ $notification->data['message'] ?? 'Notificación sin mensaje' }}
                     </a>
                     <img class="corazon" src="{{ asset('img/Like.png') }}" alt="Like">
                     <div class="user-menu2">
                         <label class="dropdown-toggle">
-                            <img class="img-3puntos" src="{{ asset('img/trespuntos.png') }}" alt="flecha">
+                            <img class="img-3puntos" src="{{ asset('img/trespuntos.png') }}" alt="Opciones">
                         </label>
                         <div class="dropdown2">
                             <ul>

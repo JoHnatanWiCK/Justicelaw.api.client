@@ -70,10 +70,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // Función para dar "Me gusta" a una notificación
     async function toggleLike(notificationId, corazon) {
         try {
-            const response = await fetch(`${baseUrl}/notifications/${notificationId}/like`, {
+            const token = getToken(); // Obtén el token del localStorage
+
+            if (!token) {
+                alert('No se ha encontrado el token de autenticación. Por favor, inicie sesión nuevamente.');
+                return;
+            }
+
+            const response = await fetch(`${baseUrl}/auth/notifications/${notificationId}/like`, {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`,
+                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
             });
@@ -84,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const result = await response.json();
 
+            // Cambia el ícono de "Me gusta"
             corazon.src = corazon.src.includes('Like.png') 
                 ? '../../img/Like2.png' 
                 : '../../img/Like.png';
@@ -96,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Función para manejar acciones en notificaciones
     async function fetchNotificationsAction(action, notificationId = null) {
-        let url = `${baseUrl}/notifications`;
+        let url = `${baseUrl}/auth/notifications`;
 
         if (notificationId) {
             url = `${url}/${notificationId}`;
@@ -111,10 +119,17 @@ document.addEventListener('DOMContentLoaded', function () {
         }[action] || 'POST';
 
         try {
+            const token = getToken(); // Obtén el token del localStorage
+
+            if (!token) {
+                alert('No se ha encontrado el token de autenticación. Por favor, inicie sesión nuevamente.');
+                return;
+            }
+
             const response = await fetch(url, {
                 method: method,
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`,
+                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
                 body: notificationId ? JSON.stringify({ action }) : null,
@@ -142,18 +157,26 @@ document.addEventListener('DOMContentLoaded', function () {
         const notificationsList = document.querySelector('.notifications-list');
 
         try {
-            const response = await fetch(`${baseUrl}/notifications`, {
+            const token = getToken(); // Obtén el token del localStorage
+
+            if (!token) {
+                alert('No se ha encontrado el token de autenticación. Por favor, inicie sesión nuevamente.');
+                return;
+            }
+
+            const response = await fetch(`${baseUrl}/auth/notifications`, {
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('jwtToken')}`,
+                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
             });
 
             if (!response.ok) {
-                throw new Error('Error al obtener las notificaciones');
+                throw new Error(`Error al obtener las notificaciones: ${response.statusText}`);
             }
 
             const notifications = await response.json();
+            console.log('Notificaciones obtenidas:', notifications); // Verifica el contenido de la respuesta
 
             notificationsList.innerHTML = ''; // Limpia la lista actual
 
@@ -195,6 +218,13 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
             console.error('Error al renderizar notificaciones:', error);
         }
+    }
+
+    // Función para obtener el token de localStorage
+    function getToken() {
+        const token = localStorage.getItem('token');
+        console.log('Token obtenido:', token); // Verifica si el token está presente
+        return token;
     }
 
     // Inicializar la lista de notificaciones

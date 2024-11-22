@@ -51,33 +51,17 @@
                 </div>
             </div>
         </div>
+
+        <!-- Contenedor vacío para las notificaciones -->
         <div class="notifications-list">
-            @foreach ($notifications as $notification)
-                <div class="notification {{ $notification->read_at ? '' : 'unread' }} container2" data-id="{{ $notification->id }}">
-                    <img class="img-perfil" src="{{ asset('img/fotoPerfil.png') }}" alt="Foto de perfil">
-                    <a href="{{ $notification->data['url'] ?? '#' }}">
-                        {{ $notification->data['message'] ?? 'Notificación sin mensaje' }}
-                    </a>
-                    <img class="corazon" src="{{ asset('img/Like.png') }}" alt="Like">
-                    <div class="user-menu2">
-                        <label class="dropdown-toggle">
-                            <img class="img-3puntos" src="{{ asset('img/trespuntos.png') }}" alt="Opciones">
-                        </label>
-                        <div class="dropdown2">
-                            <ul>
-                                <li><a href="#" class="mark-read" data-id="{{ $notification->id }}">Marcar como leído</a></li>
-                                <li><a href="#" class="archive" data-id="{{ $notification->id }}">Archivar notificación</a></li>
-                                <li><a href="#" class="delete" data-id="{{ $notification->id }}">Eliminar notificación</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
+            <!-- Las notificaciones serán inyectadas aquí dinámicamente con JavaScript -->
         </div>
+
         <div class="notifications-actions">
             <button id="marcarTodoLeido">Marcar todo como leído</button>
             <button id="archivarTodo">Archivar todo</button>
-        </div>    
+        </div>
+
         <div class="toast">
             <div class="toast-content">
                 <img src="../../img/check.png"  class="check" alt="check">

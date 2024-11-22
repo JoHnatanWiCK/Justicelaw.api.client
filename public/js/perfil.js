@@ -190,6 +190,7 @@ async function guardarDatos() {
 }
 
 // Manejo de selección de archivo y validación de extensión
+// Mostrar botones de confirmación y ocultar botón de subir foto
 function handleFileSelection() {
     const photoInput = document.querySelector('input[type="file"][name="seleccionarFoto"]');
     const file = photoInput.files[0];
@@ -197,47 +198,93 @@ function handleFileSelection() {
     if (file) {
         const fileExtension = file.name.split('.').pop().toLowerCase();
         if (['png', 'jpg', 'jpeg'].includes(fileExtension)) {
-            // Si el archivo tiene la extensión correcta, actualizamos la imagen en el modal
-            const modalTitle = document.querySelector('#modal-foto h2');
-            const modalMessage = document.querySelector('#modal-foto p');
-            modalTitle.textContent = '¡Foto subida exitosamente!';
-            modalMessage.textContent = '¿Deseas actualizarla?';
-
-            // Mostrar el toast de éxito
-            const toast = document.querySelector('.toast');
-            toast.classList.add('active');
-            setTimeout(() => {
-                toast.classList.remove('active');
-            }, 3000);
-
-            // Actualizar la imagen de vista previa
+            // Mostrar vista previa de la imagen seleccionada
             const reader = new FileReader();
             reader.onloadend = function () {
                 document.getElementById('avatarUno').src = reader.result;
-                document.getElementById('avatarTres').src = reader.result;
                 document.getElementById('avatarDos').src = reader.result;
-            }
+                document.getElementById('avatarTres').src = reader.result;
+            };
             reader.readAsDataURL(file);
+
+            // Mostrar los botones de confirmación
+            const confirmationButtons = document.getElementById('confirmation-buttons');
+            confirmationButtons.style.display = 'block';
         } else {
             alert('Solo se permiten archivos de tipo PNG, JPG o JPEG.');
         }
     }
 }
 
-// Función para cerrar el modal sin hacer cambios
+function confirmarFoto() {
+    const photoInput = document.querySelector('input[type="file"][name="seleccionarFoto"]');
+    const file = photoInput.files[0];
+    const token = localStorage.getItem('token');
+
+    if (!file || !token) {
+        alert('No hay ninguna foto seleccionada o no estás autenticado.');
+        return;
+    }
+
+    const formData = new FormData();
+    formData.append('photo', file);
+
+    // Llamada a la API para subir la foto
+    fetch('https://apijusticelaw-production.up.railway.app/v1/profile', {
+        method: 'POST',
+        headers: {
+            'Authorization': `Bearer ${token}`
+        },
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            return response.json();
+        } else {
+            throw new Error('Error al subir la foto');
+        }
+    })
+    .then(data => {
+        console.log('Foto actualizada:', data);
+
+        // Actualizar la foto de perfil
+        const reader = new FileReader();
+        reader.onloadend = function () {
+            document.getElementById('fotoPerfil').src = reader.result;
+        };
+        reader.readAsDataURL(file);
+
+        // Mostrar toast de éxito
+        const toast = document.querySelector('.toast');
+        toast.classList.add('active');
+        setTimeout(() => {
+            toast.classList.remove('active');
+        }, 3000);
+
+        // Ocultar el modal y los botones de confirmación
+        document.getElementById('confirmation-buttons').style.display = 'none';
+        closeModal();
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('No se pudo actualizar la foto.');
+    });
+}
+
+function cancelarFoto() {
+    // Ocultar los botones de confirmación y limpiar la selección del archivo
+    const confirmationButtons = document.getElementById('confirmation-buttons');
+    confirmationButtons.style.display = 'none';
+    const photoInput = document.querySelector('input[type="file"][name="seleccionarFoto"]');
+    photoInput.value = ''; // Limpia el input de archivo
+}
+
 function closeModal() {
     const modal = document.getElementById('modal-foto');
-    modal.style.display = 'none';
+    if (modal) {
+        modal.style.display = 'none'; // Cierra el modal después de la actualización
+    }
 }
-
-// Función para confirmar la actualización y cerrar el modal
-function confirmUpdate() {
-    const modal = document.getElementById('modal-foto');
-    modal.style.display = 'none';
-}
-
-
-
 
 // const button = document.querySelector("#boton-guardar");
 // const toast = document.querySelector(".toast");

@@ -43,26 +43,43 @@
                         <img id="circuloPerfil" src="../../img/circuloPerfil.png" alt="circuloPerfil">
                         <img id="agregarFoto" src="../../img/camaraAgreFoto.png" alt="camaraAgreFoto"></a>
 
-                    <div id="modal-foto" class="modalDialog">
-                        <div>
-                          <a href="#close" title="Close" class="close"><i class="fa-solid fa-xmark close"></i></a>
-                          <h2 id="modal-title">¡Haz que tu perfil sea más <br> personal!</h2>
-                          <p id="modal-message">Sube una foto de perfil para que te reconozcan fácilmente.</p>
-                          <img id="avatarUno" src="../../img/avatarUno.png" alt="avatarUno">
-                          <img id="avatarTres" src="../../img/avatarTres.png" alt="avatarTres">
-                          <img id="avatarDos" src="../../img/avatarDos.png" alt="avatarDos">
-                          <div class="subir-foto" id="seleccionarFoto">
-                            <input type="file" name="seleccionarFoto" aria-label="Subir foto" onchange="handleFileSelection()">
-                          </div>
+                        <div id="modal-foto" class="modalDialog">
+                            <div>
+                                <a href="#close" title="Close" class="close"><i class="fa-solid fa-xmark close"></i></a>
 
-                          <div id="confirmation-buttons" style="display:none;">
-                            <p id="confirmation-text"></p>
-                            <button onclick="confirmarFoto()">Sí, actualizar foto</button>
-                            <button onclick="cancelarFoto()">Cancelar</button>
+                                <!-- Título dinámico -->
+                                <h2 id="modal-title">¡Haz que tu perfil sea más <br> personal!</h2>
+
+                                <!-- Mensaje dinámico -->
+                                <p id="modal-message">Sube una foto de perfil para que te reconozcan fácilmente.</p>
+
+                                <!-- Avatares y selección de foto -->
+                                <div id="avatars-container">
+                                    <img id="avatarUno" src="../../img/avatarUno.png" alt="avatarUno">
+                                    <img id="avatarTres" src="../../img/avatarTres.png" alt="avatarTres">
+                                    <img id="avatarDos" src="../../img/avatarDos.png" alt="avatarDos">
+                                </div>
+
+                                <!-- Botón para subir foto -->
+                                <div class="subir-foto" id="seleccionarFoto">
+                                    <input type="file" name="seleccionarFoto" aria-label="Subir foto" onchange="handleFileSelection()">
+                                </div>
+
+                                <!-- Vista previa de la foto seleccionada -->
+                                <div id="photo-preview-container" style="display: none; text-align: center;">
+                                    <img id="photo-preview" alt="Vista previa de la foto" style="max-width: 100px; max-height: 100px; border-radius: 50%; margin: 10px 0;">
+                                </div>
+
+                                <!-- Botones de confirmación (ocultos por defecto) -->
+                                <div id="confirmation-buttons" style="display: none;">
+                                    <p id="confirmation-text">¿Deseas actualizar esta foto de perfil?</p>
+                                    <button onclick="confirmarFoto()">Sí, actualizar foto</button>
+                                    <button onclick="cancelarFoto()">Cancelar</button>
+                                </div>
+                            </div>
                         </div>
 
-                        </div>
-                    </div>
+
 
                     <div class="nombre-perfil">
                         <h3 id="userName"></h3>

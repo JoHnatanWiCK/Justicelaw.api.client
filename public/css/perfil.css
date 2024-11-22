@@ -977,3 +977,7 @@ select:focus {
     float: right;
     text-decoration: none;
 }
+
+#confirmation-buttons {
+    display: none;
+}

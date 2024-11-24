@@ -139,7 +139,7 @@
         background-position: center;
         overflow: hidden;
 
-        height: 100%;
+        height: 40rem;
         box-sizing: border-box;
     }
     .justice h1 {
@@ -156,7 +156,7 @@
     }
     .law h1 {
         margin-left: 100%;
-        margin-top: -19rem;
+        margin-top: -14.2rem;
         font-size: 60px;
         color: #cf9e3e;
     }
@@ -365,4 +365,11 @@
     cursor: pointer;
     border-radius: 10px;
     font-weight: 600;
+}
+
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
 }

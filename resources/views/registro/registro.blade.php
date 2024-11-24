@@ -27,10 +27,11 @@
         <form action="#" onsubmit="registro(event)">
     <label for="nombre">Nombres</label>
     <input id="nombre" type="text" name="nombre">
+    <div id="errorNombre" class="error-message"></div>
 
     <label for="apellido">Apellidos</label>
     <input id="apellido" type="text" name="apellido">
-
+    <div id="errorApellido" class="error-message"></div>
 
     <label for="tip_doc">Tipo de Documento</label>
     <select id="tip_doc_web" name="tip_doc">
@@ -39,14 +40,15 @@
 
     <label for="num_doc">Numero de Documento</label>
     <input id="num_doc" type="text" name="num_doc">
-
+    <div id="errorNum_doc" class="error-message"></div>
 
 
     <label for="gmail">Email</label>
     <input id="gmail" type="email" name="gmail">
-
+    <div id="errorGmail" class="error-message"></div>
     <label for="contraseña">Contraseña</label>
     <input id="contraseña" type="password" name="contraseña">
+    <div id="errorContraseña" class="error-message"></div>
     <div class="bot"><button type="submit" class="btn-registro" id="btnRegistro">Registrarse</button></div>
 </form>
     <div class="parrafo">

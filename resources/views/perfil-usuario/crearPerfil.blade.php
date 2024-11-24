@@ -38,7 +38,7 @@
             <hr>
             <div class="perfil-content">
                 <div class="perfil-main">
-                    <img id="fotoPerfil" src="../../img/fotoPerfil.png" alt="fotoPerfil">
+                    <img id="fotoPerfilActu" src="../../img/fotoPerfil.png" alt="fotoPerfil">
                     <a href="#modal-foto">
                         <img id="circuloPerfil" src="../../img/circuloPerfil.png" alt="circuloPerfil">
                         <img id="agregarFoto" src="../../img/camaraAgreFoto.png" alt="camaraAgreFoto"></a>
@@ -63,6 +63,7 @@
                                 <!-- Botón para subir foto -->
                                 <div class="subir-foto" id="seleccionarFoto">
                                     <input type="file" name="seleccionarFoto" aria-label="Subir foto" onchange="handleFileSelection()">
+
                                 </div>
 
                                 <!-- Vista previa de la foto seleccionada -->
@@ -72,9 +73,11 @@
 
                                 <!-- Botones de confirmación (ocultos por defecto) -->
                                 <div id="confirmation-buttons" style="display: none;">
-                                    <button onclick="confirmarFoto()">Sí, actualizar foto</button>
-                                    <button onclick="cancelarFoto()">Cancelar</button>
+                                    <button id="btnConfirmar" onclick="confirmarFoto()">Sí, actualizar foto</button>
+                                    <button id="btnCancelar" onclick="cancelarFoto()">Cancelar</button>
                                 </div>
+
+
                             </div>
                         </div>
 

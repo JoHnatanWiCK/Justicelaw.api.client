@@ -1,7 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetchCountries();
-    fetchStates();
-    fetchCities();
+
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -79,13 +78,12 @@ async function fetchCountries() {
     }
 }
 
-
-async function fetchStates() {
+async function fetchStates(countryId) {
     const statesSelect = document.getElementById('estado');
     statesSelect.innerHTML = '<option value="">Selecciona un estado:</option>';
 
     try {
-        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/states');
+        const response = await fetch(`https://apijusticelaw-production.up.railway.app/v1/states/${countryId}`);
         const data = await response.json();
 
         console.log('States Data:', data);
@@ -105,12 +103,14 @@ async function fetchStates() {
     }
 }
 
-async function fetchCities() {
+
+
+async function fetchCities(stateId) {
     const citiesSelect = document.getElementById('ciudad');
     citiesSelect.innerHTML = '<option value="">Selecciona una ciudad:</option>';
 
     try {
-        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/cities');
+        const response = await fetch(`https://apijusticelaw-production.up.railway.app/v1/cities/${stateId}`);
         const data = await response.json();
 
         console.log('Cities Data:', data);
@@ -129,6 +129,90 @@ async function fetchCities() {
         console.error('Error fetching cities:', error);
     }
 }
+
+document.getElementById('pais').addEventListener('change', function () {
+    const countryId = this.value;
+    if (countryId) {
+        fetchStates(countryId);
+    } else {
+        document.getElementById('estado').innerHTML = '<option value="">Selecciona un estado:</option>';
+        document.getElementById('ciudad').innerHTML = '<option value="">Selecciona una ciudad:</option>';
+    }
+});
+
+document.getElementById('estado').addEventListener('change', function () {
+    const stateId = this.value;
+    if (stateId) {
+        fetchCities(stateId);
+    } else {
+        document.getElementById('ciudad').innerHTML = '<option value="">Selecciona una ciudad:</option>';
+    }
+});
+
+async function cargarDatos() {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+        alert('No estás autenticado.');
+        return;
+    }
+
+    try {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/getprofile', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Datos del perfil:', data);
+
+            document.getElementById('telefono').value = data.cell_phone || '';
+
+            setSelectOptionById('pais', data.country_id, data.country);
+            setSelectOptionById('estado', data.state_id, data.state);
+            setSelectOptionById('ciudad', data.city_id, data.city);
+
+            const fotoPerfil = document.getElementById('fotoPerfilActu');
+            if (fotoPerfil) {
+                const photoUrl = data.photo ? `${data.photo}?timestamp=${new Date().getTime()}` : '../../img/fotoPerfil.png';
+                fotoPerfil.src = photoUrl;
+                console.log('Imagen de perfil cargada:', photoUrl);
+            } else {
+                console.error('Elemento con id "fotoPerfil" no encontrado.');
+            }
+
+        } else {
+            const errorData = await response.json();
+            console.error('Error al cargar los datos del perfil:', errorData);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+function setSelectOptionById(selectId, optionValue, optionText) {
+    const selectElement = document.getElementById(selectId);
+    if (selectElement) {
+        let optionExists = false;
+        for (let i = 0; i < selectElement.options.length; i++) {
+            if (selectElement.options[i].value == optionValue) {
+                selectElement.options[i].selected = true;
+                optionExists = true;
+                break;
+            }
+        }
+        if (!optionExists) {
+            const newOption = new Option(optionText, optionValue, true, true);
+            selectElement.add(newOption, undefined);
+        }
+    }
+}
+
+document.addEventListener('DOMContentLoaded', cargarDatos);
+
 async function guardarDatos() {
     const token = localStorage.getItem('token');
 
@@ -145,7 +229,7 @@ async function guardarDatos() {
 
     const photoInput = document.querySelector('input[type="file"][name="seleccionarFoto"]');
     if (photoInput.files.length > 0) {
-        formData.append('photo', photoInput.files[0]);
+        formData.append('profile_photo', photoInput.files[0]);
     }
 
     try {
@@ -159,26 +243,41 @@ async function guardarDatos() {
 
         if (response.ok) {
             const data = await response.json();
-            const photoUrl = data.photo;  // Asume que la API devuelve la URL de la foto en 'photo'
+            console.log('Respuesta del servidor:', data);
 
-            // Actualizar la imagen de perfil en la página
-            document.getElementById('fotoPerfil').src = photoUrl;
+            const photoName = data.photo;
+            let photoUrl = '../img/fotoPerfil.png';
 
-            // Mostrar el mensaje de éxito en el modal
+            if (photoName) {
+                photoUrl = `https://apijusticelaw-production.up.railway.app${photoName}?t=${new Date().getTime()}`;
+            }
+
+            console.log('URL de la foto:', photoUrl);
+
+            const fotoPerfil = document.getElementById('fotoPerfil');
+            if (fotoPerfil) {
+                fotoPerfil.src = photoUrl;
+            }
+
             const modalTitle = document.getElementById('modal-title');
             const modalMessage = document.getElementById('modal-message');
-            modalTitle.textContent = '¡Foto subida exitosamente!';
-            modalMessage.textContent = '¿Deseas actualizarla?';
+            modalTitle.textContent = '¡Perfil actualizado!';
+            modalMessage.textContent = 'Tu foto de perfil se ha actualizado con éxito.';
 
-            // Mostrar el toast de éxito
-            const toast = document.querySelector('.toast');
-            toast.classList.add('active');
+            toast.classList.add("active");
+
+            // Ocultar el toast después de 3 segundos
             setTimeout(() => {
-                toast.classList.remove('active');
+                toast.classList.remove("active");
             }, 3000);
 
-            // Cerrar el modal después de la actualización
-            closeModal();
+            // Recargar la página o cerrar el modal
+            setTimeout(() => {
+                closeModal();
+                window.location.reload();  // Recargar la página después del toast
+            }, 4000);
+
+
         } else {
             const errorData = await response.json();
             console.error('Error:', errorData);
@@ -197,32 +296,24 @@ function handleFileSelection() {
     if (file) {
         const fileExtension = file.name.split('.').pop().toLowerCase();
         if (['png', 'jpg', 'jpeg'].includes(fileExtension)) {
-            // Mostrar vista previa de la imagen seleccionada
             const reader = new FileReader();
             reader.onloadend = function () {
                 document.getElementById('photo-preview').src = reader.result;
                 document.getElementById('photo-preview-container').style.display = 'block';
 
-                // Ocultar los avatares y mostrar solo la imagen seleccionada
-                const avatarsContainer = document.getElementById('avatars-container');
-                avatarsContainer.style.display = 'none';
+                document.getElementById('avatars-container').style.display = 'none';
             };
             reader.readAsDataURL(file);
 
-            // Actualizar el título y mensaje del modal
             const modalTitle = document.getElementById('modal-title');
             const modalMessage = document.getElementById('modal-message');
-            modalTitle.textContent = 'Foto escogida correctamente';
-            modalMessage.textContent = '¿Seguro de actualizar esta foto de perfil?';
+            modalTitle.textContent = 'Foto seleccionada';
+            modalMessage.textContent = '¿Quieres actualizar tu foto de perfil?';
 
-            // Ocultar el botón de subir foto y mostrar los botones de confirmación
-            const seleccionarFoto = document.getElementById('seleccionarFoto');
-            seleccionarFoto.style.display = 'none';
-
-            const confirmationButtons = document.getElementById('confirmation-buttons');
-            confirmationButtons.style.display = 'block';
+            document.getElementById('seleccionarFoto').style.display = 'none';
+            document.getElementById('confirmation-buttons').style.display = 'block';
         } else {
-            alert('Solo se permiten archivos de tipo PNG, JPG o JPEG.');
+            alert('Solo se permiten archivos PNG, JPG o JPEG.');
         }
     }
 }
@@ -232,27 +323,39 @@ function confirmarFoto() {
 }
 
 function cancelarFoto() {
-    // Ocultar los botones de confirmación y limpiar la selección del archivo
-    const confirmationButtons = document.getElementById('confirmation-buttons');
-    confirmationButtons.style.display = 'none';
+    document.getElementById('confirmation-buttons').style.display = 'none';
+    document.getElementById('seleccionarFoto').style.display = 'block';
+    document.getElementById('avatars-container').style.display = 'flex';
 
-    // Mostrar el botón de subir foto
-    const seleccionarFoto = document.getElementById('seleccionarFoto');
-    seleccionarFoto.style.display = 'block';
-
-    // Volver a mostrar los avatares
-    const avatarsContainer = document.getElementById('avatars-container');
-    avatarsContainer.style.display = 'flex';
-
+    document.getElementById('photo-preview-container').style.display = 'none';
     const photoInput = document.querySelector('input[type="file"][name="seleccionarFoto"]');
     photoInput.value = '';
 }
 
 function closeModal() {
-    const modal = document.getElementById('modal-foto');
-    if (modal) {
-        modal.style.display = 'none'; // Cierra el modal después de la actualización
-    }
+    window.location.href = '#close';
+}
+
+const button = document.querySelector("#boton-guardar");
+const toast = document.querySelector(".toast");
+const progress = document.querySelector(".progress");
+
+let timer1, timer2;
+
+if (button && toast) {
+    button.addEventListener("click", () => {
+        // Mostrar el progreso y el toast
+        toast.classList.add("active");
+        progress.classList.add("active");
+
+        timer1 = setTimeout(() => {
+            toast.classList.remove("active");
+        }, 5000);
+
+        timer2 = setTimeout(() => {
+            progress.classList.remove("active");
+        }, 5300);
+    });
 }
 
 // const button = document.querySelector("#boton-guardar");

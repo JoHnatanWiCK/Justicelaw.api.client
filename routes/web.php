@@ -112,6 +112,10 @@ Route::get('/confirmacion', function () {
     return view(view: 'olvido-contraseña.confirmacion');
 })->name('confirmacion');
 
+Route::get('/nuevaContraseña', function () {
+    return view(view: 'olvido-contraseña.nuevaContraseña');
+})->name('nuevaContraseña');
+
 Route::get('/verificarAbogado', function () {
     return view(view: 'verificacion.verificacionUno');
 })->name('verificarAbogado');

@@ -1,13 +1,19 @@
 document.getElementById('codigoButton').addEventListener('click', async () => {
-    const email = document.getElementById('email').value;
+    // Recuperar el correo desde localStorage
+    const email = localStorage.getItem('email');
     const code = document.getElementById('codigoInput').value;
 
-    const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/password/reset', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, code, password: 'NewPassword123', password_confirmation: 'NewPassword123' }),
-    });
+    if (!email || !code) {
+        return;
+    }
 
-    const data = await response.json();
-    alert(data.message);
+    try {
+        // Guardar el código en localStorage sin enviarlo al backend todavía
+        localStorage.setItem('resetCode', code);
+
+        // Redirige a la página para ingresar la nueva contraseña
+        window.location.href = '/nuevaContraseña'; // Reemplaza con la URL de tu página
+    } catch (error) {
+        console.error('Error:', error);
+    }
 });

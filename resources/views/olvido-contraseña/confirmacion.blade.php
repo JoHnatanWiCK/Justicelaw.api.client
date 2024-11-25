@@ -66,6 +66,7 @@
     @endpush
 
     @push('scripts')
+    <script src="js/olvidoContraseña.js"></script>
     <script src="js/confirmar.js"></script>
     @endpush
 

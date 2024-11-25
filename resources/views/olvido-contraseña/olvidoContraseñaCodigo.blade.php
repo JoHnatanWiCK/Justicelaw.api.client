@@ -27,12 +27,10 @@
     <p>Ingrese el codigo de validacion que ha sido enviado a su correo </p>
 
     <h1>Ingrese el Codigo</h1>
-    <input type="text" name="Codigo">
+    <input type="text" name="Codigo" id="codigoInput"> <!-- Añadir id aquí -->
 
-    <button class="btn-contraseña" type="submit">Confirmar</button>
-
-
-    </div>
+    <button id="codigoButton" class="btn-contraseña" type="submit">Confirmar</button> <!-- Añadir id aquí -->
+</div>
 
 </section>
 <section class="loginlmovil">
@@ -70,6 +68,6 @@
     @endpush
 
     @push('scripts')
-    <script src="js/olvidoContraseñaCodigo.js"></script>
+    <script src="js/codigoEmail.js"></script>
     @endpush
 

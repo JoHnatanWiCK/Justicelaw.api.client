@@ -204,6 +204,17 @@
             <div class="progress"></div>
         </div>
 
+
+
+    <div id="authModal" style="display: none;" class="modal">
+        <div class="modal-content">
+            <h2>Necesitas iniciar sesión</h2>
+            <p>Debes iniciar sesión para acceder a esta página.</p>
+            <button id="loginBtn">Iniciar sesión</button>
+        </div>
+    </div>
+
+
         <script>
             window.routes = {
                 perfilCreado: "{{ route('perfilCreado') }}",
@@ -221,6 +232,7 @@
         @endpush
 
         @push('scripts')
+        <script src="{{ asset('js/auth.js') }}"></script>
         <script src="{{ asset('js/layoutLogin.js') }}"></script>
         <script src="{{ asset('js/perfil.js') }}"></script>
         @endpush

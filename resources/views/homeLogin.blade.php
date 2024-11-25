@@ -58,7 +58,7 @@
             </div>
         </div>
         <!-- Botones de navegación -->
-        <div class="btn-next"> 
+        <div class="btn-next">
             <img id="prev-thumbnail" src="../img/f-derecha.png" alt="Previous Thumbnail">
         </div>
         <div class="btn-prev">
@@ -159,7 +159,7 @@
         </div>
         <span onclick="slideLeft()" class="btn"></span>
     </div>
- 
+
 
 
 
@@ -180,6 +180,16 @@
             </div>
         </div>
     </section>
+
+    <div id="authModal" style="display: none;" class="modal">
+        <div class="modal-content">
+            <h2>Necesitas iniciar sesión</h2>
+            <p>Debes iniciar sesión para acceder a esta página.</p>
+            <button id="loginBtn">Iniciar sesión</button>
+        </div>
+    </div>
+
+
 @endsection
 
 
@@ -202,7 +212,7 @@
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
 
     <script src="js/carrusel.js"></script>
-
+    <script src="js/auth.js"></script>
     <script src="js/home.js"></script>
     <script src="js/forocarousel.js"></script>
 

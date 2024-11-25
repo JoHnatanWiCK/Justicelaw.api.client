@@ -1,5 +1,3 @@
-
-
 @extends('layouts.layout')
 
 @section('title', 'Registro')
@@ -12,54 +10,66 @@
     <section class="loginlweb">
 
         <div class="columna-izquierda">
-    <div class="justice">
-    <h1>Justice</h1>
-    <h2>Leyes claras</h2>
-    </div>
-    <div class="law">
-        <h1>Law</h1>
-        <h2>justicia real</h2>
+            <div class="justice">
+                <h1>Justice</h1>
+                <h2>Leyes claras</h2>
+            </div>
+            <div class="law">
+                <h1>Law</h1>
+                <h2>justicia real</h2>
+            </div>
         </div>
-    </div>
-    <div class="reg">
-        <div class="ti"><h1>Registro</h1></div>
+        <div class="reg">
+            <div class="ti">
+                <h1>Únete a Nuestra Comunidad de Usuarios</h1>
+            </div>
 
-        <form action="#" onsubmit="registro(event)">
-    <label for="nombre">Nombres</label>
-    <input id="nombre" type="text" name="nombre">
-    <div id="errorNombre" class="error-message"></div>
+            <form action="#" onsubmit="registro(event)">
+                <label for="nombre">Nombres</label>
+                <input id="nombre" type="text" name="nombre">
+                <div id="errorNombre" class="error-message"></div>
 
-    <label for="apellido">Apellidos</label>
-    <input id="apellido" type="text" name="apellido">
-    <div id="errorApellido" class="error-message"></div>
+                <label for="apellido">Apellidos</label>
+                <input id="apellido" type="text" name="apellido">
+                <div id="errorApellido" class="error-message"></div>
 
-    <label for="tip_doc">Tipo de Documento</label>
-    <select id="tip_doc_web" name="tip_doc">
+                <label for="tip_doc">Tipo de Documento</label>
+                <select id="tip_doc_web" name="tip_doc">
 
-    </select class="loginlweb">
+                </select class="loginlweb">
 
-    <label for="num_doc">Numero de Documento</label>
-    <input id="num_doc" type="text" name="num_doc">
-    <div id="errorNum_doc" class="error-message"></div>
+                <label for="num_doc">Numero de Documento</label>
+                <input id="num_doc" type="text" name="num_doc">
+                <div id="errorNum_doc" class="error-message"></div>
 
 
-    <label for="gmail">Email</label>
-    <input id="gmail" type="email" name="gmail">
-    <div id="errorGmail" class="error-message"></div>
-    <label for="contraseña">Contraseña</label>
-    <input id="contraseña" type="password" name="contraseña">
-    <div id="errorContraseña" class="error-message"></div>
-    <div class="bot"><button type="submit" class="btn-registro" id="btnRegistro">Registrarse</button></div>
-</form>
-    <div class="parrafo">
-        <p>Al crear la cuenta, aceptas los <a href="#">Términos de uso</a> y la <a href="#">Política de Privacidad</a> de justicelaw.com</p>
-    </div>
-    <div class="par"><a href="{{ route('login') }}">¿Ya tienes una cuenta?</a>
-    <a href="{{ route('verificarAbogado') }}">¿Quieres trabajar con nosotros?</a></div>
-    </div>
+                <label for="gmail">Email</label>
+                <input id="gmail" type="email" name="gmail">
+                <div id="errorGmail" class="error-message"></div>
 
-</section>
-    <section class="loginlmovil">
+                <label for="contraseña">Contraseña</label>
+                <div class="input-container">
+                <input id="contraseña" type="password" name="contraseña">
+                <i id="togglePassword" class="fa fa-eye"></i>
+                </div>
+
+                <div id="errorContraseña" class="error-message"></div>
+
+
+                <div class="bot"><button type="submit" class="btn-registro" id="btnRegistro">Registrarse</button></div>
+            </form>
+            <div class="parrafo">
+                <p>Al crear la cuenta, aceptas los <a href="#">Términos de uso</a> y la <a href="#">Política de
+                        Privacidad</a> de justicelaw.com</p>
+            </div>
+            <div class="par"><a href="{{ route('login') }}">¿Ya tienes una cuenta?</a>
+                <a class="par" href="{{ route('registroAbogado') }}">¿Quieres trabajar con nosotros?</a>
+            </div>
+        </div>
+
+    </section>
+
+    {{-- <section class="loginlmovil">
         <div class="tit">
         <div class="titulo1"><h1>Justice</h1></div>
         <div class="titulo2"><h1>Law</h1></div>
@@ -100,7 +110,7 @@
         <div class="parrafo">
             <p>Al crear la cuenta, aceptas los <a href="#">Términos de uso</a> y la <a href="#">Política de Privacidad</a> de justicelaw.com</p>
         </div>
-    </section>
+    </section> --}}
 
 @endsection
 
@@ -108,7 +118,7 @@
 @endsection
 
 @push('styles')
-<link rel="stylesheet" href="css/registro.css">
+    <link rel="stylesheet" href="css/registro.css">
 @endpush
 
 @push('scripts')

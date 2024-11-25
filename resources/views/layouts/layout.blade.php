@@ -34,7 +34,7 @@
         </div>
         <nav class="nav-links">
             <a id="about-us" href="{{ route('sobreNosotros')}}">Sobre nosotros</a>
-            <a id="foro" href="{{ route('informaciones')}}">Informaciones</a>
+            <a id="foro" href="{{ route('index')}}">Informaciones</a>
             <a id="foro" href="{{ route('foro')}}">Foro</a>
             <a id="login" href="{{ route('login')}}">Iniciar Sesión</a>
         </nav>
@@ -143,6 +143,16 @@
         <i class="fa-solid fa-magnifying-glass"></i>
         <i class="fa-solid fa-users"></i>
     </footer>
+
+    <div id="authModal" style="display: none;" class="modal">
+        <div class="modal-content">
+            <h2>Necesitas iniciar sesión</h2>
+            <p>Debes iniciar sesión para acceder a esta página.</p>
+            <button id="loginBtn">Iniciar sesión</button>
+        </div>
+    </div>
+
+    
     <script src="js/layout.js"></script>
     @stack('scripts')
 

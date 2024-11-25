@@ -56,6 +56,11 @@ Route::get('/registro', function () {
     return view(view: 'registro.registro');
 })->name(name: 'registro');
 
+Route::get('/registroAbogado', function () {
+    return view(view: 'registro.registroAbogado');
+})->name(name: 'registroAbogado');
+
+
 Route::get('/sobreNosotros', function () {
     return view(view: 'sobreNosotros');
 })->name('sobreNosotros');
@@ -118,6 +123,13 @@ Route::get('/verificarAbogadoDos', function () {
 Route::get('/verificarAbogadoTres', function () {
     return view(view: 'verificacion.verificacionTres');
 })->name('verificarAbogadoTres');
+
+
+Route::get('/verificarConfirmacion', function () {
+    return view(view: 'verificacion.verificacionConfirmacion');
+})->name('verificarConfirmacion');
+
+
 
 Route::get('/foro', function () {
     return view(view: 'foro.foro');
@@ -492,22 +504,18 @@ Route::get('overhauls/{overhaul}', [OverhaulReviewController::class, 'show'])->n
 Route::put('overhauls/{overhaul}', [OverhaulReviewController::class, 'update'])->name('overhauls.update');
 Route::delete('overhauls/{overhaul}', [OverhaulReviewController::class, 'destroy'])->name('overhauls.delete');
 
+
+Route::get('forologin', [QuestionController::class, 'indexlogin'])->name('forologin');
+
+Route::get('foro', [QuestionController::class, 'index'])->name('foro');
+
+
+
 Route::get('questions', [QuestionController::class, 'index'])->name('api.v1.questions.index');
 Route::post('questions', [QuestionController::class, 'store'])->name('api.v1.questions.store');
 Route::get('questions/{question}', [QuestionController::class, 'show'])->name('api.v1.questions.show');
 Route::put('questions/{question}', [QuestionController::class, 'update'])->name('api.v1.questions.update');
 Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('api.v1.questions.delete');
-
-Route::get('forologin', [QuestionController::class, 'indexlogin'])->name('forologin');
-
-
-
-Route::get('foro', [QuestionController::class, 'index'])->name('foro');
-Route::post('questions', [QuestionController::class, 'store'])->name('api.v1.questions.store');
-Route::get('questions/{question}', [QuestionController::class, 'show'])->name('api.v1.questions.show');
-Route::put('questions/{question}', [QuestionController::class, 'update'])->name('api.v1.questions.update');
-Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('api.v1.questions.delete');
-
 
 
 Route::get('answers', [QuestionController::class, 'indexr'])->name('api.v1.answers.index');

@@ -28,45 +28,27 @@
         <button class="b3" type="submit">3</button>
     </div>
 
-    <label for="neducativo">Nivel educativo</label>
-    <input id="neducativo" type="text" name="neducativo">
-    <label for="lformacion">Lugar de formacion</label>
-    <input id="lformacion" type="text" name="lformacion">
+    <form id="formPasoDos">
+        <label for="neducativo">Nivel educativo</label>
+        <select id="neducativo" name="neducativo">
+            <!-- Las opciones serán llenadas dinámicamente -->
+        </select>
 
-    <div class="bot"><button type="submit" id="btnVerificarDos">Continuar</button></div>
+        <div id="errorEducativo" class="error-message"></div>
+
+        <label for="lformacion">Lugar de formacion</label>
+        <input id="lformacion" type="text" name="lformacion">
+
+        <div id="errorLugar" class="error-message"></div>
+
+        <div class="bot">
+            <button type="submit" id="btnVerificarDos">Continuar</button>
+        </div>
+    </form>
 
     </div>
 
 </section>
-<section class="loginlmovil">
-    <div class="tit">
-    <div class="titulo1"><h1>Justice</h1></div>
-    <div class="titulo2"><h1>Law</h1></div>
-</div>
-    <div class="subt"><h2>Leyes claras, justicia real</h2></div>
-
-</div>
-<div class="contenedor">
-    <button class="btn1" type="submit">Verificacion</button>
-</div>
-<div class="pasos">
-    <button class="b1" type="submit">1</button>
-    <button class="b2" type="submit">2</button>
-    <button class="b3" type="submit">3</button>
-</div>
-<div class="re">
-
-    <label for="neducativo">Nivel educativo</label>
-    <input id="neducativo" type="text" name="neducativo">
-    <label for="lformacion">Lugar de formacion</label>
-    <input id="lformacion" type="text" name="lformacion">
-
-
-    <div class="bot"><button type="submit" id="btnVerificarDos">Continuar</button></div>
-
-    </div>
-    </section>
-
 
 
 
@@ -80,6 +62,6 @@
     @endpush
 
     @push('scripts')
-    <script src="js/verificacion.js"></script>
+    <script src="js/verificacionDos.js"></script>
      @endpush
 

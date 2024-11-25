@@ -24,7 +24,7 @@
             </div>
         </div>
         <div class="search-bar">
-            <input type="text" placeholder="" />
+            <input type="text"  id="search-input" placeholder="" />
             <button id="buscarBtn">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
@@ -33,10 +33,10 @@
 
             <a id="about-us" href="#">Sobre nosotros</a>
             <a id="foro" href="{{ route('forologin')}}">Foro</a>
-            <a id="informaciones" href="{{ route('informaciones')}}">Informaciones</a>
+            <a id="informaciones" href="{{ route('index')}}">Informaciones</a>
         </nav>
         <div class="user-menu">
-            <img class="img-perfil" src="../../img/fotoPerfil.png" alt="foto de Perfil" />
+            <img class="img-perfil" id="fotoPerfilLayout" src="../../img/fotoPerfil.png" alt="foto de Perfil" />
             <span></span>
             <input type="checkbox" id="dropdownToggle" class="dropdown-checkbox" />
             <label for="dropdownToggle">
@@ -111,13 +111,12 @@
     </main>
     <div id="logoutModal" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
             <h2>¿Estás seguro de que deseas cerrar sesión?</h2>
             <p>Recuerda que siempre estamos aquí para brindarte la mejor asesoría legal cuando lo necesites.</p>
             <p>¡Esperamos verte pronto de vuelta!</p>
             <div class="modal-buttons">
                 <button id="confirmLogout">Cerrar sesión</button>
-                <button id="cancelLogout">Cerrar sesión</button>
+                <button id="cancelLogout">Cancelar</button>
             </div>
         </div>
     </div>

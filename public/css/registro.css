@@ -1,4 +1,4 @@
-@media only screen and (max-width: 600px) {
+/* @media only screen and (max-width: 600px) {
     .loginlweb {
         display: none;
     }
@@ -110,7 +110,9 @@
         text-decoration: none;
         color: #cf9e3e;
     }
-}
+} */
+
+
 @media only screen and (min-width: 901px) {
     .loginlweb {
         display: grid;
@@ -130,7 +132,7 @@
         display: none;
     }
     .ti h1 {
-        font-size: 48px;
+        font-size: 35px;
         color: #0a3b55;
     }
     .justice {
@@ -139,12 +141,12 @@
         background-position: center;
         overflow: hidden;
 
-        height: 100%;
+        height: 45rem;
         box-sizing: border-box;
     }
     .justice h1 {
         text-align: right;
-        margin-top: 27rem;
+        margin-top: 32.2rem;
         font-size: 60px;
         color: white;
     }
@@ -156,7 +158,7 @@
     }
     .law h1 {
         margin-left: 100%;
-        margin-top: -19rem;
+        margin-top: -14.2rem;
         font-size: 60px;
         color: #cf9e3e;
     }
@@ -173,42 +175,28 @@
         color: #0a3b55;
         align-items: flex-start;
     }
-    .reg input[type="text"] {
-        border: none;
-        width: 100%;
-        border-bottom: 2px solid #0a3b55;
-        box-sizing: border-box;
-        outline: none;
-    }
+    .reg input[type="text"],
+    .reg input[type="password"],
+    .reg input[type="email"],
     .reg select {
         border: none;
         width: 100%;
         border-bottom: 2px solid #0a3b55;
         box-sizing: border-box;
         outline: none;
+        margin-bottom: 1rem; /* Espaciado entre los inputs */
     }
-    .reg input[type="password"] {
-        border: none;
-        width: 100%;
-        border-bottom: 2px solid #0a3b55;
-        box-sizing: border-box;
-        outline: none;
-    }
-    .reg input[type="email"] {
-        border: none;
-        width: 100%;
-        border-bottom: 2px solid #0a3b55;
-        box-sizing: border-box;
-        outline: none;
-    }
+
 
     .bot button {
         background-color: #0a3b55;
         text-decoration: none;
         color: white;
-        padding: 14px 40px;
+        padding: 18px 30px; /* Más grueso */
         border-radius: 4px;
-        max-width: 317px;
+        max-width: 100%;
+        font-size: 14px; /* Más grande */
+        cursor: pointer;
     }
     .parrafo {
         color: #0a3b55;
@@ -219,14 +207,15 @@
     }
 
     .par {
-        color: #0a3b55;
+        color: #cf9e3e;
     }
 
-    .par a {
+    .par a, .par a:active {
+        color: #cf9e3e;
         text-decoration: none;
     }
 }
-@media only screen and (min-width: 601px) and (max-width: 900px) {
+@media only screen and (max-width: 900px) {
     .loginlweb {
         grid-template-columns: 1fr; /* Cambia a una sola columna */
         gap: 20px; /* Ajusta el espacio entre los elementos */
@@ -240,7 +229,8 @@
         display: none;
     }
     .ti h1 {
-        font-size: 48px;
+        padding-top:3rem ;
+        font-size: 35px;
         color: #0a3b55;
     }
 
@@ -291,49 +281,33 @@
         max-width: 100%; /* Asegura que no exceda el ancho del contenedor */
         margin: 0 auto;
         margin-top: 5rem;
+        margin: 3rem;
     }
 
-    .reg input[type="text"] {
-        border: none;
-        margin: 10px 0px;
-        padding: 0px 130px;
-        border-bottom: 2px solid #0a3b55;
-        box-sizing: border-box;
-        outline: none;
-    }
+    .reg input[type="text"],
+    .reg input[type="password"],
+    .reg input[type="email"],
     .reg select {
         border: none;
-        margin: 8px 0px;
-        padding: 0px 145px;
+        width: 100%;
+        padding: 0px 13px;
         border-bottom: 2px solid #0a3b55;
         box-sizing: border-box;
         outline: none;
-    }
-    .reg input[type="password"] {
-        border: none;
-        margin: 8px 0px;
-        padding: 0px 130px;
-        border-bottom: 2px solid #0a3b55;
-        box-sizing: border-box;
-        outline: none;
-    }
-    .reg input[type="email"] {
-        border: none;
-        margin: 8px 0px;
-        padding: 0px 130px;
-        border-bottom: 2px solid #0a3b55;
-        box-sizing: border-box;
-        outline: none;
+        margin-bottom: 1rem; /* Margen entre los campos */
     }
 
     .bot button {
         background-color: #0a3b55;
         text-decoration: none;
         color: white;
-        padding: 14px 40px;
+        padding: 18px 40px; /* Botón más grueso */
         border-radius: 4px;
-        max-width: 317px;
+        width: 100%;
+        font-size: 18px; /* Botón más grande */
+        cursor: pointer;
     }
+
     .parrafo {
         color: #0a3b55;
     }
@@ -343,8 +317,9 @@
         color: #cf9e3e;
     }
 
-    .par {
-        color: #0a3b55;
+    .par a, .par a:active {
+        color: #cf9e3e;
+        text-decoration: none;
     }
     .inicio {
         margin-top: -0.9rem;
@@ -365,4 +340,34 @@
     cursor: pointer;
     border-radius: 10px;
     font-weight: 600;
+}
+
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+
+.input-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+}
+
+.input-container input {
+    width: 100%;
+    padding-right: 40px;
+    margin-bottom: 5px;
+}
+
+.input-container i {
+    position: absolute;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #616161;
 }

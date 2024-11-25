@@ -1,6 +1,6 @@
 @extends('layouts.layoutLogin')
 
-@section('title', 'Foro')
+@section('title', 'ForoLogin')
 
 @section('nav')
 @endsection
@@ -95,9 +95,9 @@
 @endforeach    
         </div>
 
-        <div id="smodal" class="modal" style="display: none;" >
+        <div id="respuestas" class="modal" style="display: none;" >
                     <div class="modal-content">
-                            <span class="close-button" onclick="closeModal()">×</span>
+                    <span class="close-button" onclick="closeModal()">×</span>
                             
                         <div class="profile">
                             <img src="../../img/fotoPerfil.png" class="fotoperfil" alt="Foto de perfil" />

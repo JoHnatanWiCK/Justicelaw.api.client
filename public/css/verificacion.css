@@ -1,154 +1,4 @@
-@media only screen and (max-width: 600px) {
-    .loginlweb {
-        display: none;
-    }
 
-
-    .tit {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .titulo1 h1 {
-        font-size: 28px;
-    }
-    .titulo2 h1 {
-        font-size: 28px;
-        color: #cf9e3e;
-    }
-    .subt {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .subt h2 {
-        font-size: 19px;
-    }
-    .contenedor {
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        margin: 2rem;
-    }
-    .btn-hoja{
-        background-color: #fff;
-        color: #0a3b55;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        width: 70%;
-        border: none;
-        padding: 14px 40px;
-        cursor: pointer;
-        text-align: left;
-        border-radius: 10px;
-        font-weight: 600;
-    }
-    .btn1 {
-        background-color: #0a3b55;
-        text-decoration: none;
-        color: white;
-        font-size: 24px;
-        padding: 14px 46px;
-        border-radius: 34px;
-        transition-duration: 0.4s;
-    }
-    .btn1:hover {
-        background-color: #0a3b55;
-        color: #cf9e3e;
-    }
-
-    .re {
-        font-size: 35px;
-        width: 100%;
-        margin: 4rem;
-        margin-top: 1rem;
-        color: #0a3b55;
-    }
-    .re input[type="text"] {
-        border: none;
-        width: 100%;
-        border-bottom: 2px solid #0a3b55;
-
-        outline: none;
-    }
-    .re select {
-        border: none;
-        width: 100%;
-        border-bottom: 2px solid #0a3b55;
-
-        outline: none;
-    }
-    .re input[type="password"] {
-        border: none;
-        width: 100%;
-        border-bottom: 2px solid #0a3b55;
-
-        outline: none;
-    }
-    .re input[type="email"] {
-        border: none;
-        width: 100%;
-        border-bottom: 2px solid #0a3b55;
-
-        outline: none;
-    }
-
-    .pasos {
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        gap: 10px;
-    }
-
-    .bot button {
-        background-color: #0a3b55;
-        text-decoration: none;
-        color: white;
-        border: none;
-        padding: 14px 40px;
-        cursor: pointer;
-        border-radius: 10px;
-        margin-top: 2rem;
-        max-width: 317px;
-    }
-
-
-    .b1 {
-        background-color: #0a3b55;
-        text-decoration: none;
-        color: white;
-        padding: 5px 12px;
-        border-radius: 34px;
-
-        transition-duration: 0.4s;
-    }
-    .b1:hover {
-        background-color: #cf9e3e;
-    }
-    .b2 {
-        background-color: #0a3b55;
-        text-decoration: none;
-        color: white;
-        padding: 5px 12px;
-        border-radius: 34px;
-
-        transition-duration: 0.4s;
-    }
-    .b2:hover {
-        background-color: #cf9e3e;
-    }
-    .b3 {
-        background-color: #0a3b55;
-        text-decoration: none;
-        color: white;
-        padding: 5px 12px;
-        border-radius: 34px;
-
-        transition-duration: 0.4s;
-    }
-    .b3:hover {
-        background-color: #cf9e3e;
-    }
-}
 @media only screen and (min-width: 901px) {
     .loginlweb {
         display: grid;
@@ -157,8 +7,6 @@
         padding: 20px;
         max-width: 1300px;
         margin: 0 auto;
-        /* margin-left: 2rem;
-        margin-right: 2rem; */
     }
 
     .columna-izquierda {
@@ -217,14 +65,18 @@
         font-size: 20px;
         color: #0a3b55;
     }
+    .reg p{
+        margin-bottom: 2rem;
+    }
     .reg {
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+        justify-content: center;
+        box-sizing: border-box;
         display: flex;
         flex-direction: column;
-        gap: 20px;
-        color: #0a3b55;
-        align-items: flex-start;
-
-        justify-content: center;
+        gap: 15px;
     }
     .reg input[type="text"] {
         border: none;
@@ -232,38 +84,47 @@
         border-bottom: 2px solid #0a3b55;
         box-sizing: border-box;
         outline: none;
+        margin-bottom: 20px; /* Añadir margen en la parte inferior */
     }
+
     .reg select {
         border: none;
         width: 100%;
         border-bottom: 2px solid #0a3b55;
         box-sizing: border-box;
         outline: none;
+        margin-bottom: 20px; /* Añadir margen en la parte inferior */
     }
+
     .reg input[type="password"] {
         border: none;
         width: 100%;
         border-bottom: 2px solid #0a3b55;
         box-sizing: border-box;
         outline: none;
+        margin-bottom: 20px; /* Añadir margen en la parte inferior */
     }
+
     .reg input[type="email"] {
         border: none;
         width: 100%;
         border-bottom: 2px solid #0a3b55;
         box-sizing: border-box;
         outline: none;
+        margin-bottom: 20px; /* Añadir margen en la parte inferior */
     }
 
     .bot button {
+        margin-top: 1rem;
         background-color: #0a3b55;
-        text-decoration: none;
-        color: white;
+        color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 28%;
         border: none;
-        padding: 14px 40px;
+        padding: 10px 30px;
         cursor: pointer;
         border-radius: 10px;
-        max-width: 317px;
+        font-weight: 600;
     }
 
     .btn-hoja{
@@ -295,7 +156,7 @@
     }
 
     .pasos {
-        margin-left: 33%;
+        margin-left: 25%;
         display: flex;
     }
 
@@ -310,6 +171,7 @@
     }
     .b1:hover {
         background-color: #cf9e3e;
+        border: 2px solid #cf9e3e;
     }
     .b2 {
         background-color: #0a3b55;
@@ -322,6 +184,7 @@
     }
     .b2:hover {
         background-color: #cf9e3e;
+        border: 2px solid #cf9e3e;
     }
     .b3 {
         background-color: #0a3b55;
@@ -333,10 +196,11 @@
         transition-duration: 0.4s;
     }
     .b3:hover {
+        border: 2px solid #cf9e3e;
         background-color: #cf9e3e;
     }
 }
-@media only screen and (min-width: 601px) and (max-width: 900px) {
+@media only screen and (max-width: 900px) {
     .loginlweb {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -351,10 +215,14 @@
     }
     .ti h1 {
         margin-bottom: 0;
+        padding-top: 4rem;
         font-size: 48px;
         color: #0a3b55;
     }
 
+    .reg p{
+        margin-bottom: 2rem;
+    }
     .justice {
         background-image: url("../img/image2.jpg");
         background-size: cover;
@@ -393,15 +261,14 @@
     }
 
     .reg {
+        width: 100%;
+        max-width: 700px;
+        margin: 0 auto;
+        justify-content: center;
+        box-sizing: border-box;
         display: flex;
         flex-direction: column;
         gap: 15px;
-        color: #0a3b55;
-        align-items: flex-start;
-        align-items: center;
-        max-width: 100%;
-        margin: 0 auto;
-        margin-top: 5rem;
     }
 
     .reg input[type="text"] {
@@ -452,14 +319,16 @@
     }
 
     .bot button {
+        margin-top: 3rem;
         background-color: #0a3b55;
-        text-decoration: none;
-        color: white;
+        color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 28%;
         border: none;
-        padding: 14px 40px;
+        padding: 10px 30px;
         cursor: pointer;
         border-radius: 10px;
-        max-width: 317px;
+        font-weight: 600;
     }
 
     .parrafo {
@@ -521,4 +390,67 @@
     .b3:hover {
         background-color: #cf9e3e;
     }
+}
+
+
+#boton-verificacion{
+    margin-top: 3rem;
+    background-color: #0a3b55;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 28%;
+    border: none;
+    padding: 10px 30px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+
+
+.upload-text {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.upload-label {
+    font-size: 1rem;
+    font-weight: bold;
+    color: #333;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.upload-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #fff;
+    font-family: 'Faustina', serif;
+    transition: border-color 0.3s ease;
+}
+
+.upload-input:focus {
+    border-color: #0a3b55;
+    font-family: 'Faustina', serif;
+    outline: none;
+}
+
+.upload-input[type="file"] {
+    padding: 8px;
+    font-family: 'Faustina', serif;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 10px;
 }

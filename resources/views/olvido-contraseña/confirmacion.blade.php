@@ -3,7 +3,7 @@
 
 @extends('layouts.layout')
 
-@section('title', 'Olvido Contraseña')
+@section('title', 'Confirmacion')
 
 @section('nav')
 @endsection

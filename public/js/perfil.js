@@ -266,15 +266,13 @@ async function guardarDatos() {
 
             toast.classList.add("active");
 
-            // Ocultar el toast después de 3 segundos
             setTimeout(() => {
                 toast.classList.remove("active");
             }, 3000);
 
-            // Recargar la página o cerrar el modal
             setTimeout(() => {
                 closeModal();
-                window.location.reload();  // Recargar la página después del toast
+                window.location.reload();
             }, 4000);
 
 

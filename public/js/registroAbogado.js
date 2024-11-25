@@ -97,21 +97,24 @@ async function registroAbogado(event) {
         });
 
 
-        if (!response.ok) {
-            throw new Error('Error en la respuesta del servidor: ' + response.status);
-        }
-
-
         const data = await response.json();
+
+        // Si la respuesta no es exitosa
+        if (!response.ok) {
+            if (data.error && data.error.includes('correo')) {
+
+                showError('gmail', data.error);
+            } else {
+
+                showError('form', 'Error en el registro: ' + JSON.stringify(data));
+            }
+            return;
+        }
 
         const lawyerId = data.id;
         console.log('Abogado registrado:', data);
 
-        // Guardar el lawyerId en localStorage
         localStorage.setItem('lawyerId', lawyerId);
-
-        // Mostrar el lawyerId en una alerta
-        alert('ID del abogado registrado: ' + lawyerId);
 
 
         window.location.href = '/verificarAbogado';

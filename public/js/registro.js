@@ -53,13 +53,14 @@ async function registro(event) {
     if (!email) {
         showError('gmail', 'Este campo es obligatorio');
         formValid = false;
-    } else {
-        const emailExists = await checkEmailExists(email);
-        if (emailExists) {
-            showError('gmail', 'Este correo ya está registrado');
-            formValid = false;
-        }
     }
+    // else {
+    //     const emailExists = await checkEmailExists(email);
+    //     if (emailExists) {
+    //         showError('gmail', 'Este correo ya está registrado');
+    //         formValid = false;
+    //     }
+    // }
 
     // Validar contraseña
     if (!password) {
@@ -95,7 +96,11 @@ async function registro(event) {
         if (response.ok) {
             window.location.href = '/login';
         } else {
-            showError('form', 'Error en el registro: ' + JSON.stringify(data));
+            if (data.error && data.error.includes('correo')) {
+                showError('gmail', data.error);
+            } else {
+                showError('form', 'Error en el registro: ' + JSON.stringify(data));
+            }
         }
     } catch (error) {
         console.error('Error en el registro:', error);
@@ -143,11 +148,11 @@ if (form) {
 }
 
 
-document.querySelector('a').addEventListener('click', function(e) {
+document.querySelector('a').addEventListener('click', function (e) {
     window.location.href = this.href;
 });
 
-document.getElementById('togglePassword').addEventListener('click', function() {
+document.getElementById('togglePassword').addEventListener('click', function () {
     const passwordField = document.getElementById('contraseña');
     const type = passwordField.type === 'password' ? 'text' : 'password';
     passwordField.type = type;

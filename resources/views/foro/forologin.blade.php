@@ -95,9 +95,9 @@
 @endforeach    
         </div>
 
-        <div id="respuestas" class="modal" style="display: none;" >
+        <div id="smodal" class="modal" style="display: none;" >
                     <div class="modal-content">
-                    <span class="close-button" onclick="closeModal()">×</span>
+                    <span class="close-button" onclick="closesModal()">×</span>
                             
                         <div class="profile">
                             <img src="../../img/fotoPerfil.png" class="fotoperfil" alt="Foto de perfil" />
@@ -174,7 +174,7 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="{{ asset('js/foro.js') }}"></script>
+<script src="{{ asset('js/forologin.js') }}"></script>
 
 
    

@@ -42,7 +42,7 @@ class QuestionController extends Controller
     $questions = $questions->sortByDesc('created_at')->values();
 
     // Configurar la paginación
-    $perPage = 9; // Número de elementos por página
+    $perPage = 12; // Número de elementos por página
     $currentPage = request()->input('page', 1); // Obtener la página actual
     $pagedData = $questions->forPage($currentPage, $perPage); // Dividir los datos
 

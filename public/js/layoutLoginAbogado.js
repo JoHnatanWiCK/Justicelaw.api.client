@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
 
-    console.log('Script cargado y DOM completamente cargado'); // Verifica si el script se carga
+    console.log('Script cargado y DOM completamente cargado'); 
 
     
     const userMenu = document.querySelector('.user-menu');
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     console.log('Rol actual:', role);
     
     try {
-        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/auth/me', {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/auth/meLawyer', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${token}`,
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             spanUserName.textContent = `${name}`;
 
             // Llamar a la función para cargar la foto de perfil
-            await cargarFotoPerfil();
+            // await cargarFotoPerfil();
         }
     } catch (error) {
         console.error('Error:', error.message);

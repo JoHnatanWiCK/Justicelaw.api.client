@@ -49,39 +49,7 @@
 
         </section>
 
-        {{-- <section class="loginlmovil">
-            <div class="tit">
-                <div class="titulo1">
-                    <h1>Justice</h1>
-                </div>
-                <div class="titulo2">
-                    <h1>Law</h1>
-                </div>
-            </div>
-            <div class="subt">
-                <h2>Leyes claras, justicia real</h2>
-            </div>
-            <div class="contenedor">
-                <button class="btn1" type="submit">Iniciar sesion</button>
-                <button class="btn2" type="submit">Registrarse</button>
-            </div>
-            <div class="re">
-
-                <label for="gmail">Email</label>
-                <input id="gmail" type="email" name="gmail">
-
-                <label for="contraseña">Contraseña</label>
-                <input id="contraseña" type="password" name="contraseña">
-                <label for="concontraseña">Confirmar Contraseña</label>
-                <input id="concontraseña" type="password" name="concontraseña">
-            </div>
-            <div class="bt"><button class="btn3" type="submit" id="btnInicio">Iniciar Sesión</button></div>
-
-
-
-
-        </section> --}}
-
+       
     @endsection
 
     @section('footer')

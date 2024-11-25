@@ -61,14 +61,30 @@
             </div>
             <div class="logout">
                 <img src="{{ asset('img/CerrarSesion.png') }}" alt="Cerrar Sesión">
-                <a href="#">Cerrar Sesión</a>
+                <a href="#" id="openModal">Cerrar Sesión</a>
             </div>
         </aside>
+
+        <div id="logoutModal" class="modal">
+            <div class="modal-content">
+                <h2>¿Estás seguro de que deseas cerrar sesión?</h2>
+                <p>Recuerda que siempre estamos aquí para brindarte la mejor asesoría legal cuando lo necesites.</p>
+                <p>¡Esperamos verte pronto de vuelta!</p>
+                <div class="modal-buttons">
+                    <button id="confirmLogout">Cerrar sesión</button>
+                    <button id="cancelLogout">Cancelar</button>
+                </div>
+            </div>
+        </div>
+
         <main class="{{ isset($isGrid) && $isGrid ? 'main-content' : 'flex-content' }}">
             @yield('main-content')
         </main>
 
     </div>
     @stack('scripts')
+
+    <script src="js/modal.js"></script>
+    <script src="js/layoutAdmin.js"></script>
 </body>
 </html>

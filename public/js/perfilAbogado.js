@@ -1,3 +1,51 @@
+document.addEventListener('DOMContentLoaded', async () => {
+
+  console.log('Script cargado y DOM completamente cargado'); 
+
+  const userMenu = document.querySelector('.content-abogado');
+  const spanUserName = userMenu.querySelector('h3');
+
+  const token = localStorage.getItem('token');
+  const role = localStorage.getItem('role');
+
+  console.log('Token actual:', token);
+  console.log('Rol actual:', role);
+
+  try {
+      const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/auth/meLawyer', {
+          method: 'POST',
+          headers: {
+              'Authorization': `Bearer ${token}`,
+              'Content-Type': 'application/json',
+          },
+      });
+
+      if (!response.ok) {
+          if (response.status === 401) {
+              alert('Tu sesión ha expirado. Serás redirigido a la página de inicio de sesión.');
+              localStorage.removeItem('token');
+              setTimeout(() => {
+                  window.location.href = '/login';
+              }, 3000);
+          } else {
+              throw new Error('Error al obtener datos del usuario');
+          }
+      } else {
+          const data = await response.json();
+          console.log('Datos del usuario:', data);
+
+          const { name, last_names } = data;
+          spanUserName.textContent = `${name} ${last_names}`;
+
+          // Llamar a la función para cargar la foto de perfil
+          // await cargarFotoPerfil();
+      }
+  } catch (error) {
+      console.error('Error:', error.message);
+  }
+});
+
+
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.profile-nav ul li a');
     const indicator = document.querySelector('.profile-nav .indicator');
@@ -184,38 +232,30 @@ function handleFileSelection() {
   }, 3000);
 
 }
-
 let currentStep = 0;
-
 document.addEventListener("DOMContentLoaded", function () {
     const continuarBtn = document.getElementById("continuarBtn");
     const atrasBtn = document.getElementById("atrasBtn");
     const agregarBiografia = document.getElementById("agregarBiografia");
     const practiceTitle = document.getElementById("practice-title");
     const practiceDescription = document.getElementById("practice-description");
-
     updateStep();
-
     continuarBtn.addEventListener("click", function () {
         if (currentStep < 4 && agregarBiografia.value) {
             currentStep++;
             updateStep();
         }
     });
-
     atrasBtn.addEventListener("click", function () {
         if (currentStep > 1) {
             currentStep--;
             updateStep();
         }
     });
-
     function updateStep() {
         const steps = document.querySelectorAll(".step");
-
         steps.forEach((step, index) => {
             step.classList.remove("completed", "current");
-
             if (index < currentStep) {
                 step.classList.add("completed");
             }
@@ -223,13 +263,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 step.classList.add("current");
             }
         });
-
         changeContent(currentStep);
-
         continuarBtn.disabled = !(currentStep === 1 ? agregarBiografia.value : true);
         atrasBtn.style.display = currentStep > 0 ? "inline-block" : "none";
     }
-
     function changeContent(step) {
         switch (step) {
             case 0:
@@ -255,33 +292,23 @@ document.addEventListener("DOMContentLoaded", function () {
                 practiceDescription.textContent = "Asegúrate de que toda tu información esté correcta antes de finalizar.";
                 agregarBiografia.placeholder = "Revisa tu información aquí...";
                 agregarBiografia.style.display = "none";
-
                 setTimeout(() => {
-
                     window.location.href = "/perfilAbogadoCreado"
                 }, 2000);
-
                 break;
         }
     }
-
     agregarBiografia.addEventListener("input", function () {
         continuarBtn.disabled = !agregarBiografia.value;
     });
-
     steps[0].classList.add("current");
 });
-
-
 // Obtener el modal
 var modalEdit = document.getElementById("editModal");
-
 // Obtener el enlace que abre el modal
 var editLink = document.getElementById("editLink");
-
 // Obtener el elemento <span> que cierra el modal
 var spanEditClose = document.getElementsByClassName("modal-edit-close")[0];
-
 // Obtener los elementos donde se mostrará la información del usuario
 var nombreUsuario = document.getElementById("nombreUsuario");
 var contactoUsuario = document.getElementById("contactoUsuario");
@@ -290,12 +317,10 @@ var paisUsuario = document.getElementById("paisUsuario");
 var ciudadUsuario = document.getElementById("ciudadUsuario");
 var consultorioUsuario = document.getElementById("consultorioUsuario");
 var biografiaUsuario = document.getElementById("biografiaUsuario");
-
 // Cuando el usuario hace clic en el enlace, se abre el modal
 editLink.onclick = function(event) {
     event.preventDefault(); // Evitar la acción predeterminada del enlace
     modalEdit.style.display = "block"; // Mostrar el modal
-
     // Cargar los datos actuales en los campos del formulario
     nombre.value = nombreUsuario.textContent;
     contacto.value = contactoUsuario.textContent;
@@ -305,23 +330,19 @@ editLink.onclick = function(event) {
     pais.value = paisUsuario.textContent;
     biografia.value = biografiaUsuario.textContent;
 }
-
 // Cuando el usuario hace clic en <span> (x), se cierra el modal
 spanEditClose.onclick = function() {
     modalEdit.style.display = "none";
 }
-
 // Cuando el usuario hace clic en cualquier parte fuera del modal, se cierra
 window.onclick = function(event) {
     if (event.target == modalEdit) {
         modalEdit.style.display = "none";
     }
 }
-
 // Manejo del formulario de edición
 document.getElementById('editForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Evitar el envío del formulario
-
     // Obtener los nuevos valores de los inputs
     var nombre = document.getElementById('nombre').value;
     var contacto = document.getElementById('contacto').value;
@@ -330,7 +351,6 @@ document.getElementById('editForm').addEventListener('submit', function(event) {
     var ciudad = document.getElementById('ciudad').value;
     var pais = document.getElementById('pais').value;
     var biografia = document.getElementById('biografia').value;
-
     // Actualizar los elementos de perfil con los nuevos valores
     nombreUsuario.textContent = nombre;
     contactoUsuario.textContent = contacto;
@@ -339,7 +359,6 @@ document.getElementById('editForm').addEventListener('submit', function(event) {
     ciudadUsuario.textContent = ciudad;
     paisUsuario.textContent = pais;
     biografiaUsuario.textContent = biografia;
-
     // Guardar los nuevos valores en localStorage
     localStorage.setItem('nombreUsuario', nombre);
     localStorage.setItem('contactoUsuario', contacto);
@@ -348,11 +367,9 @@ document.getElementById('editForm').addEventListener('submit', function(event) {
     localStorage.setItem('ciudadUsuario', ciudad);
     localStorage.setItem('paisUsuario', pais);
     localStorage.setItem('biografiaUsuario', biografia);
-
     // Cierra el modal después de guardar los cambios
     modalEdit.style.display = "none";
 });
-
 // Al cargar la página, verifica si hay datos guardados
 window.onload = function() {
     var nombreGuardado = localStorage.getItem('nombreUsuario');
@@ -362,7 +379,6 @@ window.onload = function() {
     var ciudadGuardada = localStorage.getItem('ciudadUsuario');
     var paisGuardado = localStorage.getItem('paisUsuario');
     var biografiaGuardada = localStorage.getItem('biografiaUsuario');
-
     if (nombreGuardado) {
         nombreUsuario.textContent = nombreGuardado; // Cargar el nombre guardado
     }

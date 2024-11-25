@@ -1,7 +1,6 @@
 document.getElementById('btnInicioWeb').addEventListener('click', login);
 
 async function login(event) {
-
     event.preventDefault();
 
     const email = document.getElementById('gmailWeb').value.trim();
@@ -24,8 +23,7 @@ async function login(event) {
     if (!valid) return;
 
     try {
-
-        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/auth/login', {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -39,13 +37,28 @@ async function login(event) {
         console.log('Respuesta del backend:', data);
 
         if (response.ok && data.access_token) {
-
+            // Almacenar el token y el rol
             localStorage.setItem('token', data.access_token);
+            localStorage.setItem('role', data.role); // Almacenar el rol
 
-            window.location.href = '/homeLogin';
+            // Redirigir según el rol
+            switch (data.role) {
+                case 'user':
+                    window.location.href = '/homeLogin';
+                    break;
+                case 'lawyer':
+                    window.location.href = '/crearPerfilAbogado';
+                    break;
+                case 'admin':
+                    window.location.href = '/dashboard';
+                    break;
+                default:
+                    window.location.href = '/';
+                    break;
+            }
         } else {
             const errorMessage = data.message || 'Credenciales no válidas o error en el servidor.';
-            showErrorMessage('contraseñaWeb', 'Contraseña incorrecta. Por favor, inténtelo de nuevo.');
+            showErrorMessage('contraseñaWeb', errorMessage);
         }
 
     } catch (error) {
@@ -68,7 +81,7 @@ function clearErrorMessages() {
     errorMessages.forEach(message => message.remove());
 }
 
-document.getElementById('togglePassword').addEventListener('click', function() {
+document.getElementById('togglePassword').addEventListener('click', function () {
     const passwordField = document.getElementById('contraseñaWeb');
     const type = passwordField.type === 'password' ? 'text' : 'password';
     passwordField.type = type;

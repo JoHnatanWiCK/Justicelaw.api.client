@@ -50,6 +50,9 @@
                         <a href="{{ route('notificaciones')}}">Notificaciones</a>
                     </li>
                     <li>
+                        <a href="{{ route('calendar')}}">Calendario</a>
+                    </li>
+                    <li>
                         <a href="{{ route('configuracion')}}">Configuración</a>
                     </li>
                     <li><a href="#" id="openModal">Cerrar Sesión</a></li>
@@ -175,7 +178,7 @@
     <script src="js/modal.js"></script>
     @stack('scripts')
 
-    <script src="js/layoutLogin.js"></script>
+    <script src="js/layoutLoginAbogado.js"></script>
     <script src="js/perfil.js"></script>
 </body>
 </html>

@@ -140,7 +140,7 @@
         padding: 28px 25px 20px 25px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         overflow: hidden;
-        z-index: 2000;
+        z-index: 999999;
 
         transform: translateX(100%);
         transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
@@ -375,7 +375,7 @@
         padding: 28px 25px 20px 25px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         overflow: hidden;
-        z-index: 2000;
+        z-index: 999999;
         transform: translateX(100%);
         transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
     }
@@ -552,11 +552,16 @@
         text-decoration: none;
     }
 
-    #fotoPerfil {
+    #fotoPerfilActu {
         width: 100px;
         height: 100px;
         position: absolute;
+        border-radius: 50%;
+        object-fit: cover;
+        overflow: hidden;
     }
+
+
 }
 
 @media only screen and (min-width: 1201px) {
@@ -618,7 +623,7 @@
         padding: 28px 25px 20px 25px;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         overflow: hidden;
-        z-index: 2000;
+        z-index: 999999;
         transform: translateX(100%);
         transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.35);
     }
@@ -795,11 +800,15 @@
         text-decoration: none;
     }
 
-    #fotoPerfil {
+    #fotoPerfilActu {
         width: 100px;
         height: 100px;
         position: absolute;
+        border-radius: 50%;
+        object-fit: cover;
+        overflow: hidden;
     }
+
 }
 
 .sidebar {
@@ -979,5 +988,94 @@ select:focus {
 }
 
 #confirmation-buttons {
+    margin-top: 2rem;
+    display: flex; /* Flexbox para alinear los botones */
+    justify-content: flex-end; /* Empujar los botones hacia la derecha */
+    align-items: center; /* Centrar los botones verticalmente */
+    gap: 10px; /* Espaciado entre los botones */
+    padding: 10px; /* Espaciado interno del contenedor */
+}
+
+#confirmation-buttons button {
+    display: inline-flex; /* Mantiene el contenido del botón centrado */
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px; /* Tamaño del botón */
+    border-radius: 20px; /* Bordes redondeados */
+    font-size: 14px;
+    cursor: pointer;
+    border: none; /* Elimina el borde por defecto */
+}
+
+/* Botón "Sí, actualizar foto" */
+#btnConfirmar {
+    background-color: #003049;
+    color: white;
+}
+
+/* Botón "Cancelar" */
+#btnCancelar {
+    background-color: white;
+    color: #003049;
+    border: 2px solid #003049 !important; /* Forzar el borde */
+    border-radius: 20px; /* Redondear los bordes */
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#btnCancelar:hover, #btnConfirmar:hover {
+    opacity: 0.9; /* Efecto al pasar el cursor */
+}
+
+#btnCancelar:active, #btnConfirmar:active {
+    transform: scale(0.98); /* Efecto de clic */
+}
+
+
+#avatars-container {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center; /* Alinea al centro horizontalmente */
+    align-items: center;    /* Alinea al centro verticalmente */
+    gap: 10px;              /* Espacio entre los avatares */
+    flex-wrap: wrap;        /* Permite que los elementos se ajusten */
+}
+
+#avatars-container img {
+    width: 100px;          /* Tamaño de los avatares */
+    height: 100px;
+    border-radius: 50%;    /* Asegura que sean circulares */
+}
+
+#modal-title, #modal-message
+{
+    margin-bottom: 1rem;
+}
+
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0);
     display: none;
+    align-items: center;
+    justify-content: center;
+}
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+#loginBtn {
+    background-color: #003049;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 20px;
 }

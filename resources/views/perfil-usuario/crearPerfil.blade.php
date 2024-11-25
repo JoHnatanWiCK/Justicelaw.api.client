@@ -38,7 +38,7 @@
             <hr>
             <div class="perfil-content">
                 <div class="perfil-main">
-                    <img id="fotoPerfil" src="../../img/fotoPerfil.png" alt="fotoPerfil">
+                    <img id="fotoPerfilActu" src="../../img/fotoPerfil.png" alt="fotoPerfil">
                     <a href="#modal-foto">
                         <img id="circuloPerfil" src="../../img/circuloPerfil.png" alt="circuloPerfil">
                         <img id="agregarFoto" src="../../img/camaraAgreFoto.png" alt="camaraAgreFoto"></a>
@@ -63,6 +63,7 @@
                                 <!-- Botón para subir foto -->
                                 <div class="subir-foto" id="seleccionarFoto">
                                     <input type="file" name="seleccionarFoto" aria-label="Subir foto" onchange="handleFileSelection()">
+
                                 </div>
 
                                 <!-- Vista previa de la foto seleccionada -->
@@ -72,9 +73,11 @@
 
                                 <!-- Botones de confirmación (ocultos por defecto) -->
                                 <div id="confirmation-buttons" style="display: none;">
-                                    <button onclick="confirmarFoto()">Sí, actualizar foto</button>
-                                    <button onclick="cancelarFoto()">Cancelar</button>
+                                    <button id="btnConfirmar" onclick="confirmarFoto()">Sí, actualizar foto</button>
+                                    <button id="btnCancelar" onclick="cancelarFoto()">Cancelar</button>
                                 </div>
+
+
                             </div>
                         </div>
 
@@ -201,6 +204,17 @@
             <div class="progress"></div>
         </div>
 
+
+
+    <div id="authModal" style="display: none;" class="modal">
+        <div class="modal-content">
+            <h2>Necesitas iniciar sesión</h2>
+            <p>Debes iniciar sesión para acceder a esta página.</p>
+            <button id="loginBtn">Iniciar sesión</button>
+        </div>
+    </div>
+
+
         <script>
             window.routes = {
                 perfilCreado: "{{ route('perfilCreado') }}",
@@ -218,6 +232,7 @@
         @endpush
 
         @push('scripts')
+        <script src="{{ asset('js/auth.js') }}"></script>
         <script src="{{ asset('js/layoutLogin.js') }}"></script>
         <script src="{{ asset('js/perfil.js') }}"></script>
         @endpush

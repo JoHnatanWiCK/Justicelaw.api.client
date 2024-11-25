@@ -56,6 +56,11 @@ Route::get('/registro', function () {
     return view(view: 'registro.registro');
 })->name(name: 'registro');
 
+Route::get('/registroAbogado', function () {
+    return view(view: 'registro.registroAbogado');
+})->name(name: 'registroAbogado');
+
+
 Route::get('/sobreNosotros', function () {
     return view(view: 'sobreNosotros');
 })->name('sobreNosotros');
@@ -118,6 +123,13 @@ Route::get('/verificarAbogadoDos', function () {
 Route::get('/verificarAbogadoTres', function () {
     return view(view: 'verificacion.verificacionTres');
 })->name('verificarAbogadoTres');
+
+
+Route::get('/verificarConfirmacion', function () {
+    return view(view: 'verificacion.verificacionConfirmacion');
+})->name('verificarConfirmacion');
+
+
 
 Route::get('/foro', function () {
     return view(view: 'foro.foro');

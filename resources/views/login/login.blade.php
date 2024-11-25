@@ -28,8 +28,13 @@
                     <label for="gmailWeb">Email</label>
                     <input id="gmailWeb" type="email" name="gmailWeb">
 
+                    <div class="error-message" id="emailError" style="display:none;"></div>
+
                     <label for="contraseñaWeb">Contraseña</label>
-                    <input id="contraseñaWeb" type="password" name="contraseñaWeb">
+                    <div class="input-container"> <input id="contraseñaWeb" type="password" name="contraseñaWeb"> <i
+                            id="togglePassword" class="fa fa-eye"></i> <!-- Icono del ojo --> </div>
+                    <div class="error-message" id="passwordError" style="display:none;"></div>
+
 
                     <button type="button" id="btnInicioWeb" class="btn-login">Iniciar Sesión</button>
                 </form>
@@ -43,7 +48,8 @@
             </div>
 
         </section>
-        <section class="loginlmovil">
+
+        {{-- <section class="loginlmovil">
             <div class="tit">
                 <div class="titulo1">
                     <h1>Justice</h1>
@@ -74,22 +80,7 @@
 
 
 
-
-
-
-
-
-
-
-            <form id="login-form">
-                @csrf
-                <input type="email" id="email" placeholder="Email" required>
-                <input type="password" id="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-            </form>
-
-
-        </section>
+        </section> --}}
 
     @endsection
 
@@ -101,9 +92,6 @@
     @endpush
 
 
-@push('scripts')
-    <script src="js/login.js"></script>
-@endpush
-
-
-
+    @push('scripts')
+        <script src="js/login.js"></script>
+    @endpush

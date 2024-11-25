@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', async () => {
     const selectTypeDoc = document.querySelector('#tip_doc_web');
 
@@ -16,15 +18,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-async function registro(event) {
+async function registroAbogado(event) {
     event.preventDefault();
 
-    const name = document.querySelector('[name="nombre"]').value;
-    const last_name = document.querySelector('[name="apellido"]').value;
+    const name = document.querySelector('[name="nombreAbogado"]').value;
+    const last_names = document.querySelector('[name="apellidoAbogado"]').value;
     const type_document_id = document.querySelector('[name="tip_doc"]').value;
-    const document_number = document.querySelector('[name="num_doc"]').value;
-    const email = document.querySelector('[name="gmail"]').value;
-    const password = document.querySelector('[name="contraseña"]').value;
+    const document_number = document.querySelector('[name="num_docAbogado"]').value;
+    const email = document.querySelector('[name="gmailAbogado"]').value;
+    const password = document.querySelector('[name="contraseñaAbogado"]').value;
+
+    console.log('Formulario:', { name, last_names, type_document_id, document_number, email, password });
 
     clearErrorMessages();
 
@@ -35,7 +39,7 @@ async function registro(event) {
         formValid = false;
     }
 
-    if (!last_name) {
+    if (!last_names) {
         showError('apellido', 'Este campo es obligatorio');
         formValid = false;
     }
@@ -53,13 +57,14 @@ async function registro(event) {
     if (!email) {
         showError('gmail', 'Este campo es obligatorio');
         formValid = false;
-    } else {
-        const emailExists = await checkEmailExists(email);
-        if (emailExists) {
-            showError('gmail', 'Este correo ya está registrado');
-            formValid = false;
-        }
     }
+    // else {
+    //     const emailExists = await checkEmailExists(email);
+    //     if (emailExists) {
+    //         showError('gmail', 'Este correo ya está registrado');
+    //         formValid = false;
+    //     }
+    // }
 
     // Validar contraseña
     if (!password) {
@@ -75,14 +80,15 @@ async function registro(event) {
 
     // Enviar formulario si es válido
     try {
-        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/auth/register', {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/registrarLawyer', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify({
                 name,
-                last_name,
+                last_names,
                 type_document_id,
                 document_number,
                 email,
@@ -90,16 +96,29 @@ async function registro(event) {
             }),
         });
 
+
+        if (!response.ok) {
+            throw new Error('Error en la respuesta del servidor: ' + response.status);
+        }
+
+
         const data = await response.json();
 
-        if (response.ok) {
-            window.location.href = '/login';
-        } else {
-            showError('form', 'Error en el registro: ' + JSON.stringify(data));
-        }
+        const lawyerId = data.id;
+        console.log('Abogado registrado:', data);
+
+        // Guardar el lawyerId en localStorage
+        localStorage.setItem('lawyerId', lawyerId);
+
+        // Mostrar el lawyerId en una alerta
+        alert('ID del abogado registrado: ' + lawyerId);
+
+
+        window.location.href = '/verificarAbogado';
+
+
     } catch (error) {
         console.error('Error en el registro:', error);
-        showError('form', 'No se pudo realizar el registro. Intenta más tarde.');
     }
 }
 
@@ -148,7 +167,7 @@ document.querySelector('a').addEventListener('click', function(e) {
 });
 
 document.getElementById('togglePassword').addEventListener('click', function() {
-    const passwordField = document.getElementById('contraseña');
+    const passwordField = document.getElementById('contraseñaAbogado');
     const type = passwordField.type === 'password' ? 'text' : 'password';
     passwordField.type = type;
 

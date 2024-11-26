@@ -48,19 +48,18 @@
     <div class="chart">
         <h3>Visitantes</h3>
         <p>Informes</p>
-        <img src="{{ asset('img/admin/graficaVisitantes.png') }}" alt="graficaVisitantes">
+        <canvas id="visitantesChart"></canvas>
         <p>Clientes</p>
         <p>Abogados</p>
     </div>
-</section>
-
-<div class="chart2">
-    <h3>Usuarios por rol</h3>
-    <p>Abogados</p>
-    <img src="{{ asset('img/admin/graficaUsuariosPorRol.png') }}" alt="graficaUsuariosPorRol">
-    <p>Clientes</p>
-</div>
-
+    
+    <div class="chart2">
+        <h3>Usuarios por rol</h3>
+        <p>Abogados</p>
+        <canvas id="usuariosPorRolChart"></canvas>
+        <p>Clientes</p>
+    </div>
+    
 <div class="recent-activity">
     <h3>Actividad reciente</h3>
     <ul>

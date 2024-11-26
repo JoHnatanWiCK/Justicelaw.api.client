@@ -6,12 +6,10 @@
 @endsection
 
 @section('main')
-<div class="container">
-    <h1 class="text-center">Listado de Artículos</h1>
-    <div class="row" id="information-container">
-        <!-- Aquí se insertarán las tarjetas dinámicamente mediante JavaScript -->
-    </div>
+<div id="informationContainer">
+    <!-- Aquí se cargarán las informaciones -->
 </div>
+
 @endsection
 
 @section('footer')

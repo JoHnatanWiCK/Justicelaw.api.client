@@ -2501,3 +2501,8 @@ button:hover {
 
 
   }
+
+  button.selected {
+    background-color: #007bff;
+    color: white;
+}

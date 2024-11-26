@@ -243,7 +243,7 @@
     }
     .practice-text {
       text-align: center;
-      margin-top: 10px;
+      font-weight: 600;
     }
 
     .act-movil {
@@ -595,38 +595,6 @@
        display: none;
       }
 
-      /* .sidebar ul {
-        list-style: none;
-        padding: 0;
-        text-align: center;
-
-      }
-
-      .sidebar ul li {
-        margin: 10px 0;
-        margin-bottom: 2rem;
-      }
-
-      .sidebar ul li a {
-        margin: 0;
-        color: rgb(0, 0, 0);
-        text-decoration: none;
-      }
-
-      .sidebar ul li i {
-        padding-bottom: 1rem;
-        padding-right: 1.5rem;
-      }
-
-      #cerrarSesion {
-        margin-top: 14rem;
-      }
-
-      .sidebar ul li a:hover {
-        color: #00a8ff;
-      } */
-
-
       #circuloPerfil {
         top: 10rem;
         left: 7%;
@@ -902,7 +870,7 @@
     padding: 0;
   }
 
-  #fotoPerfil {
+  #fotoPerfilAbogado {
     left: 2%;
     top: 90%;
     position: absolute;
@@ -1113,25 +1081,27 @@
   .act h2 {
     margin-top: 0;
   }
-  .civ {
-    display: flex;
-    gap: 2rem;
-    justify-content: left;
-  }
+
 
   .box-practice {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 25%;
+    width: 15%;
     padding: 2rem;
-    height: 10rem;
-    background-color: #fff;
+    height: 6rem;
+    background-color: #FFFFFF; /* Fondo blanco */
     border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  }
+    box-shadow: 0px 4px 12px rgba(0, 47, 73, 0.5); /* Sombra de color #002f49 */
+    transition: all 0.3s ease; /* Animación suave para el hover */
+    margin: 0.5rem; /* Espaciado entre los elementos */
+}
 
+.box-practice:hover {
+    transform: scale(1.1); /* Agrandamiento al pasar el mouse */
+    box-shadow: 0px 8px 20px rgba(207, 158, 62, 0.6); /* Sombra más intensa en hover */
+}
   .progress-bar {
     width: 80%;
     display: flex;
@@ -1293,18 +1263,13 @@ button:hover {
 }
 
 
-  .practice-item {
-    text-align: center;
-    width: 4.5rem;
-    height: 4.5rem;
-    padding: 15px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    border-radius: 50%;
-  }
-  .practice-item img {
-    max-width: 2.5rem;
-  }
+.practice-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
   .civil {
     background-color: #f5ecd8;
     border: 1px solid #f1c40f;
@@ -1317,7 +1282,7 @@ button:hover {
   }
   .practice-text {
     text-align: center;
-    margin-top: 10px;
+    font-weight: 600;
   }
 
   .act {
@@ -1536,7 +1501,8 @@ button:hover {
 .sidebar {
     position: sticky;
     padding-top: 2rem;
-    max-width: 15%;
+    height: 100%;
+    width: 8%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     align-items: center;
     justify-content: center;
@@ -1614,14 +1580,17 @@ width: 350px;
     margin: 0;
   }
 
-    .container {
-        margin-top: 0;
-        padding-top: 0;
-        height: 25rem;
-      display: flex;
-      align-items: center;
-      margin-bottom: 25px;
-    }
+  .container {
+    display: flex; /* Flexbox para organizar columnas */
+    flex-wrap: wrap; /* Permite que las columnas se acomoden en varias filas en pantallas pequeñas */
+    justify-content: space-between; /* Espacio entre las columnas */
+    align-items: stretch; /* Asegura que ambas columnas tengan la misma altura */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 0;
+    padding-bottom: 1rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
 
     .profile-nav {
       box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
@@ -1887,7 +1856,7 @@ width: 350px;
     padding: 0;
   }
 
-  #fotoPerfil {
+  #fotoPerfilAbogado {
     left: 3%;
     top: 90%;
     position: absolute;
@@ -1977,7 +1946,7 @@ width: 350px;
     height: 100%;
     margin-top: 2rem;
     width: 30%;
-    padding: 2rem;
+    padding: 3rem;
     padding-top: 0.5rem;
     display: flex;
     flex-direction: column;
@@ -2284,26 +2253,27 @@ button:hover {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 25%;
+    width: 15%;
     padding: 2rem;
-    height: 10rem;
-    background-color: #fff;
+    height: 6rem;
+    background-color: #FFFFFF; /* Fondo blanco */
     border-radius: 10px;
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-  }
+    box-shadow: 0px 4px 12px rgba(0, 47, 73, 0.5); /* Sombra de color #002f49 */
+    transition: all 0.3s ease; /* Animación suave para el hover */
+    margin: 0.5rem; /* Espaciado entre los elementos */
+}
 
-  .practice-item {
-    text-align: center;
-    width: 4.5rem;
-    height: 4.5rem;
-    padding: 15px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    border-radius: 50%;
-  }
-  .practice-item img {
-    max-width: 2.5rem;
-  }
+.box-practice:hover {
+    transform: scale(1.1); /* Agrandamiento al pasar el mouse */
+    box-shadow: 0px 8px 20px rgba(207, 158, 62, 0.6); /* Sombra más intensa en hover */
+}
+.practice-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
   .civil {
     background-color: #f5ecd8;
     border: 1px solid #f1c40f;
@@ -2316,7 +2286,7 @@ button:hover {
   }
   .practice-text {
     text-align: center;
-    margin-top: 10px;
+    font-weight: 600;
   }
 
   .act {
@@ -2328,7 +2298,7 @@ button:hover {
     display: inline;
     vertical-align: middle;
     color: #00a8ff;
-    font-size: 16px;
+    font-size: 13px;
     font-weight: lighter;
     text-decoration: underline;
   }
@@ -2502,7 +2472,125 @@ button:hover {
 
   }
 
-  button.selected {
-    background-color: #007bff;
-    color: white;
+
+  #practice-title{
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+  }
+
+  #practice-description{
+    font-size: 14px;
+    margin-bottom: 0.5rem;
+  }
+
+  #profileForm{
+    padding: 1.6rem;
+  }
+
+  .step-content textarea{
+    font-family: 'Faustina', serif;
+  }
+
+  #continuarBtnWeb, #atrasBtn{
+    margin-top: 1rem;
+    background-color: #0a3b55;
+    color: #ffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 20%;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: 600;
+  }
+
+  /* Estilo por defecto de los botones */
+/* Estilo por defecto de los botones */
+button.area-button {
+  margin: 1rem auto; 
+  background-color: #fff;
+  color: #0a3b55;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%; /* Asegura que se adapte al contenedor */
+  max-width: 200px; /* Límite máximo para pantallas grandes */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  font-weight: 600;
+  font-size: 14px; /* Tamaño de texto adaptable */
+  text-align: center;
+  transition: all 0.3s ease;
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+}
+
+/* Estilo de los botones seleccionados */
+button.area-button.selected {
+  margin: 1rem auto; 
+  background-color: #0a3b55;
+  color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%; /* Asegura que se adapte al contenedor */
+  border: 2px #002f49 solid;
+  max-width: 200px; /* Límite máximo para pantallas grandes */
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  font-weight: 600;
+  font-size: 14px; /* Tamaño de texto adaptable */
+  text-align: center;
+  transition: all 0.3s ease;
+  box-sizing: border-box; /* Asegura que el padding no afecte el ancho */
+
+}
+
+/* Ajustes responsivos para pantallas pequeñas */
+@media (max-width: 600px) {
+  button.area-button {
+    font-size: 0.9rem; /* Reducir el tamaño de texto */
+    padding: 8px 15px; /* Reducir el padding */
+    max-width: 150px; /* Limitar el ancho en pantallas pequeñas */
+  }
+}
+
+/* Ajustes responsivos para pantallas muy pequeñas (como móviles) */
+@media (max-width: 400px) {
+  button.area-button {
+    font-size: 0.8rem; /* Reducir aún más el tamaño de texto */
+    padding: 6px 10px; /* Reducir padding para adaptarse */
+    max-width: 120px; /* Límite máximo aún menor */
+  }
+}
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column; /* Cambia a diseño vertical en pantallas más pequeñas */
+    padding: 10px; /* Añade un poco de espacio interno */
+    min-height: 20rem; /* Ajusta la altura mínima */
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 5px; /* Reduce aún más el padding */
+    min-height: 15rem; /* Ajusta la altura mínima para móviles */
+  }
+}
+
+.icon-container i{
+  font-size: 20px;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  text-align: left;
+}
+
+#biografiaUsuario{
+  margin-bottom: 1rem;
 }

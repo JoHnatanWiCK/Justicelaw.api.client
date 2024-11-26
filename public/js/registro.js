@@ -76,7 +76,7 @@ async function registro(event) {
 
     // Enviar formulario si es válido
     try {
-        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/auth/register', {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -1,4 +1,4 @@
-@extends('layouts.layoutLogin')
+@extends('layouts.layoutAbogado')
 
 @section('title', 'Perfil Abogado')
 
@@ -8,66 +8,47 @@
 @section('main')
         <section class="content">
             <nav class="sidebar">
-                <ul>
+                <ul class="icon-list">
                     <li>
-                        <div class="icon-container">
+                        <a href="#" class="icon-container">
                             <i class="fa-regular fa-user"></i>
-                        </div>
-                        <div class="text-container">
-                            <a href="{{route ('perfil.abogado.creado')}}">Información usuario</a>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div class="icon-container">
+                        <a href="#" class="icon-container">
                             <i class="fa-solid fa-clock-rotate-left"></i>
-                        </div>
-                        <div class="text-container">
-                            <a href="{{ route('historial') }}">Historial</a>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div class="icon-container">
+                        <a href="#" class="icon-container">
                             <i class="fa-solid fa-gear"></i>
-                        </div>
-                        <div class="text-container">
-                            <a href="{{ route ('configuracionAbogado')}}">Configuración</a>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div class="icon-container">
+                        <a href="#" class="icon-container">
                             <i class="fa-regular fa-bell"></i>
-                        </div>
-                        <div class="text-container">
-                            <a href="{{ route ('noti-lawyer')}}">Notificaciones</a>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div class="icon-container">
+                        <a href="#" class="icon-container">
                             <i class="fa-regular fa-calendar"></i>
-                        </div>
-                        <div class="text-container">
-                            <a href="{{ route('calendar') }}">Calendario</a>
-                        </div>
+                        </a>
                     </li>
-                    <li id="cerrarSesion">
-                        <div class="icon-container">
+                    <li>
+                        <a href="#" class="icon-container">
                             <i class="fa-solid fa-right-from-bracket"></i>
-                        </div>
-                        <div class="text-container">
-                            <a href="../home/home.html">Cerrar sesión</a>
-                        </div>
+                        </a>
                     </li>
                 </ul>
             </nav>
 
-
           <div class="perfil">
             <div class="perfil-contenedor">
             <div class="banner">
-            <img id="fotoPerfil" src="../../img/fotoPerfil.jfif" alt="foto" />
+            <img id="fotoPerfilAbogado" src="../../img/fotoPerfil.jfif" alt="foto" />
 
             <div class="content-abogado">
-            <h3 id="nombreUsuario">David Astrada</h3>
+                <h3 id="userName"></h3>
             <div class="stars">
               <img src="../../img/star-solid.svg" alt="star">
               <img src="../../img/star-solid.svg" alt="star">
@@ -76,7 +57,8 @@
               <img src="../../img/star-solid-white.svg" alt="star white">
             </div>
             </div>
-            <a href="../perfil_abogado/editarPerfil.html"  id="editLink"><i class="fa-regular fa-pen-to-square"></i></a>
+            <a href="../perfil_abogado/editarPerfil.html" id="editLink"><i
+                class="fa-regular fa-pen-to-square"></i></a>
 
             </div>
 <!-- Modal para Editar Perfil -->
@@ -99,7 +81,8 @@
             </div>
             <div class="modal-edit-field">
                 <label for="consultorio">Nombre Consultorio:</label>
-                <input type="text" id="consultorio" placeholder="Introduce nombre del consultorio" required>
+                <input type="text" id="consultorio" placeholder="Introduce nombre del consultorio"
+                    required>
             </div>
             <div class="modal-edit-field">
                 <label for="ciudad">Ciudad:</label>
@@ -146,45 +129,42 @@
 
             <section class="section" id="sobre-mi">
             <div class="container">
-              <div class="left-column">
-                  <div class="datos">
-                    <div class="editar-datos">
-                      <h2>Información Personal</h2>
-                    </div>
-                    <p>Contacto: <span id="contactoUsuario">+57 3132307635</span></p>
-                    <p>DNI: <span id="dniUsuario">1061702424</span></p>
-                      <p>Email: &ensp;&ensp;&ensp;&ensp;davidastr45@gmail.com</p>
-                      <p>País: <span id="paisUsuario">Colombia</span></p>
-                      <p>Ciudad: <span id="ciudadUsuario">Popayán</span></p>
-                      <p>Nombre Consultorio: <span id="consultorioUsuario">LeyEs</span></p>
-                     </div>
+                <div class="left-column">
+                    <div class="datos">
+                        <div class="editar-datos">
+                            <h2>Información Personal</h2>
+                        </div>
+                        <div class="telefonoWeb">
+                            <h4>Telefono:</h4>
+                            <p></p>
+                        </div>
 
-              </div>
+                        <div class="correoWeb">
+                            <h4>Email:</h4>
+                            <p></p>
+                        </div>
+                        <div class="paisWeb">
+                            <h4>Pais:</h4>
+                            <p></p>
+                        </div>
+                        <div class="ciudadWeb">
+                            <h4>Ciudad:</h4>
+                            <p></p>
+                        </div>
+                    </div>
+
+
+                </div>
 
               <div class="right-column">
                   <div class="presentation">
                       <h2>Presentación</h2>
-                      <p id="biografiaUsuario">Especializado en derecho civil y familiar, mi objetivo
-                        es proporcionar soluciones legales efectivas y comprensibles
-                        para mis clientes. Fuera del trabajo, disfruto de la lectura y
-                        el tiempo al aire libre. Estoy aquí para ayudarte con tus necesidades
-                        legales.</p>
+                      <p id="biografiaUsuario"></p>
                   </div>
                   <div class="practice">
                       <h2>Áreas de práctica</h2>
                       <div class="civ">
-                          <div class="box-practice">
-                              <div class="practice-item civil">
-                                  <img src="../../img/logoCivil.png" alt="Derecho civil">
-                              </div>
-                              <p class="practice-text">Derecho civil</p>
-                          </div>
-                          <div class="box-practice">
-                              <div class="practice-item familiar">
-                                  <img src="../../img/derechofamiliar.png" alt="Derecho familiar">
-                              </div>
-                              <p class="practice-text">Derecho familiar</p>
-                          </div>
+                         
                       </div>
                   </div>
               </div>
@@ -202,7 +182,7 @@
 
 
           <section id="hoja-de-vida" class="section">
-        <iframe class="iframeLarge" src="https://drive.google.com/file/d/1hCQs9GVqTZRmz5LOQNM8-HLn9M25Dblk/preview" frameborder="0"></iframe>
+        <iframe class="iframeLarge" src="" frameborder="0"></iframe>
 
           </section>
 
@@ -624,5 +604,5 @@
         @endpush
 
         @push('scripts')
-        <script src="js/perfilAbogado.js"></script>
+        <script src="js/abogadoCreado.js"></script>
         @endpush

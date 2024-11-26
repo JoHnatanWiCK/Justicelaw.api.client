@@ -99,7 +99,7 @@ async function renderCharts() {
         });
 
         // Visitantes
-        const ctxVisitantes = document.getElementById('chartVisitantes').getContext('2d');
+        const ctxVisitantes = document.getElementById('visitantesChart').getContext('2d');
         new Chart(ctxVisitantes, {
             type: 'bar',
             data: {
@@ -113,7 +113,7 @@ async function renderCharts() {
         });
 
         // Usuarios por rol
-        const ctxUsuariosPorRol = document.getElementById('chartUsuariosPorRol').getContext('2d');
+        const ctxUsuariosPorRol = document.getElementById('usuariosPorRolChart').getContext('2d');
         new Chart(ctxUsuariosPorRol, {
             type: 'pie',
             data: {

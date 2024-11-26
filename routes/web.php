@@ -522,7 +522,7 @@ Route::put('questions/{question}', [QuestionController::class, 'update'])->name(
 Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('api.v1.questions.delete');
 
 
-Route::get('answers', [QuestionController::class, 'indexr'])->name('api.v1.answers.index');
+Route::get('answers', [QuestionController::class, 'index'])->name('api.v1.answers.index');
 Route::post('answers', [QuestionController::class, 'storer'])->name('api.v1.answers.store');
 Route::get('answers/{answer}', [QuestionController::class, 'showr'])->name('api.v1.answers.show');
 Route::put('answers/{answer}', [QuestionController::class, 'updater'])->name('api.v1.answers.update');

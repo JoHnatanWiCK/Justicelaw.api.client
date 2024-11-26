@@ -1,7 +1,71 @@
+    function openTaskModal() {
+        document.getElementById('askTaskModal').style.display = 'block';
+    }
+    function closeTaskModal() {
+        document.getElementById('askTaskModal').style.display = 'none';
+    }
+
+
+
+function showModal(id, title, content, date,user,last) {
+    document.getElementById('answers').style.display = 'flex';
+    
+
+    document.getElementById('modal-user').innerText = user+" "+last;
+    document.getElementById('modal-title').innerText = title;
+    document.getElementById('modal-content').innerText = content;
+    document.getElementById('modal-date').innerText = date;
+
+    document.querySelectorAll('.post').forEach(post => {
+        if (post.getAttribute('data-question-id') === id.toString()) {
+            post.style.display = 'block';
+        } else {
+            post.style.display = 'none';
+        }
+    });  
+   
+}
+
+
+
+
+// Función para abrir el modal
+function openModal() {
+    document.getElementById('askModal').style.display = 'block';
+  }
+  
+
+
+
+  
+
+
+  // Función para cerrar el modal
+  function closeModala() {
+    document.getElementById('askModal').style.display = 'none';
+  }
+  
+  // Cierra el modal al hacer clic fuera del contenido
+  window.onclick = function(event) {
+    const modal = document.getElementById('askModal');
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  };
+  
+
+  window.onclick = function(event) {
+    const modal = document.getElementById('answers');
+    if (event.target === modal) {
+      modal.style.display = 'none';
+    }
+  };
+
+
 function closeModal() {
     console.log('Cerrando modal...');
 
-    document.getElementById('respuestas').style.display = 'none';
+    document.getElementById('answers').style.display = 'none';
 }
 
 
@@ -116,24 +180,6 @@ document.getElementById('category-filter').addEventListener('change', function (
 
 
 
-function showModal(id, title, content, date,user,last) {
-    document.getElementById('respuestas').style.display = 'flex';
-    
-
-    document.getElementById('modal-user').innerText = user+" "+last;
-    document.getElementById('modal-title').innerText = title;
-    document.getElementById('modal-content').innerText = content;
-    document.getElementById('modal-date').innerText = date;
-
-    document.querySelectorAll('.post').forEach(post => {
-        if (post.getAttribute('data-question-id') === id.toString()) {
-            post.style.display = 'block';
-        } else {
-            post.style.display = 'none';
-        }
-    });  
-   
-}
 
 
 document.getElementById('show-more').addEventListener('click', function() {

@@ -8,20 +8,7 @@ use Illuminate\Support\Facades\Http;
 class InformationController extends Controller
 {
 
-    private function fetchDataFromApi($url)
-    {
-        try {
-            $response = Http::timeout(30)
-                ->withoutVerifying() // Temporal para desarrollo
-                ->withOptions(['debug' => true]) // Opcional: para debugging
-                ->get($url);
     
-            return $response->json();
-        } catch (\Exception $e) {
-            \Log::error('Error al conectar con la API: ' . $e->getMessage());
-            return []; // Manejar error devolviendo un array vacío
-        }
-    }
 
     /**
      * Display a listing of the resource.

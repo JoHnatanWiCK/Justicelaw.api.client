@@ -23,34 +23,36 @@
     <!-- Modal para crear publicación -->
 
     <div class="task-modal" id="askTaskModal">
-    <div class="task-modal-content">
+     <div class="ask-question">
+
         <span class="task-modal-close" onclick="closeTaskModal()">&times;</span>
-        <h2>Escribe tu pregunta</h2>
-        <form id="questionFormModal" action="{{ route('api.v1.questions.store') }}" method="POST">
-            @csrf
-            <input type="text" name="affair" placeholder="Asunto:" required />
-            <input type="date" id="dateInputModal" name="date_publication" style="display: none;" required>
-            <input type="number" id="userInputModal" name="user_id" style="display: none;">
-            <textarea name="content" placeholder="Contenido:" required></textarea>
-            <select name="forum_category_id">
-                @foreach ($categories as $c)
-                    <option value="{{ $c['id'] }}">{{ $c['name'] }}</option>
-                @endforeach
-            </select>
-            <button type="submit">Publicar</button>
-        </form>
+            <h3>Escribe tu duda....</h3>
+            <form id="questionForm" action="{{ route('api.v1.questions.store') }}" method="POST">
+                @csrf
+                <input type="text" name="affair" placeholder="Asunto:" required />
+                <input type="date" id="dateInput" name="date_publication" style="display: none;" required>
+
+                <span id="userid" style="display: none;"></span>
+                <input type="number" id="userInput" name="user_id" style="display: none;" >
+                <textarea name="content" placeholder="Contenido:" required></textarea>
+                <select name="forum_category_id">
+                    @foreach ($categories as $c)
+                        <option value="{{$c['id']}}">{{$c['name']}}</option>
+                    @endforeach
+                </select>
+                <button type="submit">Publicar</button>
+            </form>
+        </div>    
     </div>
-</div>    
-
-
 
 <div class="conteiner-infos">
 
-<h2>Nuestras Informaciones</h2>
+<h3>Nuestras Informaciones</h3>
+
 
 
 <div class="horizontal-card">
-    <img src="../../img/PensionAliemnticia.jpg" alt="Noticia 5" class="horizontal-card-image">
+    <img src="../../img/Testamento.jpg" alt="Noticia 5" class="horizontal-card-image">
     <div class="horizontal-card-content">
         <h4 class="horizontal-card-title" id="alimentp">PENSIÓN ALIMENTICIA</h4>
         <p class="horizontal-card-description">
@@ -74,7 +76,7 @@
 </div>
 
 <div class="horizontal-card">
-    <img src="../../img/PensionAliemnticia.jpg" alt="Noticia 5" class="horizontal-card-image">
+    <img src="../../img/Arrendamiento.jpg" alt="Noticia 5" class="horizontal-card-image">
     <div class="horizontal-card-content">
         <h4 class="horizontal-card-title" id="alimentp">PENSIÓN ALIMENTICIA</h4>
         <p class="horizontal-card-description">
@@ -86,7 +88,7 @@
 </div>
 
 <div class="horizontal-card">
-    <img src="../../img/PensionAliemnticia.jpg" alt="Noticia 5" class="horizontal-card-image">
+    <img src="../../img/Testamento.jpg" alt="Noticia 5" class="horizontal-card-image">
     <div class="horizontal-card-content">
         <h4 class="horizontal-card-title" id="alimentp">PENSIÓN ALIMENTICIA</h4>
         <p class="horizontal-card-description">
@@ -98,7 +100,7 @@
 </div>
 
 <div class="horizontal-card">
-    <img src="../../img/PensionAliemnticia.jpg" alt="Noticia 5" class="horizontal-card-image">
+    <img src="../../img/Accidente.png" alt="Noticia 5" class="horizontal-card-image">
     <div class="horizontal-card-content">
         <h4 class="horizontal-card-title" id="alimentp">PENSIÓN ALIMENTICIA</h4>
         <p class="horizontal-card-description">
@@ -110,7 +112,7 @@
 </div>
 
 <div class="horizontal-card">
-    <img src="../../img/PensionAliemnticia.jpg" alt="Noticia 5" class="horizontal-card-image">
+    <img src="../../img/Despido.jpg" alt="Noticia 5" class="horizontal-card-image">
     <div class="horizontal-card-content">
         <h4 class="horizontal-card-title" id="alimentp">PENSIÓN ALIMENTICIA</h4>
         <p class="horizontal-card-description">
@@ -121,8 +123,9 @@
     </div>
 </div>
 
+
 <div class="horizontal-card">
-    <img src="../../img/PensionAliemnticia.jpg" alt="Noticia 5" class="horizontal-card-image">
+    <img src="../../img/Divorcio.jpg" alt="Noticia 5" class="horizontal-card-image">
     <div class="horizontal-card-content">
         <h4 class="horizontal-card-title" id="alimentp">PENSIÓN ALIMENTICIA</h4>
         <p class="horizontal-card-description">
@@ -152,13 +155,19 @@
     </div>
 
 
-    <!-- Buscador -->
-    <input type="text" class="search-foro" placeholder="Buscar en el foro..." />
+    <div class="searcha-bar">
+            <input type="text" placeholder="">
+            <button id="buscarBtn">
+                <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+            <div class="results" id="results"></div>
 
+        </div>
    
-   
-<!-- Botón de creación -->
-<button class="create-post-btn" onclick="openTaskModal()">Crear Publicación</button>
+        <button class="create-post-btns" onclick="openTaskModal()">Crear Publicación</button>
+
+    
+
 
  </header>
 

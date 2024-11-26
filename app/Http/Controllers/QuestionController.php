@@ -14,7 +14,6 @@ class QuestionController extends Controller
         $response = Http::get($url);
         return $response->json();
     }
-
     /**
      * Display a listing of the resource.
      */
@@ -42,7 +41,7 @@ class QuestionController extends Controller
     $questions = $questions->sortByDesc('created_at')->values();
 
     // Configurar la paginación
-    $perPage = 12; // Número de elementos por página
+    $perPage = 9; // Número de elementos por página
     $currentPage = request()->input('page', 1); // Obtener la página actual
     $pagedData = $questions->forPage($currentPage, $perPage); // Dividir los datos
 

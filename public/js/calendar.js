@@ -1,50 +1,44 @@
 let currentStartDay = 1;
 let currentMonthIndex = 0;
 let currentYear = 2024;
+let selectedDate = null; // Variable para almacenar la fecha seleccionada
 
 function renderDays() {
     const daysContainer = document.querySelector('.days');
-    const monthNameElement = document.getElementById('monthName'); 
-    daysContainer.innerHTML = ''; 
+    const monthNameElement = document.getElementById('monthName');
+    daysContainer.innerHTML = '';
 
     const daysInMonth = new Date(currentYear, currentMonthIndex + 1, 0).getDate();
-    monthNameElement.innerText = getMonthName(currentMonthIndex); 
+    monthNameElement.innerText = getMonthName(currentMonthIndex);
 
     const prevButton = document.createElement('button');
     prevButton.id = 'prevDayBtn';
-    prevButton.classList.add('prevBtn'); 
-    prevButton.innerHTML = '&lt;'; 
-    prevButton.onclick = () => {
-        currentStartDay -= 7; 
-        if (currentStartDay < 1) {
-            currentMonthIndex = (currentMonthIndex - 1 + 12) % 12; 
-            if (currentMonthIndex === 11) {
-                currentYear--;
-            }
-            const daysInPrevMonth = new Date(currentYear, currentMonthIndex + 1, 0).getDate(); 
-            currentStartDay = daysInPrevMonth + currentStartDay; 
-        }
-        renderDays(); 
-    };
+    prevButton.classList.add('prevBtn');
+    prevButton.innerHTML = '&lt;';
+    prevButton.onclick = () => adjustStartDay('prev');
     daysContainer.appendChild(prevButton);
 
     for (let i = currentStartDay; i < currentStartDay + 7; i++) {
-        if (i > daysInMonth) {
-            currentStartDay = 1;
-            currentMonthIndex = (currentMonthIndex + 1) % 12;
-            if (currentMonthIndex === 0) {
-                currentYear++;
-            }
-            renderDays();
-            return; 
-        }
+        if (i > daysInMonth) break;
+
         const dayDiv = document.createElement('div');
         dayDiv.classList.add('day');
+
+        // Construir la fecha actual
+        const currentDate = `${currentYear}-${String(currentMonthIndex + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+
+        // Verificar si este día es el seleccionado
+        if (currentDate === selectedDate) {
+            dayDiv.classList.add('selected');
+        }
+
         dayDiv.innerHTML = `<span class="date">${i}</span><span class="day-name">${getDayName(i)}</span>`;
         
         dayDiv.onclick = () => {
             document.querySelectorAll('.day').forEach(day => day.classList.remove('selected'));
             dayDiv.classList.add('selected');
+            selectedDate = currentDate; // Actualizar la fecha seleccionada
+            document.getElementById("dateDisplay").innerText = selectedDate;
         };
 
         daysContainer.appendChild(dayDiv);
@@ -53,125 +47,115 @@ function renderDays() {
     const nextButton = document.createElement('button');
     nextButton.id = 'nextDayBtn';
     nextButton.classList.add('nextBtn');
-    nextButton.innerHTML = '&gt;'; 
-    nextButton.onclick = () => {
-        if (currentStartDay + 7 <= daysInMonth) {
-            currentStartDay += 7; 
-        } else {
-            currentStartDay = 1; 
-            currentMonthIndex = (currentMonthIndex + 1) % 12; 
-            if (currentMonthIndex === 0) {
-                currentYear++;
-            }
-        }
-        renderDays(); 
-    };
+    nextButton.innerHTML = '&gt;';
+    nextButton.onclick = () => adjustStartDay('next');
     daysContainer.appendChild(nextButton);
+}
+
+function adjustStartDay(direction) {
+    const daysInMonth = new Date(currentYear, currentMonthIndex + 1, 0).getDate();
+    if (direction === "prev") {
+        currentStartDay -= 7;
+        if (currentStartDay < 1) {
+            currentMonthIndex = (currentMonthIndex - 1 + 12) % 12;
+            if (currentMonthIndex === 11) currentYear--;
+            const daysInPrevMonth = new Date(currentYear, currentMonthIndex + 1, 0).getDate();
+            currentStartDay = daysInPrevMonth + currentStartDay;
+        }
+    } else {
+        if (currentStartDay + 7 <= daysInMonth) {
+            currentStartDay += 7;
+        } else {
+            currentMonthIndex = (currentMonthIndex + 1) % 12;
+            if (currentMonthIndex === 0) currentYear++;
+            currentStartDay = (currentStartDay + 7) - daysInMonth;
+        }
+    }
+    renderDays();
 }
 
 function renderMonths() {
     const monthsContainer = document.querySelector('.months');
-    monthsContainer.innerHTML = ''; 
+    monthsContainer.innerHTML = '';
 
-    const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", 
+    const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
                     "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
 
     for (let i = 0; i <= 6; i++) {
         const monthDiv = document.createElement('div');
         monthDiv.id = `month${i}`;
-        monthDiv.innerText = months[(currentMonthIndex + i) % 12]; 
+        monthDiv.innerText = months[(currentMonthIndex + i) % 12];
         monthsContainer.appendChild(monthDiv);
     }
 
     const prevMonthButton = document.createElement('button');
     prevMonthButton.innerHTML = '&lt;';
     prevMonthButton.onclick = () => {
-        currentMonthIndex = (currentMonthIndex - 1 + 12) % 12; 
-        renderMonths(); 
+        currentMonthIndex = (currentMonthIndex - 1 + 12) % 12;
+        renderMonths();
+        renderDays(); // Asegurarnos de actualizar los días al cambiar el mes
     };
     monthsContainer.prepend(prevMonthButton);
 
     const nextMonthButton = document.createElement('button');
     nextMonthButton.innerHTML = '&gt;';
     nextMonthButton.onclick = () => {
-        currentMonthIndex = (currentMonthIndex + 1) % 12; 
-        renderMonths(); 
+        currentMonthIndex = (currentMonthIndex + 1) % 12;
+        renderMonths();
+        renderDays(); // Asegurarnos de actualizar los días al cambiar el mes
     };
     monthsContainer.appendChild(nextMonthButton);
 }
 
 function getDayName(day) {
-    const names = ["Lun", "Mar", "Mié", "Jue", "Vie", "Sáb", "Dom"];
-    const date = new Date(currentYear, currentMonthIndex, day); 
-    return names[date.getDay() === 0 ? 6 : date.getDay() - 1]; 
+    const date = new Date(currentYear, currentMonthIndex, day);
+    return ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"][date.getDay()];
 }
 
 function getMonthName(monthIndex) {
-    const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", 
+    const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
                     "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-    return months[monthIndex]; 
+    return months[monthIndex];
 }
-
-function renderEvents() {
-    const eventContainers = document.querySelectorAll('.event-container');
-    eventContainers.forEach(eventContainer => {
-        const hour = parseInt(eventContainer.getAttribute('data-hour'));
-        const hourIndex = hour - 10; // Suponiendo que la primera hora es a las 10:00
-        eventContainer.style.top = `${hourIndex * 10}%`; // Ajusta el valor según tu diseño
-    });
-}
-
-renderDays(); 
-renderMonths(); 
-renderEvents(); 
-
-// Scroll behavior for the events, ensure hours don't overlap with other sections
-document.querySelector('.events').addEventListener('scroll', function() {
-    const hours = document.querySelector('.hours');
-    // The 'hours' will move up/down but will stay within its container without overflowing
-    hours.style.transform = `translateY(${this.scrollTop}px)`;
-});
-
 
 document.addEventListener("DOMContentLoaded", function() {
-    // Seleccionar el modal y el botón de cierre
+    renderDays();
+    renderMonths();
+
     const modal = document.getElementById("availabilityModal");
     const closeModalBtn = document.querySelector(".close");
     const saveBtn = document.querySelector(".save");
 
-    // Función para abrir el modal al hacer clic en un evento vacío
+    // Asegura eventos en asesorías vacías
     document.querySelectorAll(".event.vacio").forEach(event => {
         event.onclick = function () {
+            console.log("Asesoría vacía seleccionada");
             modal.style.display = "block";
         };
     });
 
-    // Cerrar el modal al hacer clic en la "X"
     closeModalBtn.onclick = function() {
         modal.style.display = "none";
     };
 
-    // Cerrar el modal al hacer clic fuera de él
     window.onclick = function(event) {
         if (event.target === modal) {
             modal.style.display = "none";
         }
     };
 
-    // Guardar la selección de hora
     saveBtn.onclick = function() {
         const selectedTime = document.getElementById("timePicker").value;
-        const fixedDate = document.getElementById("dateDisplay").innerText; // Obtiene la fecha fija
+        const fixedDate = document.getElementById("dateDisplay").innerText;
 
         if (!selectedTime) {
-            alert("Por favor, selecciona una hora."); // Alerta si el campo de hora está vacío
+            alert("Por favor, selecciona una hora.");
             return;
         }
 
-        // Aquí puedes hacer lo que necesites con la fecha fija y la hora seleccionada
         console.log("Fecha fija:", fixedDate);
         console.log("Hora seleccionada:", selectedTime);
 
-        modal.style.display = "none"; // Cierra el modal
+        modal.style.display = "none";
     };
 });

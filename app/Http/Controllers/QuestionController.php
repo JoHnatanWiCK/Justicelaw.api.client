@@ -14,7 +14,6 @@ class QuestionController extends Controller
         $response = Http::get($url);
         return $response->json();
     }
-
     /**
      * Display a listing of the resource.
      */

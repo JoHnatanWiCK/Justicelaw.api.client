@@ -1617,7 +1617,7 @@ width: 350px;
     .container {
         margin-top: 0;
         padding-top: 0;
-        height: 21rem;
+        height: 25rem;
       display: flex;
       align-items: center;
       margin-bottom: 25px;
@@ -2328,7 +2328,7 @@ button:hover {
     display: inline;
     vertical-align: middle;
     color: #00a8ff;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: lighter;
     text-decoration: underline;
   }
@@ -2501,3 +2501,8 @@ button:hover {
 
 
   }
+
+  button.selected {
+    background-color: #007bff;
+    color: white;
+}

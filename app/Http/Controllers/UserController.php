@@ -7,13 +7,11 @@ use Illuminate\Support\Facades\Http;
 
 class UserController extends Controller
 {
-
     private function fetchDataFromApi($url)
     {
         $response = Http::get($url);
         return $response->json();
     }
-
     /**
      * Display a listing of the resource.
      */

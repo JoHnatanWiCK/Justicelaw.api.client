@@ -1,158 +1,4 @@
-@media only screen and (max-width: 600px) {
-    .loginlweb {
-        display: none;
-    }
 
-
-    .tit {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-    .titulo1 h1 {
-        font-size: 28px;
-    }
-    .titulo2 h1 {
-        font-size: 28px;
-        color: #cf9e3e;
-    }
-    .subt {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .subt h2 {
-        font-size: 19px;
-    }
-    .contenedor {
-        align-items: center;
-        justify-content: center;
-        display: flex;
-        margin: 2rem;
-    }
-    .btn-contraseña{
-        background-color: #fff;
-        color: #0a3b55;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        width: 70%;
-        border: none;
-        padding: 14px 40px;
-        cursor: pointer;
-        text-align: left;
-        border-radius: 10px;
-        font-weight: 600;
-    }
-
-    .btn-contraseña i{
-        margin-right: 1rem;
-    }
-    .btn1 {
-        background-color: #0a3b55;
-        text-decoration: none;
-        color: white;
-        font-size: 24px;
-        padding: 14px 46px;
-        border-radius: 34px;
-        transition-duration: 0.4s;
-    }
-    .btn1:hover {
-        background-color: #0a3b55;
-        color: #cf9e3e;
-    }
-
-    .re {
-        font-size: 35px;
-        width: 100%;
-        margin: 4rem;
-        margin-top: 1rem;
-        color: #0a3b55;
-    }
-    .re input[type="text"] {
-        border: none;
-        width: 100%;
-        border-bottom: 2px solid #0a3b55;
-
-        outline: none;
-    }
-    .re select {
-        border: none;
-        width: 100%;
-        border-bottom: 2px solid #0a3b55;
-
-        outline: none;
-    }
-    .re input[type="password"] {
-        border: none;
-        width: 100%;
-        border-bottom: 2px solid #0a3b55;
-
-        outline: none;
-    }
-    .re input[type="email"] {
-        border: none;
-        width: 100%;
-        border-bottom: 2px solid #0a3b55;
-
-        outline: none;
-    }
-
-    .pasos {
-        justify-content: center;
-        align-items: center;
-        display: flex;
-        gap: 10px;
-    }
-
-    .bot button {
-        background-color: #0a3b55;
-        text-decoration: none;
-        color: white;
-        border: none;
-        padding: 14px 40px;
-        cursor: pointer;
-        border-radius: 10px;
-        margin-top: 2rem;
-        max-width: 317px;
-    }
-
-
-    .b1 {
-        background-color: #0a3b55;
-        text-decoration: none;
-        color: white;
-        padding: 5px 12px;
-        border-radius: 34px;
-
-        transition-duration: 0.4s;
-    }
-    .b1:hover {
-        background-color: #cf9e3e;
-    }
-    .b2 {
-        background-color: #0a3b55;
-        text-decoration: none;
-        color: white;
-        padding: 5px 12px;
-        border-radius: 34px;
-
-        transition-duration: 0.4s;
-    }
-    .b2:hover {
-        background-color: #cf9e3e;
-    }
-    .b3 {
-        background-color: #0a3b55;
-        text-decoration: none;
-        color: white;
-        padding: 5px 12px;
-        border-radius: 34px;
-
-        transition-duration: 0.4s;
-    }
-    .b3:hover {
-        background-color: #cf9e3e;
-    }
-}
 @media only screen and (min-width: 901px) {
     .loginlweb {
         display: grid;
@@ -340,7 +186,7 @@
         background-color: #cf9e3e;
     }
 }
-@media only screen and (min-width: 601px) and (max-width: 900px) {
+@media only screen and (max-width: 900px) {
     .loginlweb {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -404,7 +250,7 @@
         align-items: flex-start;
         align-items: center;
         max-width: 100%;
-        margin: 0 auto;
+        margin: 3rem;
         margin-top: 5rem;
     }
 
@@ -426,14 +272,14 @@
     }
 
     .btn-contraseña{
-        background-color: #fff;
-        color: #0a3b55;
+        background-color: #0a3b55;
+        color: #fff;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         width: 50%;
         border: none;
         padding: 14px 40px;
         cursor: pointer;
-        text-align: left;
+        text-align: center;
         border-radius: 10px;
         font-weight: 600;
     }

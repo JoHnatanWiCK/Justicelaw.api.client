@@ -56,6 +56,11 @@ Route::get('/registro', function () {
     return view(view: 'registro.registro');
 })->name(name: 'registro');
 
+Route::get('/registroAbogado', function () {
+    return view(view: 'registro.registroAbogado');
+})->name(name: 'registroAbogado');
+
+
 Route::get('/sobreNosotros', function () {
     return view(view: 'sobreNosotros');
 })->name('sobreNosotros');
@@ -107,6 +112,10 @@ Route::get('/confirmacion', function () {
     return view(view: 'olvido-contraseña.confirmacion');
 })->name('confirmacion');
 
+Route::get('/nuevaContraseña', function () {
+    return view(view: 'olvido-contraseña.nuevaContraseña');
+})->name('nuevaContraseña');
+
 Route::get('/verificarAbogado', function () {
     return view(view: 'verificacion.verificacionUno');
 })->name('verificarAbogado');
@@ -118,6 +127,13 @@ Route::get('/verificarAbogadoDos', function () {
 Route::get('/verificarAbogadoTres', function () {
     return view(view: 'verificacion.verificacionTres');
 })->name('verificarAbogadoTres');
+
+
+Route::get('/verificarConfirmacion', function () {
+    return view(view: 'verificacion.verificacionConfirmacion');
+})->name('verificarConfirmacion');
+
+
 
 Route::get('/foro', function () {
     return view(view: 'foro.foro');
@@ -506,7 +522,7 @@ Route::put('questions/{question}', [QuestionController::class, 'update'])->name(
 Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('api.v1.questions.delete');
 
 
-Route::get('answers', [QuestionController::class, 'indexr'])->name('api.v1.answers.index');
+Route::get('answers', [QuestionController::class, 'index'])->name('api.v1.answers.index');
 Route::post('answers', [QuestionController::class, 'storer'])->name('api.v1.answers.store');
 Route::get('answers/{answer}', [QuestionController::class, 'showr'])->name('api.v1.answers.show');
 Route::put('answers/{answer}', [QuestionController::class, 'updater'])->name('api.v1.answers.update');

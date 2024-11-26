@@ -1,3 +1,4 @@
-document.getElementById('exito').addEventListener('click', function(e) {
-    window.location.href = "/login";
+// Confirmar
+document.getElementById('exito').addEventListener('click', () => {
+    window.location.href = '/login';
 });

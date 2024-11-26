@@ -3,7 +3,7 @@
 
 @extends('layouts.layout')
 
-@section('title', 'Olvido Contraseña')
+@section('title', 'Confirmacion')
 
 @section('nav')
 @endsection
@@ -66,6 +66,7 @@
     @endpush
 
     @push('scripts')
+    <script src="js/olvidoContraseña.js"></script>
     <script src="js/confirmar.js"></script>
     @endpush
 

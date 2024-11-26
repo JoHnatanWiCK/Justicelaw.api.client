@@ -251,7 +251,7 @@
                                 <div class="step-content" id="step-3" style="display: none;">
                                     <h2 id="practice-title">Agrega tus habilidades</h2>
                                     <p id="practice-description">Selecciona tus habilidades y áreas de especialización.</p>
-                                    <input type="text" id="agregarHabilidades" placeholder="Ejemplo: Derecho Penal, Derecho Civil...">
+                                    <div id="areasContainer"></div>
                                 </div>
 
                                 <!-- Paso 4: Revisión -->

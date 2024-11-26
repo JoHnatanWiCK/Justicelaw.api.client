@@ -276,20 +276,188 @@ function handleFileSelection() {
   }, 3000);
 
 }
+// document.addEventListener('DOMContentLoaded', () => {
+//     const continuarBtn = document.getElementById('continuarBtnWeb');
+//     const atrasBtn = document.getElementById('atrasBtn');
+//     const agregarBiografia = document.getElementById('agregarBiografia');
+//     const fotoPerfilInput = document.getElementById('fotoPerfilInput');
+
+//     const steps = ['step-1', 'step-2', 'step-3', 'step-4'];
+//     let currentStep = 0;
+
+//     const token = localStorage.getItem('token'); // Obtener token del localStorage
+
+//     console.log('Token:', token); // Verificar si el token está disponible
+//     console.log('Continuar button:', continuarBtn); // Verificar si el botón está disponible
+
+//     continuarBtn.addEventListener('click', async () => {
+//         console.log('Botón continuar presionado');
+
+//         if (currentStep === 0) {
+//             if (agregarBiografia.value.trim() === "") {
+//                 alert("Por favor, agrega una biografía antes de continuar.");
+//                 return;
+//             }
+//             currentStep++;
+//             updateStep();
+//         } else if (currentStep === 1) {
+//             if (fotoPerfilInput.files.length === 0) {
+//                 alert("Por favor, selecciona una foto de perfil antes de continuar.");
+//                 return;
+//             }
+
+//             console.log("Estamos en el paso 2");
+
+//             const bio = agregarBiografia.value;
+//             const photoFile = fotoPerfilInput.files[0];
+
+//             console.log("Biografía:", bio);
+//             console.log("Foto seleccionada:", photoFile);
+
+//             const formData = new FormData();
+//             formData.append('biography', bio);
+//             formData.append('profile_photo', photoFile);
+
+//             try {
+//                 const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/profileLawyer', {
+//                     method: 'POST',
+//                     headers: {
+//                         'Authorization': `Bearer ${token}`,
+//                     },
+//                     body: formData,
+//                 });
+
+//                 const data = await response.json();
+//                 console.log('Respuesta de la API:', data);
+
+//                 if (response.ok) {
+//                     console.log('Perfil actualizado:', data);
+//                     currentStep++; // Avanzamos al siguiente paso solo si la respuesta es exitosa
+//                     updateStep(); // Actualizamos la vista del paso
+//                 } else {
+//                     console.error('Error al actualizar perfil:', data.message);
+//                 }
+//             } catch (error) {
+//                 console.error('Error en la solicitud:', error);
+//             }
+//         } else {
+//             currentStep++;
+//             updateStep();
+//         }
+//     });
+
+//     atrasBtn.addEventListener('click', () => {
+//         if (currentStep > 0) {
+//             currentStep--;
+//             updateStep();
+//         }
+//     });
+
+//     function updateStep() {
+//         steps.forEach((step, index) => {
+//             const stepContent = document.getElementById(step);
+//             stepContent.style.display = index === currentStep ? 'block' : 'none';
+//         });
+
+//         atrasBtn.style.display = currentStep > 0 ? 'inline-block' : 'none';
+//         continuarBtn.textContent = currentStep === steps.length - 1 ? 'Finalizar' : 'Continuar';
+//     }
+
+//     updateStep();
+// });
+
 document.addEventListener('DOMContentLoaded', () => {
     const continuarBtn = document.getElementById('continuarBtnWeb');
     const atrasBtn = document.getElementById('atrasBtn');
     const agregarBiografia = document.getElementById('agregarBiografia');
     const fotoPerfilInput = document.getElementById('fotoPerfilInput');
-
+    const areasContainer = document.getElementById('areasContainer');
     const steps = ['step-1', 'step-2', 'step-3', 'step-4'];
     let currentStep = 0;
+    let selectedAreas = [];
 
     const token = localStorage.getItem('token'); // Obtener token del localStorage
-
     console.log('Token:', token); // Verificar si el token está disponible
-    console.log('Continuar button:', continuarBtn); // Verificar si el botón está disponible
 
+    // Llamamos a la API para obtener las áreas
+    const fetchAreas = async () => {
+        try {
+            const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/areas');
+            const areas = await response.json();
+
+            areas.forEach(area => {
+                const button = document.createElement('button');
+                button.textContent = area.name;
+                button.type = 'button'; // Evitar comportamiento por defecto de submit
+                button.onclick = (event) => {
+                    event.preventDefault(); // Evitar comportamiento por defecto
+                    toggleAreaSelection(area.id, button);
+                };
+                areasContainer.appendChild(button);
+            });
+        } catch (error) {
+            console.error('Error al cargar las áreas:', error);
+        }
+    };
+
+    // Cambiar el estado de selección de un área
+    const toggleAreaSelection = (areaId, button) => {
+        if (selectedAreas.includes(areaId)) {
+            selectedAreas = selectedAreas.filter(id => id !== areaId);
+            button.classList.remove('selected');
+        } else {
+            selectedAreas.push(areaId);
+            button.classList.add('selected');
+        }
+    };
+
+    // Enviar las áreas seleccionadas
+    const saveSelectedAreas = async () => {
+        if (selectedAreas.length === 0) {
+            alert('Por favor, selecciona al menos una área.');
+            return;
+        }
+
+        const lawyerId = getLawyerIdFromToken(token); // Obtén el ID del abogado desde el token
+
+        const requestBody = {
+            lawyer_id: lawyerId,
+            areas: selectedAreas
+        };
+
+        console.log('Datos que se envían al servidor:', requestBody); // Log para verificar los datos
+
+        try {
+            const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/saveAreas', {
+                method: 'POST',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(requestBody)
+            });
+
+            const data = await response.json();
+            if (response.ok) {
+                alert('Áreas guardadas con éxito.');
+                // Continúa con el siguiente paso
+                currentStep++;
+                updateStep();
+            } else {
+                alert('Hubo un error al guardar las áreas.');
+            }
+        } catch (error) {
+            console.error('Error al guardar las áreas:', error);
+        }
+    };
+
+    // Obtener el ID del abogado del token
+    const getLawyerIdFromToken = (token) => {
+        const decoded = JSON.parse(atob(token.split('.')[1])); // Decodificar el token JWT
+        return decoded.lawyer_id;
+    };
+
+    // Continuar con el siguiente paso
     continuarBtn.addEventListener('click', async () => {
         console.log('Botón continuar presionado');
 
@@ -306,14 +474,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            console.log("Estamos en el paso 2");
-
             const bio = agregarBiografia.value;
             const photoFile = fotoPerfilInput.files[0];
-
-            console.log("Biografía:", bio);
-            console.log("Foto seleccionada:", photoFile);
-
             const formData = new FormData();
             formData.append('biography', bio);
             formData.append('profile_photo', photoFile);
@@ -328,24 +490,25 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 const data = await response.json();
-                console.log('Respuesta de la API:', data);
-
                 if (response.ok) {
                     console.log('Perfil actualizado:', data);
-                    currentStep++; // Avanzamos al siguiente paso solo si la respuesta es exitosa
-                    updateStep(); // Actualizamos la vista del paso
+                    currentStep++;
+                    updateStep();
                 } else {
                     console.error('Error al actualizar perfil:', data.message);
                 }
             } catch (error) {
                 console.error('Error en la solicitud:', error);
             }
+        } else if (currentStep === 2) {
+            await saveSelectedAreas(); // Guardar las áreas seleccionadas en el paso 3
         } else {
             currentStep++;
             updateStep();
         }
     });
 
+    // Navegar hacia atrás
     atrasBtn.addEventListener('click', () => {
         if (currentStep > 0) {
             currentStep--;
@@ -353,6 +516,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Actualizar la vista de los pasos
     function updateStep() {
         steps.forEach((step, index) => {
             const stepContent = document.getElementById(step);
@@ -363,7 +527,8 @@ document.addEventListener('DOMContentLoaded', () => {
         continuarBtn.textContent = currentStep === steps.length - 1 ? 'Finalizar' : 'Continuar';
     }
 
-    updateStep();
+    fetchAreas(); // Cargar las áreas al inicio
+    updateStep(); // Iniciar la vista en el primer paso
 });
 
 

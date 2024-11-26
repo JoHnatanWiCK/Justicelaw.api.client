@@ -15,20 +15,6 @@
     <p>Ha alcanzado sus objetivos de métricas mensuales.</p>
 </section>
 
-<div class="reports">
-    <h3>Registro reportes</h3>
-    <ul>
-        <li><img src="{{ asset('img/admin/reporte.png') }}" alt="reporte" class="reporte">
-            <a href="#">Martina Zapata ha solicitado ayuda con un error del sistema</a></li>
-        <li><img src="{{ asset('img/admin/verificacion.png') }}" alt="verificacion" class="verificacion">
-            <a href="#">Martina Santos ha solicitado una verificación de abogado</a></li>
-        <li><img src="{{ asset('img/admin/verificacion.png') }}" alt="verificacion" class="verificacion">
-            <a href="#">Sofía Méndez ha solicitado una verificación de usuario</a></li>
-        <li><img src="{{ asset('img/admin/reporte.png') }}" alt="reporte" class="reporte">
-            <a href="#">Martina Zapata ha solicitado ayuda con un error del sistema</a></li>
-    </ul>
-</div>
-
 <section class="central">
     <div class="stats">
         <div class="chart-container">
@@ -45,6 +31,8 @@
         </div>
     </div>
 
+</section>
+
     <div class="chart">
         <h3>Visitantes</h3>
         <p>Informes</p>
@@ -59,16 +47,8 @@
         <canvas id="usuariosPorRolChart"></canvas>
         <p>Clientes</p>
     </div>
-    
-<div class="recent-activity">
-    <h3>Actividad reciente</h3>
-    <ul>
-        <li><a href="#">Respondió una solicitud de soporte - 19, marzo - 6:28 pm</a></li>
-        <li><a href="#">Agregó la información "¿Cómo hacer una demanda por alimentos?" - 17, marzo - 6:28 pm</a></li>
-        <li><a href="#">Respondió una solicitud de soporte - 19, marzo - 6:28 pm</a></li>
-        <li><a href="#">Agregó la información "¿Cómo hacer una demanda por alimentos?" - 17, marzo - 6:28 pm</a></li>
-    </ul>
-</div>
+
+
 @endsection
 
 @push('styles')

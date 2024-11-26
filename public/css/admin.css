@@ -1,4 +1,6 @@
 body {
+    max-width: 100%;
+    overflow-x: hidden;
     font-family: 'Faustina', serif;
     margin: 0;
     background-color: #f5f7fa;

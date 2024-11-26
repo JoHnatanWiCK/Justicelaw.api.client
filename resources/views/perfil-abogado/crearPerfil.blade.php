@@ -77,7 +77,8 @@
                             <img src="../../img/star-solid-white.svg" alt="star white">
                         </div>
                     </div>
-                    <a href="../perfil_abogado/editarPerfil.html"  id="editLink"><i class="fa-regular fa-pen-to-square"></i></a>
+                    <a href="../perfil_abogado/editarPerfil.html" id="editLink"><i
+                            class="fa-regular fa-pen-to-square"></i></a>
 
 
                 </div>
@@ -101,7 +102,8 @@
                             </div>
                             <div class="modal-edit-field">
                                 <label for="consultorio">Nombre Consultorio:</label>
-                                <input type="text" id="consultorio" placeholder="Introduce nombre del consultorio" required>
+                                <input type="text" id="consultorio" placeholder="Introduce nombre del consultorio"
+                                    required>
                             </div>
                             <div class="modal-edit-field">
                                 <label for="ciudad">Ciudad:</label>
@@ -119,7 +121,7 @@
                         </form>
                     </div>
                 </div>
-                
+
 
 
 
@@ -142,8 +144,10 @@
 
                 <nav class="profile-nav">
                     <ul>
-                        <li><a href="#sobre-mi" data-target="sobre-mi" class="active" style="font-size: 14px">Sobre mi</a></li>
-                        <li><a href="#hoja-de-vida" data-target="hoja-de-vida" style="font-size: 14px">Hoja de vida</a></li>
+                        <li><a href="#sobre-mi" data-target="sobre-mi" class="active" style="font-size: 14px">Sobre
+                                mi</a></li>
+                        <li><a href="#hoja-de-vida" data-target="hoja-de-vida" style="font-size: 14px">Hoja de vida</a>
+                        </li>
                         <li><a href="#reseñas" data-target="reseñas" style="font-size: 14px">Reseñas</a></li>
                     </ul>
                     <div class="indicator"></div>
@@ -156,12 +160,23 @@
                                 <div class="editar-datos">
                                     <h2>Información Personal</h2>
                                 </div>
-                                <p>Contacto: &ensp;&ensp;+57 3132307635</p>
-                                <p>DNI: &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;1061702424</p>
-                                <p>Email: &ensp;&ensp;&ensp;&ensp;davidastr45@gmail.com</p>
-                                <p>País: &ensp;&ensp;&ensp;&ensp;&ensp;Colombia</p>
-                                <p>Ciudad: &ensp;&ensp;&ensp;Popayán</p>
-                                <p>Nombre consultorio: &ensp;&ensp;LeyEs</p>
+                                <div class="telefonoWeb">
+                                    <h4>Telefono:</h4>
+                                    <p></p>
+                                </div>
+
+                                <div class="correoWeb">
+                                    <h4>Email:</h4>
+                                    <p></p>
+                                </div>
+                                <div class="paisWeb">
+                                    <h4>Pais:</h4>
+                                    <p></p>
+                                </div>
+                                <div class="ciudadWeb">
+                                    <h4>Ciudad:</h4>
+                                    <p></p>
+                                </div>
                             </div>
 
 
@@ -176,7 +191,7 @@
                             </div>
 
 
-                            <div class="progress-bar">
+                            {{-- <div class="progress-bar">
                                 <div class="step completed">1</div>
                                 <div class="line"></div>
                                 <div class="step">2</div>
@@ -189,38 +204,91 @@
                             <div class="practice">
                                 <h2 id="practice-title">Agrega tu biografía personal</h2>
                                 <div class="civ">
-                                    <p id="practice-description">Asegúrate de incluir una breve biografía que destaque tu experiencia, áreas de especialización y filosofía profesional.</p>
+                                    <p id="practice-description">Asegúrate de incluir una breve biografía que destaque tu
+                                        experiencia, áreas de especialización y filosofía profesional.</p>
 
-                                </div>  
+                                </div>
 
-                            </div>   
+                            </div>
 
+
+                            <input type="file" id="fotoPerfilInput" style="display: none;" />
 
                             <input type="text" id="agregarBiografia" placeholder="Escribe tu biografía aquí...">
                             <div class="button-group">
                                 <button id="atrasBtn" style="display: none;">Atrás</button>
                                 <button id="continuarBtn" disabled>Continuar</button>
-                            </div>
+                            </div> --}}
+
+
+                            <form id="profileForm">
+                                <!-- Barra de progreso -->
+                                <div class="progress-bar">
+                                    <div class="step completed">1</div>
+                                    <div class="line"></div>
+                                    <div class="step">2</div>
+                                    <div class="line"></div>
+                                    <div class="step">3</div>
+                                    <div class="line"></div>
+                                    <div class="step">4</div>
+                                </div>
+
+                                <!-- Paso 1: Biografía -->
+                                <div class="step-content" id="step-1">
+                                    <h2 id="practice-title">Agrega tu biografía personal</h2>
+                                    <p id="practice-description">Asegúrate de incluir una breve biografía que destaque tu experiencia, áreas de especialización y filosofía profesional.</p>
+                                    <textarea id="agregarBiografia" placeholder="Escribe tu biografía aquí..."></textarea>
+                                </div>
+
+                                <!-- Paso 2: Foto de perfil -->
+                                <div class="step-content" id="step-2" style="display: none;">
+                                    <h2 id="practice-title">Agrega una foto de perfil</h2>
+                                    <p id="practice-description">Brindale más confianza a tus clientes. Sube una foto profesional.</p>
+                                    <input type="file" id="fotoPerfilInput" />
+                                </div>
+
+                                <!-- Paso 3: Habilidades -->
+                                <div class="step-content" id="step-3" style="display: none;">
+                                    <h2 id="practice-title">Agrega tus habilidades</h2>
+                                    <p id="practice-description">Selecciona tus habilidades y áreas de especialización.</p>
+                                    <input type="text" id="agregarHabilidades" placeholder="Ejemplo: Derecho Penal, Derecho Civil...">
+                                </div>
+
+                                <!-- Paso 4: Revisión -->
+                                <div class="step-content" id="step-4" style="display: none;">
+                                    <h2 id="practice-title">Revisa y completa tu perfil</h2>
+                                    <p id="practice-description">Asegúrate de que toda tu información esté correcta antes de finalizar.</p>
+                                </div>
+
+                                <!-- Botones de navegación -->
+                                <div class="button-group">
+                                    <button type="button" id="atrasBtn" style="display: none;">Atrás</button>
+                                    <button type="button" id="continuarBtnWeb">Continuar</button>
+                                </div>
+                            </form>
+
+
+
                         </div>
                     </div>
-               
-                <div class="act">
-                    <h2>Actividad</h2>
-                    <div class="activity-content">
-                        <img src="../../img/mas.png" alt="más">
-                        <h4>Ver el historial de asesoramiento legal</h4>
+
+                    <div class="act">
+                        <h2>Actividad</h2>
+                        <div class="activity-content">
+                            <img src="../../img/mas.png" alt="más">
+                            <h4>Ver el historial de asesoramiento legal</h4>
+                        </div>
+                        <p>Las preguntas que respondas en el foro aparecerán aquí.</p>
                     </div>
-                    <p>Las preguntas que respondas en el foro aparecerán aquí.</p>
-                    </div>
-                  </section>
+                </section>
 
 
-                <section id="hoja-de-vida" class="section">
+                {{-- <section id="hoja-de-vida" class="section">
                     <iframe class="iframeLarge"
                         src="https://drive.google.com/file/d/1hCQs9GVqTZRmz5LOQNM8-HLn9M25Dblk/preview"
                         frameborder="0"></iframe>
 
-                </section>
+                </section> --}}
 
                 <section id="reseñas" class="section">
                     <div class="box-reseñas">
@@ -455,11 +523,11 @@
         </div>
 
 
-        <section id="hoja-de-vida" class="section-mov">
+        {{-- <section id="hoja-de-vida" class="section-mov">
             <iframe class="iframeMov" src="https://drive.google.com/file/d/1hCQs9GVqTZRmz5LOQNM8-HLn9M25Dblk/preview"
                 frameborder="0"></iframe>
 
-        </section>
+        </section> --}}
 
 
         <section id="reseñas" class="section-mov">

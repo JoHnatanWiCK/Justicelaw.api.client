@@ -57,53 +57,49 @@
               <img src="../../img/star-solid-white.svg" alt="star white">
             </div>
             </div>
-            <a href="../perfil_abogado/editarPerfil.html" id="editLink"><i
+            <a href="#" id="editLink"><i
                 class="fa-regular fa-pen-to-square"></i></a>
 
             </div>
-<!-- Modal para Editar Perfil -->
-<div id="editModal" class="modal-edit">
-    <div class="modal-edit-content">
-        <span class="modal-edit-close">&times;</span>
-        <h4>Editar Perfil Abogado</h4>
-        <form id="editForm">
-            <div class="modal-edit-field">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" placeholder="Introduce tu nombre" required>
+
+            <div id="editModal" class="modal-edit">
+                <div class="modal-edit-content">
+                    <span class="modal-edit-close">&times;</span>
+                    <h4>Editar Perfil Abogado</h4>
+                    <form id="editForm">
+
+                        <!-- Campo para actualizar foto de perfil -->
+                        <div class="modal-edit-field">
+                            <label for="fotoPerfil">Foto de Perfil:</label>
+                            <input type="file" id="fotoPerfilEdit" accept="image/*">
+                            <div class="foto-preview-container">
+                                <img id="fotoPreview" src="" alt="Foto actual" class="foto-preview">
+                            </div>
+                        </div>
+
+                        <!-- Campo de biografía -->
+                        <div class="modal-edit-field">
+                            <label for="biografia">Biografía:</label>
+                            <textarea id="biografia" placeholder="Introduce tu biografía" required></textarea>
+                        </div>
+
+                        <!-- Campo para áreas de práctica -->
+                        <div class="modal-edit-field">
+                            <label for="areasPractica">Áreas prácticas:</label>
+                            <div id="areasContainer"></div>
+                        </div>
+
+                        <button type="submit" class="modal-edit-btn">Guardar Cambios</button>
+                    </form>
+                </div>
             </div>
-            <div class="modal-edit-field">
-                <label for="contacto">Contacto:</label>
-                <input type="text" id="contacto" placeholder="Introduce tu contacto" required>
-            </div>
-            <div class="modal-edit-field">
-                <label for="dni">DNI:</label>
-                <input type="text" id="dni" placeholder="Introduce tu DNI" required>
-            </div>
-            <div class="modal-edit-field">
-                <label for="consultorio">Nombre Consultorio:</label>
-                <input type="text" id="consultorio" placeholder="Introduce nombre del consultorio"
-                    required>
-            </div>
-            <div class="modal-edit-field">
-                <label for="ciudad">Ciudad:</label>
-                <input type="text" id="ciudad" placeholder="Introduce tu ciudad" required>
-            </div>
-            <div class="modal-edit-field">
-                <label for="pais">País:</label>
-                <input type="text" id="pais" placeholder="Introduce tu país" required>
-            </div>
-            <div class="modal-edit-field">
-                <label for="biografia">Biografía:</label>
-                <textarea id="biografia" placeholder="Introduce tu biografía" required></textarea>
-            </div>
-            <button type="submit">Guardar Cambios</button>
-        </form>
-    </div>
-</div>
 
 
 
-            <a href="#modal-foto"><img id="circuloPerfil" src="../../img/circuloPerfil.png" alt="circuloPerfil"></a>
+
+
+
+            {{-- <a href="#modal-foto"><img id="circuloPerfil" src="../../img/circuloPerfil.png" alt="circuloPerfil"></a>
                 <div id="modal-foto" class="modalDialog">
                     <div>
                       <a href="#close" title="Close" class="close"><i class="fa-solid fa-xmark close"></i></a>
@@ -116,7 +112,7 @@
                         <input type="file" name="seleccionarFoto" aria-label="Subir foto" onchange="handleFileSelection()">
                       </div>
                     </div>
-                  </div>
+                  </div> --}}
 
             <nav class="profile-nav">
               <ul>
@@ -164,7 +160,7 @@
                   <div class="practice">
                       <h2>Áreas de práctica</h2>
                       <div class="civ">
-                         
+
                       </div>
                   </div>
               </div>

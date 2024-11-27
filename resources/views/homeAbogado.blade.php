@@ -1,4 +1,4 @@
-@extends('layouts.layoutLogin')
+@extends('layouts.layoutAbogado')
 
 @section('title', 'Home Login')
 

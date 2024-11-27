@@ -555,3 +555,7 @@ Route::get('/faqss', function () {
 Route::get('/nosotros', function () {
     return view(view: 'sobreNosotros');
 })->name('mm');
+
+Route::get('/infoIndex/{id}', function ($id) {
+    return view('informacion.InfoIndex', compact('id'));
+})->name('infoIndex');

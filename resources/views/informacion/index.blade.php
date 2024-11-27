@@ -8,7 +8,9 @@
 @section('main')
 <section class="informaciones-home">
 
+
     <div class="columna-izquierda">
+        
         <div id="informationContainer" class="informaciones-contenedor">
         </div>
         <p id="errorMessage" class="error-message" style="display: none;">Ocurrió un error al cargar la información. Por favor, intente nuevamente.</p>
@@ -44,6 +46,24 @@
         </div>
     </div>
 </section>
+
+<!-- Modal de detalles -->
+<div id="informationDetail" class="modal" style="display: none;">
+    <div class="modal-content">
+        <span id="closeModal" class="close">&times;</span>
+        <div class="card">
+            <img id="infoImage" class="card-img-top" src="" alt="Imagen no disponible" onerror="this.onerror=null;this.src='../../img/placeholder.png';">
+            <div class="card-body">
+                <h3 id="infoTitle" class="card-title"></h3>
+                <p id="infoBody" class="card-text"></p>
+                <p><strong>Categoría:</strong> <span id="infoCategory"></span></p>
+                <a href="#" class="btn btn-secondary" onclick="history.back();">Volver</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 @endsection
 
 @section('footer')

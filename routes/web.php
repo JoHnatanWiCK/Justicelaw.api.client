@@ -199,7 +199,7 @@ Route::get('/calendar', function () {
 })->name('calendar');
 
 
-Route::get('/perfilabogado', function () {
+Route::get('/perfilabogado/{lawyerId}', function () {
     return view('verperfil.perfil-abogado');
 });
 

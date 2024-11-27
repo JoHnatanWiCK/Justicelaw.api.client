@@ -9,7 +9,7 @@
 <section class="content">
     <div class="perfil">
       <div class="banner">
-      <img id="fotoPerfil" src="../../img/fotoPerfil.jfif" alt="foto" />
+      <img id="fotoPerfilVer" src="../../img/fotoPerfil.jfif" alt="foto" />
       <div class="content-abogado">
       <h3>David Astrada</h3>
       <div class="stars">
@@ -34,40 +34,41 @@
       <div class="container">
         <div class="left-column">
             <div class="datos">
-                <h2>Información Personal</h2>
-                <p>Contacto: &ensp;&ensp;+57 3132307635</p>
-                <p>DNI: &ensp;&ensp;&ensp;&ensp;&ensp;&ensp;1061702424</p>
-                <p>Email: &ensp;&ensp;&ensp;&ensp;davidastr45@gmail.com</p>
-                <p>País: &ensp;&ensp;&ensp;&ensp;&ensp;Colombia</p>
-                <p>Ciudad: &ensp;&ensp;&ensp;Popayán</p>
-                <p>Nombre <br> Consultorio: &ensp;&ensp;LeyEs</p>
+                <div class="editar-datos">
+                    <h2>Información Personal</h2>
+                </div>
+                <div class="telefonoWeb">
+                    <h4>Telefono:</h4>
+                    <p></p>
+                </div>
+
+                <div class="correoWeb">
+                    <h4>Email:</h4>
+                    <p></p>
+                </div>
+                <div class="paisWeb">
+                    <h4>Pais:</h4>
+                    <p></p>
+                </div>
+                <div class="ciudadWeb">
+                    <h4>Ciudad:</h4>
+                    <p></p>
+                </div>
             </div>
+
+
         </div>
         <hr>
+
         <div class="right-column">
             <div class="presentation">
                 <h2>Presentación</h2>
-                <p>Especializado en derecho civil y familiar, mi objetivo
-                  es proporcionar soluciones legales efectivas y comprensibles
-                  para mis clientes. Fuera del trabajo, disfruto de la lectura y
-                  el tiempo al aire libre. Estoy aquí para ayudarte con tus necesidades
-                  legales.</p>
+                <p id="biografiaUsuario"></p>
             </div>
             <div class="practice">
                 <h2>Áreas de práctica</h2>
                 <div class="civ">
-                    <div class="box-practice">
-                        <div class="practice-item civil">
-                            <img src="../../img/logoCivil.png" alt="Derecho civil">
-                        </div>
-                        <p class="practice-text">Derecho civil</p>
-                    </div>
-                    <div class="box-practice">
-                        <div class="practice-item familiar">
-                            <img src="../../img/derechofamiliar.png" alt="Derecho familiar">
-                        </div>
-                        <p class="practice-text">Derecho familiar</p>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -83,9 +84,9 @@
     </section>
 
     <section id="hoja-de-vida" class="section">
-  <iframe class="iframeLarge" src="https://drive.google.com/file/d/1hCQs9GVqTZRmz5LOQNM8-HLn9M25Dblk/preview" frameborder="0"></iframe>
+        <!-- Aquí se insertará el contenido dinámicamente (iframe o enlace de descarga) -->
+      </section>
 
-    </section>
 
   <section id="reseñas" class="section">
    <div class="box-reseñas">
@@ -102,7 +103,7 @@
         </div>
 
         <input type="text" name="inputReseña" id="inputReseña" placeholder="Escribe tu reseña...">
-    
+
       </div>
       <a id="boton-publicar" href="../ver_perfil/reseñaPublicada.html">Publicar</a>
       </div>
@@ -127,8 +128,8 @@
                 <p>Recomendado totalmente para temas legales. Brinda buen servicio, aunque la respuesta fue lenta.</p>
             </div>
             <div class="comment-footer">
-                <p>¿Te parece útil el comentario? 
-                    <a href="#" class="useful">Sí (0)</a> 
+                <p>¿Te parece útil el comentario?
+                    <a href="#" class="useful">Sí (0)</a>
                     <a href="#" class="not-useful">No (0)</a>
                 </p>
             </div>
@@ -154,8 +155,8 @@
                   <p>Recomendado totalmente para temas legales. Brinda buen servicio, aunque la respuesta fue lenta.</p>
               </div>
               <div class="comment-footer">
-                  <p>¿Te parece útil el comentario? 
-                      <a href="#" class="useful">Sí (0)</a> 
+                  <p>¿Te parece útil el comentario?
+                      <a href="#" class="useful">Sí (0)</a>
                       <a href="#" class="not-useful">No (0)</a>
                   </p>
               </div>
@@ -181,8 +182,8 @@
                     <p>Recomendado totalmente para temas legales. Brinda buen servicio, aunque la respuesta fue lenta.</p>
                 </div>
                 <div class="comment-footer">
-                    <p>¿Te parece útil el comentario? 
-                        <a href="#" class="useful">Sí (0)</a> 
+                    <p>¿Te parece útil el comentario?
+                        <a href="#" class="useful">Sí (0)</a>
                         <a href="#" class="not-useful">No (0)</a>
                     </p>
                 </div>
@@ -208,8 +209,8 @@
                       <p>Recomendado totalmente para temas legales. Brinda buen servicio, aunque la respuesta fue lenta.</p>
                   </div>
                   <div class="comment-footer">
-                      <p>¿Te parece útil el comentario? 
-                          <a href="#" class="useful">Sí (0)</a> 
+                      <p>¿Te parece útil el comentario?
+                          <a href="#" class="useful">Sí (0)</a>
                           <a href="#" class="not-useful">No (0)</a>
                       </p>
                   </div>
@@ -235,15 +236,15 @@
                         <p>Recomendado totalmente para temas legales. Brinda buen servicio, aunque la respuesta fue lenta.</p>
                     </div>
                     <div class="comment-footer">
-                        <p>¿Te parece útil el comentario? 
-                            <a href="#" class="useful">Sí (0)</a> 
+                        <p>¿Te parece útil el comentario?
+                            <a href="#" class="useful">Sí (0)</a>
                             <a href="#" class="not-useful">No (0)</a>
                         </p>
                     </div>
                 </div>
               </div>
     </div>
-    
+
     </div>
    </div>
   </section>
@@ -276,7 +277,7 @@
       </nav>
 
       <section class="section-mov" id="sobre-mi">
-        
+
         <div class="presentation">
           <p>Especializado en derecho civil y familiar, mi objetivo
             es proporcionar soluciones legales efectivas y comprensibles
@@ -299,7 +300,7 @@
         </div>
         <hr>
         <div class="right-movil">
-           
+
             <div class="practice-movil">
                 <h2>Áreas de práctica</h2>
                 <div class="civ-movil">
@@ -330,7 +331,7 @@
     </section>
   </div>
 
-  
+
   <section id="hoja-de-vida" class="section-mov">
     <iframe class="iframeMov" src="https://drive.google.com/file/d/1hCQs9GVqTZRmz5LOQNM8-HLn9M25Dblk/preview" frameborder="0"></iframe>
 
@@ -352,7 +353,7 @@
          </div>
 
          <input type="text" name="inputReseña" id="inputReseña" placeholder="Escribe tu reseña...">
-     
+
        </div>
        <a id="boton-publicar" href="../ver_perfil/reseñaPublicada.html">Publicar</a>
        </div>
@@ -377,8 +378,8 @@
                  <p>Recomendado totalmente para temas legales. Brinda buen servicio, aunque la respuesta fue lenta.</p>
              </div>
              <div class="comment-footer">
-                 <p>¿Te parece útil el comentario? 
-                     <a href="#" class="useful">Sí (0)</a> 
+                 <p>¿Te parece útil el comentario?
+                     <a href="#" class="useful">Sí (0)</a>
                      <a href="#" class="not-useful">No (0)</a>
                  </p>
              </div>
@@ -404,8 +405,8 @@
                    <p>Recomendado totalmente para temas legales. Brinda buen servicio, aunque la respuesta fue lenta.</p>
                </div>
                <div class="comment-footer">
-                   <p>¿Te parece útil el comentario? 
-                       <a href="#" class="useful">Sí (0)</a> 
+                   <p>¿Te parece útil el comentario?
+                       <a href="#" class="useful">Sí (0)</a>
                        <a href="#" class="not-useful">No (0)</a>
                    </p>
                </div>
@@ -431,8 +432,8 @@
                      <p>Recomendado totalmente para temas legales. Brinda buen servicio, aunque la respuesta fue lenta.</p>
                  </div>
                  <div class="comment-footer">
-                     <p>¿Te parece útil el comentario? 
-                         <a href="#" class="useful">Sí (0)</a> 
+                     <p>¿Te parece útil el comentario?
+                         <a href="#" class="useful">Sí (0)</a>
                          <a href="#" class="not-useful">No (0)</a>
                      </p>
                  </div>
@@ -458,8 +459,8 @@
                        <p>Recomendado totalmente para temas legales. Brinda buen servicio, aunque la respuesta fue lenta.</p>
                    </div>
                    <div class="comment-footer">
-                       <p>¿Te parece útil el comentario? 
-                           <a href="#" class="useful">Sí (0)</a> 
+                       <p>¿Te parece útil el comentario?
+                           <a href="#" class="useful">Sí (0)</a>
                            <a href="#" class="not-useful">No (0)</a>
                        </p>
                    </div>
@@ -485,15 +486,15 @@
                          <p>Recomendado totalmente para temas legales. Brinda buen servicio, aunque la respuesta fue lenta.</p>
                      </div>
                      <div class="comment-footer">
-                         <p>¿Te parece útil el comentario? 
-                             <a href="#" class="useful">Sí (0)</a> 
+                         <p>¿Te parece útil el comentario?
+                             <a href="#" class="useful">Sí (0)</a>
                              <a href="#" class="not-useful">No (0)</a>
                          </p>
                      </div>
                  </div>
                </div>
      </div>
-     
+
      </div>
     </div>
    </section>
@@ -504,10 +505,11 @@
         @endsection
 
         @push('styles')
-        <link rel="stylesheet" href="css/lawyersProfile.css">
+        <link rel="stylesheet" href="{{ asset('css/lawyersProfile.css') }}">
         @endpush
 
         @push('scripts')
-        <script src="js/perfilAbogado.js"></script>
-        
+        <script src="{{ asset('js/verPerfilAbogado.js') }}"></script>
+
+
         @endpush

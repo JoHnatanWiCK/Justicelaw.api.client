@@ -35,6 +35,9 @@ document.querySelectorAll('.avatar-link, .name-link').forEach(link => {
         localStorage.setItem('selectedLawyerId', lawyerId);
 
         console.log('ID del abogado seleccionado:', lawyerId);
+
+        window.location.href = `/perfilabogado/${lawyerId}`;
+
     });
 });
 

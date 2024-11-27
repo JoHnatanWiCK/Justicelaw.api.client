@@ -697,7 +697,6 @@ h3 {
 
 .horizontal-card {
     background-color: #fff;
-    border: 1px solid #ddd;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -761,7 +760,6 @@ h3 {
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     padding-right: 10px;
-    border-color: #003049;
 }
 
 .horizontal-card:hover {

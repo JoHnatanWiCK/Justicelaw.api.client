@@ -203,8 +203,8 @@
                         <span class="date">{{ $q['date_publication'] }}</span>
                         <br>
                         <div class="actions">
-                        <button class="like-btn" data-id="{{ $q['id'] }}">👍 Like (<span id="likes-{{ $q['id'] }}">{{ $q['likes'] ?? 0 }}</span>)</button>
-                        <button class="dislike-btn" data-id="{{ $q['id'] }}">👎 Dislike (<span id="dislikes-{{ $q['id'] }}">{{ $q['dislikes'] ?? 0 }}</span>)</button>
+                        <button class="like-btn" data-id="{{ $q['id'] }}"><i class="fa-regular fa-thumbs-up"></i> (<span id="likes-{{ $q['id'] }}">{{ $q['likes'] ?? 0 }}</span>)</button>
+                        <button class="dislike-btn" data-id="{{ $q['id'] }}"><i class="fa-regular fa-thumbs-down"></i> (<span id="dislikes-{{ $q['id'] }}">{{ $q['dislikes'] ?? 0 }}</span>)</button>
                             <a href="#" class="link" onclick="showModal('{{ $q['id'] }}', '{{ $q['affair'] }}', '{{ $q['content'] }}', '{{ $q['date_publication'] }}','{{ $user['name'] }}','{{ $user['last_name'] }}')">Ver respuestas</a>
 
            

@@ -166,25 +166,22 @@ public function indexlogin()
     public function store(Request $request)
     {
         // Obtener el ID del usuario autenticado
-        $userId = auth()->id();
     
         // Validar los datos enviados desde el formulario (sin user_id)
         $validatedData = $request->validate([
-            'affair' => 'required|string|max:255',
-            'user_id' => 'required|integer',
-            'forum_category_id' => 'required|integer',
+            'content' => 'required|string|max:255',
+            'lawyer_id' => 'required|integer',
+            'question_id' => 'required|integer',
             'date_publication' => 'required|date',
-            'content' => 'required|string',
         ]);
     
         // Enviar los datos a la API usando Http::post
-        $response = Http::post('https://apijusticelaw-production.up.railway.app/v1/questions', [
-            'affair' => $validatedData['affair'],
-            'user_id' => $validatedData['user_id'],
-
-            'forum_category_id' => $validatedData['forum_category_id'],
-            'date_publication' => $validatedData['date_publication'],
+        $response = Http::post('https://apijusticelaw-production.up.railway.app/v1/answers', [
             'content' => $validatedData['content'],
+            'lawyer_id' => $validatedData['lawyer_id'],
+
+            'question_id' => $validatedData['question_id'],
+            'date_publication' => $validatedData['date_publication'],
         ]);
     
         // Manejar la respuesta de la API

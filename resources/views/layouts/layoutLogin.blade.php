@@ -109,7 +109,7 @@
     <main>
         @yield('main')
     </main>
-    <div id="logoutModal" class="modal">
+    <div id="logoutModal" class="modal" style="display: none;">
         <div class="modal-content">
             <h2>¿Estás seguro de que deseas cerrar sesión?</h2>
             <p>Recuerda que siempre estamos aquí para brindarte la mejor asesoría legal cuando lo necesites.</p>

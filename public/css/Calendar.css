@@ -292,49 +292,130 @@
   border: 0.1px solid #cf9e3e;
 }
 /* Estilos del Modal */
-.modal {
-  display: none; /* Oculto por defecto */
-  position: fixed; /* Fijo en la ventana del navegador */
-  z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
-  left: 0;
-  top: 0;
-  width: 100%; /* Ancho completo */
-  height: 100%; /* Alto completo */
-  overflow: auto; /* Habilitar scroll si es necesario */
-  background-color: rgba(0, 0, 0, 0.4); /* Fondo semitransparente */
-}
-
+/* Ajustes para el modal */
 .modal-content {
   background-color: #fff;
   margin: auto; /* Centrar horizontalmente */
-  padding: 20px;
+  padding: 40px 30px; /* Más espacio para diseño limpio */
   border-radius: 10px;
-  width: 300px;
-  max-width: 90%; /* Asegúrate de que no se desborde en pantallas pequeñas */
-  position: relative; /* Para que funcione el centrado */
+  width: 360px; /* Ancho específico para adaptarse a la imagen */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para mayor profundidad */
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.modal img {
+  border-radius: 0; /* Aplica a todas las imágenes dentro del modal */
+
 }
 
 
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 24px;
+.modal-content h3 {
+  text-align: center;
+  font-size: 18px;
+  color: #003c74;
+  margin-bottom: 20px;
   font-weight: bold;
+  border-radius: 20%;
+}
+/* Contenedor para la fecha y la hora */
+.date-time {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Coloca la fecha y la hora frente a frente */
+  margin: 15px 0;
+  font-size: 14px;
+  color: #555;
+  ;
+}
+
+.date-time-item {
+  display: flex;
+  align-items: center; /* Alinea ícono y texto verticalmente */
+  gap: 8px; /* Espacio entre el ícono y el texto */
+}
+
+.date-time-item img {
+  width: 20px; /* Tamaño del ícono */
+  height: 20px;
+  object-fit: cover;
+}
+
+.date-time-item span {
+  font-weight: bold;
+  color: #003c74; /* Color azul del texto */
+}
+
+.add-availability {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  color: #003c74;
+  border: 1px solid #003c74;
+  border-radius: 5px;
+  padding: 8px 12px;
+  font-size: 14px;
+  margin-bottom: 15px;
   cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.add-availability:hover {
+  background-color: #003c74;
+  color: #fff;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 14px;
+  color: #555;
+  margin: 15px 0;
+}
+
+.notification span {
+  display: flex;
+  align-items: center;
+}
+
+.notification svg {
+  margin-right: 8px;
+  color: #003c74;
+}
+
+.save {
+  background-color: #003c74;
+  color: white;
+  font-size: 14px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.save:hover {
+  background-color: #005093;
+}
+
+/* Botón de cierre del modal */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 18px;
+  color: #555;
+  cursor: pointer;
+  transition: color 0.3s;
 }
 
 .close:hover {
   color: #000;
 }
 
-.modal h3 {
-  color: #40739e;
-  margin-bottom: 15px;
-}
-
-.date-time, .notification {
-  margin: 10px 0;
-}
 
 .add-availability, .save {
   background-color: #003049;

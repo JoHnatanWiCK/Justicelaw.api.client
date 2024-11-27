@@ -47,7 +47,7 @@ async function login(event) {
                     window.location.href = '/homeLogin';
                     break;
                 case 'lawyer':
-                    window.location.href = '/crearPerfilAbogado';
+                    window.location.href = '/homeAbogado';
                     break;
                 case 'admin':
                     window.location.href = '/dashboard';

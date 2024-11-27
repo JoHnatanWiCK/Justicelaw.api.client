@@ -9,54 +9,36 @@
 
     <section class="content">
         <nav class="sidebar">
-            <ul>
+            <ul class="icon-list">
                 <li>
-                    <div class="icon-container">
+                    <a href="#" class="icon-container">
                         <i class="fa-regular fa-user"></i>
-                    </div>
-                    <div class="text-container">
-                        <a href="{{ route('perfil.abogado.creado') }}">Información usuario</a>
-                    </div>
+                    </a>
                 </li>
                 <li>
-                    <div class="icon-container">
+                    <a href="#" class="icon-container">
                         <i class="fa-solid fa-clock-rotate-left"></i>
-                    </div>
-                    <div class="text-container">
-                        <a href="{{ route('historial') }}">Historial</a>
-                    </div>
+                    </a>
                 </li>
                 <li>
-                    <div class="icon-container">
+                    <a href="#" class="icon-container">
                         <i class="fa-solid fa-gear"></i>
-                    </div>
-                    <div class="text-container">
-                        <a href="{{ route('configuracionAbogado') }}">Configuración</a>
-                    </div>
+                    </a>
                 </li>
                 <li>
-                    <div class="icon-container">
+                    <a href="#" class="icon-container">
                         <i class="fa-regular fa-bell"></i>
-                    </div>
-                    <div class="text-container">
-                        <a href="{{ route('noti-lawyer') }}">Notificaciones</a>
-                    </div>
+                    </a>
                 </li>
                 <li>
-                    <div class="icon-container">
+                    <a href="#" class="icon-container">
                         <i class="fa-regular fa-calendar"></i>
-                    </div>
-                    <div class="text-container">
-                        <a href="{{ route('calendar') }}">Calendario</a>
-                    </div>
+                    </a>
                 </li>
-                <li id="cerrarSesion">
-                    <div class="icon-container">
+                <li>
+                    <a href="#" class="icon-container">
                         <i class="fa-solid fa-right-from-bracket"></i>
-                    </div>
-                    <div class="text-container">
-                        <a href="../home/home.html">Cerrar sesión</a>
-                    </div>
+                    </a>
                 </li>
             </ul>
         </nav>
@@ -65,21 +47,15 @@
         <div class="perfil">
             <div class="perfil-contenedor">
                 <div class="banner">
-                    <img id="fotoPerfil" src="../../img/fotoPerfil.png" alt="foto" />
+                    <img id="fotoPerfilAbogado" src="../../img/fotoPerfil.png" alt="foto" />
 
                     <div class="content-abogado">
                         <h3 id="userName"></h3>
-                        <div class="stars">
-                            <img src="../../img/star-solid.svg" alt="star">
-                            <img src="../../img/star-solid.svg" alt="star">
-                            <img src="../../img/star-solid.svg" alt="star">
-                            <img src="../../img/star-solid.svg" alt="star">
-                            <img src="../../img/star-solid-white.svg" alt="star white">
-                        </div>
-                    </div>
-                    <a href="../perfil_abogado/editarPerfil.html" id="editLink"><i
-                            class="fa-regular fa-pen-to-square"></i></a>
 
+                    </div>
+                    {{-- <a href="../perfil_abogado/editarPerfil.html" id="editLink"><i
+                            class="fa-regular fa-pen-to-square"></i></a>
+ --}}
 
                 </div>
                 <!-- Modal para Editar Perfil -->
@@ -191,36 +167,6 @@
                             </div>
 
 
-                            {{-- <div class="progress-bar">
-                                <div class="step completed">1</div>
-                                <div class="line"></div>
-                                <div class="step">2</div>
-                                <div class="line"></div>
-                                <div class="step">3</div>
-                                <div class="line"></div>
-                                <div class="step">4</div>
-                            </div>
-
-                            <div class="practice">
-                                <h2 id="practice-title">Agrega tu biografía personal</h2>
-                                <div class="civ">
-                                    <p id="practice-description">Asegúrate de incluir una breve biografía que destaque tu
-                                        experiencia, áreas de especialización y filosofía profesional.</p>
-
-                                </div>
-
-                            </div>
-
-
-                            <input type="file" id="fotoPerfilInput" style="display: none;" />
-
-                            <input type="text" id="agregarBiografia" placeholder="Escribe tu biografía aquí...">
-                            <div class="button-group">
-                                <button id="atrasBtn" style="display: none;">Atrás</button>
-                                <button id="continuarBtn" disabled>Continuar</button>
-                            </div> --}}
-
-
                             <form id="profileForm">
                                 <!-- Barra de progreso -->
                                 <div class="progress-bar">
@@ -233,39 +179,38 @@
                                     <div class="step">4</div>
                                 </div>
 
-                                <!-- Paso 1: Biografía -->
                                 <div class="step-content" id="step-1">
                                     <h2 id="practice-title">Agrega tu biografía personal</h2>
                                     <p id="practice-description">Asegúrate de incluir una breve biografía que destaque tu experiencia, áreas de especialización y filosofía profesional.</p>
-                                    <textarea id="agregarBiografia" placeholder="Escribe tu biografía aquí..."></textarea>
+                                    <textarea id="agregarBiografia" placeholder="Escribe tu biografía aquí (Minimo 1000 caracteres)"></textarea>
+                                    <div class="error-message" id="biografiaError" style="display:none;"></div>
                                 </div>
 
-                                <!-- Paso 2: Foto de perfil -->
                                 <div class="step-content" id="step-2" style="display: none;">
                                     <h2 id="practice-title">Agrega una foto de perfil</h2>
-                                    <p id="practice-description">Brindale más confianza a tus clientes. Sube una foto profesional.</p>
+                                    <p id="practice-description">Brindale más confianza a tus clientes. Sube una foto profesional. La foto debe ser en formato JPEG, PNG o JPG y debe ser menor a 2MB. </p>
                                     <input type="file" id="fotoPerfilInput" />
+                                    <div class="error-message" id="fotoPerfilError" style="display:none;"></div>
                                 </div>
 
-                                <!-- Paso 3: Habilidades -->
                                 <div class="step-content" id="step-3" style="display: none;">
                                     <h2 id="practice-title">Agrega tus habilidades</h2>
                                     <p id="practice-description">Selecciona tus habilidades y áreas de especialización.</p>
                                     <div id="areasContainer"></div>
+                                    <div class="error-message" id="habilidadesError" style="display:none;"></div>
                                 </div>
 
-                                <!-- Paso 4: Revisión -->
                                 <div class="step-content" id="step-4" style="display: none;">
-                                    <h2 id="practice-title">Revisa y completa tu perfil</h2>
-                                    <p id="practice-description">Asegúrate de que toda tu información esté correcta antes de finalizar.</p>
+                                    <h2 id="practice-title">¡Felicidades, perfil completo!</h2>
+                                    <p id="practice-description">Has completado todos los pasos. Tu perfil está listo y puedes comenzar a usar la plataforma.</p>
                                 </div>
 
-                                <!-- Botones de navegación -->
                                 <div class="button-group">
                                     <button type="button" id="atrasBtn" style="display: none;">Atrás</button>
                                     <button type="button" id="continuarBtnWeb">Continuar</button>
                                 </div>
                             </form>
+
 
 
 

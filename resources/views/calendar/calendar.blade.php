@@ -112,27 +112,45 @@
             </div>
             <div id="availabilityModal" class="modal">
                 <div class="modal-content">
-                    <span class="close">&times;</span>
-                    <h3>Disponibilidad de asesoría</h3>
-                    <div class="modal-body">
-                        <div class="date-time">
-                            <label for="dateDisplay">📅 Fecha actual:</label>
-                            <span id="dateDisplay">2024-10-27</span> <!-- Aquí pones la fecha fija -->
-                            
-                            <label for="timePicker">🕒</label> <!-- Solo el ícono del reloj -->
-                            <input type="time" id="timePicker" />
+                  <span class="close">&times;</span>
+                  <h2>Disponibilidad de asesoría</h2>
+                  <div class="modal-body">
+                    
+                    <div class="date-time">
+                        <!-- Contenedor de la Fecha -->
+                        <div class="date-time-item">
+                            <img src="../../img/calendario.png" class="fecha-icon" alt="Fecha">
+                            <span>Jueves, 11 abril</span>
                         </div>
-                        <button class="add-availability">Agregar nueva disponibilidad</button>
-                        <div class="notification">
-                            <span>🔔</span> Notificar 
-                            <select>
-                                <option>1 hora antes</option>
-                                <option>30 minutos antes</option>
-                                <option>15 minutos antes</option>
-                            </select>
+                      
+                        <!-- Contenedor de la Hora -->
+                        <div class="date-time-item">
+                            <img src="../../img/relojAsesoria.png" class="hora-icon" alt="Hora">
+                            <span>12:00pm - 1:00pm</span>
                         </div>
-                        <button class="save">Guardar</button>
                     </div>
+                    
+                    <!-- Botón para agregar disponibilidad -->
+                    <button class="add-availability">+ Agregar una nueva disponibilidad</button>
+              
+                    <!-- Configuración de notificación -->
+                    <div class="notification">
+                      <span class="icon-bell"></span>
+                      <label>Notificar</label>
+                      <select>
+                        <option>1 hora antes</option>
+                        <option>2 horas antes</option>
+                        <option>Un día antes</option>
+                      </select>
+                    </div>
+                  </div>
+              
+                  <!-- Botón para guardar -->
+                  <button class="save">Guardar</button>
+                </div>
+              </div>
+              
+              
                 </div>
             </div>
             

@@ -1,4 +1,4 @@
-@extends('layouts.layoutLogin')
+@extends('layouts.layoutAbogado')
 
 @section('title', 'Perfil Abogado')
 
@@ -8,66 +8,47 @@
 @section('main')
         <section class="content">
             <nav class="sidebar">
-                <ul>
+                <ul class="icon-list">
                     <li>
-                        <div class="icon-container">
+                        <a href="#" class="icon-container">
                             <i class="fa-regular fa-user"></i>
-                        </div>
-                        <div class="text-container">
-                            <a href="{{route ('perfil.abogado.creado')}}">Información usuario</a>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div class="icon-container">
+                        <a href="#" class="icon-container">
                             <i class="fa-solid fa-clock-rotate-left"></i>
-                        </div>
-                        <div class="text-container">
-                            <a href="{{ route('historial') }}">Historial</a>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div class="icon-container">
+                        <a href="#" class="icon-container">
                             <i class="fa-solid fa-gear"></i>
-                        </div>
-                        <div class="text-container">
-                            <a href="{{ route ('configuracionAbogado')}}">Configuración</a>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div class="icon-container">
+                        <a href="#" class="icon-container">
                             <i class="fa-regular fa-bell"></i>
-                        </div>
-                        <div class="text-container">
-                            <a href="{{ route ('noti-lawyer')}}">Notificaciones</a>
-                        </div>
+                        </a>
                     </li>
                     <li>
-                        <div class="icon-container">
+                        <a href="#" class="icon-container">
                             <i class="fa-regular fa-calendar"></i>
-                        </div>
-                        <div class="text-container">
-                            <a href="{{ route('calendar') }}">Calendario</a>
-                        </div>
+                        </a>
                     </li>
-                    <li id="cerrarSesion">
-                        <div class="icon-container">
+                    <li>
+                        <a href="#" class="icon-container">
                             <i class="fa-solid fa-right-from-bracket"></i>
-                        </div>
-                        <div class="text-container">
-                            <a href="../home/home.html">Cerrar sesión</a>
-                        </div>
+                        </a>
                     </li>
                 </ul>
             </nav>
 
-
           <div class="perfil">
             <div class="perfil-contenedor">
             <div class="banner">
-            <img id="fotoPerfil" src="../../img/fotoPerfil.jfif" alt="foto" />
+            <img id="fotoPerfilAbogado" src="../../img/fotoPerfil.jfif" alt="foto" />
 
             <div class="content-abogado">
-            <h3 id="nombreUsuario">David Astrada</h3>
+                <h3 id="userName"></h3>
             <div class="stars">
               <img src="../../img/star-solid.svg" alt="star">
               <img src="../../img/star-solid.svg" alt="star">
@@ -76,47 +57,45 @@
               <img src="../../img/star-solid-white.svg" alt="star white">
             </div>
             </div>
-            <a href="../perfil_abogado/editarPerfil.html"  id="editLink"><i class="fa-regular fa-pen-to-square"></i></a>
+            <a href="#" id="editLink"><i
+                class="fa-regular fa-pen-to-square"></i></a>
 
             </div>
-<!-- Modal para Editar Perfil -->
-<div id="editModal" class="modal-edit">
-    <div class="modal-edit-content">
-        <span class="modal-edit-close">&times;</span>
-        <h4>Editar Perfil Abogado</h4>
-        <form id="editForm">
-            <div class="modal-edit-field">
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre" placeholder="Introduce tu nombre" required>
+
+            <div id="editModal" class="modal-edit">
+                <div class="modal-edit-content">
+                    <span class="modal-edit-close">&times;</span>
+                    <h4>Editar Perfil Abogado</h4>
+                    <form id="editForm">
+
+                        <!-- Campo para actualizar foto de perfil -->
+                        <div class="modal-edit-field">
+                            <label for="fotoPerfil">Foto de Perfil:</label>
+                            <input type="file" id="fotoPerfilEdit" accept="image/*">
+                            <div class="foto-preview-container">
+                                <img id="fotoPreview" src="" alt="Foto actual" class="foto-preview">
+                            </div>
+                        </div>
+
+                        <!-- Campo de biografía -->
+                        <div class="modal-edit-field">
+                            <label for="biografia">Biografía:</label>
+                            <textarea id="biografia" placeholder="Introduce tu biografía" required></textarea>
+                        </div>
+
+                        <!-- Campo para áreas de práctica -->
+                        <div class="modal-edit-field">
+                            <label for="areasPractica">Áreas prácticas:</label>
+                            <div id="areasContainer"></div>
+                        </div>
+
+                        <button type="submit" class="modal-edit-btn">Guardar Cambios</button>
+                    </form>
+                </div>
             </div>
-            <div class="modal-edit-field">
-                <label for="contacto">Contacto:</label>
-                <input type="text" id="contacto" placeholder="Introduce tu contacto" required>
-            </div>
-            <div class="modal-edit-field">
-                <label for="dni">DNI:</label>
-                <input type="text" id="dni" placeholder="Introduce tu DNI" required>
-            </div>
-            <div class="modal-edit-field">
-                <label for="consultorio">Nombre Consultorio:</label>
-                <input type="text" id="consultorio" placeholder="Introduce nombre del consultorio" required>
-            </div>
-            <div class="modal-edit-field">
-                <label for="ciudad">Ciudad:</label>
-                <input type="text" id="ciudad" placeholder="Introduce tu ciudad" required>
-            </div>
-            <div class="modal-edit-field">
-                <label for="pais">País:</label>
-                <input type="text" id="pais" placeholder="Introduce tu país" required>
-            </div>
-            <div class="modal-edit-field">
-                <label for="biografia">Biografía:</label>
-                <textarea id="biografia" placeholder="Introduce tu biografía" required></textarea>
-            </div>
-            <button type="submit">Guardar Cambios</button>
-        </form>
-    </div>
-</div>
+
+
+
 
 
 
@@ -146,45 +125,42 @@
 
             <section class="section" id="sobre-mi">
             <div class="container">
-              <div class="left-column">
-                  <div class="datos">
-                    <div class="editar-datos">
-                      <h2>Información Personal</h2>
-                    </div>
-                    <p>Contacto: <span id="contactoUsuario">+57 3132307635</span></p>
-                    <p>DNI: <span id="dniUsuario">1061702424</span></p>
-                      <p>Email: &ensp;&ensp;&ensp;&ensp;davidastr45@gmail.com</p>
-                      <p>País: <span id="paisUsuario">Colombia</span></p>
-                      <p>Ciudad: <span id="ciudadUsuario">Popayán</span></p>
-                      <p>Nombre Consultorio: <span id="consultorioUsuario">LeyEs</span></p>
-                     </div>
+                <div class="left-column">
+                    <div class="datos">
+                        <div class="editar-datos">
+                            <h2>Información Personal</h2>
+                        </div>
+                        <div class="telefonoWeb">
+                            <h4>Telefono:</h4>
+                            <p></p>
+                        </div>
 
-              </div>
+                        <div class="correoWeb">
+                            <h4>Email:</h4>
+                            <p></p>
+                        </div>
+                        <div class="paisWeb">
+                            <h4>Pais:</h4>
+                            <p></p>
+                        </div>
+                        <div class="ciudadWeb">
+                            <h4>Ciudad:</h4>
+                            <p></p>
+                        </div>
+                    </div>
+
+
+                </div>
 
               <div class="right-column">
                   <div class="presentation">
                       <h2>Presentación</h2>
-                      <p id="biografiaUsuario">Especializado en derecho civil y familiar, mi objetivo
-                        es proporcionar soluciones legales efectivas y comprensibles
-                        para mis clientes. Fuera del trabajo, disfruto de la lectura y
-                        el tiempo al aire libre. Estoy aquí para ayudarte con tus necesidades
-                        legales.</p>
+                      <p id="biografiaUsuario"></p>
                   </div>
                   <div class="practice">
                       <h2>Áreas de práctica</h2>
                       <div class="civ">
-                          <div class="box-practice">
-                              <div class="practice-item civil">
-                                  <img src="../../img/logoCivil.png" alt="Derecho civil">
-                              </div>
-                              <p class="practice-text">Derecho civil</p>
-                          </div>
-                          <div class="box-practice">
-                              <div class="practice-item familiar">
-                                  <img src="../../img/derechofamiliar.png" alt="Derecho familiar">
-                              </div>
-                              <p class="practice-text">Derecho familiar</p>
-                          </div>
+
                       </div>
                   </div>
               </div>
@@ -202,7 +178,7 @@
 
 
           <section id="hoja-de-vida" class="section">
-        <iframe class="iframeLarge" src="https://drive.google.com/file/d/1hCQs9GVqTZRmz5LOQNM8-HLn9M25Dblk/preview" frameborder="0"></iframe>
+        <iframe class="iframeLarge" src="" frameborder="0"></iframe>
 
           </section>
 
@@ -624,5 +600,5 @@
         @endpush
 
         @push('scripts')
-        <script src="js/perfilAbogado.js"></script>
+        <script src="js/abogadoCreado.js"></script>
         @endpush

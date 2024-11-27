@@ -565,6 +565,8 @@ h3 {
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
+    color: #002535;
+    margin-right: 20px;
   }
   
   .submit-btn {
@@ -627,62 +629,25 @@ h3 {
 
 .sidebar {
     grid-area: sidebar;
-    background-color: #f5f5f5;
-    color: #003049;
+    background-color: #003049;
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     width: fit-content;
     padding-top: 10px;
     padding-left: 20px;
     padding-right: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 0;
 
 }
 
 
-.header {
-    grid-area: header;
-    display: flex;
-    justify-content: center; /* Alineación de elementos a la derecha */
-    align-items: center;
-    background-color: #003049;
-    color: white;
-    padding: 0 20px; /* Espaciado interno */
-    gap: 15px; /* Espaciado entre elementos */
-    width: 100%;
-    
-}
 
-header .task-bar-item {
-    display: flex;
-    align-items: center;
-    background-color: #fff; /* Fondo blanco para contraste */
-    color: #003049;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 14px; /* Tamaño más pequeño */
-}
 
-header input.search-foro {
-    flex: 1;
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    max-width: 200px; /* Limitar el ancho */
-}
 
-header button.create-post-btn {
-    background-color: #1877f2;
-    color: white;
-    padding: 8px 12px;
-    font-size: 14px; /* Tamaño más pequeño */
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
 
-header button.create-post-btn:hover {
-    background-color: #155bca;
-}
+
 
 .main-content {
     grid-area: main-content;
@@ -734,28 +699,39 @@ header button.create-post-btn:hover {
 .conteiner-infos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 20px;
-    background: #f5f5f5; /* Fondo claro */
-    border-radius: 10px;
-    margin-top: 70px;
+    gap: 10px;
+    padding: 10px;
+    background: #ffffff; /* Fondo claro */
+    border-radius: 7px;
+    padding-top: 5px;
+    margin-top: 50px;
+    text-align: center;
+    padding-bottom: 30px;
+    padding-top: 20px;
+
 }
+
+.conteiner-infos h3{
+  justify-content: center;
+}
+
 
 /* Estilo principal de las tarjetas */
 .horizontal-card {
     display: flex;
     align-items: center;
     background: #ffffff;
-    border-radius: 15px;
+    border-radius: 7px;
     box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding: 15px;
-    gap: 15px;
+    padding-right: 10px;
+    border-color: #003049;
 }
 
 .horizontal-card:hover {
-    transform: translateY(-8px);
+    cursor: pointer;
+    transform: translateY(-4px);
     box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -836,64 +812,96 @@ header button.create-post-btn:hover {
 
 /* ----------- Sección .header ----------- */
 .header {
-    background: linear-gradient(90deg, #4a90e2, #0061a8);
-    padding: 15px 20px;
-    display: flex;
+    background: linear-gradient(90deg, #003049, #003049);
+    display: grid;
+    grid-template-columns:  auto  auto 1fr auto;
     align-items: center;
-    justify-content: space-between;
-    border-radius: 8px;
+    gap: 20px;
     color: #fff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+
+
 }
 
 .filter-bar {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+    display: contents; /* Integra los elementos directamente en el grid del contenedor padre */
 }
 
 .filter-bar label {
     font-size: 1em;
     color: #fff;
+    text-align: right;
 }
 
 .category-dropdown {
+    border-radius: 7px;
+    border: none;
+    outline: none;
+    background: #fff;
+    color: #333;
+    font-size: 12px;
+    border-radius: 9px;
+    width: 150px;
+    height: 30px;
+}
+
+.searcha-bar {
+    margin-left: 30px;
+
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    width: 90%;
+    height: 25;
+
+}
+
+.searcha-bar input {
+    border: none;
+    outline: none;
+    border-radius: 15px 0 0 15px;
     padding: 8px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    background: #fff;
-    color: #333;
-    font-size: 0.9em;
+    width: 100%;
+    height: 25px;
+
 }
 
-.search-foro {
-    flex: 1;
-    padding: 10px;
-    border-radius: 5px;
+.searcha-bar button {
     border: none;
-    outline: none;
+    border-radius: 0 15px 15px 0;
     background: #fff;
-    color: #333;
-    font-size: 0.9em;
-    margin: 0 15px;
-}
-
-.create-post-btn {
-    padding: 10px 20px;
-    background: #ff5722;
-    border: none;
-    border-radius: 5px;
-    color: #fff;
-    font-size: 1em;
+    color: #003049;
     cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
+    height: 25px;
+    align-items: center;
 }
 
-.create-post-btn:hover {
-    background: #e64a19;
-    transform: translateY(-2px);
+.create-post-btn{
+    display: contents; /* Integra los elementos directamente en el grid del contenedor padre */
+
 }
+
+header button.create-post-btns {
+    background-color: #ffffff;
+    color: black;
+    font-size: 12px; /* Tamaño más pequeño */
+    border-radius: 9px;
+    width: 120px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    grid-template-columns: 1fr auto;
+
+}
+
+header button.create-post-btns:hover {
+    background-color: #155bca;
+    color: white;
+}
+
 
 /* ----------- Estilos Responsivos ----------- */
 @media (max-width: 768px) {
@@ -913,4 +921,52 @@ header button.create-post-btn:hover {
     .conteiner-infos {
         grid-template-columns: 1fr;
     }
+}
+
+
+.ask-question {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    margin: 10% auto;
+    padding: 20px;
+}
+
+.ask-question h3 {
+    margin-top: 0;
+}
+
+.ask-question input,
+.ask-question textarea,
+.ask-question select,
+.ask-question button {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    box-sizing: border-box;
+}
+
+.ask-question textarea {
+    height: 100px;
+    resize: none;
+}
+
+.ask-question select {
+    background-color: white;
+}
+
+.ask-question button {
+    background-color: #003049;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.ask-question button:hover {
+    background-color: #002535;
 }

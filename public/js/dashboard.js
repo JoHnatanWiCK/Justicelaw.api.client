@@ -27,7 +27,7 @@ async function renderCharts() {
         
         // Nuevas gráficas
         const visitorsData = await fetchChartData('https://apijusticelaw-production.up.railway.app/v1/chart-data/visitors');
-        const usersByRoleData = await fetchChartData('https://apijusticelaw-production.up.railway.app/v1/chart-data/users-by-role');
+        //const usersByRoleData = await fetchChartData('https://apijusticelaw-production.up.railway.app/v1/chart-data/users-by-role');
 
         // Configuración de Chart.js para cada gráfica
 
@@ -113,22 +113,22 @@ async function renderCharts() {
         });
 
         // Usuarios por rol
-        const ctxUsuariosPorRol = document.getElementById('usuariosPorRolChart').getContext('2d');
-        new Chart(ctxUsuariosPorRol, {
-            type: 'pie',
-            data: {
-                labels: usersByRoleData.labels,
-                datasets: [{
-                    label: 'Usuarios por Rol',
-                    data: usersByRoleData.data,
-                    backgroundColor: [
-                        'rgba(75, 192, 192, 0.6)',
-                        'rgba(153, 102, 255, 0.6)',
-                        'rgba(255, 159, 64, 0.6)', // Puedes añadir más colores si es necesario
-                    ],
-                }]
-            }
-        });
+        // const ctxUsuariosPorRol = document.getElementById('usuariosPorRolChart').getContext('2d');
+        // new Chart(ctxUsuariosPorRol, {
+        //     type: 'pie',
+        //     data: {
+        //         labels: usersByRoleData.labels,
+        //         datasets: [{
+        //             label: 'Usuarios por Rol',
+        //             data: usersByRoleData.data,
+        //             backgroundColor: [
+        //                 'rgba(75, 192, 192, 0.6)',
+        //                 'rgba(153, 102, 255, 0.6)',
+        //                 'rgba(255, 159, 64, 0.6)', // Puedes añadir más colores si es necesario
+        //             ],
+        //         }]
+        //     }
+        // });
 
     } catch (error) {
         console.error('Hubo un error al cargar las gráficas:', error);

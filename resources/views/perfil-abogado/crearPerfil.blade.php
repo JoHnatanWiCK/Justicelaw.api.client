@@ -102,7 +102,7 @@
 
 
 
-                <a href="#modal-foto"><img id="circuloPerfil" src="../../img/circuloPerfil.png" alt="circuloPerfil"></a>
+                {{-- <a href="#modal-foto"><img id="circuloPerfil" src="../../img/circuloPerfil.png" alt="circuloPerfil"></a>
                 <div id="modal-foto" class="modalDialog">
                     <div>
                         <a href="#close" title="Close" class="close"><i class="fa-solid fa-xmark close"></i></a>
@@ -116,7 +116,7 @@
                                 onchange="handleFileSelection()">
                         </div>
                     </div>
-                </div>
+                </div> --}}
 
                 <nav class="profile-nav">
                     <ul>

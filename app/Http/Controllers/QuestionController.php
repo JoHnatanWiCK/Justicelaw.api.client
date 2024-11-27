@@ -120,6 +120,37 @@ public function indexlogin()
     return $userId;
    }
    
+   public function like($id)
+   {
+       $url = env('URL_SERVER_API') . '/questions/' . $id . '/like'; // Supongamos que tu API tiene esta ruta configurada
+
+       $response = Http::post($url);
+
+       if ($response->successful()) {
+           return response()->json(['message' => 'Like registrado con éxito', 'likes' => $response->json()['likes']]);
+       }
+
+       return response()->json(['message' => 'Error al registrar el like'], 500);
+   }
+
+   // Método para incrementar los "dislikes" de una pregunta
+   public function dislike($id)
+   {
+       $url = env('URL_SERVER_API') . '/questions/' . $id . '/dislike'; // Supongamos que tu API tiene esta ruta configurada
+
+       $response = Http::post($url);
+
+       if ($response->successful()) {
+           return response()->json(['message' => 'Dislike registrado con éxito', 'dislikes' => $response->json()['dislikes']]);
+       }
+
+       return response()->json(['message' => 'Error al registrar el dislike'], 500);
+   }
+
+
+
+   
+
 
     /**
      * Show the form for creating a new resource.

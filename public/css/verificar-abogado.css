@@ -1,0 +1,374 @@
+body {
+  font-family: 'Faustina', serif;
+  margin: 0;
+  background-color: #f5f7fa;
+}
+
+.container {
+  display: grid;
+  grid-template-areas: 
+      "sidebar header"
+      "sidebar main-content";
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 80px 1fr;
+  height: 100vh;
+}
+
+.sidebar {
+  grid-area: sidebar;
+  background-color: #003049;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.logo img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.logo-text h1 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.logo-text p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.menu, .content, .settings {
+  flex-grow: 1;
+}
+
+.menu ul, .content ul, .settings ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu li, .content li, .settings li {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.menu li img, .content li img, .settings li img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+.menu li a, .content li a, .settings li a, .logout a {
+  color: white;
+  text-decoration: none;
+}
+
+.logout {
+  padding: 20px;
+  text-align: center;
+}
+
+.logout img {
+  height: 20px;
+  margin-right: 10px;
+}
+
+header {
+  grid-area: header;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #003049;
+  padding: 10px 20px;
+  color: white;
+}
+
+header input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-info span {
+  margin-right: 10px;
+}
+
+.user-info img {
+  height: 40px;
+  border-radius: 50%;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+  background-color: #f5f7fa;
+  padding: 20px;
+}
+
+/* Left Panel: Pending Requests */
+.left-panel {
+  grid-column: 1 / 2;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pending-requests {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.pending-requests li {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 11px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.pending-requests img {
+  border-radius: 50%;
+  margin-right: 10px;
+  width: 30px;
+  height: 30px;
+}
+
+/* Right Panel: Profile and Actions */
+.right-panel {
+  grid-column: 2 / 4;
+  display: flex;
+  flex-direction: column;
+}
+
+.status-bar {
+  background-color: #f5f7fa;
+  padding: 20px;
+  border-radius: 8px;
+  display: flex;
+  
+  align-items: center;
+}
+
+.status-bar .status {
+  color: #000000;
+}
+
+.reject-btn, .accept-btn {
+  
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 5px;
+}
+
+.reject-btn {
+  background-color: #ffffff;
+  border: 2px solid #0B3C5D;
+  color: #0B3C5D;
+  border-radius: 30px;
+  margin-left: 10px;
+  height: 25px;
+  width: 100px;
+  text-align: center;
+}
+
+.accept-btn {
+  background-color: #0B3C5D;
+  border-radius: 30px;
+  color: #f9f9f9;
+  margin-left: 10px;
+  height: 25px;
+  width: 100px;
+  text-align: center;
+  
+}
+
+.profile {
+  margin-top: -20px;
+  background-color: #f5f7fa;
+  padding: 20px;
+  border-radius: 8px;
+  
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  
+}
+
+.profile-info {
+  background-color: #ffffff;
+  text-align: center;
+  height: 460px;
+  padding-top: 30px;
+
+}
+
+.profile-info img {
+  border: 2px solid black;
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+}
+
+.pdf-download {
+  display: block;
+  margin: 10px 0;
+  color: #0B3C5D;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.account-details, .description, .id-document, .document-details {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 13px;
+}
+.description{
+  margin-top: -270px;
+  height: 220px;
+}
+
+.document-details{
+  margin-top: -230px;
+  height: 180px;
+}
+
+.id-document img {
+  width: 100%;
+  border-radius: 8px;
+}
+
+/* Clearfix */
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+
+
+.profile-info {
+  grid-column: 1 / 2; /* De columna 1 a columna 2 */
+  grid-row: 1 / 2; /* De fila 1 a fila 2 */
+  text-align: center;
+}
+
+.account-details {
+  grid-column: 2 / 3; /* De columna 2 a columna 3 */
+  grid-row: 1 / 2; /* De fila 1 a fila 2 */
+  height: 200px;
+}
+
+.description {
+  grid-column: 2; /* De columna 1 a columna 2 */
+  grid-row: 2 ; /* De fila 2 a fila 3 */
+}
+
+.id-document {
+  grid-column:  3; /* De columna 2 a columna 3 */
+  grid-row: 1; /* De fila 2 a fila 3 */
+  height: 240px;
+}
+
+.document-details {
+  grid-column: 3; /* De columna 2 a columna 3 */
+  grid-row: 2; /* De fila 3 a fila 4 */
+}
+
+.document-details  p{
+  font-size: 13px;
+} 
+
+
+.profile-info  p{
+  font-size: 13px;
+}
+
+.account-details p{
+  font-size: 13px;
+}
+
+.description p{
+  font-size: 13px;
+}
+
+.id-document p{
+  font-size: 13px;
+}
+
+/* Responsivo: Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+  .container {
+      grid-template-areas: 
+          "header"
+          "main-content"
+          "sidebar";
+      grid-template-columns: 1fr;
+      grid-template-rows: 80px 1fr auto;
+  }
+
+  .sidebar {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px;
+  }
+
+  .sidebar .menu,
+  .sidebar .content,
+  .sidebar .settings,
+  .sidebar .logout {
+      flex-grow: 0;
+  }
+
+  .profile {
+      grid-template-columns: 1fr;
+      gap: 10px;
+  }
+
+  .right-panel {
+      grid-column: 1 / -1;
+  }
+
+  .left-panel {
+      grid-column: 1 / -1;
+  }
+}
+
+/* Ajustes para pantallas medianas */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container {
+      grid-template-columns: 200px 1fr;
+  }
+
+  .profile {
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+  }
+}
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 1025px) {
+  .container {
+      grid-template-columns: 250px 1fr;
+  }
+}

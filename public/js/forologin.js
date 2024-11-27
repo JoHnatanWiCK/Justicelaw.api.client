@@ -1,3 +1,51 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    // Manejar clic en "Me gusta"
+    document.querySelectorAll('.btn-like').forEach(button => {
+        button.addEventListener('click', () => {
+            const questionId = button.dataset.id;
+
+            fetch(`/questions/${questionId}/like`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken,
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector(`#likes-${questionId}`).textContent = data.likes; // Actualiza contador
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    });
+
+    // Manejar clic en "No me gusta"
+    document.querySelectorAll('.btn-dislike').forEach(button => {
+        button.addEventListener('click', () => {
+            const questionId = button.dataset.id;
+
+            fetch(`/questions/${questionId}/dislike`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken,
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector(`#dislikes-${questionId}`).textContent = data.dislikes; // Actualiza contador
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    });
+});
+
+
+
+
+
 function closeModala() {
     console.log('Cerrando modal...');
 
@@ -28,6 +76,18 @@ function closeTaskModal() {
 
 
 
+document.querySelectorAll('.avatar-link, .name-link').forEach(link => {
+    link.addEventListener('click', function(event) {
+        const lawyerId = this.getAttribute('data-lawyer-id');
+
+        localStorage.setItem('selectedLawyerId', lawyerId);
+
+        console.log('ID del abogado seleccionado:', lawyerId);
+
+        window.location.href = `/perfilabogado/${lawyerId}`;
+
+    });
+});
 
 
 
@@ -81,10 +141,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             const data = await response.json();
             console.log('Datos del usuario:', data);
 
-            
+
             const { id,name, last_name, rol, email } = data;
 
-            
+
                 userNameElement.textContent = `${id} `;
                 const userInput = document.getElementById('userInput');
                 userInput.value = userNameElement.textContent.trim();
@@ -92,8 +152,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 userNameInput.value = `${name}`;
                 lastNameInput.value = `${last_name}`;
                 emailInput.value = `${email}`;
-          
-          
+
+
         }
     } catch (error) {
         console.error('Error:', error.message);
@@ -127,7 +187,7 @@ document.getElementById('category-filter').addEventListener('change', function (
 
 function showModal(id, title, content, date,user,last) {
     document.getElementById('respuestas').style.display = 'flex';
-    
+
 
     document.getElementById('modal-user').innerText = user+" "+last;
     document.getElementById('modal-title').innerText = title;
@@ -140,8 +200,8 @@ function showModal(id, title, content, date,user,last) {
         } else {
             post.style.display = 'none';
         }
-    });  
-   
+    });
+
 }
 
 
@@ -157,8 +217,8 @@ document.getElementById('show-more').addEventListener('click', function() {
 });
 
 
-       
-    
+
+
 
 
 
@@ -166,8 +226,8 @@ document.getElementById('show-more').addEventListener('click', function() {
 
         //cambiar a home
 document.getElementById('home').addEventListener('click', function(event) {
-    event.preventDefault(); 
-    window.location.href = '../home/home.html'; 
+    event.preventDefault();
+    window.location.href = '../home/home.html';
 });
 
 
@@ -176,10 +236,8 @@ document.getElementById('show-more').addEventListener('click', function() {
     document.querySelectorAll('.extra-category').forEach(function(category) {
         category.style.display = 'list-item';
     });
-    this.style.display = 'none'; 
+    this.style.display = 'none';
 });
 
 
 
-
-    

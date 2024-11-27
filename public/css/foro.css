@@ -2,6 +2,7 @@ body {
     margin: 0;
     background-color: #f5f5f5;
     font-family: "Faustina", serif;
+    
 }
 
 .welcome {
@@ -146,6 +147,39 @@ body {
 .category {
     font-size: 0.8rem;
 }
+
+/* Contenedor para los botones de like/dislike y el enlace */
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaciado entre botones y el enlace */
+}
+
+/* Estilo de los botones */
+.like-btn,
+.dislike-btn {
+    border: 1px solid #ddd;
+    background-color: white;
+    border-radius: 4px;
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: #555;
+    transition: all 0.3s ease;
+}
+
+.like-btn:hover,
+.dislike-btn:hover {
+    background-color: #f0f0f0;
+}
+
+/* Asegura que los botones no afecten el enlace */
+.link {
+    text-decoration: none;
+    color: #007bff;
+    font-size: 0.8rem;
+}
+
 
 /* Paginación */
 .pagination {
@@ -499,7 +533,7 @@ h3 {
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 16px;
-    color: white;
+    color: black;
     resize: vertical; /* Permite ajustar el tamaño verticalmente */
     min-height: 80px;
     margin-bottom: 10px;
@@ -654,6 +688,7 @@ h3 {
     display: block; /* Mantener las tarjetas tal como están */
     background-color: #f5f7fa;
     padding: 20px; /* Espaciado interno */
+    
 }
 
 
@@ -818,11 +853,10 @@ h3 {
     align-items: center;
     gap: 20px;
     color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 10px;
     padding-left: 40px;
     padding-right: 40px;
-
+   
 
 }
 

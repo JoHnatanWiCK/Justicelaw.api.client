@@ -15,147 +15,215 @@
 .title-recent-profiles p {
     font-size: 14px;
 }
+.view-profile {
+    border-radius: 10px; /* Esto hace el botón completamente ovalado */
+    padding: 12px 15px; /* Ajusta el tamaño del botón según lo necesites */
+    color: #003049; /* Texto blanco */
+    font-weight:lighter; /* Letras más destacadas */
+    font-size: 14px;
+    border: none; /* Elimina el borde si lo deseas */
+    white-space: nowrap;
+    border: 1px solid #003049; /* Asegura que el contenido se mantenga en una sola línea */
+}
 
-.registro-reportes {
-    /* Registro reportes */
-    grid-column: 1 / 2;
-    background-color: #f5f5f9;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: -260px;
+  
+/* Contenedor principal */
+.profiles-list-container,
+.lawyers-list-container {
+    padding: 0px 10px;
+    border-radius: 15px;
+    background-color: #f5f7fa; /* Fondo neutro */
+}
+
+/* Título de la sección */
+.profiles-list-container h4,
+.lawyers-list-container h4 {
+    font-size: 22px;
+    font-weight: bold;
     margin-bottom: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #003049; /* Azul oscuro */
+    text-align: left;
 }
 
-.registro-reportes h3 {
-    margin: 0 0 10px;
-}
-
-.registro-reportes ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.registro-reportes ul li {
-    display: flex;
-    align-items: center;
-    font-size: 12px;
-    border-bottom: 1px solid#f0f0f0;
-}
-
-.registro-reportes ul li a{
-    font-size: 12px;
-    text-decoration: none;
-    color: black;
-}
-
-.registro-reportes li img{
-    height: 20px;
-    margin-right: 10px;
-}
-
-.reporte {
-    background-color: #cf9e3e;
-}
-
-.verificacion {
-    background-color: #1476a9;
-}
-
-.central {
-    grid-column: 2 / 3;
-    grid-row: 1/3;
-    display: grid;
-    grid-template-rows: auto auto;
-    margin-top: 20px;
-    gap: 20px;
-    height: 100%;
-}
-
-.recent-profiles {
-    /*Perfiles creados reciente */
-    background-color: #ffff;
-    padding: 10px;
-    border-radius: 5px;
-    
-}
-
-.profiles-list {
+/* Lista de perfiles */
+.profiles-list,
+.lawyers-list {
     display: flex;
     flex-wrap: wrap;
-    width: auto;  
+    gap: 5px;
+    justify-content: start;
+    padding: 0;
+    list-style: none;
 }
 
-.profiles-list a {
-    text-decoration: none;
-    color: black;
-}
-
+/* Cada perfil: estilo burbuja */
 .profile-item {
-    flex: 1 0 50%; 
-    box-sizing: border-box; 
-    border-right: 2px solid #0a3b55; 
-    padding: 5px; 
-}
-.profile-item a {
+    background: white; /* Azul oscuro */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 0px 10px;
     display: flex;
     align-items: center;
-    text-decoration: none;
+    gap: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: black; /* Texto blanco */
+    font-size: 14px;
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.profile-item:hover {
+    transform: scale(1.05); /* Efecto de aumento */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Avatar o iniciales dentro de la burbuja */
+.initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #4d6e80; /* Azul intermedio */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+/* Nombre del usuario o abogado */
+.user-name,
+.lawyer-name {
+    flex-grow: 1;
+    text-align: left;
+    font-size: 16px;
     color: black;
 }
 
-.initials{
-    margin-right: 10px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    background-color: #4d6e80;
-    padding: 15px;
-    border-radius: 5px;
+/* Fecha de creación (opcional, más discreta) */
+.user-created,
+.lawyer-created {
+    font-size: 12px;
+    color: rgb(0, 0, 0);
 }
+
+/* Mensajes vacíos */
+#noUsersMessage,
+#noLawyersMessage {
+    font-size: 14px;
+    color: #aaa;
+    text-align: center;
+    margin-top: 15px;
+    display: none;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .profiles-list,
+    .lawyers-list {
+        justify-content: center;
+    }
+    .profile-item {
+        padding: 8px 15px;
+    }
+    .initials {
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
+    }
+    .user-name,
+    .lawyer-name {
+        font-size: 14px;
+    }
+}
+
 
 .profile-item:nth-child(2n) {
     border-right: none;
 }
 
 .profile-details {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 500px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 20px;
+    border-radius: 8px;
+    z-index: 1000;
+    border: 2px solid black;
+    display: none;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.profile-details.active {
+    display: block;
+    border: #333;
+    opacity: 1;
 }
 
 .profile-overview {
-    grid-column: 1 / 3;
-    display: flex;
-    flex-direction: column;
     text-align: center;
-    
 }
 
 .profile-overview img {
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .profile-overview h4 {
-    font-size: 24px;
-    margin-top: 10px;
-    font-weight: bold;
+    margin: 10px 0;
+    font-size: 1.2rem;
 }
 
 .profile-overview p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 20px;
+    color: #666;
 }
+
+.profile-overview .pdf-link {
+    display: block;
+    margin-bottom: 15px;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.profile-overview .pdf-link:hover {
+    text-decoration: underline;
+}
+
+.profile-overview .btn {
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 12px;
+    color: white;
+    background-color: #003060;
+    text-decoration: none;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.profile-overview .btn:hover {
+    background-color: #003060;
+
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 20px; /* Puedes ajustar el tamaño de la 'x' */
+    color: #000; /* El color de la 'x' */
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 .pdf-link {
     display: inline-block;
@@ -233,111 +301,4 @@
     background-color: #003060;
 }
 
-.recent-activity {
-    /* Actividad reciente */
-    grid-column: 3 / 4;
-    grid-row: 2 / 3;
-    background-color: white;
-    margin-top: -120px;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
 
-.recent-activity h3 {
-    margin: 0 0 10px;
-}
-
-.recent-activity ul {
-   list-style-type: none;
-   padding: 0;
-   margin: 0;
-}
-
-.recent-activity ul li {
-    display: flex;
-    align-items: center;
-    padding: 10px 0;
-    font-size: 12px;
-    border-bottom: 1px solid #f0f0f0;
-    position: relative;
-  padding-left: 25px; 
-}
-
-.recent-activity ul li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 12px; 
-    height: 12px;
-    background-color: blue; 
-    border-radius: 50%; 
-  }
-
-.recent-activity ul li a {
-    font-size: 12px;
-    text-decoration: none;
-    color: black;
-}
-.recent-activity li img {
-    height: 20px;
-    margin-right: 10px;
-}
-
-.search-profiles {
-    /* busqueda de perfiles */
-    grid-column: 3 / 4;
-    grid-row: 1 / 3;
-    background-color: white;
-    margin-top: 20px;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.search-profiles h3 {
-   margin: 0 0 10px;
-}
-
-.search-profiles input[type="text"] {
-    border-radius: 25px;
-    border: 1px solid black;
-    outline: none;
-    width: 200px;
-    height: 25px;
-}
-.search-profiles .input {
-    font-size: 14px;
- }
- .search-profiles .input::placeholder {
-    font-size: 10px;
- }
-.search-profiles a img {
-    height: 20px;
-}
-
-.search-profiles h4 {
-    font-weight: lighter;
-}
-
-.search-profiles ul {
-   list-style-position: inherit;
-}
-
-.search-profiles ul li {
-    list-style: none;
-    margin-bottom: 20px;
-    
-}
-
-.search-profiles ul li a {
-   background-color: #003049;
-   text-decoration: none;
-   color: white;
-   border-radius: 15px;
-   padding: 5px;
-}

@@ -1,0 +1,620 @@
+/* Estilos generales para el contenedor */
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    margin: 20px auto;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  
+  /* Estilos para el calendario */
+  .calendar {
+    flex: 3;
+    text-align: left;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .calendar h1 {
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para los meses */
+  .months {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .months div {
+    margin: 0 5px;
+    text-align: center;
+    font-weight: bold;
+    color: #666;
+  }
+  
+  .months button {
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  .months button:hover {
+    color: blue;
+  }
+  
+  /* Estilos para los días */
+  .days {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .day {
+    color: #666;
+    text-align: center;
+    width: 14%;
+    cursor: pointer;
+  }
+  
+  .day .date {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .day .day-name {
+    display: block;
+    font-size: smaller;
+  }
+  
+  .day.selected .date {
+    font-size: 20px;
+    color: #fff;
+    background-color: #003c74;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    margin: 0 auto;
+  }
+  
+  .day.selected .day-name {
+    color: #666;
+  }
+  
+  /* Estilos para la navegación de los días */
+  .navigation-days {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  .prevBtn,
+  .nextBtn {
+    background-color: #003049;
+    border: none;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .prevBtn:hover,
+  .nextBtn:hover {
+    background-color: #010c13;
+  }
+  
+  /* Estilos para la sección de eventos y horas */
+  .schedule {
+    display: flex;
+    align-items: flex-start;
+    margin: 35px 5%;
+    position: relative;
+  }
+  
+  /* Estilos para las horas */
+  .hours {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-right: 10px;
+    font-size: 13px;
+    color: #666;
+    position: absolute;
+    top: 0;
+  }
+  
+  .hours div {
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilos para la línea vertical amarilla */
+  .vertical-line {
+    width: 2px;
+    background-color: #cf9e3e; /* Color amarillo */
+    height: 100%;
+    position: absolute;
+    left: 60px; /* Ajusta según tu diseño */
+    top: 0;
+    z-index: 1;
+  }
+  
+  /* Estilos para los eventos */
+  .events {
+    position: relative;
+    flex: 1;
+    border-left: 2px solid #ccc;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-left: 60px;
+    margin-left: 60px;
+  }
+  
+  .event {
+    height: 40px;
+    padding: 5px;
+    display: flex;
+    font-size: 12px;
+    align-items: center;
+    box-sizing: border-box;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #f3e6cd;
+    transition: background-color 0.3s;
+  }
+  
+  /* Imagen del evento */
+  .event-image {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .event-details {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .nombre-asesoria {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .hora-evento {
+    font-size: 10px;
+    color: #666;
+    margin-top: 5px;
+  }
+  
+  .event-details p {
+    margin: 0;
+    color: #333;
+  }
+  
+  /* Estilos para los eventos vacíos */
+  .event.vacio {
+    background-color: #DFE6E9;
+    color: #fff;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  
+  /* Estilos para los eventos disponibles y ocupados */
+  
+  .event.ocupado {
+    background-color: #f3e6cd;
+    color: black;
+  }
+  
+  
+  .event.disponible:hover,
+  .event.ocupado:hover {
+    background-color: #cc4e40;
+  }
+  
+  /* Círculos para completar/pending */
+  .event .circulo-pendiente {
+    height: 10px;
+    width: 10px;
+    background-color: #f39c12; /* Color de pendiente */
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .event .circulo-completado {
+    height: 10px;
+    width: 10px;
+    background-color: #2ecc71; /* Color completado */
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  /* Perfil y estadísticas */
+  .profile {
+    width: 270px;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .profile img {
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    margin-left: 15%;
+  }
+  
+  .profile h2 {
+    margin: 0;
+  }
+  
+  .profile p {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .profile .stats {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 10px;
+  
+  }
+  
+  .profile .stats div {
+    text-align: center;
+  }
+  
+  .profile .stats div p {
+    color: #4d5052;
+    font-size: 16px;
+  }
+  
+  #verPerfil {
+    text-decoration: none;
+    color: #cf9e3e;
+    font-size: 15px;
+  }
+  
+  /* Otros estilos */
+  /* Contenedor de los elementos disponibles y ocupados */
+/* Contenedor de los elementos disponibles y ocupados */
+/* Ajustes para los elementos disponible y ocupado */
+/* Ajuste para los elementos ocupado y disponible */
+.ocupado, .disponible {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: -20px;  /* Aquí se ajusta la altura manualmente */
+    position: relative;
+    height: auto;
+    
+}
+
+
+/* Ajusta el círculo de disponible y ocupado */
+.circulo-disponible, .circulo-ocupado {
+    height: 10px;
+    width: 10px;
+    background-color: #DFE6E9;  /* Para disponible */
+    border-radius: 50%;
+    margin-bottom: 5px;  /* Espacio entre círculo y la palabra */
+    margin-left: 20px;  /* Esto mueve los círculos hacia la derecha */
+}
+
+.circulo-ocupado {
+    background-color: #f3e6cd;  /* Para ocupado */
+}
+
+/* Centrar el texto con los círculos */
+.stats p {
+    text-align: center;
+    color: #4d5052;
+    font-size: 16px;
+    margin-top: 5px;  /* Ajuste entre el círculo y el texto */
+}
+
+.stats hr {
+    border: 0.1px solid #cf9e3e;
+    margin-left: 30px;
+    height: 60px;
+    margin-top: -17px;
+}
+
+  /* Estilos para la sección de clientes */
+/* Estilos para la sección de clientes */
+.client-section {
+    position: absolute;
+    left: 990px;  /* Mueve la sección a la izquierda */
+    top: 480px;  /* Ajusta el valor para moverla hacia abajo */
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+     margin-top: -70px; 
+}
+
+.client-section-title {
+    text-align: start;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.client-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.client-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.client-item img {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.client-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.client-name {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.client-appointment {
+    font-size: 12px;
+    color: #666;
+}
+
+  
+  /* Estilos del Modal */
+  .modal-content {
+    background-color: #fff;
+    margin: auto; /* Centrar horizontalmente */
+    padding: 38px 40px; /* Más espacio para diseño limpio */
+    border-radius: 10px;
+    width: 400px; /* Ancho específico para adaptarse a la imagen */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para mayor profundidad */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .modal img {
+    border-radius: 0; /* Aplica a todas las imágenes dentro del modal */
+  
+  }
+  
+  
+  .modal-content h3 {
+    text-align: center;
+    font-size: 18px;
+    color: #003c74;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border-radius: 20%;
+  }
+  /* Contenedor para la fecha y la hora */
+  .date-time {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Coloca la fecha y la hora frente a frente */
+    margin: 15px 0;
+    font-size: 14px;
+    color: #555;
+    white-space: nowrap; /* Asegura que la fecha y hora no se dividan */
+    
+  }
+  
+  
+  .date-time-item {
+    display: flex;
+    align-items: center; /* Alinea ícono y texto verticalmente */
+    gap: 5px; /* Espacio entre el ícono y el texto */
+  }
+  
+  .date-time-item img {
+    width: 20px; /* Tamaño del ícono */
+    height: 20px;
+    object-fit: cover;
+  }
+  
+  .date-time-item span {
+    font-weight: bold;
+    color: #003c74; /* Color azul del texto */
+  }
+  
+  .add-availability {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: #003c74;
+    border: 1px solid #003c74;
+    border-radius: 5px;
+    padding: 8px 12px;
+    font-size: 14px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .add-availability:hover {
+    background-color: #003c74;
+    color: #fff;
+  }
+  
+  .notification {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #555;
+    margin: 15px 0;
+  }
+  
+  .notification span {
+    display: flex;
+    align-items: center;
+  }
+  
+  .notification svg {
+    margin-right: 8px;
+    color: #003c74;
+  }
+  
+  .save {
+    background-color: #003c74;
+    color: white;
+    font-size: 14px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s;
+  }
+  
+  .save:hover {
+    background-color: #005093;
+  }
+  
+  /* Botón de cierre del modal */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    color: #555;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  
+  .close:hover {
+    color: #000;
+  }
+  
+  
+  .add-availability, .save {
+    background-color: #003049;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+  }
+  
+  .add-availability {
+    background: none;
+    color: #003049;
+    border: 1px solid #003049;
+    margin-bottom: 10px;
+  }
+  
+  .add-availability:hover,
+  .save:hover {
+    background-color: #0a3c6d;
+    color: white;
+  }
+  /* Estilo del contenedor del evento */
+  .event {
+    position: relative; /* Necesario para que los elementos dentro de él se posicionen con respecto a este contenedor */
+    padding-right: 40px; /* Asegura que haya espacio suficiente a la derecha para el botón de tres puntos */
+}
+
+/* Estilo del menú de opciones */
+.options-menu {
+    display: none;
+    position: absolute;
+    right: 0; /* Alinea el menú a la derecha */
+    top: 100%; /* Coloca el menú justo debajo del botón de tres puntos */
+    background-color: white;
+    border: 1px solid #ccc;
+    color: black; /* Aseguramos que la letra en el menú sea negra */
+    z-index: 9999; /* Asegura que el menú de opciones se muestre por encima de otros elementos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Agrega una sombra para darle más visibilidad */
+    padding: 0; /* Elimina cualquier espacio extra en el contenedor */
+}
+
+/* Menú de opciones visible */
+.options-menu.show {
+    display: block;
+}
+
+/* Estilo de los tres puntos (botón) */
+.dots-menu {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer; /* Cambiar el cursor a mano */
+    color: #6e6b6b;
+    font-weight: bold;
+    display: inline-block;
+    transition: color 0.3s ease;
+    position: absolute; /* Se posiciona con respecto al contenedor .event */
+    right: 0; /* Alinea el botón de tres puntos a la derecha */
+    top: 50%; /* Centra el botón verticalmente */
+    transform: translateY(-50%); /* Ajusta el botón para que quede perfectamente centrado */
+}
+
+/* Estilo de las opciones del menú */
+.options-menu p {
+    cursor: pointer; /* Cambiar el cursor a mano sobre las opciones */
+    transition: background-color 0.3s ease;
+    padding: 5px 10px; /* Ajusta el espaciado entre las palabras dentro de cada opción */
+    margin: 0; /* Elimina el margen entre las opciones */
+}
+
+/* Efecto de hover sobre las opciones */
+.options-menu p:hover {
+    background-color: #aca9a9; /* Cambia el fondo al pasar el mouse sobre las opciones */
+}
+
+/* Para los eventos vacíos, si quieres que el color de texto sea diferente */
+.event.vacio .options-menu {
+    color: black; /* Aseguramos que la letra en los menús vacíos sea negra */
+}
+
+/* Estilo de los eventos vacíos */
+.event.vacio {
+    background-color: #f2f2f2; /* Aseguramos que los eventos vacíos tengan un fondo visible */
+}
+/* Estilo del evento eliminado */
+.event.eliminado {
+    background-color: blue; /* Cambiar el color de fondo a azul */
+    color: white; /* Cambiar el color del texto a blanco */
+}

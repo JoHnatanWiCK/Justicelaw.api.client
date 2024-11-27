@@ -26,6 +26,17 @@ class LawyerController extends Controller
         // return view('lawyers.index', compact('lawyers'));
     }
 
+
+    public function indexva()
+    {
+        $url = env('URL_SERVER_API');
+
+        $lawyers = $this->fetchDataFromApi($url . '/lawyers');
+
+        return view('va.verificarabogado',compact('lawyers'));
+
+        // return view('lawyers.index', compact('lawyers'));
+    }
     
     /**
      * Show the form for creating a new resource.
@@ -53,6 +64,19 @@ class LawyerController extends Controller
         $lawyer = $this->fetchDataFromApi($url . '/lawyers/' . $id);
 
         return $lawyer;
+
+        // return view('notifications.show', compact('notification'));
+    }
+
+    public function showva(string $id)
+    {
+        $url = env('URL_SERVER_API');
+
+        $lawyere = $this->fetchDataFromApi($url . '/lawyers/' . $id);
+
+        $lawyers = $this->fetchDataFromApi($url . '/lawyers');
+
+        return view('va.verificarshow',compact('lawyere','lawyers')) ;
 
         // return view('notifications.show', compact('notification'));
     }

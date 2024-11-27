@@ -44,10 +44,10 @@
             </label>
             <div class="dropdown">
                 <ul>
-                    <li><a href="{{ route('crearPerfil')}}">Perfil</a></li>
-                    <li><a href="{{ route('historial')}}">Historial</a></li>
+                    <li><a href="#" id="perfilLink">Perfil</a></li>
+                    <li><a href="{{ route('historialAbogado')}}">Historial</a></li>
                     <li>
-                        <a href="{{ route('notificaciones')}}">Notificaciones</a>
+                        <a href="{{ route('noti-lawyer')}}">Notificaciones</a>
                     </li>
                     <li>
                         <a href="{{ route('calendar')}}">Calendario</a>

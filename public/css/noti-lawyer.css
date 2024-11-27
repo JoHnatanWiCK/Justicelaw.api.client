@@ -6,19 +6,20 @@
     overflow: hidden;
 }
 
+
 .sidebar {
     position: sticky;
     padding-top: 2rem;
-    max-width: 15%;
+    height: 100%;
+    width: 8%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     align-items: center;
     justify-content: center;
     background-color: #ffffff;
     margin: 0 auto;
-    height: auto;
+    height: 100vh;
     overflow-y: auto;
-
-}
+  }
 
 #progre{
   text-align: center;
@@ -51,28 +52,34 @@ width: 350px;
   z-index: -1;
 }
 
+
+
 .sidebar ul {
-  list-style: none;
-  padding: 0;
-  text-align: center;
+    list-style: none;
+    padding: 0;
+    text-align: center;
 
-}
+  }
 
-.sidebar ul li {
-  margin: 10px 0;
-  margin-bottom: 2rem;
-}
+  .sidebar ul li {
+    margin: 10px 0;
+    margin-bottom: 2rem;
+  }
 
-.sidebar ul li a {
-  margin: 0;
-  color: rgb(0, 0, 0);
-  text-decoration: none;
-}
+  .sidebar ul li a {
+    margin: 0;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+  }
 
-.sidebar ul li i {
-  padding-bottom: 1rem;
-  padding-right: 1.5rem;
-}
+  .sidebar ul li i {
+    padding-bottom: 1rem;
+    padding-right: 1.5rem;
+  }
+
+  .icon-container i{
+    font-size: 20px;
+  }
 
 #cerrarSesion {
   margin-top: 14rem;
@@ -100,6 +107,7 @@ width: 350px;
 
 
 .notifications {
+    margin: 2rem;
   width: 100%;
   height: auto;
   justify-content: center;
@@ -110,7 +118,7 @@ width: 350px;
   display: flex;
   align-items: center;
   width: 100%;
-  
+
 }
 
 .notification-list {
@@ -118,7 +126,7 @@ width: 350px;
   flex-direction: column;
   width: 100%;
   background-color: white;
- 
+
 }
 
 .notification-list h2 {
@@ -307,7 +315,7 @@ width: 350px;
 
 .sidebar {
     width: 25%;
-   
+
 }
 
 .notifications-actions button {
@@ -403,7 +411,7 @@ width: 350px;
     margin-top: 14rem;
   }
 
- 
+
   .notifications {
     width: 550px;
     margin-left: 50px;
@@ -437,6 +445,6 @@ width: 350px;
   }
 
   .load-more {
-    margin-top: 15px; 
+    margin-top: 15px;
   }
 }

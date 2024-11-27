@@ -51,122 +51,142 @@
                 </div>
                 <div class="events">
                     <!-- Event 1: Asesoría familiar -->
-                    <div class="event" id="event1">
-                        <img src="../../img/mujer.png" alt="Foto de perfil" class="event-image">
-                        <div class="event-details">
-                            <p class="nombre-asesoria">Asesoría familiar con <strong>Mariana Santos</strong></p>
-                            <p class="hora-evento">10:00 - 11:00</p>
-                        </div>
-                        <div class="more-options">
-                            <button class="dots-menu" aria-label="Más opciones">...</button>
-                            <div class="options-menu">
-                                <p>Editar disponibilidad asesoría</p>
-                                <p class="delete-option">Eliminar disponibilidad asesoría</p>
-                            </div>
-                        </div>
-                    </div>
+                   <!-- Empty Event 1: Evento vacío -->
+<!-- Empty Event 1 -->
+<div class="event-container" data-hour="15" style="top: 50%;">
+    <div class="event vacio" id="event8" data-date="2024-11-27">
+        <div class="more-options">
+            <button class="dots-menu" aria-label="Más opciones">...</button>
+            <div class="options-menu">
+                <p>Editar disponibilidad asesoría</p>
+                <p class="delete-availability-option">Eliminar disponibilidad asesoría</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Empty Event 2 -->
+<div class="event-container" data-hour="15" style="top: 50%;">
+    <div class="event vacio" id="event9" data-date="2024-11-28">
+        <div class="more-options">
+            <button class="dots-menu" aria-label="Más opciones">...</button>
+            <div class="options-menu">
+                <p>Editar disponibilidad asesoría</p>
+                <p class="delete-availability-option">Eliminar disponibilidad asesoría</p>
+            </div>
+        </div>
+    </div>
+</div>
+
                 
-                    <!-- Empty Event 1 -->
+                  <!-- Event 2: Asesoría psicológica -->
+<div class="event-container" data-hour="15" style="top: 50%;">
+    <div class="event" id="event2" data-date="2024-11-28"> <!-- Evento con disponibilidad -->
+        <img src="../../../../img/hombre.png" alt="Foto de perfil" class="event-image">
+        <div class="event-details">
+            <p class="nombre-asesoria">Asesoría psicológica con <strong>Juan Pérez</strong></p>
+            <p class="hora-evento">12:00 - 13:00</p>
+        </div>
+        <div class="more-options">
+            <button class="dots-menu" aria-label="Más opciones">...</button>
+            <div class="options-menu">
+                <p>Editar disponibilidad asesoría</p>
+                <p class="delete-availability-option">Eliminar disponibilidad asesoría</p> <!-- Opción eliminar -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Empty Event 2: Evento vacío -->
+<div class="event-container" data-hour="15" style="top: 50%;">
+    <div class="event vacio" id="event9-empty" data-date="2024-11-28"> <!-- Evento vacío -->
+        <div class="more-options">
+            <button class="dots-menu" aria-label="Más opciones">...</button>
+            <div class="options-menu">
+                <p>Editar disponibilidad asesoría</p>
+                <p class="delete-availability-option">Eliminar disponibilidad asesoría</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Event 3: Asesoría financiera -->
+<div class="event-container" data-hour="15" style="top: 50%;">
+    <div class="event" id="event3" data-date="2024-11-29"> <!-- Evento con disponibilidad -->
+        <img src="../../img/mujer.png" alt="Foto de perfil" class="event-image">
+        <div class="event-details">
+            <p class="nombre-asesoria">Asesoría financiera con <strong>Laura Gómez</strong></p>
+            <p class="hora-evento">14:00 - 15:00</p>
+        </div>
+        <div class="more-options">
+            <button class="dots-menu" aria-label="Más opciones">...</button>
+            <div class="options-menu">
+                <p>Editar disponibilidad asesoría</p>
+                <p class="delete-availability-option">Eliminar disponibilidad asesoría</p> <!-- Opción eliminar -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Empty Event 3: Evento vacío -->
+<div class="event-container" data-hour="15" style="top: 50%;">
+    <div class="event vacio" id="event10-empty" data-date="2024-11-29"> <!-- Evento vacío -->
+        <div class="more-options">
+            <button class="dots-menu" aria-label="Más opciones">...</button>
+            <div class="options-menu">
+                <p>Editar disponibilidad asesoría</p>
+                <p class="delete-availability-option">Eliminar disponibilidad asesoría</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Event 4: Asesoría médica -->
+<div class="event-container" data-hour="15" style="top: 50%;">
+    <div class="event" id="event4" data-date="2024-11-30"> <!-- Evento con disponibilidad -->
+        <img src="../../img/mujer.png" alt="Foto de perfil" class="event-image">
+        <div class="event-details">
+            <p class="nombre-asesoria">Asesoría médica con <strong>Ana López</strong></p>
+            <p class="hora-evento">16:00 - 17:00</p>
+        </div>
+        <div class="more-options">
+            <button class="dots-menu" aria-label="Más opciones">...</button>
+            <div class="options-menu">
+                <p>Editar disponibilidad asesoría</p>
+                <p class="delete-availability-option">Eliminar disponibilidad asesoría</p> <!-- Opción eliminar -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Empty Event 4: Evento vacío -->
+<div class="event-container" data-hour="15" style="top: 50%;">
+    <div class="event vacio" id="event11-empty" data-date="2024-11-30"> <!-- Evento vacío -->
+        <div class="more-options">
+            <button class="dots-menu" aria-label="Más opciones">...</button>
+            <div class="options-menu">
+                <p>Editar disponibilidad asesoría</p>
+                <p class="delete-availability-option">Eliminar disponibilidad asesoría</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+                
+                    <!-- Empty Event 4: Evento vacío -->
                     <div class="event-container" data-hour="15" style="top: 50%;">
-                        <div class="event vacio" id="event8">
+                        <div class="event vacio" id="event11-empty" data-date="2024-11-30"> <!-- Evento vacío -->
                             <div class="more-options">
                                 <button class="dots-menu" aria-label="Más opciones">...</button>
                                 <div class="options-menu">
                                     <p>Editar disponibilidad asesoría</p>
-                                    <p class="delete-option">Eliminar disponibilidad asesoría</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <!-- Event 2: Asesoría psicológica -->
-                    <div class="event" id="event2">
-                        <img src="../../../../img/hombre.png" alt="Foto de perfil" class="event-image">
-                        <div class="event-details">
-                            <p class="nombre-asesoria">Asesoría psicológica con <strong>Juan Pérez</strong></p>
-                            <p class="hora-evento">12:00 - 13:00</p>
-                        </div>
-                        <div class="more-options">
-                            <button class="dots-menu" aria-label="Más opciones">...</button>
-                            <div class="options-menu">
-                                <p>Editar disponibilidad asesoría</p>
-                                <p class="delete-option">Eliminar disponibilidad asesoría</p>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <!-- Empty Event 2 -->
-                    <div class="event-container" data-hour="15" style="top: 50%;">
-                        <div class="event vacio" id="event9">
-                            <div class="more-options">
-                                <button class="dots-menu" aria-label="Más opciones">...</button>
-                                <div class="options-menu">
-                                    <p>Editar disponibilidad asesoría</p>
-                                    <p class="delete-option">Eliminar disponibilidad asesoría</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <!-- Event 3: Asesoría financiera -->
-                    <div class="event" id="event3">
-                        <img src="../../img/mujer.png" alt="Foto de perfil" class="event-image">
-                        <div class="event-details">
-                            <p class="nombre-asesoria">Asesoría financiera con <strong>Laura Gómez</strong></p>
-                            <p class="hora-evento">14:00 - 15:00</p>
-                        </div>
-                        <div class="more-options">
-                            <button class="dots-menu" aria-label="Más opciones">...</button>
-                            <div class="options-menu">
-                                <p>Editar disponibilidad asesoría</p>
-                                <p class="delete-option">Eliminar disponibilidad asesoría</p>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <!-- Empty Event 3 -->
-                    <div class="event-container" data-hour="15" style="top: 50%;">
-                        <div class="event vacio" id="event10">
-                            <div class="more-options">
-                                <button class="dots-menu" aria-label="Más opciones">...</button>
-                                <div class="options-menu">
-                                    <p>Editar disponibilidad asesoría</p>
-                                    <p class="delete-option">Eliminar disponibilidad asesoría</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <!-- Event 4: Asesoría médica -->
-                    <div class="event" id="event4">
-                        <div class="event-details">
-                        </div>
-                        <div class="more-options">
-                            <button class="dots-menu" aria-label="Más opciones">...</button>
-                            <div class="options-menu">
-                                <p>Editar disponibilidad asesoría</p>
-                                <p class="delete-option">Eliminar disponibilidad asesoría</p>
-                            </div>
-                        </div>
-                    </div>
-                
-                    <!-- Empty Event 4 -->
-                    <div class="event-container" data-hour="15" style="top: 50%;">
-                        <div class="event vacio" id="event11">
-                            <div class="more-options">
-                                <button class="dots-menu" aria-label="Más opciones">...</button>
-                                <div class="options-menu">
-                                    <p>Editar disponibilidad asesoría</p>
-                                    <p class="delete-option">Eliminar disponibilidad asesoría</p>
+                                    <p>Eliminar disponibilidad asesoría</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
                 
-
         <!-- Profile Section -->
         <div class="profile">
             <img src="../../img/fotoPerfil.jfif" alt="David Astrada">
@@ -222,16 +242,22 @@
         <div id="availabilityModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
-                <h2>Editar asesoría</h2>
+                <h2>Disponibilidad de asesoría</h2>
                 <div class="modal-body">
                     <div class="date-time">
                         <div class="date-time-item">
                             <img src="../../img/calendario.png" class="fecha-icon" alt="Fecha">
-                            <span>Miercoles, 3 de abril</span>
+                            <span id="dateDisplay">Miércoles, 3 Enero</span>
                         </div>
                         <div class="date-time-item">
                             <img src="../../img/relojAsesoria.png" class="hora-icon" alt="Hora">
-                            <span>11:00am - 12:00am</span>
+                            <!-- Selector de hora -->
+                            <select id="timePicker">
+                                <option value="11:00am - 12:00am">11:00am - 12:00am</option>
+                                <option value="12:00am - 1:00pm">12:00am - 1:00pm</option>
+                                <option value="1:00pm - 2:00pm">1:00pm - 2:00pm</option>
+                                <option value="2:00pm - 3:00pm">2:00pm - 3:00pm</option>
+                            </select>
                         </div>
                     </div>
                     <button class="add-availability">+ Agregar una nueva disponibilidad</button>

@@ -1,4 +1,4 @@
-@extends('layouts.layoutLogin')
+@extends('layouts.layoutAbogado')
 
 @section('title', 'Historial')
 
@@ -6,39 +6,45 @@
 @endsection
 
 @section('main')
-      <section class="historial">
+      <section class="content">
         <nav class="sidebar">
-            <ul>
-                <div class="titulo">
-                    <i class="fa-solid fa-chevron-left" onclick="window.history.back()"></i>
-                    <span>Perfil Abogado</span>
-                </div>
+            <ul class="icon-list">
                 <li>
-                    <a href="{{ route('perfil.abogado.creado') }}"><i class="fa-regular fa-user"></i>Información usuario</a>
+                    <a href="#" class="icon-container">
+                        <i class="fa-regular fa-user"></i>
+                    </a>
                 </li>
                 <li>
-                    <a href="{{ route('historialAbogado') }}"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>
+                    <a href="#" class="icon-container">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                    </a>
                 </li>
                 <li>
-                    <a href="{{ route('configuracionAbogado') }}"><i class="fa-solid fa-gear"></i>Configuracion</a>
+                    <a href="#" class="icon-container">
+                        <i class="fa-solid fa-gear"></i>
+                    </a>
                 </li>
                 <li>
-                    <a href="{{ route('noti-lawyer') }}"><i class="fa-regular fa-bell"></i>Notificaciones</a>
+                    <a href="#" class="icon-container">
+                        <i class="fa-regular fa-bell"></i>
+                    </a>
                 </li>
                 <li>
-
+                    <a href="#" class="icon-container">
                         <i class="fa-regular fa-calendar"></i>
-
-                        <a href="{{ route('calendar') }}">Calendario</a>
-
+                    </a>
                 </li>
-                <li id="cerrarSesion">
-                    <a href="{{ route('home') }}"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesión</a>
+                <li>
+                    <a href="#" class="icon-container">
+                        <i class="fa-solid fa-right-from-bracket"></i>
+                    </a>
                 </li>
             </ul>
         </nav>
-        <hr />
-        <div class="historial-content">
+
+        <section class="historial">
+        <div class="contenido">
+            <div class="historial-list">
           <div class="historial-header">
             <h3>Historial</h3>
             <div class="search-historial">
@@ -250,10 +256,12 @@
                   >
                 </div>
               </div>
-             
+            </div>
+        </div>
+        </div>
         </div>
       </section>
-      <section class="historial-small">
+      {{-- <section class="historial-small">
         <div class="borrar-datos">
           <a href="../historial/historialEliminado.html"
             >Borrar datos de navegación</a
@@ -486,14 +494,15 @@
             </div>
           </div>
         </div>
-      </section>
+      </section> --}}
+    </section>
       @endsection
 
       @section('footer')
       @endsection
 
       @push('styles')
-      <link rel="stylesheet" href="css/historial.css">
+      <link rel="stylesheet" href="css/historialAbogado.css">
       @endpush
 
       @push('scripts')

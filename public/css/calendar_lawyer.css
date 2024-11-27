@@ -618,3 +618,32 @@
     background-color: blue; /* Cambiar el color de fondo a azul */
     color: white; /* Cambiar el color del texto a blanco */
 }
+#timePicker {
+  margin: 0; /* Elimina cualquier margen del elemento */
+  padding: 0; /* Opcional: elimina el relleno interno */
+  border: none; /* Opcional: elimina el borde, si lo tiene */
+  outline: none; /* Opcional: elimina el contorno al seleccionar */
+}
+.options-menu {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.options-menu.open {
+  display: block; /* Mostrar cuando tiene la clase `open` */
+}
+
+.dots-menu {
+  cursor: pointer;
+}
+
+
+/* Estilo del evento eliminado */
+.event.eliminado {
+  background-color: red; /* Cambia el color de fondo a rojo */
+  color: white; /* Cambia el color del texto a blanco */
+}

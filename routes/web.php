@@ -193,6 +193,11 @@ Route::get('/calendar', function () {
 })->name('calendar');
 
 
+
+Route::get('/calendar_lawyer', function () {
+    return view('calendar.calendar_lawyer');
+})->name('calendar_lawyer');
+
 Route::get('/perfilabogado', function () {
     return view('verperfil.perfil-abogado');
 });

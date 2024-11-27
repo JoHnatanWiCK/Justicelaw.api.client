@@ -17,7 +17,7 @@
     <header class="header-large">
         @yield('nav')
         <div class="logo">
-            <a href="{{ route('homeLogin')}}"> <img src="../../img/logo.jpg" alt="JusticeLaw Logo"></a>
+            <a href="{{ route('homeAbogado')}}"> <img src="../../img/logo.jpg" alt="JusticeLaw Logo"></a>
             <div class="logo-text">
                 <h1>JUSTICE</h1>
                 <p>LAW</p>

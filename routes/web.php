@@ -48,6 +48,12 @@ Route::get('/homeLogin', function () {
     return view(view: 'homeLogin');
 })->name('homeLogin');
 
+
+Route::get('/homeAbogado', function () {
+    return view(view: 'homeAbogado');
+})->name('homeAbogado');
+
+
 Route::get('/login', function () {
     return view(view: 'login.login');
 })->name('login');
@@ -193,12 +199,16 @@ Route::get('/calendar', function () {
 })->name('calendar');
 
 
+<<<<<<< HEAD
 
 Route::get('/calendar_lawyer', function () {
     return view('calendar.calendar_lawyer');
 })->name('calendar_lawyer');
 
 Route::get('/perfilabogado', function () {
+=======
+Route::get('/perfilabogado/{lawyerId}', function () {
+>>>>>>> c02c81561bc2c8af5dee2568a8827bc44412ba84
     return view('verperfil.perfil-abogado');
 });
 

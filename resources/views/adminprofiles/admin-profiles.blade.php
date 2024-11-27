@@ -10,39 +10,37 @@
 @endphp
 @section('main-content')
 <section class="title-recent-profiles">
-    <h3>Perfiles creados recientemente</h3>
-    <p>Aquí podrás revisar los datos de los perfiles</p>
+    <h3>Usuarios y Abogados creados recientemente</h3>
+    <p>Aquí podrás revisar los datos de los usuarios y abogados registrados.</p>
 </section>
 
 <section class="profiles-list-container">
+    <h4>Usuarios</h4>
     <div class="profiles-list">
-        <!-- Los perfiles se cargarán dinámicamente aquí -->
+        <!-- Los usuarios se cargarán dinámicamente aquí -->
     </div>
+    <p id="noUsersMessage" style="display: none;">No hay usuarios registrados recientemente.</p>
+</section>
+
+<section class="lawyers-list-container">
+    <h4>Abogados</h4>
+    <div class="lawyers-list">
+        <!-- Los abogados se cargarán dinámicamente aquí -->
+    </div>
+    <p id="noLawyersMessage" style="display: none;">No hay abogados registrados recientemente.</p>
 </section>
 
 <!-- Detalles del perfil (oculto inicialmente) -->
 <section class="profile-details" id="profileDetailsSection" style="display: none;">
     <div class="profile-overview">
         <img src="../../img/perfilcontacto.png" alt="Avatar" class="per" id="profileAvatar">
-        <h4 id="profileName">Jesus Lopez</h4>
-        <p id="profileEmail">example@gmail.com</p>
+        <h4 id="profileName">Nombre</h4>
+        <p id="profileEmail">Correo</p>
         <a href="#" class="pdf-link" id="profileResumeLink">Hoja de Vida.pdf</a>
-        <div class="account-details">
-            <div>
-                <span id="profileReports">Reportes: 0</span>
-                <a href="#">Ver</a>
-            </div>
-            <div>
-                <span id="profileComments">Comentarios: 2</span>
-                <a href="#">Ver</a>
-            </div>
-            <div>
-                <span id="profileReviews">Reseñas: 4</span>
-                <a href="#">Ver</a>
-            </div>
-        </div>
         <a href="#" class="btn">Ver perfil completo</a>
         <a href="#" class="btn">Bloquear</a>
+        <a href="#" class="close-modal" id="closeModal">x</a>
+
     </div>
 </section>
 

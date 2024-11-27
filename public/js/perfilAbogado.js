@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
           // Llamar a la función para cargar la foto de perfil
-          // await cargarFotoPerfil();
+        //   await cargarFotoPerfil();
       }
   } catch (error) {
       console.error('Error:', error.message);
@@ -89,6 +89,7 @@ async function cargarDatosVerificacion() {
 }
 
 document.addEventListener('DOMContentLoaded', cargarDatosVerificacion);
+
 
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.profile-nav ul li a');
@@ -365,7 +366,6 @@ function handleFileSelection() {
 
 //     updateStep();
 // });
-
 document.addEventListener('DOMContentLoaded', () => {
     const continuarBtn = document.getElementById('continuarBtnWeb');
     const atrasBtn = document.getElementById('atrasBtn');
@@ -377,7 +377,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let selectedAreas = [];
 
     const token = localStorage.getItem('token'); // Obtener token del localStorage
-    console.log('Token:', token); // Verificar si el token está disponible
 
     // Llamamos a la API para obtener las áreas
     const fetchAreas = async () => {
@@ -389,12 +388,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 const button = document.createElement('button');
                 button.textContent = area.name;
                 button.type = 'button'; // Evitar comportamiento por defecto de submit
+                button.classList.add('area-button'); // Agregar clase para estilos por defecto
                 button.onclick = (event) => {
                     event.preventDefault(); // Evitar comportamiento por defecto
                     toggleAreaSelection(area.id, button);
                 };
                 areasContainer.appendChild(button);
             });
+
         } catch (error) {
             console.error('Error al cargar las áreas:', error);
         }
@@ -404,28 +405,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleAreaSelection = (areaId, button) => {
         if (selectedAreas.includes(areaId)) {
             selectedAreas = selectedAreas.filter(id => id !== areaId);
-            button.classList.remove('selected');
+            button.classList.remove('selected'); // Remover estilo seleccionado
         } else {
             selectedAreas.push(areaId);
-            button.classList.add('selected');
+            button.classList.add('selected'); // Agregar estilo seleccionado
         }
+    };
+
+    // Validar formato y tamaño de imagen
+    const validateImage = (file) => {
+        const allowedTypes = ['image/jpeg', 'image/png', 'image/jpg'];
+        const maxSize = 2 * 1024 * 1024; // 2MB
+
+        if (!allowedTypes.includes(file.type)) {
+            return 'Solo se permiten imágenes en formato JPG, PNG o JPEG.';
+        }
+
+        if (file.size > maxSize) {
+            return 'La imagen debe ser de 2MB o menos.';
+        }
+
+        return null;
     };
 
     // Enviar las áreas seleccionadas
     const saveSelectedAreas = async () => {
         if (selectedAreas.length === 0) {
-            alert('Por favor, selecciona al menos una área.');
+            document.getElementById('habilidadesError').textContent = 'Por favor, selecciona al menos una área.';
+            document.getElementById('habilidadesError').style.display = 'block';
             return;
         }
 
-        const lawyerId = getLawyerIdFromToken(token); // Obtén el ID del abogado desde el token
-
         const requestBody = {
-            lawyer_id: lawyerId,
             areas: selectedAreas
         };
-
-        console.log('Datos que se envían al servidor:', requestBody); // Log para verificar los datos
 
         try {
             const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/saveAreas', {
@@ -437,45 +450,44 @@ document.addEventListener('DOMContentLoaded', () => {
                 body: JSON.stringify(requestBody)
             });
 
-            const data = await response.json();
             if (response.ok) {
-                alert('Áreas guardadas con éxito.');
-                // Continúa con el siguiente paso
                 currentStep++;
                 updateStep();
             } else {
-                alert('Hubo un error al guardar las áreas.');
+                const data = await response.json();
             }
         } catch (error) {
             console.error('Error al guardar las áreas:', error);
         }
     };
 
-    // Obtener el ID del abogado del token
-    const getLawyerIdFromToken = (token) => {
-        const decoded = JSON.parse(atob(token.split('.')[1])); // Decodificar el token JWT
-        return decoded.lawyer_id;
-    };
-
     // Continuar con el siguiente paso
     continuarBtn.addEventListener('click', async () => {
-        console.log('Botón continuar presionado');
-
         if (currentStep === 0) {
             if (agregarBiografia.value.trim() === "") {
-                alert("Por favor, agrega una biografía antes de continuar.");
+                document.getElementById('biografiaError').textContent = 'Este campo es obligatorio.';
+                document.getElementById('biografiaError').style.display = 'block';
                 return;
             }
             currentStep++;
             updateStep();
         } else if (currentStep === 1) {
             if (fotoPerfilInput.files.length === 0) {
-                alert("Por favor, selecciona una foto de perfil antes de continuar.");
+                document.getElementById('fotoPerfilError').textContent = 'Este campo es obligatorio.';
+                document.getElementById('fotoPerfilError').style.display = 'block';
+                return;
+            }
+
+            const photoFile = fotoPerfilInput.files[0];
+            const imageError = validateImage(photoFile);
+
+            if (imageError) {
+                document.getElementById('fotoPerfilError').textContent = imageError;
+                document.getElementById('fotoPerfilError').style.display = 'block';
                 return;
             }
 
             const bio = agregarBiografia.value;
-            const photoFile = fotoPerfilInput.files[0];
             const formData = new FormData();
             formData.append('biography', bio);
             formData.append('profile_photo', photoFile);
@@ -489,12 +501,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     body: formData,
                 });
 
-                const data = await response.json();
                 if (response.ok) {
-                    console.log('Perfil actualizado:', data);
                     currentStep++;
                     updateStep();
                 } else {
+                    const data = await response.json();
                     console.error('Error al actualizar perfil:', data.message);
                 }
             } catch (error) {
@@ -502,6 +513,8 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         } else if (currentStep === 2) {
             await saveSelectedAreas(); // Guardar las áreas seleccionadas en el paso 3
+        } else if (currentStep === steps.length - 1) { // Último paso
+            window.location.href = '/perfilAbogadoCreado'; // Redirigir a la vista final
         } else {
             currentStep++;
             updateStep();
@@ -516,19 +529,41 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // Actualizar la vista de los pasos
     function updateStep() {
-        steps.forEach((step, index) => {
-            const stepContent = document.getElementById(step);
+        const stepElements = document.querySelectorAll('.progress-bar .step');
+
+        stepElements.forEach((step, index) => {
+            if (index < currentStep) {
+                // Pasos completados
+                step.classList.add('completed');
+                step.classList.remove('current');
+            } else if (index === currentStep) {
+                // Paso actual
+                step.classList.add('current');
+                step.classList.remove('completed');
+            } else {
+                // Pasos pendientes
+                step.classList.remove('completed', 'current');
+            }
+        });
+
+        // Mostrar u ocultar pasos correspondientes
+        steps.forEach((stepId, index) => {
+            const stepContent = document.getElementById(stepId);
             stepContent.style.display = index === currentStep ? 'block' : 'none';
         });
 
-        atrasBtn.style.display = currentStep > 0 ? 'inline-block' : 'none';
-        continuarBtn.textContent = currentStep === steps.length - 1 ? 'Finalizar' : 'Continuar';
+        if (currentStep === steps.length - 1) {
+            continuarBtn.textContent = 'Finalizar'; // Cambiar el texto del botón al final
+        } else {
+            continuarBtn.textContent = 'Continuar'; // Cambiar el texto del botón
+        }
+
+        atrasBtn.style.display = currentStep > 0 ? 'inline-block' : 'none'; // Mostrar el botón de atrás
     }
 
     fetchAreas(); // Cargar las áreas al inicio
-    updateStep(); // Iniciar la vista en el primer paso
+    updateStep(); // Inicializar el paso actual
 });
 
 

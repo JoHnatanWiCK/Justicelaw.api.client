@@ -1,4 +1,20 @@
-    function openTaskModal() {
+   
+   
+   document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('questionForm');
+    const userInput = document.getElementById('userInput');
+
+    form.addEventListener('submit', function (e) {
+        if (!userInput.value) {
+            e.preventDefault(); // Evita el envío del formulario
+            alert('Es necesario iniciar sesión para acceder a esta función.');
+        }
+    });
+});
+   
+   
+   
+   function openTaskModal() {
         document.getElementById('askTaskModal').style.display = 'block';
     }
     function closeTaskModal() {
@@ -69,17 +85,7 @@ function closeModal() {
 }
 
 
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('questionForm');
-    const userInput = document.getElementById('userInput');
 
-    form.addEventListener('submit', function (e) {
-        if (!userInput.value) {
-            e.preventDefault(); // Evita el envío del formulario
-            alert('Es necesario iniciar sesión para acceder a esta función.');
-        }
-    });
-});
 
 
 

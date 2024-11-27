@@ -6,7 +6,7 @@
 @endsection
 
 @section('main')
-<section class="content"> 
+<section class="content">
     <div class="container">
         <div class="calendar">
             <h1 id="monthName">Calendario</h1>
@@ -45,49 +45,40 @@
                     <div class="hour"><div>17:00</div></div>  
                 </div>
                 <div class="events">
-                    <div class="event">
-                        <img src="../../img/mujer.png" alt="Foto de perfil" class="event-image">
-                        <div class="event-details">
-                            <p class="nombre-asesoria">Asesoría familiar con <strong>Mariana Santos</strong></p>
-                            <p class="hora-evento">10:00 - 11:00</p>
-                        </div>
-                    </div>
                     <div class="event-container" data-hour="15" style="top: 50%;">
                         <div class="event vacio" id="event8"></div>
                     </div>
                     <div class="event">
-                        <img src="../../../../img/hombre.png" alt="Foto de perfil" class="event-image">
                         <div class="event-details">
-                            <p class="nombre-asesoria">Asesoría psicológica con <strong>Juan Pérez</strong></p>
-                            <p class="hora-evento">12:00 - 13:00</p>
                         </div>
                     </div>
                     <div class="event-container" data-hour="15" style="top: 50%;">
-                        <div class="event vacio" id="event8"></div>
+
+                    <div class="event-container" data-hour="15" style="top: 50%;">
+                        <div class="event vacio" id="event9"></div>
+                    </div>
+                    <div class="event-container" data-hour="15" style="top: 50%;">
+                        <div class="event vacio" id="event10"></div>
+                    </div>
+                    <div class="event-container" data-hour="15" style="top: 50%;">
+                        <div class="event vacio" id="event11"></div>
                     </div>
                     <div class="event">
-                        <img src="../../img/mujer.png" alt="Foto de perfil" class="event-image">
                         <div class="event-details">
-                            <p class="nombre-asesoria">Asesoría financiaera <strong>Laura Gómez</strong></p>
-                            <p class="hora-evento">14:00 - 15:00</p>
                         </div>
                     </div>
                     <div class="event-container" data-hour="15" style="top: 50%;">
-                        <div class="event vacio" id="event8"></div>
-                    </div>
-                    <div class="event">
-                        <img src="../../img/mujer.png" alt="Foto de perfil" class="event-image">
-                        <div class="event-details">
-                            <p class="nombre-asesoria">Asesoría médica con <strong>Ana López</strong></p>
-                            <p class="hora-evento">16:00 - 17:00</p>
-                        </div>
-                    </div>
-                    <div class="event-container" data-hour="15" style="top: 50%;">
-                        <div class="event vacio" id="event8"></div>
-                    </div>
+                </div>
+                <div class="event-container" data-hour="15" style="top: 50%;">
+                    <div class="event vacio" id="event11"></div>
+                </div>
+                <div class="event-container" data-hour="15" style="top: 50%;">
+                    <div class="event vacio" id="event11"></div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
         <div class="profile">
             <img src="../../img/fotoPerfil.jfif" alt="David Astrada">
             <h2>David Astrada</h2>
@@ -110,53 +101,46 @@
                     <span class="valor">7</span>
                 </div>
             </div>
-            <div id="availabilityModal" class="modal">
-                <div class="modal-content">
-                  <span class="close">&times;</span>
-                  <h2>Disponibilidad de asesoría</h2>
-                  <div class="modal-body">
-                    
+        </div>
+        <!-- Modal para agregar disponibilidad -->
+        <div id="availabilityModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Disponibilidad de asesoría</h2>
+                <div class="modal-body">
                     <div class="date-time">
-                        <!-- Contenedor de la Fecha -->
                         <div class="date-time-item">
                             <img src="../../img/calendario.png" class="fecha-icon" alt="Fecha">
-                            <span>Jueves, 11 abril</span>
+                            <span id="dateDisplay">Miércoles, 3 Enero</span>
                         </div>
-                      
-                        <!-- Contenedor de la Hora -->
                         <div class="date-time-item">
                             <img src="../../img/relojAsesoria.png" class="hora-icon" alt="Hora">
-                            <span>12:00pm - 1:00pm</span>
+                            <!-- Selector de hora -->
+                            <select id="timePicker">
+                                <option value="11:00am - 12:00am">11:00am - 12:00am</option>
+                                <option value="12:00am - 1:00pm">12:00am - 1:00pm</option>
+                                <option value="1:00pm - 2:00pm">1:00pm - 2:00pm</option>
+                                <option value="2:00pm - 3:00pm">2:00pm - 3:00pm</option>
+                            </select>
                         </div>
                     </div>
-                    
-                    <!-- Botón para agregar disponibilidad -->
                     <button class="add-availability">+ Agregar una nueva disponibilidad</button>
-              
-                    <!-- Configuración de notificación -->
                     <div class="notification">
-                      <span class="icon-bell"></span>
-                      <label>Notificar</label>
-                      <select>
-                        <option>1 hora antes</option>
-                        <option>2 horas antes</option>
-                        <option>Un día antes</option>
-                      </select>
+                        <span class="icon-bell"></span>
+                        <label>Notificar</label>
+                        <select>
+                            <option>1 hora antes</option>
+                            <option>2 horas antes</option>
+                            <option>Un día antes</option>
+                        </select>
                     </div>
-                  </div>
-              
-                  <!-- Botón para guardar -->
-                  <button class="save">Guardar</button>
                 </div>
-              </div>
-              
-              
-                </div>
+                <button class="save">Guardar</button>
             </div>
-            
         </div>
     </div>
 </section>
+
 @endsection
 
 @section('footer')

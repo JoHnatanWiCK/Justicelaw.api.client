@@ -1,7 +1,7 @@
-function closesModal() {
+function closeModala() {
     console.log('Cerrando modal...');
 
-    document.getElementById('smodal').style.display = 'none';
+    document.getElementById('respuestas').style.display = 'none';
 }
 
 
@@ -16,6 +16,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+
+function openTaskModal() {
+    document.getElementById('askTaskModal').style.display = 'block';
+}
+function closeTaskModal() {
+    document.getElementById('askTaskModal').style.display = 'none';
+}
 
 
 
@@ -117,7 +126,7 @@ document.getElementById('category-filter').addEventListener('change', function (
 
 
 function showModal(id, title, content, date,user,last) {
-    document.getElementById('smodal').style.display = 'flex';
+    document.getElementById('respuestas').style.display = 'flex';
     
 
     document.getElementById('modal-user').innerText = user+" "+last;

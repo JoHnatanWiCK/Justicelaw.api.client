@@ -204,7 +204,6 @@ Route::get('/calendar_lawyer', function () {
     return view('calendar.calendar_lawyer');
 })->name('calendar_lawyer');
 
-Route::get('/perfilabogado', function () {
 Route::get('/perfilabogado/{lawyerId}', function () {
     return view('verperfil.perfil-abogado');
 });
@@ -570,8 +569,3 @@ Route::get('/faqss', function () {
 Route::get('/nosotros', function () {
     return view(view: 'sobreNosotros');
 })->name('mm');
-
-
-Route::get('/infoIndex/{id}', function ($id) {
-    return view('informacion.InfoIndex', compact('id'));
-})->name('infoIndex');

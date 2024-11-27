@@ -1,5 +1,5 @@
 // URL base para las notificaciones
-const baseUrl = 'https://apijusticelaw-production.up.railway.app/v1';
+const baseUrl = 'https://apijusticelaw-production.up.railway.app';
 
 // Función para inicializar el DOM
 document.addEventListener('DOMContentLoaded', function () {

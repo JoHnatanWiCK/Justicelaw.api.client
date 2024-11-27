@@ -28,6 +28,15 @@ function closeTaskModal() {
 
 
 
+document.querySelectorAll('.avatar-link, .name-link').forEach(link => {
+    link.addEventListener('click', function(event) {
+        const lawyerId = this.getAttribute('data-lawyer-id');
+
+        localStorage.setItem('selectedLawyerId', lawyerId);
+
+        console.log('ID del abogado seleccionado:', lawyerId);
+    });
+});
 
 
 
@@ -81,10 +90,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             const data = await response.json();
             console.log('Datos del usuario:', data);
 
-            
+
             const { id,name, last_name, rol, email } = data;
 
-            
+
                 userNameElement.textContent = `${id} `;
                 const userInput = document.getElementById('userInput');
                 userInput.value = userNameElement.textContent.trim();
@@ -92,8 +101,8 @@ document.addEventListener('DOMContentLoaded', async () => {
                 userNameInput.value = `${name}`;
                 lastNameInput.value = `${last_name}`;
                 emailInput.value = `${email}`;
-          
-          
+
+
         }
     } catch (error) {
         console.error('Error:', error.message);
@@ -127,7 +136,7 @@ document.getElementById('category-filter').addEventListener('change', function (
 
 function showModal(id, title, content, date,user,last) {
     document.getElementById('respuestas').style.display = 'flex';
-    
+
 
     document.getElementById('modal-user').innerText = user+" "+last;
     document.getElementById('modal-title').innerText = title;
@@ -140,8 +149,8 @@ function showModal(id, title, content, date,user,last) {
         } else {
             post.style.display = 'none';
         }
-    });  
-   
+    });
+
 }
 
 
@@ -157,8 +166,8 @@ document.getElementById('show-more').addEventListener('click', function() {
 });
 
 
-       
-    
+
+
 
 
 
@@ -166,8 +175,8 @@ document.getElementById('show-more').addEventListener('click', function() {
 
         //cambiar a home
 document.getElementById('home').addEventListener('click', function(event) {
-    event.preventDefault(); 
-    window.location.href = '../home/home.html'; 
+    event.preventDefault();
+    window.location.href = '../home/home.html';
 });
 
 
@@ -176,10 +185,8 @@ document.getElementById('show-more').addEventListener('click', function() {
     document.querySelectorAll('.extra-category').forEach(function(category) {
         category.style.display = 'list-item';
     });
-    this.style.display = 'none'; 
+    this.style.display = 'none';
 });
 
 
 
-
-    

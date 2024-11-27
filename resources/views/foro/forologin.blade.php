@@ -42,7 +42,7 @@
                 </select>
                 <button type="submit">Publicar</button>
             </form>
-        </div>    
+        </div>
     </div>
 
 <div class="conteiner-infos">
@@ -142,7 +142,7 @@
 
  <header class="header">
 <!-- Barra de tareas -->
-   
+
    <!-- Filtro -->
    <div class="filter-bar">
         <label for="category-filter">Filtrar por categoría:</label>
@@ -163,10 +163,10 @@
             <div class="results" id="results"></div>
 
         </div>
-   
+
         <button class="create-post-btns" onclick="openTaskModal()">Crear Publicación</button>
 
-    
+
 
 
  </header>
@@ -227,7 +227,9 @@
                             <div class="user-details">
                                 @foreach ($lawyers as $lawyer)
                                     @if ($a['lawyer_id'] == $lawyer['id'])
+                                    <a href="javascript:void(0);" class="name-link" data-lawyer-id="{{ $lawyer['id'] }}">
                                         <strong class="response-date">{{ $lawyer['name'] }} {{ $lawyer['last_names'] }}</strong>
+                                    </a>
                                     @endif
                                 @endforeach
                             </div>

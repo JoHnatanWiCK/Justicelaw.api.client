@@ -51,11 +51,11 @@
 
                     <div class="content-abogado">
                         <h3 id="userName"></h3>
-                       
-                    </div>
-                    <a href="../perfil_abogado/editarPerfil.html" id="editLink"><i
-                            class="fa-regular fa-pen-to-square"></i></a>
 
+                    </div>
+                    {{-- <a href="../perfil_abogado/editarPerfil.html" id="editLink"><i
+                            class="fa-regular fa-pen-to-square"></i></a>
+ --}}
 
                 </div>
                 <!-- Modal para Editar Perfil -->
@@ -178,39 +178,39 @@
                                     <div class="line"></div>
                                     <div class="step">4</div>
                                 </div>
-                            
+
                                 <div class="step-content" id="step-1">
                                     <h2 id="practice-title">Agrega tu biografía personal</h2>
                                     <p id="practice-description">Asegúrate de incluir una breve biografía que destaque tu experiencia, áreas de especialización y filosofía profesional.</p>
                                     <textarea id="agregarBiografia" placeholder="Escribe tu biografía aquí (Minimo 1000 caracteres)"></textarea>
                                     <div class="error-message" id="biografiaError" style="display:none;"></div>
                                 </div>
-                            
+
                                 <div class="step-content" id="step-2" style="display: none;">
                                     <h2 id="practice-title">Agrega una foto de perfil</h2>
                                     <p id="practice-description">Brindale más confianza a tus clientes. Sube una foto profesional. La foto debe ser en formato JPEG, PNG o JPG y debe ser menor a 2MB. </p>
                                     <input type="file" id="fotoPerfilInput" />
                                     <div class="error-message" id="fotoPerfilError" style="display:none;"></div>
                                 </div>
-                            
+
                                 <div class="step-content" id="step-3" style="display: none;">
                                     <h2 id="practice-title">Agrega tus habilidades</h2>
                                     <p id="practice-description">Selecciona tus habilidades y áreas de especialización.</p>
                                     <div id="areasContainer"></div>
                                     <div class="error-message" id="habilidadesError" style="display:none;"></div>
                                 </div>
-                            
+
                                 <div class="step-content" id="step-4" style="display: none;">
                                     <h2 id="practice-title">¡Felicidades, perfil completo!</h2>
                                     <p id="practice-description">Has completado todos los pasos. Tu perfil está listo y puedes comenzar a usar la plataforma.</p>
                                 </div>
-                            
+
                                 <div class="button-group">
                                     <button type="button" id="atrasBtn" style="display: none;">Atrás</button>
                                     <button type="button" id="continuarBtnWeb">Continuar</button>
                                 </div>
                             </form>
-                            
+
 
 
 

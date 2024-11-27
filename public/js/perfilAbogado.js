@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
           // Llamar a la función para cargar la foto de perfil
-          // await cargarFotoPerfil();
+        //   await cargarFotoPerfil();
       }
   } catch (error) {
       console.error('Error:', error.message);
@@ -395,7 +395,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
                 areasContainer.appendChild(button);
             });
-            
+
         } catch (error) {
             console.error('Error al cargar las áreas:', error);
         }
@@ -531,7 +531,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateStep() {
         const stepElements = document.querySelectorAll('.progress-bar .step');
-    
+
         stepElements.forEach((step, index) => {
             if (index < currentStep) {
                 // Pasos completados
@@ -546,7 +546,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 step.classList.remove('completed', 'current');
             }
         });
-    
+
         // Mostrar u ocultar pasos correspondientes
         steps.forEach((stepId, index) => {
             const stepContent = document.getElementById(stepId);

@@ -1,8 +1,8 @@
 document.addEventListener('DOMContentLoaded', async () => {
 
-    console.log('Script cargado y DOM completamente cargado'); 
+    console.log('Script cargado y DOM completamente cargado');
 
-    
+
     const userMenu = document.querySelector('.user-menu');
     const spanUserName = userMenu.querySelector('span');
 
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     console.log('Token actual:', token);
     console.log('Rol actual:', role);
-    
+
     try {
         const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/auth/meLawyer', {
             method: 'POST',
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             spanUserName.textContent = `${name}`;
 
             // Llamar a la función para cargar la foto de perfil
-            // await cargarFotoPerfil();
+            await cargarFotoPerfil();
         }
     } catch (error) {
         console.error('Error:', error.message);
@@ -57,7 +57,7 @@ async function cargarFotoPerfil() {
     }
 
     try {
-        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/getprofile', {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/getProfileLawyer', {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -112,11 +112,11 @@ async function logout() {
             localStorage.removeItem('role');
 
             closeModal();
-            window.location.href = '/login'; 
+            window.location.href = '/login';
         } else {
             const errorData = await response.json();
             console.error('Error:', errorData);
- 
+
         }
     } catch (error) {
         console.error('Error:', error);
@@ -125,7 +125,7 @@ async function logout() {
 }
 
 function closeModal() {
-    logoutModal.style.display = 'none'; 
+    logoutModal.style.display = 'none';
 }
 
 if (confirmLogoutButton) {

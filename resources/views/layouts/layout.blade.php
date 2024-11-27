@@ -13,7 +13,7 @@
     @stack('styles')
 </head>
 
-<body>
+<body data-layout="layout">
 
     <header class="header-large">
         @yield('nav')
@@ -152,7 +152,7 @@
         </div>
     </div>
 
-    
+    <script src="js/auth.js"></script>
     <script src="js/layout.js"></script>
     @stack('scripts')
 

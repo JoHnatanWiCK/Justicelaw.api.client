@@ -13,7 +13,7 @@
     @stack('styles')
 </head>
 
-<body>
+<body data-layout="layoutAbogado">
     <header class="header-large">
         @yield('nav')
         <div class="logo">
@@ -30,10 +30,9 @@
             </button>
         </div>
         <nav class="nav-links">
-
-            <a id="about-us" href="#">Sobre nosotros</a>
-            <a id="foro" href="{{ route('forologin')}}">Foro</a>
+            <a id="about-us" href="{{route('sobreNosotrosAbogado')}}">Sobre nosotros</a>
             <a id="informaciones" href="{{ route('index')}}">Informaciones</a>
+            <a id="foro" href="{{ route('forologin')}}">Foro</a>
         </nav>
         <div class="user-menu">
             <img class="img-perfil" id="fotoPerfilLayout" src="../../img/fotoPerfil.png" alt="foto de Perfil" />
@@ -53,7 +52,7 @@
                         <a href="{{ route('calendar')}}">Calendario</a>
                     </li>
                     <li>
-                        <a href="{{ route('configuracion')}}">Configuración</a>
+                        <a href="{{ route('configuracionAbogado')}}">Configuración</a>
                     </li>
                     <li><a href="#" id="openModal">Cerrar Sesión</a></li>
                 </ul>
@@ -177,7 +176,7 @@
     {{-- <script src="script.js"></script> --}}
     <script src="js/modal.js"></script>
     @stack('scripts')
-
+    <script src="js/auth.js"></script>
     <script src="js/layoutLoginAbogado.js"></script>
     <script src="js/perfil.js"></script>
 </body>

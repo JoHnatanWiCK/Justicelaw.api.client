@@ -43,25 +43,18 @@
                       </div>
                 </div>
                             <div class="container">
-                                <h4>Herramientas y Recursos</h4>
-                                <a href={{route('confiCuenta')}}><p>Configuracion de la cuenta</p></a>
+                                <h4>Herramientas y Recursos</h4>     
                                 <a href={{route('PermisosUso')}}><p>Permisos y Derechos de uso</p></a>
                             </div>
-                            <div class="container">
-                                <h4>Preferencias</h4>
-                                <a href={{route('Privacidad')}}><p>Privacidad</p></a>
-                                <a href={{route('Region')}}><p>Region</p></a>
-                            </div>
+                            
                             <div class="container">
                                 <h4>Normas Comunitarias y Politicas Legales</h4>
-                                <a href="{{route('terminosCondiciones')}}"><p>Terminos y condiciones</p></a>
+                                <a href={{route('terminosCondiciones')}}><p>Terminos y condiciones</p></a>
                                 <a href={{route('politicaPrivacidad')}}><p>Política de Privacidad</p></a>
                                 <a href={{route('cookies')}}><p>Política de Cookies</p></a>
                                 <a href={{route('NormasComuntarias')}}><p>Normas Comunitarias</p></a>
                             </div>
-                            <div class="container">
-                                <a href=""><p>Soporte Tecnico</p></a>
-                            </div>
+                           
                         </div>
         </section>
 

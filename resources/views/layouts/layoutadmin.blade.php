@@ -9,7 +9,8 @@
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     @stack('styles')
 </head>
-<body>
+<body data-layout="layoutadmin">
+
     <div class="container">
         <header>
             @yield('nav')
@@ -83,7 +84,7 @@
 
     </div>
     @stack('scripts')
-
+    <script src="js/auth.js"></script>
     <script src="js/modal.js"></script>
     <script src="js/layoutAdmin.js"></script>
 </body>

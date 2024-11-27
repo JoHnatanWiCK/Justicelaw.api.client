@@ -71,6 +71,13 @@ Route::get('/sobreNosotros', function () {
     return view(view: 'sobreNosotros');
 })->name('sobreNosotros');
 
+Route::get('/sobreNosotrosUsuario', function () {
+    return view(view: 'sobreNosotrosUser');
+})->name('sobreNosotrosUsuario');
+
+Route::get('/sobreNosotrosAbogado', function () {
+    return view(view: 'sobreNosotrosLawyer');
+})->name('sobreNosotrosAbogado');
 
 Route::get('/historial', function () {
     return view(view: 'historial.historial');

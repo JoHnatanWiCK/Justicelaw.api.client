@@ -10,22 +10,22 @@
             <nav class="sidebar">
                 <ul class="icon-list">
                     <li>
-                        <a href="#" class="icon-container">
+                        <a href="#" id="perfilSidebar" class="icon-container">
                             <i class="fa-regular fa-user"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="icon-container">
+                        <a href="{{route('historialAbogado')}}" class="icon-container">
                             <i class="fa-solid fa-clock-rotate-left"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="icon-container">
+                        <a href="{{route('configuracionAbogado')}}" class="icon-container">
                             <i class="fa-solid fa-gear"></i>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="icon-container">
+                        <a href="{{route('noti-lawyer')}}" class="icon-container">
                             <i class="fa-regular fa-bell"></i>
                         </a>
                     </li>
@@ -35,7 +35,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="icon-container">
+                        <a href="#" id="logoutButton" class="icon-container">
                             <i class="fa-solid fa-right-from-bracket"></i>
                         </a>
                     </li>

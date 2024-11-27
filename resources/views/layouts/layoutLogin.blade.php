@@ -13,7 +13,8 @@
     @stack('styles')
 </head>
 
-<body>
+<body data-layout="layoutLogin">
+
     <header class="header-large">
         @yield('nav')
         <div class="logo">
@@ -31,9 +32,9 @@
         </div>
         <nav class="nav-links">
 
-            <a id="about-us" href="#">Sobre nosotros</a>
-            <a id="foro" href="{{ route('forologin')}}">Foro</a>
+            <a id="about-us" href="{{route('sobreNosotrosUsuario')}}">Sobre nosotros</a>
             <a id="informaciones" href="{{ route('index')}}">Informaciones</a>
+            <a id="foro" href="{{ route('forologin')}}">Foro</a>
         </nav>
         <div class="user-menu">
             <img class="img-perfil" id="fotoPerfilLayout" src="../../img/fotoPerfil.png" alt="foto de Perfil" />
@@ -174,7 +175,7 @@
     {{-- <script src="script.js"></script> --}}
     <script src="js/modal.js"></script>
     @stack('scripts')
-
+    <script src="js/auth.js"></script>
     <script src="js/layoutLogin.js"></script>
     <script src="js/perfil.js"></script>
 </body>

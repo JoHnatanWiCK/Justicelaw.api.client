@@ -1,4 +1,4 @@
-@extends('layouts.layout')
+@extends('layouts.layoutAbogado')
 
 @section('title', 'Home')
 
@@ -14,7 +14,6 @@
                 En JusticeLaw, ayudamos a nuestros usuarios a comprender y manejar los retos del sistema judicial,
                 ofreciendo una plataforma de apoyo y conocimiento legal.
             </p>
-            <a href="{{route('registro')}}" class="cta-button">Registrarse</a>
         </div>
     </section>
 
@@ -22,7 +21,7 @@
         <h2>Nuestra Misión</h2>
         <p>Facilitamos el acceso a información confiable para nuestros usuarios sobre procedimientos judiciales. Promovemos una comunidad informada donde el conocimiento empodera a las personas en su proceso legal.</p>
         <br><br><br>
-        <h2>(Epacio para video)</h1>
+        <h2>(Espacio para video)</h1>
         <h2>Nuestros Valores</h2>
 
         <div class="values-container">

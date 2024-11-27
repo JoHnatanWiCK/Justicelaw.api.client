@@ -1,4 +1,4 @@
-@extends('layouts.layoutLogin')
+@extends('layouts.layoutAbogado')
 
 @section('title', 'Notifications')
 
@@ -9,54 +9,36 @@
 
 <section class="content">
     <nav class="sidebar">
-        <ul>
+        <ul class="icon-list">
             <li>
-                <div class="icon-container">
+                <a href="#" class="icon-container">
                     <i class="fa-regular fa-user"></i>
-                </div>
-                <div class="text-container">
-                    <a href="{{route ('perfil.abogado.creado')}}">Información usuario</a>
-                </div>
+                </a>
             </li>
             <li>
-                <div class="icon-container">
+                <a href="#" class="icon-container">
                     <i class="fa-solid fa-clock-rotate-left"></i>
-                </div>
-                <div class="text-container">
-                    <a href="{{ route('historial') }}">Historial</a>
-                </div>
+                </a>
             </li>
             <li>
-                <div class="icon-container">
+                <a href="#" class="icon-container">
                     <i class="fa-solid fa-gear"></i>
-                </div>
-                <div class="text-container">
-                    <a href="{{ route ('configuracionAbogado')}}">Configuración</a>
-                </div>
+                </a>
             </li>
             <li>
-                <div class="icon-container">
+                <a href="#" class="icon-container">
                     <i class="fa-regular fa-bell"></i>
-                </div>
-                <div class="text-container">
-                    <a href="{{ route ('noti-lawyer')}}">Notificaciones</a>
-                </div>
+                </a>
             </li>
             <li>
-                <div class="icon-container">
+                <a href="#" class="icon-container">
                     <i class="fa-regular fa-calendar"></i>
-                </div>
-                <div class="text-container">
-                    <a href="{{ route('calendar') }}">Calendario</a>
-                </div>
+                </a>
             </li>
-            <li id="cerrarSesion">
-                <div class="icon-container">
+            <li>
+                <a href="#" class="icon-container">
                     <i class="fa-solid fa-right-from-bracket"></i>
-                </div>
-                <div class="text-container">
-                    <a href="../home/home.html">Cerrar sesión</a>
-                </div>
+                </a>
             </li>
         </ul>
     </nav>
@@ -68,43 +50,43 @@
           <div class="notification-item">
               <div class="user-info">
                   <img src="../../img/fotoPerfil.png" alt="User Image">
-                  <p><strong>Carlos Nose</strong> ha solicitado una asesoría para el día <strong>10/04/2024 : 13:00 pm</strong></p>
+                  <p>Maria Jose Salazar ha solicitado una asesoría para el día Jueves 14 de noviembre a las 8:00 a.m</p>
               </div>
               <div class="actions">
                   <a href="{{ route('calendar') }}">Ver en el calendario</a>
-                  <span class="date">10/04/2024</span>
+                  <span class="date">2024-10-24</span>
               </div>
           </div>
           <div class="notification-item">
               <div class="user-info">
                   <img src="../../img/fotoPerfil.png" alt="User Image">
-                  <p><strong>Diego Narvaez</strong> ha solicitado una asesoría para el día <strong>13/04/2024</strong></p>
+                  <p>Maria Jose Salazar ha solicitado una asesoría para el día Jueves 14 de noviembre a las 8:00 a.m</p>
               </div>
               <div class="actions">
                   <a href="#" id="aceptar">Aceptar</a>
                   <a href="#" id="aplazar">Aplazar</a>
-                  <span class="date">09/04/2024</span>
+                  <span class="date">2024-10-24</span>
               </div>
           </div>
           <div class="notification-item">
               <div class="user-info">
                   <img src="../../img/fotoPerfil.png" alt="User Image">
-                  <p><strong>Carlos Nose</strong> ha solicitado una asesoría para el día <strong>10/04/2024 : 13:00 pm</strong></p>
+                  <p>Maria Jose Salazar ha solicitado una asesoría para el día Jueves 14 de noviembre a las 8:00 a.m</p>
               </div>
               <div class="actions">
                   <a href="{{ route('calendar') }}">Ver en el calendario</a>
-                  <span class="date">10/04/2024</span>
+                  <span class="date">2024-10-24</span>
               </div>
           </div>
           <div class="notification-item">
               <div class="user-info">
                   <img src="../../img/fotoPerfil.png" alt="User Image">
-                  <p><strong>Diego Narvaez</strong> ha solicitado una asesoría para el día <strong>13/04/2024</strong></p>
+                  <p>Maria Jose Salazar ha solicitado una asesoría para el día Jueves 14 de noviembre a las 8:00 a.m</p>
               </div>
               <div class="actions">
                 <a href="#" id="aceptar">Aceptar</a>
                 <a href="#" id="aplazar">Aplazar</a>
-                  <span class="date">09/04/2024</span>
+                <span class="date">2024-10-24</span>
               </div>
           </div>
           <div class="load-more">

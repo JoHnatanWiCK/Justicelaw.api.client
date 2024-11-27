@@ -57,14 +57,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Simulación de carga de más notificaciones
         const nuevasNotificaciones = [
             {
-                nombre: 'Ana López',
-                fecha: '15/04/2024',
-                asesoría: '15/04/2024 : 09:00 am'
+                nombre: 'Ana López ',
+                fecha: '2024-11-02',
+                asesoría: 'Jueves 14 noviembre a las 8:00 a.m'
             },
             {
-                nombre: 'Juan Pérez',
-                fecha: '16/04/2024',
-                asesoría: '16/04/2024 : 10:30 am'
+                nombre: 'Juan Pérez ',
+                fecha: '2024-11-02',
+                asesoría: 'Jueves 14 noviembre a las 8:00 a.m'
             }
         ];
 
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function() {
             newNotificationItem.innerHTML = `
                 <div class="user-info">
                     <img src="../../img/fotoPerfil.png" alt="User Image">
-                    <p><strong>${notificacion.nombre}</strong> ha solicitado una asesoría para el día <strong>${notificacion.asesoría}</strong></p>
+                    <p>${notificacion.nombre}ha solicitado una asesoría para el día ${notificacion.asesoría}</p>
                 </div>
                 <div class="actions">
                     <a href="#" id="aceptar">Aceptar</a>

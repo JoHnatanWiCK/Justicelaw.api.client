@@ -1,19 +1,19 @@
 document.addEventListener('DOMContentLoaded', async () => {
 
     console.log('Script cargado y DOM completamente cargado');
-  
+
     const userMenu = document.querySelector('.content-abogado');
     const spanUserName = userMenu.querySelector('h3');
-  
+
     const userEmail = document.querySelector('.correoWeb');
     const spanUserEmail = userEmail.querySelector('p');
-  
+
     const token = localStorage.getItem('token');
     const role = localStorage.getItem('role');
-  
+
     console.log('Token actual:', token);
     console.log('Rol actual:', role);
-  
+
     try {
         const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/auth/meLawyer', {
             method: 'POST',
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 'Content-Type': 'application/json',
             },
         });
-  
+
         if (!response.ok) {
             if (response.status === 401) {
                 alert('Tu sesión ha expirado. Serás redirigido a la página de inicio de sesión.');
@@ -36,12 +36,12 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else {
             const data = await response.json();
             console.log('Datos del usuario:', data);
-  
+
             const { name, last_names, email } = data;
             spanUserName.textContent = `${name} ${last_names}`;
             spanUserEmail.textContent = `${email}`;
-  
-  
+
+
             // Llamar a la función para cargar la foto de perfil
             // await cargarFotoPerfil();
         }
@@ -49,15 +49,15 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error:', error.message);
     }
   });
-  
+
   async function cargarDatosVerificacion() {
       const token = localStorage.getItem('token');
-  
+
       if (!token) {
           console.log('No estás autenticado.');
           return;
       }
-  
+
       try {
           const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/getVerificationLawyer', {
               method: 'GET',
@@ -65,20 +65,20 @@ document.addEventListener('DOMContentLoaded', async () => {
                   'Authorization': `Bearer ${token}`
               }
           });
-  
+
           if (response.ok) {
               const data = await response.json();
               console.log('Datos de verificación del abogado:', data);
-  
+
               const telefono = data.cell_phone || 'No disponible';
               document.querySelector('.telefonoWeb p').textContent = telefono;
-  
+
               const pais = data.country || 'No disponible';
               document.querySelector('.paisWeb p').textContent = pais;
-  
+
               const ciudad = data.city || 'No disponible';
               document.querySelector('.ciudadWeb p').textContent = ciudad;
-  
+
           } else {
               const errorData = await response.json();
               console.error('Error al cargar los datos de verificación:', errorData);
@@ -87,9 +87,9 @@ document.addEventListener('DOMContentLoaded', async () => {
           console.error('Error:', error);
       }
   }
-  
+
   document.addEventListener('DOMContentLoaded', cargarDatosVerificacion);
-  
+
   document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.profile-nav ul li a');
     const indicator = document.querySelector('.profile-nav .indicator');
@@ -435,102 +435,421 @@ async function cargarHojaDeVida() {
 
 document.addEventListener('DOMContentLoaded', cargarHojaDeVida);
 
-// Obtener el modal
-var modalEdit = document.getElementById("editModal");
-// Obtener el enlace que abre el modal
-var editLink = document.getElementById("editLink");
-// Obtener el elemento <span> que cierra el modal
-var spanEditClose = document.getElementsByClassName("modal-edit-close")[0];
-// Obtener los elementos donde se mostrará la información del usuario
-var nombreUsuario = document.getElementById("nombreUsuario");
-var contactoUsuario = document.getElementById("contactoUsuario");
-var dniUsuario = document.getElementById("dniUsuario");
-var paisUsuario = document.getElementById("paisUsuario");
-var ciudadUsuario = document.getElementById("ciudadUsuario");
-var consultorioUsuario = document.getElementById("consultorioUsuario");
-var biografiaUsuario = document.getElementById("biografiaUsuario");
 
-// Cuando el usuario hace clic en el enlace, se abre el modal
-editLink.onclick = function(event) {
-    event.preventDefault(); // Evitar la acción predeterminada del enlace
-    modalEdit.style.display = "block"; // Mostrar el modal
-    // Cargar los datos actuales en los campos del formulario
-    nombre.value = nombreUsuario.textContent;
-    contacto.value = contactoUsuario.textContent;
-    dni.value = dniUsuario.textContent;
-    consultorio.value = consultorioUsuario.textContent;
-    ciudad.value = ciudadUsuario.textContent;
-    pais.value = paisUsuario.textContent;
-    biografia.value = biografiaUsuario.textContent;
-}
-// Cuando el usuario hace clic en <span> (x), se cierra el modal
-spanEditClose.onclick = function() {
-    modalEdit.style.display = "none";
-}
-// Cuando el usuario hace clic en cualquier parte fuera del modal, se cierra
-window.onclick = function(event) {
-    if (event.target == modalEdit) {
-        modalEdit.style.display = "none";
+// document.addEventListener('DOMContentLoaded', () => {
+//     fetchCountries();
+
+// });
+
+
+// async function fetchCountries() {
+//     const countriesSelect = document.getElementById('pais');
+//     countriesSelect.innerHTML = '<option value="">Selecciona un país:</option>';
+
+//     try {
+//         const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/countries');
+//         const data = await response.json();
+
+//         console.log('Countries Data:', data);
+
+//         if (Array.isArray(data)) {
+//             data.forEach(country => {
+//                 const option = document.createElement('option');
+//                 option.value = country.id;
+//                 option.textContent = country.name;
+//                 countriesSelect.appendChild(option);
+//             });
+//         } else {
+//             console.error('Data format error: Expected array of countries');
+//         }
+//     } catch (error) {
+//         console.error('Error fetching countries:', error);
+//     }
+// }
+
+// async function fetchStates(countryId) {
+//     const statesSelect = document.getElementById('estado');
+//     statesSelect.innerHTML = '<option value="">Selecciona un estado:</option>';
+
+//     try {
+//         const response = await fetch(`https://apijusticelaw-production.up.railway.app/v1/states/${countryId}`);
+//         const data = await response.json();
+
+//         console.log('States Data:', data);
+
+//         if (Array.isArray(data)) {
+//             data.forEach(state => {
+//                 const option = document.createElement('option');
+//                 option.value = state.id;
+//                 option.textContent = state.name;
+//                 statesSelect.appendChild(option);
+//             });
+//         } else {
+//             console.error('Data format error: Expected array of states');
+//         }
+//     } catch (error) {
+//         console.error('Error fetching states:', error);
+//     }
+// }
+
+
+
+// async function fetchCities(stateId) {
+//     const citiesSelect = document.getElementById('ciudad');
+//     citiesSelect.innerHTML = '<option value="">Selecciona una ciudad:</option>';
+
+//     try {
+//         const response = await fetch(`https://apijusticelaw-production.up.railway.app/v1/cities/${stateId}`);
+//         const data = await response.json();
+
+//         console.log('Cities Data:', data);
+
+//         if (Array.isArray(data)) {
+//             data.forEach(city => {
+//                 const option = document.createElement('option');
+//                 option.value = city.id;
+//                 option.textContent = city.name;
+//                 citiesSelect.appendChild(option);
+//             });
+//         } else {
+//             console.error('Data format error: Expected array of cities');
+//         }
+//     } catch (error) {
+//         console.error('Error fetching cities:', error);
+//     }
+// }
+
+// document.getElementById('pais').addEventListener('change', function () {
+//     const countryId = this.value;
+//     if (countryId) {
+//         fetchStates(countryId);
+//     } else {
+//         document.getElementById('estado').innerHTML = '<option value="">Selecciona un estado:</option>';
+//         document.getElementById('ciudad').innerHTML = '<option value="">Selecciona una ciudad:</option>';
+//     }
+// });
+
+// document.getElementById('estado').addEventListener('change', function () {
+//     const stateId = this.value;
+//     if (stateId) {
+//         fetchCities(stateId);
+//     } else {
+//         document.getElementById('ciudad').innerHTML = '<option value="">Selecciona una ciudad:</option>';
+//     }
+// });
+
+
+
+async function cargarDatosVerificacionEditar() {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+        console.log('No estás autenticado.');
+        return;
+    }
+
+    try {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/getVerificationLawyer', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Datos de verificación del abogado:', data);
+
+            // Actualizar teléfono
+            const telefonoInput = document.getElementById('telefonoEdit');
+            telefonoInput.value = data.cell_phone || '';
+
+            setSelectOptionById('pais', data.country_id, data.country);
+            setSelectOptionById('estado', data.state_id, data.state);
+            setSelectOptionById('ciudad', data.city_id, data.city);
+
+            window.verificationData = { level: data.level, training_place: data.training_place, resume: data.resume };
+
+        } else {
+            const errorData = await response.json();
+            console.error('Error al cargar los datos de verificación:', errorData);
+        }
+    } catch (error) {
+        console.error('Error:', error);
     }
 }
-// Manejo del formulario de edición
-document.getElementById('editForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evitar el envío del formulario
-    // Obtener los nuevos valores de los inputs
-    var nombre = document.getElementById('nombre').value;
-    var contacto = document.getElementById('contacto').value;
-    var dni = document.getElementById('dni').value;
-    var consultorio = document.getElementById('consultorio').value;
-    var ciudad = document.getElementById('ciudad').value;
-    var pais = document.getElementById('pais').value;
-    var biografia = document.getElementById('biografia').value;
-    // Actualizar los elementos de perfil con los nuevos valores
-    nombreUsuario.textContent = nombre;
-    contactoUsuario.textContent = contacto;
-    dniUsuario.textContent = dni;
-    consultorioUsuario.textContent = consultorio;
-    ciudadUsuario.textContent = ciudad;
-    paisUsuario.textContent = pais;
-    biografiaUsuario.textContent = biografia;
-    // Guardar los nuevos valores en localStorage
-    localStorage.setItem('nombreUsuario', nombre);
-    localStorage.setItem('contactoUsuario', contacto);
-    localStorage.setItem('dniUsuario', dni);
-    localStorage.setItem('consultorioUsuario', consultorio);
-    localStorage.setItem('ciudadUsuario', ciudad);
-    localStorage.setItem('paisUsuario', pais);
-    localStorage.setItem('biografiaUsuario', biografia);
-    // Cierra el modal después de guardar los cambios
-    modalEdit.style.display = "none";
+
+// document.addEventListener('DOMContentLoaded', cargarDatosVerificacionEditar);
+
+function setSelectOptionById(selectId, optionValue, optionText) {
+    const selectElement = document.getElementById(selectId);
+    if (selectElement) {
+        let optionExists = false;
+        for (let i = 0; i < selectElement.options.length; i++) {
+            if (selectElement.options[i].value == optionValue) {
+                selectElement.options[i].selected = true;
+                optionExists = true;
+                break;
+            }
+        }
+        if (!optionExists) {
+            const newOption = new Option(optionText, optionValue, true, true);
+            selectElement.add(newOption, undefined);
+        }
+    }
+}
+
+
+async function cargarDatosPerfilEditar() {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+        console.log('No estás autenticado.');
+        return;
+    }
+
+    try {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/getProfileLawyer', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Datos del perfil uno dos tres:', data);
+
+            const fotoPerfil = document.getElementById('fotoPreview');
+            if (fotoPerfil) {
+                const photoUrl = data.photo ? `${data.photo}?timestamp=${new Date().getTime()}` : '../../img/fotoPerfil.png';
+                fotoPerfil.src = photoUrl;
+                console.log('Imagen de perfil cargada:', photoUrl);
+            } else {
+                console.error('Elemento con id "fotoPerfil" no encontrado.');
+            }
+
+            const biografiaTextarea = document.getElementById('biografia');
+            biografiaTextarea.value = data.biography || '';
+
+        } else {
+            const errorData = await response.json();
+            console.error('Error al cargar los datos del perfil:', errorData);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', cargarDatosPerfilEditar);
+
+async function cargarAreasModal() {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+        console.log('No estás autenticado.');
+        return;
+    }
+
+    const areasContainer = document.getElementById('areasContainer');
+    areasContainer.innerHTML = ''; // Limpiar el contenedor antes de cargar las áreas
+
+    try {
+        // Fetch para todas las áreas
+        const allAreasResponse = await fetch('https://apijusticelaw-production.up.railway.app/v1/areas');
+        if (!allAreasResponse.ok) {
+            throw new Error(`Error al obtener todas las áreas: ${allAreasResponse.status}`);
+        }
+        const allAreas = await allAreasResponse.json();
+
+        // Fetch para las áreas seleccionadas por el abogado
+        const lawyerAreasResponse = await fetch('https://apijusticelaw-production.up.railway.app/v1/getAreasLawyer', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+        });
+        if (!lawyerAreasResponse.ok) {
+            throw new Error(`Error al obtener las áreas del abogado: ${lawyerAreasResponse.status}`);
+        }
+        const lawyerAreasData = await lawyerAreasResponse.json();
+        const lawyerAreas = new Set(lawyerAreasData.areas); // Convertir a Set para facilitar la comparación
+
+        // Crear un contenedor flex para organizar en columnas
+        const columnsContainer = document.createElement('div');
+        columnsContainer.classList.add('columns-container');
+
+        allAreas.forEach(area => {
+            const checkboxWrapper = document.createElement('div');
+            checkboxWrapper.classList.add('checkbox-wrapper');
+
+            const checkbox = document.createElement('input');
+            checkbox.type = 'checkbox';
+            checkbox.id = `area-${area.id}`;
+            checkbox.value = area.id;
+            checkbox.name = 'areas';
+
+            // Marcar el checkbox si el área está en las áreas del abogado
+            if (lawyerAreas.has(area.name)) {
+                checkbox.checked = true;
+            }
+
+            const label = document.createElement('label');
+            label.htmlFor = `area-${area.id}`;
+            label.textContent = area.name;
+
+            checkboxWrapper.appendChild(checkbox);
+            checkboxWrapper.appendChild(label);
+            columnsContainer.appendChild(checkboxWrapper);
+        });
+
+        areasContainer.appendChild(columnsContainer);
+
+    } catch (error) {
+        console.error('Error al cargar las áreas:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', cargarAreasModal);
+
+document.getElementById('editForm').addEventListener('submit', async function (event) {
+    event.preventDefault(); // Evitar que el formulario se envíe normalmente
+
+    const token = localStorage.getItem('token');
+    if (!token) {
+        console.log('No estás autenticado.');
+        return;
+    }
+
+    // Recoger los valores de los campos del formulario
+    // const telefonoEdit = document.getElementById('telefonoEdit').value;
+    const biografia = document.getElementById('biografia').value;
+    const fotoPerfil = document.getElementById('fotoPerfilEdit').files[0]; // Foto seleccionada (si existe)
+
+    // Recoger los valores de los select (país, estado, ciudad)
+    // const pais = document.getElementById('pais').value;
+    // const estado = document.getElementById('estado').value;
+    // const ciudad = document.getElementById('ciudad').value;
+
+    // Recoger las áreas seleccionadas
+    const areasSeleccionadas = [];
+    const checkboxes = document.querySelectorAll('input[name="areas"]:checked');
+    checkboxes.forEach(checkbox => areasSeleccionadas.push(checkbox.value));
+
+    try {
+        // Preparar los datos para el perfil (biografía y foto)
+        const perfilData = new FormData();
+        if (fotoPerfil) {
+            perfilData.append('profile_photo', fotoPerfil);
+        }
+        perfilData.append('biography', biografia);
+
+        // Preparar los datos de verificación (teléfono, país, estado, ciudad)
+        // const verificationData = {
+        //     'cell_phone': telefonoEdit,
+        //     'country_id': pais,
+        //     'state_id': estado,
+        //     'city_id': ciudad,
+        //     'level': window.verificationData.level, // Usar la variable global para obtener el valor de level
+        //     'training_place': window.verificationData.training_place, // Usar la variable global para obtener el valor de training_place
+        //     'resume': window.verificationData.resume // Usar la variable global para obtener el valor de resume
+        // };
+
+
+        // console.log(verificationData);
+        // Llamada a la API para actualizar el perfil
+        const perfilResponse = await fetch('https://apijusticelaw-production.up.railway.app/v1/profileLawyer', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+            body: perfilData, // Enviar FormData (para la foto)
+        });
+
+        if (!perfilResponse.ok) {
+            throw new Error('Error al actualizar el perfil');
+        }
+
+        // Llamada a la API para actualizar los datos de verificación
+        // const verificationResponse = await fetch('https://apijusticelaw-production.up.railway.app/v1/verificationLawyerPerfil', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Authorization': `Bearer ${token}`,
+        //         'Content-Type': 'application/json',
+        //     },
+        //     body: JSON.stringify(verificationData), // Enviar los datos en formato JSON
+        // });
+
+        // if (!verificationResponse.ok) {
+        //     throw new Error('Error al actualizar los datos de verificación');
+        // }
+
+        // Llamada a la API para guardar las áreas seleccionadas
+        const areasResponse = await fetch('https://apijusticelaw-production.up.railway.app/v1/saveAreas', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ areas: areasSeleccionadas }), // Enviar las áreas seleccionadas
+        });
+
+        if (!areasResponse.ok) {
+            throw new Error('Error al guardar las áreas');
+        }
+
+        document.getElementById('editModal').style.display = 'none';
+
+        // Recarga la página
+        window.location.reload(); // Esto recargará la página
+
+    } catch (error) {
+        console.error('Error al actualizar:', error);
+    }
 });
-// Al cargar la página, verifica si hay datos guardados
-window.onload = function() {
-    var nombreGuardado = localStorage.getItem('nombreUsuario');
-    var contactoGuardado = localStorage.getItem('contactoUsuario');
-    var dniGuardado = localStorage.getItem('dniUsuario');
-    var consultorioGuardado = localStorage.getItem('consultorioUsuario');
-    var ciudadGuardada = localStorage.getItem('ciudadUsuario');
-    var paisGuardado = localStorage.getItem('paisUsuario');
-    var biografiaGuardada = localStorage.getItem('biografiaUsuario');
-    if (nombreGuardado) {
-        nombreUsuario.textContent = nombreGuardado; // Cargar el nombre guardado
+
+
+document.getElementById('fotoPerfilEdit').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    const preview = document.getElementById('fotoPreview');
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            preview.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+    } else {
+        preview.src = '';
     }
-    if (contactoGuardado) {
-        contactoUsuario.textContent = contactoGuardado; // Cargar el contacto guardado
+});
+
+
+var modalEdit = document.getElementById("editModal");
+var editLink = document.getElementById("editLink");
+var spanEditClose = document.getElementsByClassName("modal-edit-close")[0];
+
+document.addEventListener("DOMContentLoaded", () => {
+    modalEdit.style.display = "none"; // Asegúrate de que el modal esté oculto al cargar la página
+
+    // Muestra el modal cuando el enlace se hace clic
+    if (editLink) {
+        editLink.onclick = function (event) {
+            event.preventDefault(); // Evitar la acción predeterminada del enlace
+            modalEdit.style.display = "flex"; // Mostrar el modal (usamos flex para el centrado)
+        };
     }
-    if (dniGuardado) {
-        dniUsuario.textContent = dniGuardado; // Cargar el DNI guardado
+
+    // Cierra el modal cuando se hace clic en la "X"
+    if (spanEditClose) {
+        spanEditClose.onclick = function () {
+            modalEdit.style.display = "none";
+        };
     }
-    if (consultorioGuardado) {
-        consultorioUsuario.textContent = consultorioGuardado; // Cargar el consultorio guardado
-    }
-    if (ciudadGuardada) {
-        ciudadUsuario.textContent = ciudadGuardada; // Cargar la ciudad guardada
-    }
-    if (paisGuardado) {
-        paisUsuario.textContent = paisGuardado; // Cargar el país guardado
-    }
-    if (biografiaGuardada) {
-        biografiaUsuario.textContent = biografiaGuardada; // Cargar la biografía guardada
-    }
-}
+
+    // Cierra el modal si el usuario hace clic fuera del modal
+    window.onclick = function (event) {
+        if (event.target == modalEdit) {
+            modalEdit.style.display = "none";
+        }
+    };
+});

@@ -179,7 +179,7 @@
             @foreach ($pquestions as $q)
                 @foreach ($users as $user)
                     @if ($q['user_id'] == $user['id'])
-                        <div class="card" onclick="showModal('{{ $q['id'] }}', '{{ $q['affair'] }}', '{{ $q['content'] }}', '{{ $q['date_publication'] }}','{{ $user['name'] }}','{{ $user['last_name'] }}')">
+                        <div class="card" >
                     @endif
                 @endforeach
 
@@ -202,8 +202,14 @@
                         @endforeach
                         <span class="date">{{ $q['date_publication'] }}</span>
                         <br>
-                        <a href="#" class="link">Ver respuestas</a>
-                    </div>
+                        <div class="actions">
+                        <button class="like-btn" data-id="{{ $q['id'] }}">👍 Like (<span id="likes-{{ $q['id'] }}">{{ $q['likes'] ?? 0 }}</span>)</button>
+                        <button class="dislike-btn" data-id="{{ $q['id'] }}">👎 Dislike (<span id="dislikes-{{ $q['id'] }}">{{ $q['dislikes'] ?? 0 }}</span>)</button>
+                            <a href="#" class="link" onclick="showModal('{{ $q['id'] }}', '{{ $q['affair'] }}', '{{ $q['content'] }}', '{{ $q['date_publication'] }}','{{ $user['name'] }}','{{ $user['last_name'] }}')">Ver respuestas</a>
+
+           
+                         </div>      
+      </div>
                 </div>
             </div>
             @endforeach

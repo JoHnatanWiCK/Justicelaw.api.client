@@ -1,3 +1,51 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+    // Manejar clic en "Me gusta"
+    document.querySelectorAll('.btn-like').forEach(button => {
+        button.addEventListener('click', () => {
+            const questionId = button.dataset.id;
+
+            fetch(`/questions/${questionId}/like`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken,
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector(`#likes-${questionId}`).textContent = data.likes; // Actualiza contador
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    });
+
+    // Manejar clic en "No me gusta"
+    document.querySelectorAll('.btn-dislike').forEach(button => {
+        button.addEventListener('click', () => {
+            const questionId = button.dataset.id;
+
+            fetch(`/questions/${questionId}/dislike`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken,
+                },
+            })
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector(`#dislikes-${questionId}`).textContent = data.dislikes; // Actualiza contador
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    });
+});
+
+
+
+
+
 function closeModala() {
     console.log('Cerrando modal...');
 

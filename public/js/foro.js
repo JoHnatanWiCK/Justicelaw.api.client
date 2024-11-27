@@ -1,3 +1,43 @@
+document.addEventListener('DOMContentLoaded', () => {
+    const likeButtons = document.querySelectorAll('.like-btn');
+    const dislikeButtons = document.querySelectorAll('.dislike-btn');
+
+    const sendRequest = async (url, elementId) => {
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': '{{ csrf_token() }}',
+                },
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                document.getElementById(elementId).textContent = data.likes ?? data.dislikes;
+            } else {
+                alert('Error al procesar la solicitud.');
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Ocurrió un error.');
+        }
+    };
+
+    likeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const questionId = button.getAttribute('data-id');
+            sendRequest(`/questions/${questionId}/like`, `likes-${questionId}`);
+        });
+    });
+
+    dislikeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const questionId = button.getAttribute('data-id');
+            sendRequest(`/questions/${questionId}/dislike`, `dislikes-${questionId}`);
+        });
+    });
+});
    
    
    document.addEventListener('DOMContentLoaded', function () {

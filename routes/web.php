@@ -526,6 +526,8 @@ Route::post('questions', [QuestionController::class, 'store'])->name('api.v1.que
 Route::get('questions/{question}', [QuestionController::class, 'show'])->name('api.v1.questions.show');
 Route::put('questions/{question}', [QuestionController::class, 'update'])->name('api.v1.questions.update');
 Route::delete('questions/{question}', [QuestionController::class, 'destroy'])->name('api.v1.questions.delete');
+Route::post('/questions/{id}/like', [QuestionController::class, 'like'])->name('questions.like');
+Route::post('/questions/{id}/dislike', [QuestionController::class, 'dislike'])->name('questions.dislike');
 
 
 Route::get('answers', [QuestionController::class, 'index'])->name('api.v1.answers.index');
@@ -544,6 +546,13 @@ Route::delete('lawyers/{lawyer}', [LawyerController::class, 'destroy'])->name('a
 Route::get('verificar', [QuestionController::class, 'verificar']);
 
 
+Route::get('verificarabogado', [LawyerController::class, 'indexva'])->name('api.v1.verificarabogado.index');
+Route::get('verificarabogado/{lawyer}', [LawyerController::class, 'showva'])->name('api.v1.verificarabogado.show');
+Route::put('verificarabogado/{lawyer}', [LawyerController::class, 'update'])->name('api.v1.verificarabogado.update');
+
+
+
+
 Route::get('/faqs', function () {
     return view(view: 'faqs.faqs');
 })->name('faqs');
@@ -555,3 +564,4 @@ Route::get('/faqss', function () {
 Route::get('/nosotros', function () {
     return view(view: 'sobreNosotros');
 })->name('mm');
+

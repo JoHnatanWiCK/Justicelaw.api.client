@@ -576,3 +576,7 @@ Route::get('/faqss', function () {
 Route::get('/adminInfo', function () {
     return view(view: 'adminprofiles.adminInfo');
 })->name('adminInfo');
+
+Route::get('/infoIndex/{id}', function ($id) {
+    return view('informacion.InfoIndex', compact('id'));
+})->name('infoIndex');

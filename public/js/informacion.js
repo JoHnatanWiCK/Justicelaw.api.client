@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const errorMessage = document.getElementById('errorMessage');
     const modal = document.getElementById('informationDetail'); // Modal
     const closeModal = document.getElementById('closeModal'); // Botón de cerrar
+    const maxLength = 150; // Máximo número de caracteres para mostrar en el resumen
 
     try {
         const response = await fetch(apiUrl);
@@ -36,18 +37,21 @@ document.addEventListener('DOMContentLoaded', async () => {
             const infoElement = document.createElement('div');
             infoElement.classList.add('info-informacion');
 
-            // Truncar el texto si es demasiado largo
-            const truncatedBody = info.body.length > 150 ? `${info.body.substring(0, 150)}...` : info.body;
+            // Truncar el texto para mostrar un resumen
+            const fullText = info.body || 'Sin contenido disponible.';
+            const shortText = fullText.length > maxLength
+                ? fullText.slice(0, maxLength) + '...'
+                : fullText;
 
             infoElement.innerHTML = `
                 <div class="imagen-container">
-                    <img src="${info.cover_photo ? `../../img/${info.cover_photo}` : '../../img/placeholder.png'}" 
+                    <img src="${info.cover_photo ? info.cover_photo : '../../img/placeholder.png'}" 
                          alt="${info.name || 'Imagen no disponible'}" class="informacion-imagen" 
                          onerror="this.onerror=null;this.src='../../img/placeholder.png';">
                 </div>
                 <div class="informacion-texto">
                     <h3>${info.name || 'Sin nombre'}</h3>
-                    <p>${truncatedBody}</p> <!-- Mostrar resumen del texto -->
+                    <p>${shortText}</p>
                     <p><strong>Categoría:</strong> ${areaName}</p>
                     <a href="#" class="leer-mas-btn" data-id="${info.id}">Leer más</a>
                 </div>
@@ -56,35 +60,53 @@ document.addEventListener('DOMContentLoaded', async () => {
             container.appendChild(infoElement);
 
             // Asignar el evento al hacer clic en el enlace "Leer más"
-            const btn = infoElement.querySelector('.leer-mas-btn');
-            btn.addEventListener('click', async (event) => {
+            const readMoreButton = infoElement.querySelector('.leer-mas-btn');
+
+            readMoreButton.addEventListener('click', async (event) => {
                 event.preventDefault(); // Evitar la redirección del enlace
-            
-                const infoId = btn.getAttribute('data-id'); // Obtener el ID de la información
-                try {
-                    // Obtener los detalles de la información por ID
-                    const infoResponse = await fetch(`${apiUrl}/${infoId}`);
-                    if (!infoResponse.ok) {
-                        throw new Error('No se pudo obtener los detalles de la información.');
-                    }
-                    const info = await infoResponse.json();
-            
-                    // Mostrar los detalles en el modal
-                    document.getElementById('infoImage').src = info.cover_photo 
-                        ? `../../img/${info.cover_photo}` 
-                        : '../../img/placeholder.png';
-                    document.getElementById('infoTitle').textContent = info.name || 'Sin título';
-                    document.getElementById('infoBody').textContent = info.body || 'No hay contenido disponible.';
-                    document.getElementById('infoCategory').textContent = info.area ? info.area.name : 'Sin categoría';
-            
-                    // Mostrar el modal
-                    modal.style.display = 'flex'; // Mostrar el modal
-                    errorMessage.style.display = 'none'; // Ocultar errores
-                } catch (error) {
-                    console.error('Error al obtener los detalles:', error);
-                    errorMessage.textContent = error.message;
-                    errorMessage.style.display = 'block';
-                }
+
+                const infoId = readMoreButton.getAttribute('data-id'); // Obtener el ID de la información
+               try {
+    // Obtener los detalles de la información por ID
+    const infoResponse = await fetch(`${apiUrl}/${infoId}`);
+    if (!infoResponse.ok) {
+        throw new Error('No se pudo obtener los detalles de la información.');
+    }
+
+    const fullInfo = await infoResponse.json();
+    const data = fullInfo.information; // Extraer la información del objeto
+
+    // Mostrar los detalles en el modal
+
+    // Configurar la imagen del modal con manejador de errores
+    const modalImage = document.getElementById('infoImage');
+    modalImage.src = data.cover_photo 
+        ? data.cover_photo 
+        : '../../img/placeholder.png';
+    modalImage.alt = data.name || 'Imagen no disponible';
+
+    modalImage.onerror = function () {
+        console.error('Error al cargar la imagen:', this.src);
+        this.onerror = null; // Prevenir bucles infinitos
+        this.src = '../../img/placeholder.png'; // Usar imagen de respaldo
+    };
+
+    // Configurar el resto de los detalles del modal
+    document.getElementById('infoTitle').textContent = data.name || 'Sin título';
+    document.getElementById('infoBody').textContent = data.body || 'No hay contenido disponible.';
+    document.getElementById('infoCategory').textContent = data.category
+        ? data.category.name
+        : 'Sin categoría';
+
+    // Mostrar el modal
+    modal.style.display = 'flex';
+    errorMessage.style.display = 'none';
+} catch (error) {
+    console.error('Error al obtener los detalles:', error);
+    errorMessage.textContent = error.message;
+    errorMessage.style.display = 'block';
+}
+
             });
         });
 

@@ -91,9 +91,9 @@
 
             <nav class="profile-nav">
               <ul>
-                <li><a href="#sobre-mi"  data-target="sobre-mi" class="active">Sobre mi</a></li>
-            <li><a href="#hoja-de-vida" data-target="hoja-de-vida">Hoja de vida</a></li>
-            <li><a href="#reseñas" data-target="reseñas" >Reseñas</a></li>
+                <li><a href="#sobre-mi"  data-target="sobre-mi" class="active" style="font-size: 14px">Sobre mi</a></li>
+            <li><a href="#hoja-de-vida" data-target="hoja-de-vida" style="font-size: 14px">Hoja de vida</a></li>
+            <li><a href="#reseñas" data-target="reseñas" style="font-size: 14px">Reseñas</a></li>
               </ul>
               <div class="indicator"></div>
             </nav>

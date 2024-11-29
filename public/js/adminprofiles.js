@@ -6,6 +6,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     await cargarAbogados();
 });
 
+let currentProfileType = null; // Para rastrear si es usuario o abogado
+let currentProfileId = null;  // Para rastrear el ID del perfil actual
+
 async function cargarUsuarios() {
     const token = localStorage.getItem('token');
     const apiUrl = 'https://apijusticelaw-production.up.railway.app/v1/users';
@@ -37,10 +40,10 @@ async function cargarUsuarios() {
                         <p class="user-name">${user.name}</p>
                         <p class="user-email">${user.email}</p>
                         <p class="user-created">${new Date(user.created_at).toLocaleString()}</p>
-                        <button class="view-profile" data-id="${user.id}">Ver Perfil</button>
+                        <button class="view-profile" data-id="${user.id}" data-type="user">Ver Perfil</button>
                     `;
                     userItem.querySelector('.view-profile').addEventListener('click', () => {
-                        cargarDetallesPerfil(user.id);
+                        cargarDetallesPerfil(user.id, 'user');
                     });
                     profilesList.appendChild(userItem);
                 });
@@ -48,8 +51,7 @@ async function cargarUsuarios() {
                 noUsersMessage.style.display = 'block'; // Mostrar mensaje si no hay usuarios
             }
         } else {
-            const errorData = await response.json();
-            console.error('Error al cargar los usuarios:', errorData);
+            console.error('Error al cargar los usuarios:', await response.json());
             alert('Ocurrió un error al cargar los usuarios.');
         }
     } catch (error) {
@@ -89,10 +91,10 @@ async function cargarAbogados() {
                         <p class="lawyer-name">${lawyer.name}</p>
                         <p class="lawyer-email">${lawyer.email}</p>
                         <p class="lawyer-created">${new Date(lawyer.created_at).toLocaleString()}</p>
-                        <button class="view-profile" data-id="${lawyer.id}">Ver Perfil</button>
+                        <button class="view-profile" data-id="${lawyer.id}" data-type="lawyer">Ver Perfil</button>
                     `;
                     lawyerItem.querySelector('.view-profile').addEventListener('click', () => {
-                        cargarDetallesPerfil(lawyer.id);
+                        cargarDetallesPerfil(lawyer.id, 'lawyer');
                     });
                     lawyersList.appendChild(lawyerItem);
                 });
@@ -100,8 +102,7 @@ async function cargarAbogados() {
                 noLawyersMessage.style.display = 'block'; // Mostrar mensaje si no hay abogados
             }
         } else {
-            const errorData = await response.json();
-            console.error('Error al cargar los abogados:', errorData);
+            console.error('Error al cargar los abogados:', await response.json());
             alert('Ocurrió un error al cargar los abogados.');
         }
     } catch (error) {
@@ -110,10 +111,13 @@ async function cargarAbogados() {
     }
 }
 
-// Función para cargar los detalles de un perfil
-async function cargarDetallesPerfil(userId) {
+// Función para cargar los detalles de un perfil en el modal
+async function cargarDetallesPerfil(profileId, profileType) {
     const token = localStorage.getItem('token');
-    const apiUrl = `https://apijusticelaw-production.up.railway.app/v1/users/${userId}`; // Ajusta la URL
+    const apiUrl =
+        profileType === 'user'
+            ? `https://apijusticelaw-production.up.railway.app/v1/users/${profileId}`
+            : `https://apijusticelaw-production.up.railway.app/v1/lawyers/${profileId}`;
 
     try {
         const response = await fetch(apiUrl, {
@@ -128,16 +132,24 @@ async function cargarDetallesPerfil(userId) {
             const profile = await response.json();
             console.log('Detalles del perfil:', profile);
 
-            // Llenar la sección de detalles con los datos del perfil
+            // Llenar los detalles en el modal
             document.getElementById('profileName').textContent = profile.name;
             document.getElementById('profileEmail').textContent = profile.email;
-            document.getElementById('profileResumeLink').href = profile.resume_link || '#';
-            // document.getElementById('profileReports').textContent = `Reportes: ${profile.reports}`;
-            // document.getElementById('profileComments').textContent = `Comentarios: ${profile.comments}`;
-            // document.getElementById('profileReviews').textContent = `Reseñas: ${profile.reviews}`;
-            // document.getElementById('profileAvatar').src = profile.avatar || '../../img/perfilcontacto.png';
 
-            // Mostrar la sección de detalles
+            // Mostrar el enlace de hoja de vida solo para abogados
+            const resumeLink = document.getElementById('profileResumeLink');
+            if (profileType === 'lawyer' && profile.resume_link) {
+                resumeLink.style.display = 'inline';
+                resumeLink.href = profile.resume_link;
+            } else {
+                resumeLink.style.display = 'none';
+            }
+
+            // Guardar el tipo y el ID del perfil actual
+            currentProfileType = profileType;
+            currentProfileId = profileId;
+
+            // Mostrar el modal
             document.getElementById('profileDetailsSection').style.display = 'block';
         } else {
             console.error('Error al obtener los detalles del perfil:', await response.json());
@@ -147,11 +159,20 @@ async function cargarDetallesPerfil(userId) {
     }
 }
 
-const closeModalButton = document.getElementById('closeModal');
+// Funcionalidad del botón "Ver Perfil Completo"
 const profileDetailsSection = document.getElementById('profileDetailsSection');
+profileDetailsSection.querySelector('.btn[href="#"]').addEventListener('click', (event) => {
+    event.preventDefault();
+    if (currentProfileType === 'user') {
+        window.location.href = '/crearPerfil';
+    } else if (currentProfileType === 'lawyer') {
+        window.location.href = `/crearPerfil`;
+    }
+});
 
-// Añadir un evento de clic al botón de cerrar
-closeModalButton.addEventListener('click', function(event) {
-    event.preventDefault(); // Prevenir el comportamiento por defecto del enlace
-    profileDetailsSection.style.display = 'none'; // Ocultar el modal
+// Función para cerrar el modal
+const closeModalButton = document.getElementById('closeModal');
+closeModalButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    profileDetailsSection.style.display = 'none';
 });

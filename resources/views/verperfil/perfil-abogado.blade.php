@@ -87,168 +87,31 @@
         <!-- Aquí se insertará el contenido dinámicamente (iframe o enlace de descarga) -->
       </section>
 
-
-  <section id="reseñas" class="section">
-   <div class="box-reseñas">
-    <h4>Reseñas</h4>
-    <img id="fotoReseña" src="../../img/fotoPerfil.png" alt="Perfil" class="profile-img">
-    <div class="review-container">
-      <div class="input">
-        <div class="star-container">
-          <span class="star" data-value="1">&#9733;</span>
-          <span class="star" data-value="2">&#9733;</span>
-          <span class="star" data-value="3">&#9733;</span>
-          <span class="star" data-value="4">&#9733;</span>
-          <span class="star" data-value="5">&#9733;</span>
+{{-- comienza aqui --}}
+<section id="reseñas" class="section">
+    <div class="box-reseñas">
+        <h4>Reseñas</h4>
+        <img id="fotoReseña" src="../../img/fotoPerfil.png" alt="Perfil" class="profile-img">
+        <div class="review-container">
+            <div class="input">
+                <div class="star-container">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+                <input type="text" name="inputReseña" id="inputReseña" placeholder="Escribe tu reseña...">
+            </div>
+            <a id="boton-publicar">Publicar</a>
         </div>
-
-        <input type="text" name="inputReseña" id="inputReseña" placeholder="Escribe tu reseña...">
-
-      </div>
-      <a id="boton-publicar" href="../ver_perfil/reseñaPublicada.html">Publicar</a>
-      </div>
-
-      <div class="comment-section">
-        <div class="comment">
-            <div class="comment-header">
-                <img src="../../img/fotoPerfil.png" alt="Foto de perfil" class="profile-img">
-                <div class="user-info">
-                    <strong>Alfonso Juan</strong>
-                    <p>17 de marzo del 2024</p>
-                </div>
-            </div>
-            <div class="comment-body">
-                <div class="stars-review">
-                    <span class="star-review">&#9733;</span>
-                    <span class="star-review">&#9733;</span>
-                    <span class="star-review">&#9733;</span>
-                    <span class="star-review">&#9733;</span>
-                    <span class="star empty">&#9733;</span>
-                </div>
-                <p>Recomendado totalmente para temas legales. Brinda buen servicio, aunque la respuesta fue lenta.</p>
-            </div>
-            <div class="comment-footer">
-                <p>¿Te parece útil el comentario?
-                    <a href="#" class="useful">Sí (0)</a>
-                    <a href="#" class="not-useful">No (0)</a>
-                </p>
-            </div>
+        <div id="reseñasPublicadas" class="reseñas-publicadas">
+            <!-- Aquí se mostrarán las reseñas publicadas -->
         </div>
-      </div>
-        <div class="comment-section">
-          <div class="comment">
-              <div class="comment-header">
-                  <img src="../../img/fotoPerfil.png" alt="Foto de perfil" class="profile-img">
-                  <div class="user-info">
-                      <strong>Alfonso Juan</strong>
-                      <p>17 de marzo del 2024</p>
-                  </div>
-              </div>
-              <div class="comment-body">
-                  <div class="stars-review">
-                      <span class="star-review">&#9733;</span>
-                      <span class="star-review">&#9733;</span>
-                      <span class="star-review">&#9733;</span>
-                      <span class="star-review">&#9733;</span>
-                      <span class="star empty">&#9733;</span>
-                  </div>
-                  <p>Recomendado totalmente para temas legales. Brinda buen servicio, aunque la respuesta fue lenta.</p>
-              </div>
-              <div class="comment-footer">
-                  <p>¿Te parece útil el comentario?
-                      <a href="#" class="useful">Sí (0)</a>
-                      <a href="#" class="not-useful">No (0)</a>
-                  </p>
-              </div>
-          </div>
-        </div>
-          <div class="comment-section">
-            <div class="comment">
-                <div class="comment-header">
-                    <img src="../../img/fotoPerfil.png" alt="Foto de perfil" class="profile-img">
-                    <div class="user-info">
-                        <strong>Alfonso Juan</strong>
-                        <p>17 de marzo del 2024</p>
-                    </div>
-                </div>
-                <div class="comment-body">
-                    <div class="stars-review">
-                        <span class="star-review">&#9733;</span>
-                        <span class="star-review">&#9733;</span>
-                        <span class="star-review">&#9733;</span>
-                        <span class="star-review">&#9733;</span>
-                        <span class="star empty">&#9733;</span>
-                    </div>
-                    <p>Recomendado totalmente para temas legales. Brinda buen servicio, aunque la respuesta fue lenta.</p>
-                </div>
-                <div class="comment-footer">
-                    <p>¿Te parece útil el comentario?
-                        <a href="#" class="useful">Sí (0)</a>
-                        <a href="#" class="not-useful">No (0)</a>
-                    </p>
-                </div>
-            </div>
-          </div>
-            <div class="comment-section">
-              <div class="comment">
-                  <div class="comment-header">
-                      <img src="../../img/fotoPerfil.png" alt="Foto de perfil" class="profile-img">
-                      <div class="user-info">
-                          <strong>Alfonso Juan</strong>
-                          <p>17 de marzo del 2024</p>
-                      </div>
-                  </div>
-                  <div class="comment-body">
-                      <div class="stars-review">
-                          <span class="star-review">&#9733;</span>
-                          <span class="star-review">&#9733;</span>
-                          <span class="star-review">&#9733;</span>
-                          <span class="star-review">&#9733;</span>
-                          <span class="star empty">&#9733;</span>
-                      </div>
-                      <p>Recomendado totalmente para temas legales. Brinda buen servicio, aunque la respuesta fue lenta.</p>
-                  </div>
-                  <div class="comment-footer">
-                      <p>¿Te parece útil el comentario?
-                          <a href="#" class="useful">Sí (0)</a>
-                          <a href="#" class="not-useful">No (0)</a>
-                      </p>
-                  </div>
-              </div>
-            </div>
-              <div class="comment-section">
-                <div class="comment">
-                    <div class="comment-header">
-                        <img src="../../img/fotoPerfil.png" alt="Foto de perfil" class="profile-img">
-                        <div class="user-info">
-                            <strong>Alfonso Juan</strong>
-                            <p>17 de marzo del 2024</p>
-                        </div>
-                    </div>
-                    <div class="comment-body">
-                        <div class="stars-review">
-                            <span class="star-review">&#9733;</span>
-                            <span class="star-review">&#9733;</span>
-                            <span class="star-review">&#9733;</span>
-                            <span class="star-review">&#9733;</span>
-                            <span class="star empty">&#9733;</span>
-                        </div>
-                        <p>Recomendado totalmente para temas legales. Brinda buen servicio, aunque la respuesta fue lenta.</p>
-                    </div>
-                    <div class="comment-footer">
-                        <p>¿Te parece útil el comentario?
-                            <a href="#" class="useful">Sí (0)</a>
-                            <a href="#" class="not-useful">No (0)</a>
-                        </p>
-                    </div>
-                </div>
-              </div>
     </div>
+</section>
 
-    </div>
-   </div>
-  </section>
-
+{{-- termina aqui --}}
   </section>
 
   <section class="abogado-small">

@@ -1,3 +1,48 @@
+async function validarPerfil() {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+        console.log('No estás autenticado.');
+        return;
+    }
+
+    try {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/getProfileLawyer', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+
+            const perfilCreado = data && (data.photo || data.biography || data.name);
+
+            if (perfilCreado) {
+                window.location.href = '/perfilAbogadoCreado';
+            } else {
+                window.location.href = '/crearPerfilAbogado';
+            }
+        } else {
+            const errorData = await response.json();
+            console.error('Error al cargar los datos del perfil:', errorData);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+document.getElementById('perfilSidebar').addEventListener('click', function (e) {
+    e.preventDefault(); 
+    validarPerfil(); 
+});
+
+document.getElementById('logoutButton')?.addEventListener('click', function(event) {
+    event.preventDefault();  
+    document.getElementById('logoutModal').style.display = 'block';  
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     // Función para manejar la acción de aceptar una asesoría
     function aceptarAsesoria(notificationItem) {
@@ -57,14 +102,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Simulación de carga de más notificaciones
         const nuevasNotificaciones = [
             {
-                nombre: 'Ana López',
-                fecha: '15/04/2024',
-                asesoría: '15/04/2024 : 09:00 am'
+                nombre: 'Ana López ',
+                fecha: '2024-11-02',
+                asesoría: 'Jueves 14 noviembre a las 8:00 a.m'
             },
             {
-                nombre: 'Juan Pérez',
-                fecha: '16/04/2024',
-                asesoría: '16/04/2024 : 10:30 am'
+                nombre: 'Juan Pérez ',
+                fecha: '2024-11-02',
+                asesoría: 'Jueves 14 noviembre a las 8:00 a.m'
             }
         ];
 
@@ -74,7 +119,7 @@ document.addEventListener('DOMContentLoaded', function() {
             newNotificationItem.innerHTML = `
                 <div class="user-info">
                     <img src="../../img/fotoPerfil.png" alt="User Image">
-                    <p><strong>${notificacion.nombre}</strong> ha solicitado una asesoría para el día <strong>${notificacion.asesoría}</strong></p>
+                    <p>${notificacion.nombre}ha solicitado una asesoría para el día ${notificacion.asesoría}</p>
                 </div>
                 <div class="actions">
                     <a href="#" id="aceptar">Aceptar</a>

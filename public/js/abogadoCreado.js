@@ -1,3 +1,8 @@
+document.getElementById('logoutButton')?.addEventListener('click', function(event) {
+    event.preventDefault();  
+    document.getElementById('logoutModal').style.display = 'block';  
+});
+
 document.addEventListener('DOMContentLoaded', async () => {
 
     console.log('Script cargado y DOM completamente cargado');

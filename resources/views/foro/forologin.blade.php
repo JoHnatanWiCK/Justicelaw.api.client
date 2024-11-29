@@ -203,8 +203,8 @@
                         <span class="date">{{ $q['date_publication'] }}</span>
                         <br>
                         <div class="actions">
-                        <button class="btn-like" data-id="{{ $q['id'] }}">👍 Me gusta (<span id="likes-{{ $q['id'] }}">{{ $q['likes'] }}</span>)</button>
-                        <button class="btn-dislike" data-id="{{ $q['id'] }}">👎 No me gusta (<span id="dislikes-{{ $q['id'] }}">{{ $q['dislikes'] }}</span>)</button>
+                        <button class="like-btn" data-id="{{ $q['id'] }}"><i class="fa-regular fa-thumbs-up"></i> (<span id="likes-{{ $q['id'] }}">{{ $q['likes'] ?? 0 }}</span>)</button>
+                        <button class="dislike-btn" data-id="{{ $q['id'] }}"><i class="fa-regular fa-thumbs-down"></i> (<span id="dislikes-{{ $q['id'] }}">{{ $q['dislikes'] ?? 0 }}</span>)</button>
                             <a href="#" class="link" onclick="showModal('{{ $q['id'] }}', '{{ $q['affair'] }}', '{{ $q['content'] }}', '{{ $q['date_publication'] }}','{{ $user['name'] }}','{{ $user['last_name'] }}')">Ver respuestas</a>
 
            
@@ -245,11 +245,21 @@
                         <span class="date-1">{{ $a['date_publication'] }}</span>
                     </div>
                 @endforeach
+
+
+                <form id="answerForm" action="{{ route('api.v1.answers.store') }}" method="POST">
+                @csrf 
+                @foreach($lawyers as $abo)
                 <div class="new-answer-section">
                     <h4>Escribe tu respuesta:</h4>
+                    <span id="lawyerid" style="display:none;"></span>
+                    <input type="number" id="lawyerInput" name="lawyer_id" style="display:none ;" >
                     <textarea id="new-answer" placeholder="Escribe aquí tu respuesta..."></textarea>
                     <button onclick="submitAnswer()">Responder</button>
                 </div>
+                @endforeach
+            </form>
+               
             </div>
         </div>
 

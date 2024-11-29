@@ -38,6 +38,12 @@ function renderDays() {
             dayDiv.classList.add('selected');
             selectedDate = currentDate;
             document.getElementById("dateDisplay").innerText = `Fecha seleccionada: ${selectedDate}`;
+            
+            // Mostrar la fecha seleccionada en el modal si está abierto
+            const modalDateDisplay = document.getElementById("modalDateDisplay");
+            if (modalDateDisplay) {
+                modalDateDisplay.innerText = `Fecha seleccionada: ${selectedDate}`;
+            }
         };
 
         daysContainer.appendChild(dayDiv);
@@ -59,7 +65,7 @@ function adjustStartDay(direction) {
         if (currentStartDay < 1) {
             currentMonthIndex = (currentMonthIndex - 1 + 12) % 12;
             if (currentMonthIndex === 11) currentYear--;
-            const daysInPrevMonth = new Date(currentYear, currentMonthIndex + 1, 0).getDate();
+            const daysInPrevMonth = new Date(currentYear, currentMonthIndex + 1).getDate();
             currentStartDay = daysInPrevMonth + currentStartDay;
         }
     } else {
@@ -121,21 +127,7 @@ function getMonthName(monthIndex) {
     return months[monthIndex];
 }
 
-// Función para mostrar el menú de opciones
-function showOptionsMenu(event) {
-    const optionsMenu = event.target.nextElementSibling;
-    optionsMenu.style.display = (optionsMenu.style.display === 'block') ? 'none' : 'block';
-    event.stopPropagation();
-}
-
-// Cerrar el menú si el usuario hace clic fuera de él
-window.onclick = function(event) {
-    if (!event.target.matches('.more-options') && !event.target.matches('.options-menu')) {
-        document.querySelectorAll('.options-menu').forEach(menu => menu.style.display = 'none');
-    }
-};
-
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     renderDays();
     renderMonths();
 
@@ -143,34 +135,72 @@ document.addEventListener("DOMContentLoaded", function() {
     const closeModalBtn = document.querySelector(".close");
     const saveBtn = document.querySelector(".save");
 
+    // Mostrar el modal al hacer clic en eventos que no están vacíos
     document.querySelectorAll(".event:not(.vacio)").forEach(event => {
         event.onclick = function () {
             modal.style.display = "block";
+            const modalDateDisplay = document.getElementById("modalDateDisplay");
+            if (modalDateDisplay) {
+                modalDateDisplay.innerText = `Fecha seleccionada: ${selectedDate || "Ninguna"}`;
+            }
         };
     });
 
-    closeModalBtn.onclick = function() {
+    closeModalBtn.onclick = function () {
         modal.style.display = "none";
     };
 
-    saveBtn.onclick = function() {
+    saveBtn.onclick = function () {
         const selectedTime = document.getElementById("timePicker").value;
-        const fixedDate = document.getElementById("dateDisplay").innerText;
 
         if (!selectedTime) {
             alert("Por favor, selecciona una hora.");
             return;
         }
 
-        console.log("Fecha fija:", fixedDate);
-        console.log("Hora seleccionada:", selectedTime);
+        console.log("Fecha fija:", selectedDate);
+        console.log("Hora fija:", selectedTime);
 
         modal.style.display = "none";
     };
 
-    // Manejador de clics en los tres puntos
-    const moreOptionsBtns = document.querySelectorAll('.more-options');
-    moreOptionsBtns.forEach(btn => {
-        btn.addEventListener('click', showOptionsMenu);
+    // Funcionalidad para los menús de opciones de los tres puntos
+    document.querySelectorAll(".dots-menu").forEach(menuButton => {
+        menuButton.addEventListener("click", function (event) {
+            event.stopPropagation(); // Evita cerrar el menú al hacer clic en él.
+            const optionsMenu = this.nextElementSibling;
+    
+            // Cerrar otros menús abiertos
+            document.querySelectorAll(".options-menu").forEach(menu => {
+                if (menu !== optionsMenu) {
+                    menu.classList.remove("open");
+                }
+            });
+    
+            // Alternar visibilidad del menú actual
+            optionsMenu.classList.toggle("open");
+        });
+    });
+    
+    // Manejo de clic en la opción "Eliminar Disponibilidad" dentro del modal
+    document.querySelectorAll('.delete-availability-option').forEach(button => {
+        button.addEventListener('click', function () {
+            // Encuentra el evento que contiene el botón de eliminación
+            const event = this.closest('.event'); // Esto selecciona el contenedor de la asesoría (evento)
+            
+            if (event) {
+                // Verifica si el evento ya está marcado como ocupado
+                if (!event.classList.contains('ocupado')) {
+                    // Si no está ocupado, cambiar a ocupado (rojo)
+                    event.classList.remove('vacio');  // Elimina la clase de evento vacío
+                    event.classList.add('ocupado');   // Agrega la clase de evento ocupado
+    
+                    console.log("Evento marcado como ocupado:", event.id);
+                } else {
+                    console.log("Este evento ya está marcado como ocupado.");
+                }
+            }
+        });
     });
 });
+    

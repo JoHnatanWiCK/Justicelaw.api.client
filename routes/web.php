@@ -71,6 +71,13 @@ Route::get('/sobreNosotros', function () {
     return view(view: 'sobreNosotros');
 })->name('sobreNosotros');
 
+Route::get('/sobreNosotrosUsuario', function () {
+    return view(view: 'sobreNosotrosUser');
+})->name('sobreNosotrosUsuario');
+
+Route::get('/sobreNosotrosAbogado', function () {
+    return view(view: 'sobreNosotrosLawyer');
+})->name('sobreNosotrosAbogado');
 
 Route::get('/historial', function () {
     return view(view: 'historial.historial');
@@ -535,11 +542,11 @@ Route::post('/questions/{id}/like', [QuestionController::class, 'like'])->name('
 Route::post('/questions/{id}/dislike', [QuestionController::class, 'dislike'])->name('questions.dislike');
 
 
-Route::get('answers', [QuestionController::class, 'index'])->name('api.v1.answers.index');
-Route::post('answers', [QuestionController::class, 'storer'])->name('api.v1.answers.store');
-Route::get('answers/{answer}', [QuestionController::class, 'showr'])->name('api.v1.answers.show');
-Route::put('answers/{answer}', [QuestionController::class, 'updater'])->name('api.v1.answers.update');
-Route::delete('answers/{answer}', [QuestionController::class, 'destroyr'])->name('api.v1.answers.delete');
+Route::get('answers', [AnswerController::class, 'index'])->name('api.v1.answers.index');
+Route::post('answers', [AnswerController::class, 'store'])->name('api.v1.answers.store');
+Route::get('answers/{answer}', [AnswerController::class, 'showr'])->name('api.v1.answers.show');
+Route::put('answers/{answer}', [AnswerController::class, 'updater'])->name('api.v1.answers.update');
+Route::delete('answers/{answer}', [AnswerController::class, 'destroyr'])->name('api.v1.answers.delete');
 
 
 Route::get('lawyers', [LawyerController::class, 'index'])->name('api.v1.lawyers.index');
@@ -566,9 +573,9 @@ Route::get('/faqss', function () {
     return view(view: 'faqs.faqs_recurso');
 })->name('faqs_recurso');
 
-Route::get('/nosotros', function () {
-    return view(view: 'sobreNosotros');
-})->name('mm');
+Route::get('/adminInfo', function () {
+    return view(view: 'adminprofiles.adminInfo');
+})->name('adminInfo');
 
 Route::get('/infoIndex/{id}', function ($id) {
     return view('informacion.InfoIndex', compact('id'));

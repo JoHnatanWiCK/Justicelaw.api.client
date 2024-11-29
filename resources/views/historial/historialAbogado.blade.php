@@ -1,4 +1,4 @@
-@extends('layouts.layoutLogin')
+@extends('layouts.layoutAbogado')
 
 @section('title', 'Historial')
 
@@ -6,52 +6,59 @@
 @endsection
 
 @section('main')
-      <section class="historial">
+      <section class="content">
         <nav class="sidebar">
-            <ul>
-                <div class="titulo">
-                    <i class="fa-solid fa-chevron-left" onclick="window.history.back()"></i>
-                    <span>Perfil Abogado</span>
-                </div>
-                <li>
-                    <a href="{{ route('perfil.abogado.creado') }}"><i class="fa-regular fa-user"></i>Información usuario</a>
-                </li>
-                <li>
-                    <a href="{{ route('historialAbogado') }}"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>
-                </li>
-                <li>
-                    <a href="{{ route('configuracionAbogado') }}"><i class="fa-solid fa-gear"></i>Configuracion</a>
-                </li>
-                <li>
-                    <a href="{{ route('noti-lawyer') }}"><i class="fa-regular fa-bell"></i>Notificaciones</a>
-                </li>
-                <li>
+          <ul class="icon-list">
+              <li>
+                  <a href="#" id="perfilSidebar" class="icon-container">
+                      <i class="fa-regular fa-user"></i>
+                  </a>
+              </li>
+              <li>
+                  <a href="{{route('historialAbogado')}}" class="icon-container">
+                      <i class="fa-solid fa-clock-rotate-left"></i>
+                  </a>
+              </li>
+              <li>
+                  <a href="{{route('configuracionAbogado')}}" class="icon-container">
+                      <i class="fa-solid fa-gear"></i>
+                  </a>
+              </li>
+              <li>
+                  <a href="{{route('noti-lawyer')}}" class="icon-container">
+                      <i class="fa-regular fa-bell"></i>
+                  </a>
+              </li>
+              <li>
+                  <a href="#" class="icon-container">
+                      <i class="fa-regular fa-calendar"></i>
+                  </a>
+              </li>
+              <li>
+                <a href="#" id="logoutButton" class="icon-container">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </a>
+            </li>
+          </ul>
+      </nav>
 
-                        <i class="fa-regular fa-calendar"></i>
-
-                        <a href="{{ route('calendar') }}">Calendario</a>
-
-                </li>
-                <li id="cerrarSesion">
-                    <a href="{{ route('home') }}"><i class="fa-solid fa-right-from-bracket"></i>Cerrar sesión</a>
-                </li>
-            </ul>
-        </nav>
-        <hr />
-        <div class="historial-content">
+        <div class="main-content">
+        <section class="historial">
+        <div class="contenido">
+          <div class="container">
+            <div class="historial-list">
+         
           <div class="historial-header">
-            <h3>Historial</h3>
             <div class="search-historial">
-                <img id="lupa" src="../../img/Lupa.png" alt="Buscar" />
+              <i class="fa-solid fa-magnifying-glass lupa"></i>
                 <input type="text" id="search-input" placeholder="Buscar en historial..." />
               </div>
 
           </div>
-          <div class="container">
+       
             <div class="container-fecha">
               <p>31 de marzo, 2024</p>
             </div>
-            <hr />
             <div class="container-visitas">
               <div class="visita">
                 <div class="checkbox-wrapper-21">
@@ -250,252 +257,25 @@
                   >
                 </div>
               </div>
-             
+            </div>
         </div>
+        </div>
+        </div>
+      </div>
       </section>
-      <section class="historial-small">
-        <div class="borrar-datos">
-          <a href="../historial/historialEliminado.html"
-            >Borrar datos de navegación</a
-          >
-        </div>
-
-        <div class="historial-container">
-          <div class="visita-small">
-            <span class="fecha-visita">12 de abril, 2024</span>
-
-            <div class="detalle-visita">
-              <span class="icon-visita">T</span>
-              <p>Se ha visitado</p>
-              <a
-                class="link-informacion"
-                href="../Information/informacion_tutela.html"
-                >La tutela</a
-              >
-              <a
-                class="icon-eliminar"
-                href="../historial/historialEliminado.html"
-                ><i class="fa-regular fa-circle-xmark"></i
-              ></a>
-            </div>
-            <div class="detalle-visita">
-              <span class="icon-visita">T</span>
-              <p>Se ha visitado</p>
-              <a
-                class="link-informacion"
-                href="../Information/informacion_tutela.html"
-                >Todo acerca de las tutelas</a
-              >
-              <a
-                class="icon-eliminar"
-                href="../historial/historialEliminado.html"
-                ><i class="fa-regular fa-circle-xmark"></i
-              ></a>
-            </div>
-            <div class="detalle-visita">
-              <span class="icon-visita">T</span>
-              <p>Se ha visitado</p>
-              <a
-                class="link-informacion"
-                href="../Information/informacion_tutela.html"
-                >La tutela</a
-              >
-              <a
-                class="icon-eliminar"
-                href="../historial/historialEliminado.html"
-                ><i class="fa-regular fa-circle-xmark"></i
-              ></a>
-            </div>
-            <div class="detalle-visita">
-              <span class="icon-visita">T</span>
-              <p>Se ha visitado</p>
-              <a
-                class="link-informacion"
-                href="../Information/informacion_tutela.html"
-                >La tutela</a
-              >
-              <a
-                class="icon-eliminar"
-                href="../historial/historialEliminado.html"
-                ><i class="fa-regular fa-circle-xmark"></i
-              ></a>
-            </div>
-            <div class="detalle-visita">
-              <span class="icon-visita">T</span>
-              <p>Se ha visitado</p>
-              <a
-                class="link-informacion"
-                href="../Information/informacion_tutela.html"
-                >La tutela</a
-              >
-              <a
-                class="icon-eliminar"
-                href="../historial/historialEliminado.html"
-                ><i class="fa-regular fa-circle-xmark"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="visita-small">
-            <span class="fecha-visita">11 de abril, 2024</span>
-
-            <div class="detalle-visita">
-              <span class="icon-visita">T</span>
-              <p>Se ha visitado</p>
-              <a
-                class="link-informacion"
-                href="../Information/informacion_tutela.html"
-                >La tutela</a
-              >
-              <a
-                class="icon-eliminar"
-                href="../historial/historialEliminado.html"
-                ><i class="fa-regular fa-circle-xmark"></i
-              ></a>
-            </div>
-            <div class="detalle-visita">
-              <span class="icon-visita">T</span>
-              <p>Se ha visitado</p>
-              <a
-                class="link-informacion"
-                href="../Information/informacion_tutela.html"
-                >Todo acerca de las tutelas</a
-              >
-              <a
-                class="icon-eliminar"
-                href="../historial/historialEliminado.html"
-                ><i class="fa-regular fa-circle-xmark"></i
-              ></a>
-            </div>
-            <div class="detalle-visita">
-              <span class="icon-visita">T</span>
-              <p>Se ha visitado</p>
-              <a
-                class="link-informacion"
-                href="../Information/informacion_tutela.html"
-                >La tutela</a
-              >
-              <a
-                class="icon-eliminar"
-                href="../historial/historialEliminado.html"
-                ><i class="fa-regular fa-circle-xmark"></i
-              ></a>
-            </div>
-            <div class="detalle-visita">
-              <span class="icon-visita">T</span>
-              <p>Se ha visitado</p>
-              <a
-                class="link-informacion"
-                href="../Information/informacion_tutela.html"
-                >La tutela</a
-              >
-              <a
-                class="icon-eliminar"
-                href="../historial/historialEliminado.html"
-                ><i class="fa-regular fa-circle-xmark"></i
-              ></a>
-            </div>
-            <div class="detalle-visita">
-              <span class="icon-visita">T</span>
-              <p>Se ha visitado</p>
-              <a
-                class="link-informacion"
-                href="../Information/informacion_tutela.html"
-                >La tutela</a
-              >
-              <a
-                class="icon-eliminar"
-                href="../historial/historialEliminado.html"
-                ><i class="fa-regular fa-circle-xmark"></i
-              ></a>
-            </div>
-          </div>
-
-          <div class="visita-small">
-            <span class="fecha-visita">12 de abril, 2024</span>
-
-            <div class="detalle-visita">
-              <span class="icon-visita">T</span>
-              <p>Se ha visitado</p>
-              <a
-                class="link-informacion"
-                href="../Information/informacion_tutela.html"
-                >La tutela</a
-              >
-              <a
-                class="icon-eliminar"
-                href="../historial/historialEliminado.html"
-                ><i class="fa-regular fa-circle-xmark"></i
-              ></a>
-            </div>
-            <div class="detalle-visita">
-              <span class="icon-visita">T</span>
-              <p>Se ha visitado</p>
-              <a
-                class="link-informacion"
-                href="../Information/informacion_tutela.html"
-                >Todo acerca de las tutelas</a
-              >
-              <a
-                class="icon-eliminar"
-                href="../historial/historialEliminado.html"
-                ><i class="fa-regular fa-circle-xmark"></i
-              ></a>
-            </div>
-            <div class="detalle-visita">
-              <span class="icon-visita">T</span>
-              <p>Se ha visitado</p>
-              <a
-                class="link-informacion"
-                href="../Information/informacion_tutela.html"
-                >La tutela</a
-              >
-              <a
-                class="icon-eliminar"
-                href="../historial/historialEliminado.html"
-                ><i class="fa-regular fa-circle-xmark"></i
-              ></a>
-            </div>
-            <div class="detalle-visita">
-              <span class="icon-visita">T</span>
-              <p>Se ha visitado</p>
-              <a
-                class="link-informacion"
-                href="../Information/informacion_tutela.html"
-                >La tutela</a
-              >
-              <a
-                class="icon-eliminar"
-                href="../historial/historialEliminado.html"
-                ><i class="fa-regular fa-circle-xmark"></i
-              ></a>
-            </div>
-            <div class="detalle-visita">
-              <span class="icon-visita">T</span>
-              <p>Se ha visitado</p>
-              <a
-                class="link-informacion"
-                href="../Information/informacion_tutela.html"
-                >La tutela</a
-              >
-              <a
-                class="icon-eliminar"
-                href="../historial/historialEliminado.html"
-                ><i class="fa-regular fa-circle-xmark"></i
-              ></a>
-            </div>
-          </div>
-        </div>
-      </section>
+    </section>
+  
+    
+    </section>
       @endsection
 
       @section('footer')
       @endsection
 
       @push('styles')
-      <link rel="stylesheet" href="css/historial.css">
+      <link rel="stylesheet" href="css/historialAbogado.css">
       @endpush
 
       @push('scripts')
-      <script src="js/historial.js"></script>
+      <script src="js/historialAbogado.js"></script>
       @endpush

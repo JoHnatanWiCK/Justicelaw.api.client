@@ -129,6 +129,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             },
         });
 
+
+
+
         if (!response.ok) {
             if (response.status === 401) {
 
@@ -241,3 +244,57 @@ document.getElementById('show-more').addEventListener('click', function() {
 
 
 
+
+
+document.addEventListener('DOMContentLoaded', async () => {
+    console.log('Script cargado y DOM completamente cargado');
+
+    const userMenu = document.querySelector('.content-abogado');
+    const spanUserName = userMenu.querySelector('h3');
+    const lawyerNameElement = document.getElementById('lawyerid');
+    const lawyerInput = document.getElementById('lawyerInput'); // Referencia al input oculto
+
+    const token = localStorage.getItem('token');
+    const role = localStorage.getItem('role');
+
+    console.log('Token actual:', token);
+    console.log('Rol actual:', role);
+
+    try {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/auth/meLawyer', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (!response.ok) {
+            if (response.status === 401) {
+                alert('Tu sesión ha expirado. Serás redirigido a la página de inicio de sesión.');
+                localStorage.removeItem('token');
+                setTimeout(() => {
+                    window.location.href = '/login';
+                }, 3000);
+            } else {
+                throw new Error('Error al obtener datos del usuario');
+            }
+        } else {
+            const data = await response.json();
+            console.log('Datos del usuario:', data);
+
+            const { id, name, last_names, email } = data;
+
+            // Mostrar el id en el span y asignarlo al input oculto
+            lawyerNameElement.textContent = `${id}`;
+            lawyerInput.value = id;
+
+            // Actualizar el nombre y correo
+            spanUserName.textContent = `${name} ${last_names}`;
+            const spanUserEmail = document.getElementById('spanUserEmail');
+            spanUserEmail.textContent = `${email}`;
+        }
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
+});

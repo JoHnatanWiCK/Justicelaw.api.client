@@ -23,7 +23,7 @@ class QuestionController extends Controller
     //             ->withoutVerifying() // Temporal para desarrollo
     //             ->withOptions(['debug' => true]) // Opcional: para debugging
     //             ->get($url);
-    
+
     //         return $response->json();
     //     } catch (\Exception $e) {
     //         \Log::error('Error al conectar con la API: ' . $e->getMessage());
@@ -111,15 +111,15 @@ public function indexlogin()
 
     // Pasar datos a la vista
     return view('foro.forologin', compact('pquestions', 'answers', 'users', 'categories', 'lawyers'));
-} 
-    
+}
+
 
    public function verificar(){
 
-    $userId = auth()->id(); 
+    $userId = auth()->id();
     return $userId;
    }
-   
+
    public function like($id)
    {
        $url = env('URL_SERVER_API') . '/questions/' . $id . '/like'; // Supongamos que tu API tiene esta ruta configurada
@@ -149,7 +149,7 @@ public function indexlogin()
 
 
 
-   
+
 
 
     /**
@@ -167,26 +167,24 @@ public function indexlogin()
     {
         // Obtener el ID del usuario autenticado
         $userId = auth()->id();
-    
+
         // Validar los datos enviados desde el formulario (sin user_id)
         $validatedData = $request->validate([
-            'affair' => 'required|string|max:255',
-            'user_id' => 'required|integer',
-            'forum_category_id' => 'required|integer',
+            'content' => 'required|string|max:255',
+            'lawyer_id' => 'required|integer',
+            'question_id' => 'required|integer',
             'date_publication' => 'required|date',
-            'content' => 'required|string',
         ]);
-    
-        // Enviar los datos a la API usando Http::post
-        $response = Http::post('https://apijusticelaw-production.up.railway.app/v1/questions', [
-            'affair' => $validatedData['affair'],
-            'user_id' => $validatedData['user_id'],
 
-            'forum_category_id' => $validatedData['forum_category_id'],
-            'date_publication' => $validatedData['date_publication'],
+        // Enviar los datos a la API usando Http::post
+        $response = Http::post('https://apijusticelaw-production.up.railway.app/v1/answers', [
             'content' => $validatedData['content'],
+            'lawyer_id' => $validatedData['lawyer_id'],
+
+            'question_id' => $validatedData['question_id'],
+            'date_publication' => $validatedData['date_publication'],
         ]);
-    
+
         // Manejar la respuesta de la API
         if ($response->successful()) {
             // Redirigir con mensaje de éxito
@@ -196,9 +194,9 @@ public function indexlogin()
             return redirect()->back()->withErrors(['message' => 'Error al crear la pregunta']);
         }
     }
-    
 
-  
+
+
 
     /**
      * Display the specified resource.
@@ -210,7 +208,7 @@ public function indexlogin()
         $question = $this->fetchDataFromApi($url . '/questions' . $id);
 
         return $question;
-        
+
         // return view('categories.show', compact('typeDocument'));
     }
 

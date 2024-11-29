@@ -169,4 +169,82 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+// parte de santiago enviar reseña 
+const stars = document.querySelectorAll('.star');
+let selectedRating = 0;
+
+// Función para destacar las estrellas seleccionadas
+stars.forEach((star) => {
+    star.addEventListener('click', () => {
+        selectedRating = parseInt(star.getAttribute('data-value'));
+        stars.forEach((s, index) => {
+            s.style.color = index < selectedRating ? '#FFD700' : '#000';
+        });
+    });
+});
+
+// Publicar reseña
+document.getElementById('boton-publicar').addEventListener('click', async () => {
+    const reseñaInput = document.getElementById('inputReseña');
+    const textoReseña = reseñaInput.value.trim();
+
+    if (!textoReseña || selectedRating === 0) {
+        alert('Por favor, selecciona una calificación y escribe tu reseña.');
+        return;
+    }
+
+    // Datos a enviar al servidor
+    const reviewData = {
+        content: textoReseña,
+        stars: selectedRating,
+        lawyer_id: 1 // Reemplaza este valor con el ID del abogado correspondiente
+    };
+
+    try {
+        const token = localStorage.getItem('token'); // Asegúrate de tener el JWT almacenado
+
+        // Enviar la reseña al servidor
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/enviarReviews', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}` // Incluye el JWT para autenticar
+            },
+            body: JSON.stringify(reviewData)
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            alert('Reseña publicada con éxito.');
+
+            // Actualiza la vista con la nueva reseña
+            const reseñasPublicadas = document.getElementById('reseñasPublicadas');
+            const nuevaReseña = document.createElement('div');
+            nuevaReseña.className = 'reseña';
+
+            nuevaReseña.innerHTML = `
+                <div class="reseña-content">
+                    <div class="reseña-stars">
+                        ${'&#9733;'.repeat(selectedRating)}${'&#9734;'.repeat(5 - selectedRating)}
+                    </div>
+                    <p>${textoReseña}</p>
+                </div>
+            `;
+            reseñasPublicadas.appendChild(nuevaReseña);
+
+            // Limpiar el formulario
+            reseñaInput.value = '';
+            selectedRating = 0;
+            stars.forEach((star) => (star.style.color = '#000'));
+        } else if (response.status === 403) {
+            const error = await response.json();
+            alert(error.message); // Muestra el mensaje "Tienes que haber interactuado..."
+        } else {
+            alert('Ocurrió un error al publicar la reseña.');
+        }
+    } catch (error) {
+        console.error('Error al enviar la reseña:', error);
+        alert('Error de conexión. Inténtalo más tarde.');
+    }
+});
 

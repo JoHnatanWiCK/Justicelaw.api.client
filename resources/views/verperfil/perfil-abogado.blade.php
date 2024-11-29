@@ -7,6 +7,7 @@
 
 @section('main')
 <section class="content">
+
     <div class="perfil">
       <div class="banner">
       <img id="fotoPerfilVer" src="../../img/fotoPerfil.jfif" alt="foto" />
@@ -69,43 +70,36 @@
             </div>
         </div>
     </div>
-    <div class="act">
-      <h2>Actividad</h2>
-      <div class="activity-content">
-          <img src="../../img/mas.png" alt="más">
-          <h4>Ver el historial de asesoramiento legal</h4>
-      </div>
-      <p>Las preguntas que el abogado responda en el foro aparecerán aquí.</p>
-      </div>
+  
     </section>
 
-    <section id="hoja-de-vida" class="section">
-        <!-- Aquí se insertará el contenido dinámicamente (iframe o enlace de descarga) -->
-      </section>
+    <section id="hoja-de-vida" class="section" style="width:98%;">
+
+    </section>
 
 {{-- comienza aqui --}}
 <section id="reseñas" class="section">
     <div class="box-reseñas">
         <h4>Reseñas</h4>
-        <img id="fotoReseña" src="../../img/fotoPerfil.png" alt="Perfil" class="profile-img">
         <div class="review-container">
             <div class="input">
-                <div class="star-container">
- 
-                    <span class="star" data-value="2">&#9733;</span>
-                    <span class="star" data-value="3">&#9733;</span>
-                    <span class="star" data-value="4">&#9733;</span>
-                    <span class="star" data-value="5">&#9733;</span>
-                    <span class="star" data-value="5">&#9733;</span>
-                </div>
-                <input type="text" name="inputReseña" id="inputReseña" placeholder="Escribe tu reseña...">
+                
+                <input 
+                    type="text" 
+                    name="inputReseña" 
+                    id="inputReseña" 
+                    placeholder="Escribe tu reseña..." 
+                    maxlength="250"
+                >
+                <div id="charCounter">0/250 caracteres</div>
             </div>
             <a id="boton-publicar">Publicar</a>
         </div>
         <div id="reseñasPublicadas" class="reseñas-publicadas">
-            <!-- Aquí se mostrarán las reseñas publicadas -->
+
         </div>
     </div>
+    
 </section>
 
 {{-- termina aqui --}}
@@ -118,13 +112,7 @@
       <img id="fotoIcon" src="../../img/fotoPerfil.jfif" alt="foto" />
       <div class="content-abogado">
       <h3>David Astrada</h3>
-      <div class="stars">
-        <img src="../../img/star-solid.svg" alt="star">
-        <img src="../../img/star-solid.svg" alt="star">
-        <img src="../../img/star-solid.svg" alt="star">
-        <img src="../../img/star-solid.svg" alt="star">
-        <img src="../../img/star-solid-white.svg" alt="star white">
-      </div>
+     
       </div>
       </div>
       <nav class="profile-nav-sm">

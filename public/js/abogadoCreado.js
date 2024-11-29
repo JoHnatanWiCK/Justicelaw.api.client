@@ -42,18 +42,72 @@ document.addEventListener('DOMContentLoaded', async () => {
             const data = await response.json();
             console.log('Datos del usuario:', data);
 
-            const { name, last_names, email } = data;
+            const { name, last_names, email,id  } = data;
             spanUserName.textContent = `${name} ${last_names}`;
             spanUserEmail.textContent = `${email}`;
 
-
+            const lawyerId = id;
             // Llamar a la función para cargar la foto de perfil
             // await cargarFotoPerfil();
+            await cargarReseñas(lawyerId);
         }
     } catch (error) {
         console.error('Error:', error.message);
     }
   });
+
+  async function cargarReseñas(lawyerId) {
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+        console.log("No estás autenticado.");
+        return;
+    }
+
+    try {
+        const response = await fetch(
+            `https://apijusticelaw-production.up.railway.app/v1/reseñaAbogado/${lawyerId}`,
+            {
+                method: "GET",
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log("Reseñas obtenidas:", data);
+
+            const reseñasPublicadas = document.getElementById("reseñasPublicadas");
+            reseñasPublicadas.innerHTML = "";
+
+            data.reviews.forEach((review) => {
+                const nuevaReseña = document.createElement("div");
+                nuevaReseña.className = "reseña";
+
+                nuevaReseña.innerHTML = `
+                   <div class="reseña-content">
+                       <img src="${review.user.profile?.profile_photo || '../../img/fotoPerfil.png'}" alt="Foto de perfil" class="profile-photo">
+                       <div class="reseña-info">
+                           <p class="reseña-autor"><strong>${review.user.name} ${review.user.last_name}</strong></p>
+                           <p class="reseña-texto">${review.content}</p>
+                           <p class="reseña-fecha">${review.date}</p>
+                       </div>
+                   </div>
+                `;
+
+                reseñasPublicadas.appendChild(nuevaReseña);
+            });
+        } else {
+            const errorData = await response.json();
+            console.error("Error al cargar las reseñas:", errorData);
+        }
+    } catch (error) {
+        console.error("Error:", error);
+    }
+}
+
 
   async function cargarDatosVerificacion() {
       const token = localStorage.getItem('token');
@@ -95,6 +149,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   document.addEventListener('DOMContentLoaded', cargarDatosVerificacion);
 
+  
   document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('.profile-nav ul li a');
     const indicator = document.querySelector('.profile-nav .indicator');

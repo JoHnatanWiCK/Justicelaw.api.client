@@ -466,6 +466,65 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    
+async function cargarHojaDeVida() {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+        console.log('No estás autenticado.');
+        return;
+    }
+
+    try {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/getVerificationLawyer', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Datos de la verificación:', data);
+
+            const resumeUrl = data.resume;
+            const hojaDeVidaSection = document.getElementById('hoja-de-vida');
+            hojaDeVidaSection.innerHTML = '';
+
+            if (resumeUrl.endsWith('.pdf')) {
+                const googleDocsUrl = `https://docs.google.com/viewer?url=${resumeUrl}&embedded=true`;
+                const iframe = document.createElement('iframe');
+                iframe.classList.add('iframeLarge');
+                iframe.src = googleDocsUrl;
+                iframe.frameBorder = "0";
+                hojaDeVidaSection.appendChild(iframe);
+            } else if (resumeUrl.endsWith('.docx') || resumeUrl.endsWith('.doc')) {
+                const googleDocsUrl = `https://docs.google.com/viewer?url=${resumeUrl}&embedded=true`;
+                const viewerLink = document.createElement('iframe');
+                viewerLink.src = googleDocsUrl;
+                viewerLink.classList.add('iframeLarge');
+                viewerLink.frameBorder = "0";
+                hojaDeVidaSection.appendChild(viewerLink);
+            } else {
+                const downloadLink = document.createElement('a');
+                downloadLink.href = resumeUrl;
+                downloadLink.download = true;
+                downloadLink.textContent = 'Descargar hoja de vida';
+                hojaDeVidaSection.appendChild(downloadLink);
+            }
+
+        } else {
+            const errorData = await response.json();
+            console.error('Error al cargar los datos de la verificación:', errorData);
+        }
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+document.addEventListener('DOMContentLoaded', cargarHojaDeVida);
+
+
     // Continuar con el siguiente paso
     continuarBtn.addEventListener('click', async () => {
         if (currentStep === 0) {

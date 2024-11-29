@@ -1,6 +1,6 @@
 .content {
     display: flex;
-    width: 100%;
+    width: 98%;
     height: auto;
 
     overflow: hidden;
@@ -304,11 +304,12 @@
     .review-container {
       display: flex;
       align-items: center;
-      border: 1px solid #7d7d7d;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       padding: 20px;
       overflow: hidden;
-      width: 100%;
+      width: 98%;
       margin: 0 auto;
+     
     }
 
     .review-container input {
@@ -317,7 +318,7 @@
       outline: none;
       border: none;
       font-size: 14px;
-      border-radius: 5px;
+      border-radius: 10px;
     }
 
     .star-container {
@@ -493,6 +494,7 @@
       margin-top: 1rem;
       float: right;
       text-decoration: none;
+      cursor: pointer;
     }
 
 
@@ -1307,6 +1309,7 @@
     margin-top: 1rem;
     float: right;
     text-decoration: none;
+    cursor: pointer;
   }
 
 
@@ -1406,7 +1409,7 @@ width: 350px;
     margin: 0 auto; /* Centra el contenedor */
     padding: 0;
     padding-bottom: 1rem;
-    width: 100%;
+    width: 98%;
     box-sizing: border-box;
   }
 
@@ -1416,7 +1419,9 @@ width: 350px;
       justify-content: center;
       position: relative;
       padding: 0.5rem;
+      width: 98%;
       border-top: inherit;
+      margin: 0 auto;
     }
 
     .abogado-small {
@@ -1664,8 +1669,10 @@ width: 350px;
     height: 12rem;
     background-size: cover;
     display: flex;
+    width: 98%;
     align-items: center;
     position: relative;
+    margin: 0 auto;
   }
 
   .content-abogado {
@@ -2018,6 +2025,10 @@ width: 350px;
 
   .act {
     padding-left: 2rem;
+    width: 98%;
+    margin: 0 auto;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 
@@ -2048,11 +2059,14 @@ width: 350px;
   }
 
   .box-reseñas {
+    margin: 0 auto;
     margin-top: 2rem;
+    margin-bottom: 2rem;
     padding-top: 1rem;
     padding-bottom: 3rem;
     align-items: center;
     padding-left: 4rem;
+    width: 98%;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 
@@ -2071,11 +2085,14 @@ width: 350px;
   .review-container {
     display: flex;
     align-items: center;
-    border: 1px solid #7d7d7d;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.404);
     padding: 20px;
     overflow: hidden;
-    width: 90%;
-    margin: 0 auto;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    margin-right: 3rem;
+    border-radius: 10px;
+   
   }
 
   .review-container input {
@@ -2084,7 +2101,7 @@ width: 350px;
     outline: none;
     border: none;
     font-size: 14px;
-    border-radius: 5px;
+    border-radius: 15px;
   }
 
   .star-container {
@@ -2190,6 +2207,7 @@ width: 350px;
     margin-top: 1rem;
     float: right;
     text-decoration: none;
+    cursor: pointer;
   }
 
   .section {
@@ -2509,4 +2527,52 @@ textarea {
     .modal-edit-content {
         width: 90%;
     }
+}
+
+
+.reseña-content {
+    display: flex;
+    align-items: flex-start; /* Alinea los elementos al inicio vertical */
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e0e0e0; /* Línea separadora entre reseñas */
+    padding-bottom: 15px;
+    width:95%;
+}
+
+.profile-photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%; /* Hace la imagen redonda */
+    margin-right: 15px;
+    object-fit: cover; /* Asegura que la imagen se mantenga en proporción */
+}
+
+.reseña-info {
+    flex: 1; /* Permite que el texto tome el espacio restante */
+    text-align: left;
+}
+
+.reseña-autor {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333; /* Color del nombre */
+    margin-bottom: 5px;
+}
+
+.reseña-texto {
+    font-size: 14px;
+    color: #555; /* Color del texto */
+    margin-bottom: 10px;
+}
+
+.reseña-fecha {
+    font-size: 12px;
+    color: #888; /* Color de la fecha */
+    margin-top: auto; /* Empuja la fecha hacia abajo */
+}
+#charCounter {
+  font-size: 12px;
+  margin-top: 5px;
+  color: rgb(92, 92, 92); /* Color inicial */
+  font-family: 'Faustina',serif;
 }

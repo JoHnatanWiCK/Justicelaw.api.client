@@ -175,8 +175,8 @@
     {{-- <script src="script.js"></script> --}}
     <script src="js/modal.js"></script>
     @stack('scripts')
-    <script src="js/auth.js"></script>
-    <script src="js/layoutLogin.js"></script>
-    <script src="js/perfil.js"></script>
+    <script src="{{ asset('js/auth.js') }}"></script>
+    <script src="{{ asset('js/layoutLogin.js') }}"></script>
+    <script src="{{ asset('js/perfil.js') }}"></script>
 </body>
 </html>

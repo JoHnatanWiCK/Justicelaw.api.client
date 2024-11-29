@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="search-bar">
-            <input type="text" placeholder="">
+            <input type="text" id="searchBar" placeholder="">
             <button id="buscarBtn">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>

@@ -48,7 +48,7 @@ class InformationController extends Controller
     {
         $url = env('URL_SERVER_API');
 
-        $information = $this->fetchDataFromApi($url . '/informations/' . $id);
+        $information = $this->fetchDataFromApi($url . '/informations' . $id);
 
         //return $information;
 

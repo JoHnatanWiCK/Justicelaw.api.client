@@ -227,6 +227,13 @@ Route::get('/index', function () {
     return view('informacion.index');
 })->name('index');
 
+Route::get('/indexL', function () {
+    return view('informacion.indexL');
+})->name('indexL');
+Route::get('/infoAbogado', function () {
+    return view('informacion.infoAbogado');
+})->name('infoAbogado');
+
 Route::get('/informacionesLaboral', function () {
     return view('informacion.laboralEmpleo.informacionesLaboral');
 })->name('informacionesLaboral');

@@ -67,45 +67,48 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 const infoId = readMoreButton.getAttribute('data-id'); // Obtener el ID de la información
                try {
-    // Obtener los detalles de la información por ID
-    const infoResponse = await fetch(`${apiUrl}/${infoId}`);
-    if (!infoResponse.ok) {
-        throw new Error('No se pudo obtener los detalles de la información.');
-    }
+                    // Obtener los detalles de la información por ID
+                    const infoResponse = await fetch(`${apiUrl}/${infoId}`);
+                    if (!infoResponse.ok) {
+                        throw new Error('No se pudo obtener los detalles de la información.');
+                    }
 
-    const fullInfo = await infoResponse.json();
-    const data = fullInfo.information; // Extraer la información del objeto
+                    const fullInfo = await infoResponse.json();
+                    const data = fullInfo.information; // Extraer la información del objeto
 
-    // Mostrar los detalles en el modal
+                    // **Verificar la URL de la imagen**
+                    console.log('Imagen URL: ', data.cover_photo);  // Verifica si la URL es válida
 
-    // Configurar la imagen del modal con manejador de errores
-    const modalImage = document.getElementById('infoImage');
-    modalImage.src = data.cover_photo 
-        ? data.cover_photo 
-        : '../../img/placeholder.png';
-    modalImage.alt = data.name || 'Imagen no disponible';
+                    // Mostrar los detalles en el modal
 
-    modalImage.onerror = function () {
-        console.error('Error al cargar la imagen:', this.src);
-        this.onerror = null; // Prevenir bucles infinitos
-        this.src = '../../img/placeholder.png'; // Usar imagen de respaldo
-    };
+                    // Configurar la imagen del modal con manejador de errores
+                    const modalImage = document.getElementById('infoImage');
+                    modalImage.src = data.cover_photo 
+                        ? data.cover_photo 
+                        : '../../img/placeholder.png';
+                    modalImage.alt = data.name || 'Imagen no disponible';
 
-    // Configurar el resto de los detalles del modal
-    document.getElementById('infoTitle').textContent = data.name || 'Sin título';
-    document.getElementById('infoBody').textContent = data.body || 'No hay contenido disponible.';
-    document.getElementById('infoCategory').textContent = data.category
-        ? data.category.name
-        : 'Sin categoría';
+                    modalImage.onerror = function () {
+                        console.error('Error al cargar la imagen:', this.src);
+                        this.onerror = null; // Prevenir bucles infinitos
+                        this.src = '../../img/placeholder.png'; // Usar imagen de respaldo
+                    };
 
-    // Mostrar el modal
-    modal.style.display = 'flex';
-    errorMessage.style.display = 'none';
-} catch (error) {
-    console.error('Error al obtener los detalles:', error);
-    errorMessage.textContent = error.message;
-    errorMessage.style.display = 'block';
-}
+                    // Configurar el resto de los detalles del modal
+                    document.getElementById('infoTitle').textContent = data.name || 'Sin título';
+                    document.getElementById('infoBody').textContent = data.body || 'No hay contenido disponible.';
+                    document.getElementById('infoCategory').textContent = data.category
+                        ? data.category.name
+                        : 'Sin categoría';
+
+                    // Mostrar el modal
+                    modal.style.display = 'flex';
+                    errorMessage.style.display = 'none';
+                } catch (error) {
+                    console.error('Error al obtener los detalles:', error);
+                    errorMessage.textContent = error.message;
+                    errorMessage.style.display = 'block';
+                }
 
             });
         });

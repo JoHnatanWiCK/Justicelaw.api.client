@@ -1031,7 +1031,7 @@
   text-align: center;
   z-index: 9999999; /* Asegurarse que el modal esté por encima del overlay */
   max-width: 600px; /* Limitar el tamaño del modal */
-  width: 90%; 
+  width: 90%;
   overflow: hidden;
 }
 
@@ -1040,7 +1040,7 @@
   margin: 0;
   font-size: 1.5em;
   color: #333;
-  margin-bottom: 30px; 
+  margin-bottom: 30px;
 }
 
 .access-denied-modal p {

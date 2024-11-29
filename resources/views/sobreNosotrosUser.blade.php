@@ -58,7 +58,7 @@
               <h3>Eder Gomez</h3>
                 <p>Asesor legal en derecho corporativo y comercial con enfoque en pequeñas empresas.</p>
 
-               
+
             </div>
 
             <div class="team-member">
@@ -69,10 +69,7 @@
         </div>
     </section>
 
-    
-      
-</body>
-</html>
+
 @endsection
 
 

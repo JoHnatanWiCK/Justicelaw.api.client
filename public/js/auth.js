@@ -1,18 +1,26 @@
-window.protectedRoutes = window.protectedRoutes || [];
+window.protectedRoutes = [
+    ...['/homeLogin', '/sobreNosotrosUsuario', '/perfilCreado', '/crearPerfil', '/historial','/configuracion','/notifications','/foroLogin']
+        .map(path => ({ path, layout: 'layoutLogin' })),
+        ...['/homeAbogado', '/sobreNosotrosAbogado', '/crearPerfilAbogado', '/perfilAbogadoCreado', '/noti-lawyer','/calendar_lawyer','/configuracionAbogado']
+        .map(path => ({ path, layout: 'layoutAbogado' })),
+        ...['/dashboard', '/adminprofile', '/adminInfo']
+        .map(path => ({ path, layout: 'layoutadmin' })),
+];
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
-    
+
     const currentPath = window.location.pathname;
     const userRole = window.getRole();
-
+    console.log('Ruta actual:', currentPath);
     // Verificar si la ruta es protegida
     const protectedRoute = window.protectedRoutes.find(route => route.path === currentPath);
-    
+
     if (protectedRoute) {
         // Verificar si la vista/layout coincide con el rol
         const pageLayout = document.querySelector('body').getAttribute('data-layout'); // Obtener el atributo 'data-layout'
-
+        console.log('Ruta protegida encontrada:', protectedRoute);
         console.log(pageLayout);
         // Verificar autenticación
         if (!window.isAuthenticated()) {
@@ -24,14 +32,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (pageLayout === 'layoutAbogado' && userRole !== 'lawyer') {
             showAccessDeniedModal();
             return;
-        } 
+        }
 
         if (pageLayout === 'layoutLogin' && userRole !== 'user') {
             showAccessDeniedModal();
             return;
         }
 
-        if (pageLayout === 'layoutAdmin' && userRole !== 'admin') {
+        if (pageLayout === 'layoutadmin' && userRole !== 'admin') {
             showAccessDeniedModal();
             return;
         }
@@ -85,6 +93,6 @@ function showAccessDeniedModal() {
 
     const closeModalBtn = document.getElementById('closeModalBtn');
     closeModalBtn.addEventListener('click', () => {
-        window.history.back(); 
+        window.history.back();
     });
 }

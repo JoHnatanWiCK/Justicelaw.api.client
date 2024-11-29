@@ -573,10 +573,6 @@ Route::get('/faqss', function () {
     return view(view: 'faqs.faqs_recurso');
 })->name('faqs_recurso');
 
-Route::get('/nosotros', function () {
-    return view(view: 'sobreNosotros');
-})->name('mm');
-
 Route::get('/adminInfo', function () {
     return view(view: 'adminprofiles.adminInfo');
 })->name('adminInfo');

@@ -12,13 +12,9 @@
       <img id="fotoPerfilVer" src="../../img/fotoPerfil.jfif" alt="foto" />
       <div class="content-abogado">
       <h3>David Astrada</h3>
-      <div class="stars">
-        <img src="../../img/star-solid.svg" alt="star">
-        <img src="../../img/star-solid.svg" alt="star">
-        <img src="../../img/star-solid.svg" alt="star">
-        <img src="../../img/star-solid.svg" alt="star">
-        <img src="../../img/star-solid-white.svg" alt="star white">
-      </div>
+      <div class="stars" id="averageStars" data-average="0">
+    </div>
+    
       </div>
       </div>
       <nav class="profile-nav">
@@ -95,10 +91,11 @@
         <div class="review-container">
             <div class="input">
                 <div class="star-container">
-                    <span class="star" data-value="1">&#9733;</span>
+ 
                     <span class="star" data-value="2">&#9733;</span>
                     <span class="star" data-value="3">&#9733;</span>
                     <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
                     <span class="star" data-value="5">&#9733;</span>
                 </div>
                 <input type="text" name="inputReseña" id="inputReseña" placeholder="Escribe tu reseña...">

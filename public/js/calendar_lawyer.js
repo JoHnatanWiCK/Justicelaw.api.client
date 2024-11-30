@@ -36,13 +36,18 @@ function renderDays() {
         dayDiv.onclick = () => {
             document.querySelectorAll('.day').forEach(day => day.classList.remove('selected'));
             dayDiv.classList.add('selected');
-            selectedDate = currentDate;
-            document.getElementById("dateDisplay").innerText = `Fecha seleccionada: ${selectedDate}`;
+            
+            // Corregimos aquí la creación de selectedDate
+            selectedDate = new Date(currentYear, currentMonthIndex, i);  // Aseguramos de usar el índice correcto del mes
+            selectedDate.setHours(0, 0, 0, 0);  // Aseguramos que la hora sea 00:00:00 para evitar desajustes
+
+            // Mostrar la fecha seleccionada en el formato "5 de enero de 2024"
+            document.getElementById("dateDisplay").innerText = ` ${formatSelectedDate(selectedDate)}`;
             
             // Mostrar la fecha seleccionada en el modal si está abierto
             const modalDateDisplay = document.getElementById("modalDateDisplay");
             if (modalDateDisplay) {
-                modalDateDisplay.innerText = `Fecha seleccionada: ${selectedDate}`;
+                modalDateDisplay.innerText = ` ${formatSelectedDate(selectedDate)}`;
             }
         };
 
@@ -127,6 +132,15 @@ function getMonthName(monthIndex) {
     return months[monthIndex];
 }
 
+// Función para formatear la fecha al formato "5 de enero de 2024"
+function formatSelectedDate(date) {
+    const dateObject = new Date(date);
+    const day = dateObject.getDate();
+    const month = getMonthName(dateObject.getMonth());
+    const year = dateObject.getFullYear();
+    return `${day} de ${month} de ${year}`;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     renderDays();
     renderMonths();
@@ -135,13 +149,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeModalBtn = document.querySelector(".close");
     const saveBtn = document.querySelector(".save");
 
-    // Mostrar el modal al hacer clic en eventos que no están vacíos
-    document.querySelectorAll(".event:not(.vacio)").forEach(event => {
-        event.onclick = function () {
+    // Mostrar el modal al hacer clic en "Editar disponibilidad asesoría"
+    document.querySelectorAll(".edit-availability-option").forEach(button => {
+        button.onclick = function () {
             modal.style.display = "block";
             const modalDateDisplay = document.getElementById("modalDateDisplay");
             if (modalDateDisplay) {
-                modalDateDisplay.innerText = `Fecha seleccionada: ${selectedDate || "Ninguna"}`;
+                modalDateDisplay.innerText = ` ${formatSelectedDate(selectedDate) || "Ninguna"}`;
             }
         };
     });
@@ -203,4 +217,3 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 });
-    

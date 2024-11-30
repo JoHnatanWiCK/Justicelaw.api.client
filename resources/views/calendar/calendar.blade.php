@@ -126,8 +126,8 @@
                     </div>
                     <button class="add-availability">+ Agregar una nueva disponibilidad</button>
                     <div class="notification">
-                        <span class="icon-bell"></span>
-                        <label>Notificar</label>
+                        <img src="../../img/camapana.png" class="hora-icon" alt="Hora">
+                        <label class="notificar-text">Notificar</label>
                         <select>
                             <option>1 hora antes</option>
                             <option>2 horas antes</option>

@@ -58,7 +58,7 @@
         <div class="more-options">
             <button class="dots-menu" aria-label="Más opciones">...</button>
             <div class="options-menu">
-                <p>Editar disponibilidad asesoría</p>
+                <p class="edit-availability-option">Editar disponibilidad asesoría</p>
                 <p class="delete-availability-option">Eliminar disponibilidad asesoría</p>
             </div>
         </div>
@@ -71,7 +71,7 @@
         <div class="more-options">
             <button class="dots-menu" aria-label="Más opciones">...</button>
             <div class="options-menu">
-                <p>Editar disponibilidad asesoría</p>
+                <p class="edit-availability-option">Editar disponibilidad asesoría</p>
                 <p class="delete-availability-option">Eliminar disponibilidad asesoría</p>
             </div>
         </div>
@@ -90,7 +90,7 @@
         <div class="more-options">
             <button class="dots-menu" aria-label="Más opciones">...</button>
             <div class="options-menu">
-                <p>Editar disponibilidad asesoría</p>
+                <p class="edit-availability-option">Editar disponibilidad asesoría</p>
                 <p class="delete-availability-option">Eliminar disponibilidad asesoría</p> <!-- Opción eliminar -->
             </div>
         </div>
@@ -103,7 +103,7 @@
         <div class="more-options">
             <button class="dots-menu" aria-label="Más opciones">...</button>
             <div class="options-menu">
-                <p>Editar disponibilidad asesoría</p>
+                <p class="edit-availability-option">Editar disponibilidad asesoría</p>
                 <p class="delete-availability-option">Eliminar disponibilidad asesoría</p>
             </div>
         </div>
@@ -121,7 +121,7 @@
         <div class="more-options">
             <button class="dots-menu" aria-label="Más opciones">...</button>
             <div class="options-menu">
-                <p>Editar disponibilidad asesoría</p>
+                <p class="edit-availability-option">Editar disponibilidad asesoría</p>
                 <p class="delete-availability-option">Eliminar disponibilidad asesoría</p> <!-- Opción eliminar -->
             </div>
         </div>
@@ -134,7 +134,7 @@
         <div class="more-options">
             <button class="dots-menu" aria-label="Más opciones">...</button>
             <div class="options-menu">
-                <p>Editar disponibilidad asesoría</p>
+                <p class="edit-availability-option">Editar disponibilidad asesoría</p>
                 <p class="delete-availability-option">Eliminar disponibilidad asesoría</p>
             </div>
         </div>
@@ -152,7 +152,7 @@
         <div class="more-options">
             <button class="dots-menu" aria-label="Más opciones">...</button>
             <div class="options-menu">
-                <p>Editar disponibilidad asesoría</p>
+                <p class="edit-availability-option">Editar disponibilidad asesoría</p>
                 <p class="delete-availability-option">Eliminar disponibilidad asesoría</p> <!-- Opción eliminar -->
             </div>
         </div>
@@ -165,7 +165,7 @@
         <div class="more-options">
             <button class="dots-menu" aria-label="Más opciones">...</button>
             <div class="options-menu">
-                <p>Editar disponibilidad asesoría</p>
+                <p class="edit-availability-option">Editar disponibilidad asesoría</p>
                 <p class="delete-availability-option">Eliminar disponibilidad asesoría</p>
             </div>
         </div>
@@ -179,8 +179,8 @@
                             <div class="more-options">
                                 <button class="dots-menu" aria-label="Más opciones">...</button>
                                 <div class="options-menu">
-                                    <p>Editar disponibilidad asesoría</p>
-                                    <p>Eliminar disponibilidad asesoría</p>
+                                    <p class="edit-availability-option">Editar disponibilidad asesoría</p>
+                                    <p class="delete-availability-option">Eliminar disponibilidad asesoría</p>
                                 </div>
                             </div>
                         </div>
@@ -264,14 +264,16 @@
                     </div>
                     <button class="add-availability">+ Agregar una nueva disponibilidad</button>
                     <div class="notification">
-                        <span class="icon-bell"></span>
-                        <label>Notificar</label>
+                        <img src="../../img/camapana.png" class="hora-icon" alt="Hora">
+                        <label class="notificar-text">Notificar</label>
                         <select>
                             <option>1 hora antes</option>
                             <option>2 horas antes</option>
                             <option>Un día antes</option>
                         </select>
                     </div>
+
+                    
                 </div>
                 <button class="save">Guardar</button>
             </div>

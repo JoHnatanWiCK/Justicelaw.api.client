@@ -511,7 +511,27 @@
   .save:hover {
     background-color: #005093;
   }
-  
+  .notification {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.hora-icon {
+    width: 20px;  /* Ajusta el tamaño de la campana */
+    height: 20px; /* Ajusta el tamaño de la campana */
+    margin-right: 8px;  /* Espacio entre la imagen y el texto */
+}
+
+.notificar-text {
+    margin-left: 0;  /* Esto asegura que el texto se mantenga a la izquierda */
+}
+
+select {
+    margin-left: 100px;  /* Espacio entre el texto "Notificar" y el select */
+}
+
+
   /* Botón de cierre del modal */
   .close {
     position: absolute;

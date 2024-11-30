@@ -186,6 +186,8 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
                 
         <!-- Profile Section -->
         <div class="profile">

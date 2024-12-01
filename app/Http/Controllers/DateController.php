@@ -21,14 +21,20 @@ class DateController extends Controller
     public function index()
     {
         $url = env('URL_SERVER_API');
-
+    
+        // Obtener los datos desde la API
         $dates = $this->fetchDataFromApi($url . '/dates');
-
-        return $dates;
-
-        // return view('dates.index', compact('dates'));
-
+        $consultings = $this->fetchDataFromApi($url . '/consultings');
+    
+        // Ordenar $dates según el campo startTime
+        usort($dates, function ($a, $b) {
+            return strtotime($a['startTime']) <=> strtotime($b['startTime']);
+        });
+    
+        // Retornar la vista con los datos organizados
+        return view('calendar.calendar_lawyer', compact('dates', 'consultings'));
     }
+    
 
     /**
      * Show the form for creating a new resource.

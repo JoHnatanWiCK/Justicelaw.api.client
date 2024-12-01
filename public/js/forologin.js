@@ -249,8 +249,7 @@ document.getElementById('show-more').addEventListener('click', function() {
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('Script cargado y DOM completamente cargado');
 
-    const userMenu = document.querySelector('.content-abogado');
-    const spanUserName = userMenu.querySelector('h3');
+ 
     const lawyerNameElement = document.getElementById('lawyerid');
     const lawyerInput = document.getElementById('lawyerInput'); // Referencia al input oculto
 

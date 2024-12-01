@@ -228,7 +228,7 @@ document.getElementById('category-filter').addEventListener('change', function (
 
 
 
-document.getElementById('show-more').addEventListener('click', function() {
+document.getElementById('respuestas').addEventListener('click', function() {
     const extraCategories = document.querySelectorAll('.extra-category');
     const isHidden = extraCategories[0].style.display === 'none';
 

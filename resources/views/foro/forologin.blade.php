@@ -252,7 +252,7 @@
                 @foreach($lawyers as $abo)
                 <div class="new-answer-section">
                     <h4>Escribe tu respuesta:</h4>
-                    <span id="lawyerid" style="display:none;"></span>
+                    <span id="lawyerid" style="display:;">0</span>
                     <input type="number" id="lawyerInput" name="lawyer_id" style="display:none ;" >
                     <textarea id="new-answer" placeholder="Escribe aquí tu respuesta..."></textarea>
                     <button onclick="submitAnswer()">Responder</button>

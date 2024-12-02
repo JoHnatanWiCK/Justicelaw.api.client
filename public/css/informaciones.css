@@ -195,7 +195,7 @@ a:hover {
     border-radius: 10px;
     width: 80%;  /* Ajustar el ancho */
     max-width: 1200px;  /* El modal no se expandirá más allá de 1200px */
-    max-height: 90%;  /* Para evitar que se estire demasiado hacia abajo */
+    max-height: 100%;  /* Para evitar que se estire demasiado hacia abajo */
     overflow-y: auto;
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
@@ -203,6 +203,8 @@ a:hover {
     color: #333;
     position: relative;  /* Asegurarse de que los elementos dentro no se salgan del modal */
     text-align: left; /* Alinea el texto a la izquierda */
+    display: flex; /* Usa Flexbox para organizar los elementos */
+    flex-direction: column;
 }
 
 /* Estilo para las imágenes dentro del modal */
@@ -243,4 +245,17 @@ a:hover {
 
 .card-body .btn:hover {
     background-color: #0056b3;
+}
+
+
+.imagen-modal {
+    width: 100%;
+    height: 400px;  /* Establecer altura fija */
+    overflow: hidden; /* Evitar que se desborde el contenido */
+}
+
+.imagen-modal img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajustar imagen manteniendo proporción */
 }

@@ -35,14 +35,10 @@
     <div class="modal-content">
         <span id="closeModal" class="close">&times;</span>
         <div class="card">
-            <!-- Imagen con manejador de errores -->
-            <img 
-                id="infoImage" 
-                class="card-img-top" 
-                src="" 
-                alt="Imagen no disponible" 
-                onerror="this.onerror=null;this.src='../../img/placeholder.png';"
-            >
+
+
+            <div id="infoImage" class="imagen-modal"></div>
+
             <div class="card-body">
                 <h3 id="infoTitle" class="card-title"></h3>
                 <div id="infoBody" class="card-text"></div>

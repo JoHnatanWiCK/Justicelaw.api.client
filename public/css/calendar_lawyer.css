@@ -668,3 +668,8 @@ select {
   background-color: red; /* Cambia el color de fondo a rojo */
   color: white; /* Cambia el color del texto a blanco */
 }
+.event.vacio {
+  background-color: white; /* Fondo blanco para evento vacío */
+  border: 1px dashed #ccc; /* Opcional: borde punteado para distinguir eventos vacíos */
+  color: #999; /* Texto gris claro para denotar estado inactivo */
+}

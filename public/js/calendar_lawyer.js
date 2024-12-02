@@ -149,7 +149,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeModalBtn = document.querySelector(".close");
     const saveBtn = document.querySelector(".save");
 
-    // Mostrar el modal al hacer clic en "Editar disponibilidad asesoría"
     document.querySelectorAll(".edit-availability-option").forEach(button => {
         button.onclick = function () {
             modal.style.display = "block";
@@ -178,41 +177,14 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.style.display = "none";
     };
 
-    // Funcionalidad para los menús de opciones de los tres puntos
-    document.querySelectorAll(".dots-menu").forEach(menuButton => {
-        menuButton.addEventListener("click", function (event) {
-            event.stopPropagation(); // Evita cerrar el menú al hacer clic en él.
-            const optionsMenu = this.nextElementSibling;
-    
-            // Cerrar otros menús abiertos
-            document.querySelectorAll(".options-menu").forEach(menu => {
-                if (menu !== optionsMenu) {
-                    menu.classList.remove("open");
-                }
-            });
-    
-            // Alternar visibilidad del menú actual
-            optionsMenu.classList.toggle("open");
-        });
-    });
-    
-    // Manejo de clic en la opción "Eliminar Disponibilidad" dentro del modal
-    document.querySelectorAll('.delete-availability-option').forEach(button => {
-        button.addEventListener('click', function () {
-            // Encuentra el evento que contiene el botón de eliminación
-            const event = this.closest('.event'); // Esto selecciona el contenedor de la asesoría (evento)
-            
+    document.querySelectorAll(".delete-availability-option").forEach(button => {
+        button.addEventListener("click", function () {
+            const event = this.closest('.event');
             if (event) {
-                // Verifica si el evento ya está marcado como ocupado
-                if (!event.classList.contains('ocupado')) {
-                    // Si no está ocupado, cambiar a ocupado (rojo)
-                    event.classList.remove('vacio');  // Elimina la clase de evento vacío
-                    event.classList.add('ocupado');   // Agrega la clase de evento ocupado
-    
-                    console.log("Evento marcado como ocupado:", event.id);
-                } else {
-                    console.log("Este evento ya está marcado como ocupado.");
-                }
+                event.classList.remove('ocupado');
+                event.classList.add('vacio');
+                event.innerHTML = ''; // Borra el contenido del evento
+                console.log("Evento marcado como vacío.");
             }
         });
     });

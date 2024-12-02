@@ -52,40 +52,31 @@
                 <div class="events">
                     <!-- Event 1: Asesoría familiar -->
                    <!-- Empty Event 1: Evento vacío -->
-<!-- Empty Event 1 -->
-
-@foreach($dates as $date)
-@foreach($consultings as $consulting)
-
-
-@if ($date['state'] == 'Agendado')
-<!-- Event 4: Asesoría médica -->
-<div class="event-container" data-hour="15" style="top: 50%;">
-    <div class="event" id="event4" data-date="2024-11-30"> <!-- Evento con disponibilidad -->
-        <img src="../../img/mujer.png" alt="Foto de perfil" class="event-image">
-        <div class="event-details">
-            <p class="nombre-asesoria">Asesoría médica con <strong>{{$consulting['question_id']}}</strong></p>
-            <p class="hora-evento">{{$date['startTime']}} - {{$date['endTime']}} </p>
-        </div>
-       
-    </div>
-</div>
-@elseif($date['state'] == 'Disponible')
-    <div class="event vacio" id="event10-empty" data-date="2024-11-29"> <!-- Evento vacío -->
-        <div class="more-options">
-            <button class="dots-menu" aria-label="Más opciones">...</button>
-            <div class="options-menu">
-                <p class="edit-availability-option">Editar disponibilidad asesoría</p>
-                <p class="delete-availability-option">Eliminar disponibilidad asesoría</p>
-            </div>
-        </div>
-    </div>
-
-@endif
-@endforeach
-@endforeach
-                
-                 
+                    @foreach($dates as $date)
+                        @foreach($consultings as $consulting)
+                            @if ($date['state'] == 'Agendado')
+                                <div class="event-container" data-hour="15" style="top: 50%;">
+                                    <div class="event" id="event4" data-date="2024-11-30"> <!-- Evento con disponibilidad -->
+                                        <img src="../../img/mujer.png" alt="Foto de perfil" class="event-image">
+                                        <div class="event-details">
+                                            <p class="nombre-asesoria">Asesoría médica con <strong>{{$consulting['question_id']}}</strong></p>
+                                            <p class="hora-evento">{{$date['startTime']}} - {{$date['endTime']}} </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @elseif($date['state'] == 'Disponible')
+                                <div class="event vacio" id="event10-empty" data-date="2024-11-29"> <!-- Evento vacío -->
+                                    <div class="more-options">
+                                        <button class="dots-menu" aria-label="Más opciones">...</button>
+                                        <div class="options-menu">
+                                            <p class="edit-availability-option">Editar disponibilidad asesoría</p>
+                                            <p class="delete-availability-option">Eliminar disponibilidad asesoría</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            @endif
+                        @endforeach
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -122,20 +113,7 @@
                                 <span class="client-appointment">Agendó una asesoría para el 11 de marzo</span>
                             </div>
                         </div>
-                        <div class="client-item">
-                            <img src="../../img/fotoPerfil.png" class="fotoperfil" alt="Foto de perfil" />
-                            <div class="client-info">
-                                <span class="client-name">Mariana Santos</span>
-                                <span class="client-appointment">Agendó una asesoría para el 11 de marzo</span>
-                            </div>
-                        </div>
-                        <div class="client-item">
-                            <img src="../../img/fotoPerfil.png" class="fotoperfil" alt="Foto de perfil" />
-                            <div class="client-info">
-                                <span class="client-name">Mariana Santos</span>
-                                <span class="client-appointment">Agendó una asesoría para el 11 de marzo</span>
-                            </div>
-                        </div>
+                        <!-- More clients here -->
                     </div>
                 </div>
             </div>
@@ -155,7 +133,7 @@
                         <div class="date-time-item">
                             <img src="../../img/relojAsesoria.png" class="hora-icon" alt="Hora">
                             <!-- Selector de hora -->
-                            <select id="timePicker">
+                            <select id="timePicker" name="startTime">
                                 <option value="11:00am - 12:00am">11:00am - 12:00am</option>
                                 <option value="12:00am - 1:00pm">12:00am - 1:00pm</option>
                                 <option value="1:00pm - 2:00pm">1:00pm - 2:00pm</option>
@@ -164,28 +142,29 @@
                         </div>
                     </div>
 
-                    <form id="" action="{{ route('api.v1.dates.store') }}" method="POST">
-            
-                    <div class="notification">
-                        <img src="../../img/camapana.png" class="hora-icon" alt="Hora">
-                        <label class="notificar-text">Notificar</label>
-                        <select>
-                            <option>1 hora antes</option>
-                            <option>2 horas antes</option>
-                            <option>Un día antes</option>
-                        </select>
-                    </div>
-
-                    
-                     </div>
+                    <form id="availabilityForm" action="{{ route('guardarDisponibilidad') }}" method="POST">
+                        @csrf
+                        <input type="hidden" name="date" id="modalDate" value="2024-11-30"> <!-- Fecha de disponibilidad -->
+                        <input type="hidden" name="state" value="Disponible">
+                        <input type="hidden" name="lawyer_id" value="1"> <!-- Suponiendo que el ID del abogado es 1 -->
+                        
+                        <div class="notification">
+                            <img src="../../img/camapana.png" class="hora-icon" alt="Hora">
+                            <label class="notificar-text">Notificar</label>
+                            <select name="notification_time">
+                                <option value="1">1 hora antes</option>
+                                <option value="2">2 horas antes</option>
+                                <option value="24">Un día antes</option>
+                            </select>
+                        </div>
                         <button class="save" type="submit">Guardar</button>
-
-                            
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </section>
+
 
 @endsection
 

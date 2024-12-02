@@ -39,8 +39,7 @@
             <div class="card-body">
                 <h3 id="infoTitle" class="card-title"></h3>
                 <p id="infoBody" class="card-text"></p>
-                <p><strong>Categoría:</strong> <span id="infoCategory"></span></p>
-                <a href="#" class="btn btn-secondary" onclick="history.back();">Volver</a>
+              
             </div>
         </div>
     </div>

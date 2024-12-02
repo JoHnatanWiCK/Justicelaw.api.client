@@ -31,16 +31,21 @@
 </section>
 
 <!-- Modal de detalles -->
+!-- Modal de detalles -->
 <div id="informationDetail" class="modal" style="display: none;">
     <div class="modal-content">
         <span id="closeModal" class="close">&times;</span>
         <div class="card">
             <img id="infoImage" class="card-img-top" src="" alt="Imagen no disponible" onerror="this.onerror=null;this.src='../../img/placeholder.png';">
             <div class="card-body">
+                <!-- Título de la información -->
                 <h3 id="infoTitle" class="card-title"></h3>
-                <p id="infoBody" class="card-text"></p>
-                <p><strong>Categoría:</strong> <span id="infoCategory"></span></p>
-                <a href="#" class="btn btn-secondary" onclick="history.back();">Volver</a>
+                
+                <!-- Cuerpo del artículo (puede contener HTML) -->
+                <div id="infoBody" class="card-text"></div> 
+
+                <!-- Categoría -->
+                <!--<a href="#" class="btn btn-secondary" onclick="history.back();">Volver</a>-->
             </div>
         </div>
     </div>

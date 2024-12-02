@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', async () => {
     const apiUrl = 'https://apijusticelaw-production.up.railway.app/v1/informations';
-    const areasUrl = 'https://apijusticelaw-production.up.railway.app/v1/areas';
+    const categoriesUrl = 'https://apijusticelaw-production.up.railway.app/v1/forumCategories'; // URL de categorías
     const container = document.getElementById('informationContainer');
     const errorMessage = document.getElementById('errorMessage');
     const modal = document.getElementById('informationDetail'); // Modal
@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const maxLength = 150; // Máximo número de caracteres para mostrar en el resumen
 
     try {
+        // Obtener las informaciones desde la API
         const response = await fetch(apiUrl);
         if (!response.ok) {
             throw new Error('Error al obtener los datos del servidor.');
@@ -18,18 +19,29 @@ document.addEventListener('DOMContentLoaded', async () => {
             throw new Error('No se encontraron datos.');
         }
 
-        const areasResponse = await fetch(areasUrl);
-        if (!areasResponse.ok) {
-            throw new Error('Error al obtener las áreas.');
+        // Obtener las categorías desde la API
+        const categoriesResponse = await fetch(categoriesUrl);
+        if (!categoriesResponse.ok) {
+            throw new Error('Error al obtener las categorías.');
         }
-        const areas = await areasResponse.json();
+        const categories = await categoriesResponse.json();
 
+        console.log('Categorías obtenidas:', categories); // Verifica las categorías obtenidas
+
+        // Iterar sobre cada información para mostrar sus detalles
         informations.forEach(info => {
-            let areaName = 'Sin categoría'; // Valor por defecto
-            if (info.area_id) {
-                const area = areas.find(area => area.id === info.area_id);
-                if (area) {
-                    areaName = area.name;
+            let categoryName = 'Sin categoría'; // Valor por defecto
+            console.log('Info Category:', info.category); // Verifica el campo category
+
+            if (info.category) {
+                // Asegurarse que 'info.category' sea un número y compararlo correctamente con 'category.id'
+                const categoryId = parseInt(info.category, 10);
+                const category = categories.find(category => category.id === categoryId);
+                if (category) {
+                    categoryName = category.name; // Obtener el nombre de la categoría
+                    console.log(`Categoría encontrada: ${categoryName}`);
+                } else {
+                    console.log(`Categoría no encontrada para ID ${categoryId}`);
                 }
             }
 
@@ -52,7 +64,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 <div class="informacion-texto">
                     <h3>${info.name || 'Sin nombre'}</h3>
                     <p>${shortText}</p>
-                    <p><strong>Categoría:</strong> ${areaName}</p>
+                    <p><strong>Categoría:</strong> ${categoryName}</p> <!-- Aquí mostramos el nombre de la categoría -->
                     <a href="#" class="leer-mas-btn" data-id="${info.id}">Leer más</a>
                 </div>
             `;
@@ -66,7 +78,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 event.preventDefault(); // Evitar la redirección del enlace
 
                 const infoId = readMoreButton.getAttribute('data-id'); // Obtener el ID de la información
-               try {
+                try {
                     // Obtener los detalles de la información por ID
                     const infoResponse = await fetch(`${apiUrl}/${infoId}`);
                     if (!infoResponse.ok) {
@@ -89,17 +101,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                     modalImage.alt = data.name || 'Imagen no disponible';
 
                     modalImage.onerror = function () {
-                        console.error('Error al cargar la imagen:', this.src);
-                        this.onerror = null; // Prevenir bucles infinitos
+                        console.error('Error al cargar la imagen desde:', this.src);  // Muestra la URL que está fallando
+                        this.onerror = null; // Prevenir bucles infinitos de error
                         this.src = '../../img/placeholder.png'; // Usar imagen de respaldo
                     };
 
                     // Configurar el resto de los detalles del modal
                     document.getElementById('infoTitle').textContent = data.name || 'Sin título';
                     document.getElementById('infoBody').textContent = data.body || 'No hay contenido disponible.';
-                    document.getElementById('infoCategory').textContent = data.category
-                        ? data.category.name
-                        : 'Sin categoría';
 
                     // Mostrar el modal
                     modal.style.display = 'flex';
@@ -109,7 +118,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                     errorMessage.textContent = error.message;
                     errorMessage.style.display = 'block';
                 }
-
             });
         });
 

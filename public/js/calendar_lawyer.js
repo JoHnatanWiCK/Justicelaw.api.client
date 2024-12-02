@@ -149,6 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const closeModalBtn = document.querySelector(".close");
     const saveBtn = document.querySelector(".save");
 
+    // Mostrar el modal al hacer clic en "Editar disponibilidad asesoría"
     document.querySelectorAll(".edit-availability-option").forEach(button => {
         button.onclick = function () {
             modal.style.display = "block";
@@ -177,8 +178,23 @@ document.addEventListener("DOMContentLoaded", function () {
         modal.style.display = "none";
     };
 
-    document.querySelectorAll(".delete-availability-option").forEach(button => {
-        button.addEventListener("click", function () {
+    // Funcionalidad para abrir el modal al hacer clic en un evento vacío (vacio)
+    document.querySelectorAll('.event.vacio').forEach(event => {
+        event.addEventListener('click', function () {
+            // Verifica que el evento esté vacío antes de abrir el modal
+            if (this.classList.contains('vacio')) {
+                modal.style.display = "block";
+                const modalDateDisplay = document.getElementById("modalDateDisplay");
+                if (modalDateDisplay) {
+                    modalDateDisplay.innerText = ` ${formatSelectedDate(selectedDate) || "Ninguna"}`;
+                }
+            }
+        });
+    });
+
+    // Manejo de clic en la opción "Eliminar Disponibilidad" dentro del modal
+    document.querySelectorAll('.delete-availability-option').forEach(button => {
+        button.addEventListener('click', function () {
             const event = this.closest('.event');
             if (event) {
                 event.classList.remove('ocupado');

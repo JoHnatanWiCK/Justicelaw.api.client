@@ -163,7 +163,9 @@
                             </select>
                         </div>
                     </div>
-                    <button class="add-availability">+ Agregar una nueva disponibilidad</button>
+
+                    <form id="" action="{{ route('api.v1.dates.store') }}" method="POST">
+            
                     <div class="notification">
                         <img src="../../img/camapana.png" class="hora-icon" alt="Hora">
                         <label class="notificar-text">Notificar</label>
@@ -175,8 +177,11 @@
                     </div>
 
                     
-                </div>
-                <button class="save">Guardar</button>
+                     </div>
+                        <button class="save" type="submit">Guardar</button>
+
+                            
+                </form>
             </div>
         </div>
     </div>

@@ -53,7 +53,7 @@
         </div>
 
         <!-- Contenedor vacío para las notificaciones -->
-        <div class="notifications-list">
+        <div id="notifications-list">
             <!-- Las notificaciones serán inyectadas aquí dinámicamente con JavaScript -->
         </div>
 

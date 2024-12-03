@@ -70,17 +70,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Función para dar "Me gusta" a una notificación
     async function toggleLike(notificationId, corazon) {
         try {
-            const token = getToken(); // Obtén el token del localStorage
-
-            if (!token) {
-                alert('No se ha encontrado el token de autenticación. Por favor, inicie sesión nuevamente.');
-                return;
-            }
-
-            const response = await fetch(`${baseUrl}/auth/notifications/${notificationId}/like`, {
+            const response = await fetch(`${baseUrl}/notifications/${notificationId}/like`, {
                 method: 'POST',
                 headers: {
-                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
             });
@@ -104,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Función para manejar acciones en notificaciones
     async function fetchNotificationsAction(action, notificationId = null) {
-        let url = `${baseUrl}/auth/notifications`;
+        let url = `${baseUrl}/notifications`;
 
         if (notificationId) {
             url = `${url}/${notificationId}`;
@@ -118,21 +110,18 @@ document.addEventListener('DOMContentLoaded', function () {
             deleteAll: 'DELETE'
         }[action] || 'POST';
 
+        let body = null;
+        if (action === 'markAsRead' || action === 'archive' || action === 'delete') {
+            body = JSON.stringify({ action });
+        }
+
         try {
-            const token = getToken(); // Obtén el token del localStorage
-
-            if (!token) {
-                alert('No se ha encontrado el token de autenticación. Por favor, inicie sesión nuevamente.');
-                return;
-            }
-
             const response = await fetch(url, {
                 method: method,
                 headers: {
-                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
-                body: notificationId ? JSON.stringify({ action }) : null,
+                body: body,
             });
 
             if (!response.ok) {
@@ -157,16 +146,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const notificationsList = document.querySelector('.notifications-list');
 
         try {
-            const token = getToken(); // Obtén el token del localStorage
-
-            if (!token) {
-                alert('No se ha encontrado el token de autenticación. Por favor, inicie sesión nuevamente.');
-                return;
-            }
-
-            const response = await fetch(`${baseUrl}/auth/notifications`, {
+            const response = await fetch(`${baseUrl}/notifications`, {
                 headers: {
-                    'Authorization': `Bearer ${token}`,
                     'Content-Type': 'application/json',
                 },
             });
@@ -218,13 +199,6 @@ document.addEventListener('DOMContentLoaded', function () {
         } catch (error) {
             console.error('Error al renderizar notificaciones:', error);
         }
-    }
-
-    // Función para obtener el token de localStorage
-    function getToken() {
-        const token = localStorage.getItem('token');
-        console.log('Token obtenido:', token); // Verifica si el token está presente
-        return token;
     }
 
     // Inicializar la lista de notificaciones

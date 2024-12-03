@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class AnswerController extends Controller
 {
@@ -41,21 +42,29 @@ class AnswerController extends Controller
             'lawyer_id' => 'required|integer',
             'question_id' => 'required|integer',
             'date_publication' => 'required|date',
-
+            'archive' => 'nullable|string|max:255',
 
         ]);
         $validatedData['date_publication'] = Carbon::parse($validatedData['date_publication'])->toDateString();
+        $validatedData['lawyer_id'] = (int) $validatedData['lawyer_id'];
+        $validatedData['question_id'] = (int) $validatedData['question_id'];
+
+        // dd($validatedData);
+        Log::info('Datos enviados a la API', $validatedData);
 
 
         // Enviar los datos a la API usando Http::post
-        $response = Http::post('https://apijusticelaw-production.up.railway.app/v1/anwers', [
+        $response = Http::post('https://apijusticelaw-production.up.railway.app/v1/answers', [
             'content' => $validatedData['content'],
             'lawyer_id' => $validatedData['lawyer_id'],
-
             'question_id' => $validatedData['question_id'],
-+            'date_publication' => $validatedData['date_publication']
+            'date_publication' => $validatedData['date_publication'],
+            'archive' => $validatedData['archive'] ?? null,
 
-        ]);           
+        ]);
+
+
+
 
         // Manejar la respuesta de la API
         if ($response->successful()) {
@@ -77,7 +86,7 @@ class AnswerController extends Controller
         $answer = $this->fetchDataFromApi($url . '/answers/' . $id);
 
         return $answer;
-        
+
         // return view('categories.show', compact('typeDocument'));
     }
 

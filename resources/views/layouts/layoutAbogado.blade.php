@@ -33,7 +33,7 @@
         <nav class="nav-links">
             <a id="about-us" href="{{route('sobreNosotrosAbogado')}}">Sobre nosotros</a>
             <a id="informaciones" href="{{ route('infoAbogado')}}">Informaciones</a>
-            <a id="foro" href="{{ route('forologin')}}">Foro</a>
+            <a id="foro" href="{{ route('forologinlawyer')}}">Foro</a>
         </nav>
         <div class="user-menu">
             <img class="img-perfil" id="fotoPerfilLayout" src="../../img/fotoPerfil.png" alt="foto de Perfil" />

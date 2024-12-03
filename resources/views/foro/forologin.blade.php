@@ -185,9 +185,9 @@
 
                 <div class="profile">
                     <img src="../../img/fotoPerfil.png" class="fotoperfil" alt="Foto de perfil" />
-                    @foreach ($users as $user)
-                        @if ($q['user_id'] == $user['id'])
-                            <span class="name_user"> {{ $user['name'] }} {{ $user['last_name'] }}</span>
+                    @foreach ($users as $use)
+                        @if ($q['user_id'] == $use['id'])
+                            <span class="name_user"> {{ $use['name'] }} {{ $use['last_name'] }}</span>
                         @endif
                     @endforeach
                 </div>
@@ -201,13 +201,21 @@
                             @endif
                         @endforeach
                         <span class="date">{{ $q['date_publication'] }}</span>
+                        
+
                         <br>
                         <div class="actions">
                         <button class="like-btn" data-id="{{ $q['id'] }}"><i class="fa-regular fa-thumbs-up"></i> (<span id="likes-{{ $q['id'] }}">{{ $q['likes'] ?? 0 }}</span>)</button>
                         <button class="dislike-btn" data-id="{{ $q['id'] }}"><i class="fa-regular fa-thumbs-down"></i> (<span id="dislikes-{{ $q['id'] }}">{{ $q['dislikes'] ?? 0 }}</span>)</button>
-                            <a href="#" class="link" onclick="showModal('{{ $q['id'] }}', '{{ $q['affair'] }}', '{{ $q['content'] }}', '{{ $q['date_publication'] }}','{{ $user['name'] }}','{{ $user['last_name'] }}')">Ver respuestas</a>
 
-           
+                        @foreach ($users as $use)
+                        @if ($q['user_id'] == $use['id'])
+                        <span class="" style="display: none;"> {{ $use['name'] }} {{ $use['last_name'] }}</span>
+
+                        <a href="#" class="link" onclick="showModal('{{ $q['id'] }}', '{{ $q['affair'] }}', '{{ $q['content'] }}', '{{ $q['date_publication'] }}','{{ $use['name'] }}','{{ $use['last_name'] }}')">Ver respuestas</a>
+
+                        @endif
+                    @endforeach 
                          </div>      
       </div>
                 </div>
@@ -249,7 +257,6 @@
 
                 <form id="answerForm" action="{{ route('api.v1.answers.store') }}" method="POST">
                 @csrf 
-                @foreach($lawyers as $abo)
                 <div class="new-answer-section">
                     <h4>Escribe tu respuesta:</h4>
                     <span id="lawyerid" style="display:;">0</span>
@@ -257,7 +264,6 @@
                     <textarea id="new-answer" placeholder="Escribe aquí tu respuesta..."></textarea>
                     <button onclick="submitAnswer()">Responder</button>
                 </div>
-                @endforeach
             </form>
                
             </div>
@@ -292,3 +298,5 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="{{ asset('js/Forologin.js') }}"></script>
 @endpush
+
+

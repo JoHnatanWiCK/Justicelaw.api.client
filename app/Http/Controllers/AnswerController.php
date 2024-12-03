@@ -2,17 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 
 class AnswerController extends Controller
 {
-
-    private function fetchDataFromApi($url)
-    {
-        $response = Http::get($url);
-        return $response->json();
-    }
 
     /**
      * Display a listing of the resource.
@@ -41,7 +36,35 @@ class AnswerController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $validatedData = $request->validate([
+            'content' => 'required|string|max:255',
+            'lawyer_id' => 'required|integer',
+            'question_id' => 'required|integer',
+            'date_publication' => 'required|date',
+
+
+        ]);
+        $validatedData['date_publication'] = Carbon::parse($validatedData['date_publication'])->toDateString();
+
+
+        // Enviar los datos a la API usando Http::post
+        $response = Http::post('https://apijusticelaw-production.up.railway.app/v1/anwers', [
+            'content' => $validatedData['content'],
+            'lawyer_id' => $validatedData['lawyer_id'],
+
+            'question_id' => $validatedData['question_id'],
++            'date_publication' => $validatedData['date_publication']
+
+        ]);           
+
+        // Manejar la respuesta de la API
+        if ($response->successful()) {
+            // Redirigir con mensaje de éxito
+            return redirect()->back()->with('success', 'Pregunta creada exitosamente');
+        } else {
+            // Manejar el error (puedes personalizar este mensaje)
+            return redirect()->back()->withErrors(['message' => 'Error al crear la pregunta']);
+        }
     }
 
     /**

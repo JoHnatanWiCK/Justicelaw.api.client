@@ -1,6 +1,6 @@
-@extends('layouts.layout')
+@extends('layouts.layoutAbogado')
 
-@section('title', 'Foro')
+@section('title', 'forolawyer')
 
 @section('nav')
 @endsection
@@ -30,7 +30,7 @@
             <form id="questionForm" action="{{ route('api.v1.questions.store') }}" method="POST">
                 @csrf
                 <input type="text" name="affair" placeholder="Asunto:" required />
-                <input type="date" id="dateInput" name="date_publication" style="display: none;" required>
+                <input type="date" id="dateInput" name="date_publication" style="display: ;" required>
 
                 <span id="userid" style="display: none;"></span>
                 <input type="number" id="userInput" name="user_id" style="display: none;" >
@@ -42,7 +42,7 @@
                 </select>
                 <button type="submit">Publicar</button>
             </form>
-        </div>    
+        </div>
     </div>
 
 <div class="conteiner-infos">
@@ -142,7 +142,7 @@
 
  <header class="header">
 <!-- Barra de tareas -->
-   
+
    <!-- Filtro -->
    <div class="filter-bar">
         <label for="category-filter">Filtrar por categoría:</label>
@@ -163,10 +163,10 @@
             <div class="results" id="results"></div>
 
         </div>
-   
+
         <button class="create-post-btns" onclick="openTaskModal()">Crear Publicación</button>
 
-    
+
 
 
  </header>
@@ -175,7 +175,7 @@
 
 
     <div class="cards-scroll">
-        <div class="cards-container">
+    <div class="cards-container">
             @foreach ($pquestions as $q)
                 @foreach ($users as $user)
                     @if ($q['user_id'] == $user['id'])
@@ -201,20 +201,21 @@
                             @endif
                         @endforeach
                         <span class="date">{{ $q['date_publication'] }}</span>
+                        
+
                         <br>
                         <div class="actions">
                         <button class="like-btn" data-id="{{ $q['id'] }}"><i class="fa-regular fa-thumbs-up"></i> (<span id="likes-{{ $q['id'] }}">{{ $q['likes'] ?? 0 }}</span>)</button>
                         <button class="dislike-btn" data-id="{{ $q['id'] }}"><i class="fa-regular fa-thumbs-down"></i> (<span id="dislikes-{{ $q['id'] }}">{{ $q['dislikes'] ?? 0 }}</span>)</button>
+
                         @foreach ($users as $use)
                         @if ($q['user_id'] == $use['id'])
-                        <span class="name_user" style="display: none;"> {{ $use['name'] }} {{ $use['last_name'] }}</span>
+                        <span class="" style="display: none;"> {{ $use['name'] }} {{ $use['last_name'] }}</span>
 
                         <a href="#" class="link" onclick="showModal('{{ $q['id'] }}', '{{ $q['affair'] }}', '{{ $q['content'] }}', '{{ $q['date_publication'] }}','{{ $use['name'] }}','{{ $use['last_name'] }}')">Ver respuestas</a>
 
                         @endif
-                    @endforeach    
-
-           
+                    @endforeach 
                          </div>      
       </div>
                 </div>
@@ -222,9 +223,9 @@
             @endforeach
         </div>
 
-        <div id="answers" class="modal" style="display: none;">
+        <div id="respuestas" class="modal" style="display: none;">
             <div class="modal-content">
-                <span class="close-button" onclick="closeModal()">×</span>
+                <span class="close-button" onclick="closeModala()">×</span>
                 <div class="profile">
                     <img src="../../img/fotoPerfil.png" class="fotoperfil" alt="Foto de perfil" />
                     <span class="name_user" id="modal-user"></span>
@@ -240,7 +241,9 @@
                             <div class="user-details">
                                 @foreach ($lawyers as $lawyer)
                                     @if ($a['lawyer_id'] == $lawyer['id'])
+                                    <a href="javascript:void(0);" class="name-link" data-lawyer-id="{{ $lawyer['id'] }}">
                                         <strong class="response-date">{{ $lawyer['name'] }} {{ $lawyer['last_names'] }}</strong>
+                                    </a>
                                     @endif
                                 @endforeach
                             </div>
@@ -250,11 +253,29 @@
                         <span class="date-1">{{ $a['date_publication'] }}</span>
                     </div>
                 @endforeach
+
+
                 <div class="new-answer-section">
-                    <h4>Escribe tu respuesta:</h4>
-                    <textarea id="new-answer" placeholder="Escribe aquí tu respuesta..."></textarea>
-                    <button onclick="submitAnswer()">Responder</button>
+                <h4>Escribe tu respuesta:</h4>
+
+                <form id="answerForm" action="{{ route('api.v1.answers.store') }}" method="POST">
+                @csrf 
+
+                    <textarea id="new-answer" placeholder="Escribe aquí tu respuesta..." name="content"></textarea>
+
+
+                    <span id="questionid" style="display:none;"  >0</span>
+                    <input type="number" id="questionInput" name="question_id" style="display: ;" >
+
+                    <span id="lawyerid" style="display:;">0</span>
+                    <input type="number" id="lawyerInput" name="lawyer_id" style="display: ;" >
+                    <input type="date" id="dateInput" name="date_publication" style="display: ;" required>
+
+                    <button type="submit">Publicar</button>
+                    </form>
+
                 </div>
+               
             </div>
         </div>
 
@@ -285,5 +306,8 @@
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="{{ asset('js/foro.js') }}"></script>
+<script src="{{ asset('js/forolawyer.js') }}"></script>
 @endpush
+
+
+layoutAbogado

@@ -238,4 +238,51 @@ public function indexlogin()
     {
         //
     }
+
+
+
+
+
+
+
+    public function indexlogins()
+    {
+        $url = env('URL_SERVER_API');
+    
+        // Obtener datos desde la API
+        $questions = $this->fetchDataFromApi($url . '/questions');
+        $answers = $this->fetchDataFromApi($url . '/answers');
+        $users = $this->fetchDataFromApi($url . '/users');
+        $lawyers = $this->fetchDataFromApi($url . '/lawyers');
+        $categories = $this->fetchDataFromApi($url . '/forumCategories');
+    
+        // Convertir los arrays a colecciones
+        $questions = collect($questions);
+    
+        // Asegurar que las fechas sean interpretadas correctamente
+        $questions = $questions->map(function ($question) {
+            $question['created_at'] = \Carbon\Carbon::parse($question['created_at']);
+            return $question;
+        });
+    
+        // Ordenar las preguntas por `created_at` en orden descendente
+        $questions = $questions->sortByDesc('created_at')->values();
+    
+        // Configurar la paginación
+        $perPage = 9; // Número de elementos por página
+        $currentPage = request()->input('page', 1); // Obtener la página actual
+        $pagedData = $questions->forPage($currentPage, $perPage); // Dividir los datos
+    
+        $pquestions = new \Illuminate\Pagination\LengthAwarePaginator(
+            $pagedData->values(), // Asegurar que los índices estén bien configurados
+            $questions->count(),
+            $perPage,
+            $currentPage,
+            ['path' => request()->url()]
+        );
+    
+        // Pasar datos a la vista
+        return view('foro.forologinlawyer', compact('pquestions', 'answers', 'users', 'categories', 'lawyers'));
+    }
+
 }

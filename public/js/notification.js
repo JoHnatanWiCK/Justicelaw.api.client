@@ -1,5 +1,5 @@
 // URL base para las notificaciones
-const baseUrl = 'https://apijusticelaw-production.up.railway.app/v1';
+const baseUrl = 'https://apijusticelaw-production.up.railway.app/v1/notifications';
 
 // Función para inicializar el DOM
 document.addEventListener('DOMContentLoaded', function () {
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Función para dar "Me gusta" a una notificación
     async function toggleLike(notificationId, corazon) {
         try {
-            const response = await fetch(`${baseUrl}/notifications/${notificationId}/like`, {
+            const response = await fetch(`${baseUrl}/${notificationId}/like`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Función para manejar acciones en notificaciones
     async function fetchNotificationsAction(action, notificationId = null) {
-        let url = `${baseUrl}/notifications`;
+        let url = baseUrl;
 
         if (notificationId) {
             url = `${url}/${notificationId}`;
@@ -146,17 +146,20 @@ document.addEventListener('DOMContentLoaded', function () {
         const notificationsList = document.querySelector('.notifications-list');
 
         try {
-            const response = await fetch(`${baseUrl}/notifications`, {
+            const response = await fetch(baseUrl, {
                 headers: {
                     'Content-Type': 'application/json',
                 },
             });
 
+            const responseText = await response.text();
+            console.log('Respuesta del servidor:', responseText);
+
             if (!response.ok) {
                 throw new Error(`Error al obtener las notificaciones: ${response.statusText}`);
             }
 
-            const notifications = await response.json();
+            const notifications = JSON.parse(responseText);
             console.log('Notificaciones obtenidas:', notifications); // Verifica el contenido de la respuesta
 
             notificationsList.innerHTML = ''; // Limpia la lista actual

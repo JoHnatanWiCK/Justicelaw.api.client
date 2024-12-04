@@ -540,6 +540,9 @@ Route::get('foro', [QuestionController::class, 'index'])->name('foro');
 
 
 
+Route::get('forolawyer', [QuestionController::class, 'indexlogins'])->name('forologinlawyer');
+
+
 Route::get('questions', [QuestionController::class, 'index'])->name('api.v1.questions.index');
 Route::post('questions', [QuestionController::class, 'store'])->name('api.v1.questions.store');
 Route::get('questions/{question}', [QuestionController::class, 'show'])->name('api.v1.questions.show');
@@ -587,3 +590,5 @@ Route::get('/adminInfo', function () {
 Route::get('/infoIndex/{id}', function ($id) {
     return view('informacion.InfoIndex', compact('id'));
 })->name('infoIndex');
+
+

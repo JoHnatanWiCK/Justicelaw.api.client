@@ -64,8 +64,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 function showModal(id, title, content, date,user,last) {
-    document.getElementById('answers').style.display = 'flex';
-    
+    const modal = document.getElementById("answers");
+    modal.style.display = "block";    
 
     document.getElementById('modal-user').innerText = user+" "+last;
     document.getElementById('modal-title').innerText = title;
@@ -143,63 +143,6 @@ const formattedDate = today.toISOString().split('T')[0];
 dateInput.value = formattedDate;
 
 
-
-
-document.addEventListener('DOMContentLoaded', async () => {
-
-
-
-
-    console.log('Script cargado y DOM completamente cargado');
-
-    const userNameElement = document.getElementById('userid');
-
-    const token = localStorage.getItem('token');
-
-    if (!token) {
-        console.error('Token no encontrado. Asegúrate de que el usuario esté autenticado.');
-        return;
-    }
-
-    try {
-        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/auth/me', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json',
-            },
-        });
-
-        if (!response.ok) {
-            if (response.status === 401) {
-
-                console.error('Tu sesión ha expirado. Debes iniciar sesión nuevamente.');
-                return;
-            } else {
-                throw new Error('Error al obtener datos del usuario');
-            }
-        } else {
-            const data = await response.json();
-            console.log('Datos del usuario:', data);
-
-            
-            const { id,name, last_name, rol, email } = data;
-
-            
-                userNameElement.textContent = `${id} `;
-                const userInput = document.getElementById('userInput');
-                userInput.value = userNameElement.textContent.trim();
-                userRolElement.textContent = rol || 'Usuario';
-                userNameInput.value = `${name}`;
-                lastNameInput.value = `${last_name}`;
-                emailInput.value = `${email}`;
-          
-          
-        }
-    } catch (error) {
-        console.error('Error:', error.message);
-    }
-});
 
 
 

@@ -1,12 +1,21 @@
 // URL base para las notificaciones
 const baseUrl = 'https://apijusticelaw-production.up.railway.app/v1/notifications';
 
+// Función para obtener el token de autenticación
+function getAuthToken() {
+    const token = localStorage.getItem('token');
+    if (!token) {
+        alert('No se encontró el token de autenticación. Por favor, inicie sesión.');
+        window.location.href = '/login'; // Redirige al usuario a la página de login.
+        return null;
+    }
+    return token;
+}
+
 // Función para inicializar el DOM
 document.addEventListener('DOMContentLoaded', function () {
-    const corazones = document.querySelectorAll('.corazon');
-
     // Manejo del evento de "Me gusta"
-    corazones.forEach(corazon => {
+    document.querySelectorAll('.corazon').forEach(corazon => {
         corazon.addEventListener('click', function () {
             const notificationId = corazon.closest('.notification').getAttribute('data-id');
             toggleLike(notificationId, corazon);
@@ -14,9 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     // Manejo de dropdowns
-    const dropdowns = document.querySelectorAll('.user-menu1, .user-menu2');
-
-    dropdowns.forEach(menu => {
+    document.querySelectorAll('.user-menu1, .user-menu2').forEach(menu => {
         const toggleButton = menu.querySelector('label');
         const dropdown = menu.querySelector('.dropdown1, .dropdown2');
 
@@ -27,17 +34,18 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    function closeAllDropdowns() {
-        document.querySelectorAll('.dropdown1, .dropdown2').forEach(dropdown => {
-            dropdown.classList.remove('active');
-        });
-    }
-
+    // Cierra todos los dropdowns cuando se hace clic fuera de ellos
     document.addEventListener('click', function (event) {
         if (!event.target.closest('.user-menu1') && !event.target.closest('.user-menu2')) {
             closeAllDropdowns();
         }
     });
+
+    function closeAllDropdowns() {
+        document.querySelectorAll('.dropdown1, .dropdown2').forEach(dropdown => {
+            dropdown.classList.remove('active');
+        });
+    }
 
     // Función para mostrar mensajes de éxito
     function showSuccessMessage(action) {
@@ -56,14 +64,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Botones de acciones globales
-    const marcarTodoLeido = document.querySelector('#marcarTodoLeido');
-    const archivarTodo = document.querySelector('#archivarTodo');
-
-    marcarTodoLeido.addEventListener('click', function () {
+    document.querySelector('#marcarTodoLeido').addEventListener('click', function () {
         fetchNotificationsAction('markAllAsRead');
     });
 
-    archivarTodo.addEventListener('click', function () {
+    document.querySelector('#archivarTodo').addEventListener('click', function () {
         fetchNotificationsAction('archiveAll');
     });
 
@@ -74,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${getAuthToken()}`,
                 },
             });
 
@@ -81,14 +87,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 throw new Error('Error al intentar dar me gusta');
             }
 
-            const result = await response.json();
-
             // Cambia el ícono de "Me gusta"
             corazon.src = corazon.src.includes('Like.png') 
                 ? '../../img/Like2.png' 
                 : '../../img/Like.png';
 
-            console.log(result.message);
         } catch (error) {
             console.error('Error al manejar el me gusta:', error);
         }
@@ -111,7 +114,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }[action] || 'POST';
 
         let body = null;
-        if (action === 'markAsRead' || action === 'archive' || action === 'delete') {
+        if (['markAsRead', 'archive', 'delete'].includes(action)) {
             body = JSON.stringify({ action });
         }
 
@@ -120,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 method: method,
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${getAuthToken()}`,
                 },
                 body: body,
             });
@@ -128,11 +132,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 throw new Error(`Error al realizar la acción: ${action}`);
             }
 
-            const message = 
-                action === 'markAllAsRead' ? 'todas marcadas como leídas' :
-                action === 'archiveAll' ? 'todas archivadas' :
-                action === 'deleteAll' ? 'todas eliminadas' :
-                'realizada';
+            const message = {
+                'markAllAsRead': 'todas marcadas como leídas',
+                'archiveAll': 'todas archivadas',
+                'deleteAll': 'todas eliminadas'
+            }[action] || 'realizada';
 
             showSuccessMessage(message);
             fetchAndRenderNotifications(); // Actualiza las notificaciones
@@ -144,61 +148,66 @@ document.addEventListener('DOMContentLoaded', function () {
     // Renderizar notificaciones desde la base de datos
     async function fetchAndRenderNotifications() {
         const notificationsList = document.querySelector('.notifications-list');
-
+    
         try {
             const response = await fetch(baseUrl, {
                 headers: {
                     'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${getAuthToken()}`,
                 },
             });
-
-            const responseText = await response.text();
-            console.log('Respuesta del servidor:', responseText);
-
+    
             if (!response.ok) {
                 throw new Error(`Error al obtener las notificaciones: ${response.statusText}`);
             }
-
-            const notifications = JSON.parse(responseText);
-            console.log('Notificaciones obtenidas:', notifications); // Verifica el contenido de la respuesta
-
-            notificationsList.innerHTML = ''; // Limpia la lista actual
-
-            notifications.forEach(notification => {
-                const notificationElement = document.createElement('div');
-                notificationElement.className = `notification ${notification.read_at ? '' : 'unread'} container2`;
-                notificationElement.setAttribute('data-id', notification.id);
-
-                notificationElement.innerHTML = `
-                    <img class="img-perfil" src="../../img/fotoPerfil.png" alt="perfil">
-                    <a href="${notification.data.url || '#'}">${notification.data.message || 'Notificación sin mensaje'}</a>
-                    <img class="corazon" src="../../img/Like.png" alt="Like">
-                    <div class="user-menu2">
-                        <label class="dropdown-toggle">
-                            <img class="img-3puntos" src="../../img/trespuntos.png" alt="Opciones">
-                        </label>
-                        <div class="dropdown2">
-                            <ul>
-                                <li><a href="#" data-action="markAsRead">Marcar como leído</a></li>
-                                <li><a href="#" data-action="archive">Archivar</a></li>
-                                <li><a href="#" data-action="delete">Eliminar</a></li>
-                            </ul>
+    
+            const data = await response.json();
+            console.log('Datos obtenidos:', data); // Para ver la respuesta completa
+    
+            // Accede al array de notificaciones dentro de la propiedad 'notifications'
+            const notifications = data.notifications;
+    
+            if (Array.isArray(notifications)) {
+                notificationsList.innerHTML = ''; // Limpia la lista actual
+    
+                notifications.forEach(notification => {
+                    const notificationElement = document.createElement('div');
+                    notificationElement.className = `notification ${notification.read_at ? '' : 'unread'} container2`;
+                    notificationElement.setAttribute('data-id', notification.id);
+    
+                    notificationElement.innerHTML = `
+                        <img class="img-perfil" src="../../img/fotoPerfil.png" alt="perfil">
+                        <a href="${notification.data.url || '#'}">${notification.data.message || 'Notificación sin mensaje'}</a>
+                        <img class="corazon" src="../../img/Like.png" alt="Like">
+                        <div class="user-menu2">
+                            <label class="dropdown-toggle">
+                                <img class="img-3puntos" src="../../img/trespuntos.png" alt="Opciones">
+                            </label>
+                            <div class="dropdown2">
+                                <ul>
+                                    <li><a href="#" data-action="markAsRead">Marcar como leído</a></li>
+                                    <li><a href="#" data-action="archive">Archivar</a></li>
+                                    <li><a href="#" data-action="delete">Eliminar</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                `;
-
-                notificationsList.appendChild(notificationElement);
-
-                // Agrega eventos a las acciones individuales
-                const actions = notificationElement.querySelectorAll('[data-action]');
-                actions.forEach(actionElement => {
-                    const action = actionElement.dataset.action;
-                    actionElement.addEventListener('click', function (event) {
-                        event.preventDefault();
-                        fetchNotificationsAction(action, notification.id);
+                    `;
+    
+                    notificationsList.appendChild(notificationElement);
+    
+                    // Agrega eventos a las acciones individuales
+                    const actions = notificationElement.querySelectorAll('[data-action]');
+                    actions.forEach(actionElement => {
+                        const action = actionElement.dataset.action;
+                        actionElement.addEventListener('click', function (event) {
+                            event.preventDefault();
+                            fetchNotificationsAction(action, notification.id);
+                        });
                     });
                 });
-            });
+            } else {
+                console.error('La propiedad "notifications" no es un array:', notifications);
+            }
         } catch (error) {
             console.error('Error al renderizar notificaciones:', error);
         }
@@ -206,4 +215,5 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Inicializar la lista de notificaciones
     fetchAndRenderNotifications();
+    
 });

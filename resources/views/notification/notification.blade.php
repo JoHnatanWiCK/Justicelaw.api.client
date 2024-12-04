@@ -53,9 +53,7 @@
         </div>
 
         <!-- Contenedor vacío para las notificaciones -->
-        <div id="notifications-list">
-            <!-- Las notificaciones serán inyectadas aquí dinámicamente con JavaScript -->
-        </div>
+        <div class="notifications-list"></div>
 
         <div class="notifications-actions">
             <button id="marcarTodoLeido">Marcar todo como leído</button>

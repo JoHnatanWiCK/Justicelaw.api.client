@@ -136,7 +136,7 @@ hr {
 }
 
 .user-menu2 {
-    
+    display: flex;
     position:relative ;
     align-items: center;
     margin: 0;

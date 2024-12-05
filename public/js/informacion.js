@@ -33,21 +33,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         // Iterar sobre cada información para mostrar sus detalles
         informations.forEach((info) => {
             let categoryName = "Sin categoría"; // Valor por defecto
-            console.log("Info Category:", info.category); // Verifica el campo category
-
             if (info.category) {
-                // Asegurarse que 'info.category' sea un número y compararlo correctamente con 'category.id'
                 const categoryId = parseInt(info.category, 10);
                 const category = categories.find(
                     (category) => category.id === categoryId
                 );
                 if (category) {
-                    categoryName = category.name; // Obtener el nombre de la categoría
-                    console.log(`Categoría encontrada: ${categoryName}`);
-                } else {
-                    console.log(
-                        `Categoría no encontrada para ID ${categoryId}`
-                    );
+                    categoryName = category.name;
                 }
             }
 
@@ -77,7 +69,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                 <div class="informacion-texto">
                     <h3>${info.name || "Sin nombre"}</h3>
                     <p>${shortText}</p>
-                    <p><strong>Categoría:</strong> ${categoryName}</p> <!-- Aquí mostramos el nombre de la categoría -->
+                    <p><strong>Categoría:</strong> ${categoryName}</p>
                     <a href="#" class="leer-mas-btn" data-id="${
                         info.id
                     }">Leer más</a>
@@ -94,6 +86,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 const infoId = readMoreButton.getAttribute("data-id"); // Obtener el ID de la información
                 try {
+                    // Registrar la vista en la base de datos
+                    await registrarVista(infoId);
+
                     // Obtener los detalles de la información por ID
                     const infoResponse = await fetch(`${apiUrl}/${infoId}`);
                     if (!infoResponse.ok) {
@@ -103,35 +98,24 @@ document.addEventListener("DOMContentLoaded", async () => {
                     }
 
                     const fullInfo = await infoResponse.json();
-                    const data = fullInfo.information; // Extraer la información del objeto
+                    const data = fullInfo.information;
 
-                    // **Verificar la URL de la imagen**
-                    console.log("Imagen URL: ", data.cover_photo); 
-
-                   
                     const modalImage = document.getElementById("infoImage");
+                    modalImage.innerHTML = `
+                        <img src="${
+                            info.cover_photo
+                                ? info.cover_photo
+                                : "../../img/placeholder.png"
+                        }" 
+                             alt="${info.name || "Imagen no disponible"}" class="informacion-imagen" 
+                             onerror="this.onerror=null;this.src='../../img/placeholder.png';">
+                    `;
 
-                  
-                    const imageHTML = `
-    <img src="${
-        info.cover_photo ? info.cover_photo : "../../img/placeholder.png"
-    }" 
-                         alt="${
-                             info.name || "Imagen no disponible"
-                         }" class="informacion-imagen" 
-                         onerror="this.onerror=null;this.src='../../img/placeholder.png';">
-`;
-
-                    // Insertar la imagen en el contenedor del modal
-                    modalImage.innerHTML = imageHTML;
-
-                    // Configurar el resto de los detalles del modal
                     document.getElementById("infoTitle").textContent =
                         data.name || "Sin título";
                     document.getElementById("infoBody").textContent =
                         data.body || "No hay contenido disponible.";
 
-                    // Mostrar el modal
                     modal.style.display = "flex";
                     errorMessage.style.display = "none";
                 } catch (error) {
@@ -160,4 +144,34 @@ document.addEventListener("DOMContentLoaded", async () => {
             modal.style.display = "none"; // Ocultar el modal
         }
     });
+
+    // Función para registrar la vista en el backend
+    async function registrarVista(informacionId) {
+        try {
+            const response = await fetch(
+                "https://apijusticelaw-production.up.railway.app/v1/searches",
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        informacion_id: informacionId,
+                        action: "visited", // Acción específica
+                    }),
+                }
+            );
+
+            const data = await response.json();
+            console.log("Respuesta del backend:", data);
+
+            if (!response.ok) {
+                throw new Error(`Error del servidor: ${data.message}`);
+            }
+
+            console.log("Registro de visita exitoso:", data.message);
+        } catch (error) {
+            console.error("Error al registrar la visita:", error);
+        }
+    }
 });

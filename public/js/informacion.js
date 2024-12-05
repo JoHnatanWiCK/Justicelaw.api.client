@@ -28,6 +28,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
         const categories = await categoriesResponse.json();
 
+        console.log("Categorías obtenidas:", categories); // Verifica las categorías obtenidas
+
         // Iterar sobre cada información para mostrar sus detalles
         informations.forEach((info) => {
             let categoryName = "Sin categoría"; // Valor por defecto
@@ -84,6 +86,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
                 const infoId = readMoreButton.getAttribute("data-id"); // Obtener el ID de la información
                 try {
+                    // Registrar la vista en la base de datos
+                    await registrarVista(infoId);
+
                     // Obtener los detalles de la información por ID
                     const infoResponse = await fetch(`${apiUrl}/${infoId}`);
                     if (!infoResponse.ok) {
@@ -95,33 +100,22 @@ document.addEventListener("DOMContentLoaded", async () => {
                     const fullInfo = await infoResponse.json();
                     const data = fullInfo.information;
 
-                    // Registrar la vista en la base de datos
-                    await registrarVista(infoId); // Llamar a la función para registrar la vista
-
                     const modalImage = document.getElementById("infoImage");
-
-                    const imageHTML = `
+                    modalImage.innerHTML = `
                         <img src="${
                             info.cover_photo
                                 ? info.cover_photo
                                 : "../../img/placeholder.png"
                         }" 
-                             alt="${
-                                 info.name || "Imagen no disponible"
-                             }" class="informacion-imagen" 
+                             alt="${info.name || "Imagen no disponible"}" class="informacion-imagen" 
                              onerror="this.onerror=null;this.src='../../img/placeholder.png';">
                     `;
 
-                    // Insertar la imagen en el contenedor del modal
-                    modalImage.innerHTML = imageHTML;
-
-                    // Configurar el resto de los detalles del modal
                     document.getElementById("infoTitle").textContent =
                         data.name || "Sin título";
                     document.getElementById("infoBody").textContent =
                         data.body || "No hay contenido disponible.";
 
-                    // Mostrar el modal
                     modal.style.display = "flex";
                     errorMessage.style.display = "none";
                 } catch (error) {
@@ -151,7 +145,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         }
     });
 
-    // Función para registrar la vista en la tabla searches
+    // Función para registrar la vista en el backend
     async function registrarVista(informacionId) {
         try {
             const response = await fetch(
@@ -163,18 +157,21 @@ document.addEventListener("DOMContentLoaded", async () => {
                     },
                     body: JSON.stringify({
                         informacion_id: informacionId,
-                        action: "view", // Ejemplo: para identificar que es una vista
+                        action: "visited", // Acción específica
                     }),
                 }
             );
 
-            if (!response.ok) {
-                throw new Error("No se pudo registrar la vista.");
-            }
             const data = await response.json();
-            console.log(data.message); // Mensaje de éxito en consola
+            console.log("Respuesta del backend:", data);
+
+            if (!response.ok) {
+                throw new Error(`Error del servidor: ${data.message}`);
+            }
+
+            console.log("Registro de visita exitoso:", data.message);
         } catch (error) {
-            console.error("Error al registrar la vista:", error);
+            console.error("Error al registrar la visita:", error);
         }
     }
 });

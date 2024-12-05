@@ -136,8 +136,8 @@ hr {
 }
 
 .user-menu2 {
-    display: inline-block;
-    position:absolute ;
+    display: flex;
+    position:relative ;
     align-items: center;
     margin: 0;
 }

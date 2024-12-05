@@ -108,19 +108,18 @@ document.addEventListener("DOMContentLoaded", async () => {
                     // **Verificar la URL de la imagen**
                     console.log("Imagen URL: ", data.cover_photo); 
 
-                   
+                    // Registrar la vista en la base de datos
+                    await registrarVista(infoId); // Llamar a la función para registrar la vista
+
                     const modalImage = document.getElementById("infoImage");
 
-                  
                     const imageHTML = `
-    <img src="${
-        info.cover_photo ? info.cover_photo : "../../img/placeholder.png"
-    }" 
-                         alt="${
-                             info.name || "Imagen no disponible"
-                         }" class="informacion-imagen" 
-                         onerror="this.onerror=null;this.src='../../img/placeholder.png';">
-`;
+                        <img src="${
+                            info.cover_photo ? info.cover_photo : "../../img/placeholder.png"
+                        }" 
+                             alt="${info.name || "Imagen no disponible"}" class="informacion-imagen" 
+                             onerror="this.onerror=null;this.src='../../img/placeholder.png';">
+                    `;
 
                     // Insertar la imagen en el contenedor del modal
                     modalImage.innerHTML = imageHTML;
@@ -160,4 +159,28 @@ document.addEventListener("DOMContentLoaded", async () => {
             modal.style.display = "none"; // Ocultar el modal
         }
     });
+
+    // Función para registrar la vista en el backend
+    async function registrarVista(informacionId) {
+        try {
+            const response = await fetch('/registrar-vista', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+                },
+                body: JSON.stringify({
+                    informacion_id: informacionId
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('No se pudo registrar la vista.');
+            }
+            const data = await response.json();
+            console.log(data.message); // Mensaje de éxito en consola
+        } catch (error) {
+            console.error('Error al registrar la vista:', error);
+        }
+    }
 });

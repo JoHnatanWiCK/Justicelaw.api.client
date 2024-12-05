@@ -28,7 +28,6 @@ document.addEventListener('DOMContentLoaded', function () {
         const dropdown = menu.querySelector('.dropdown1, .dropdown2');
 
         toggleButton.addEventListener('click', function (event) {
-            event.preventDefault();
             closeAllDropdowns();
             dropdown.classList.toggle('active');
         });
@@ -98,52 +97,56 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Función para manejar acciones en notificaciones
-    async function fetchNotificationsAction(action, notificationId = null) {
-        let url = baseUrl;
+async function fetchNotificationsAction(action, notificationId = null) {
+    let url = baseUrl;
 
-        if (notificationId) {
-            url = `${url}/${notificationId}`;
-        }
-
-        const method = {
-            markAsRead: 'POST',
-            archive: 'POST',
-            delete: 'DELETE',
-            archiveAll: 'POST',
-            deleteAll: 'DELETE'
-        }[action] || 'POST';
-
-        let body = null;
-        if (['markAsRead', 'archive', 'delete'].includes(action)) {
-            body = JSON.stringify({ action });
-        }
-
-        try {
-            const response = await fetch(url, {
-                method: method,
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Authorization': `Bearer ${getAuthToken()}`,
-                },
-                body: body,
-            });
-
-            if (!response.ok) {
-                throw new Error(`Error al realizar la acción: ${action}`);
-            }
-
-            const message = {
-                'markAllAsRead': 'todas marcadas como leídas',
-                'archiveAll': 'todas archivadas',
-                'deleteAll': 'todas eliminadas'
-            }[action] || 'realizada';
-
-            showSuccessMessage(message);
-            fetchAndRenderNotifications(); // Actualiza las notificaciones
-        } catch (error) {
-            console.error('Error al realizar acción:', error);
-        }
+    if (notificationId) {
+        url = `${url}/${notificationId}`;
     }
+
+    const method = {
+        markAsRead: 'POST', // Ruta POST para marcar como leído
+        archive: 'POST',    // Ruta POST para archivar
+        delete: 'DELETE',   // Ruta DELETE para eliminar
+        archiveAll: 'POST', // Ruta POST para archivar todas
+        deleteAll: 'DELETE' // Ruta DELETE para eliminar todas
+    }[action] || 'POST';
+
+    let body = null;
+    if (['markAsRead', 'archive', 'delete'].includes(action)) {
+        body = JSON.stringify({ action });
+    }
+
+    try {
+        const response = await fetch(url, {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${getAuthToken()}`,
+            },
+            body: body,
+        });
+
+        if (!response.ok) {
+            throw new Error(`Error al realizar la acción: ${action}`);
+        }
+
+        const result = await response.json();
+        console.log('Respuesta de la API:', result);
+
+        const message = {
+            'markAllAsRead': 'todas marcadas como leídas',
+            'archiveAll': 'todas archivadas',
+            'deleteAll': 'todas eliminadas'
+        }[action] || 'realizada';
+
+        showSuccessMessage(message);
+        fetchAndRenderNotifications(); // Actualiza las notificaciones
+    } catch (error) {
+        console.error('Error al realizar acción:', error);
+    }
+}
+
 
     // Renderizar notificaciones desde la base de datos
     async function fetchAndRenderNotifications() {
@@ -215,5 +218,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Inicializar la lista de notificaciones
     fetchAndRenderNotifications();
-    
 });

@@ -87,7 +87,7 @@ hr {
 .notifications-list {
     display: flex;
     flex-direction: column; 
-    align-items: flex-start; 
+     
 }
 
 .notification {
@@ -136,8 +136,8 @@ hr {
 }
 
 .user-menu2 {
-    display: inline-block;
-    position:absolute ;
+    
+    position:relative ;
     align-items: center;
     margin: 0;
 }
@@ -403,10 +403,7 @@ hr {
     .notification,
     .notifications-d,
     .user-menu1,
-    .user-menu2 {
-        flex-direction: column;
-        align-items: flex-start;
-    }
+    
 
     .notifications-actions {
         flex-direction: column;

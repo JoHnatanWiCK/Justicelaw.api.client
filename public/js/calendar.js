@@ -1,223 +1,299 @@
-let currentStartDay = 1;
-let currentMonthIndex = 0;
-let currentYear = 2024;
-let selectedDate = null; // Variable para almacenar la fecha seleccionada
+// Variables globales
+let currentDate = new Date();
+const url = window.location.pathname; // Obtiene la parte de la URL después del dominio
+const lawyerId = url.split('/calendarioAbogado/')[1]; // Divide y toma lo que está después de /calendarioAbogado/
+console.log(lawyerId); // Aquí estará el ID
+let token = localStorage.getItem('token'); // Obtén el token del almacenamiento local o cualquier otro lugar
 
-// Función para guardar en localStorage
-function saveToLocalStorage(key, value) {
-    localStorage.setItem(key, JSON.stringify(value));
-}
+let events = [];
 
-// Función para obtener datos de localStorage
-function getFromLocalStorage(key) {
-    return JSON.parse(localStorage.getItem(key)) || {}; // Si no hay datos, retornar un objeto vacío
-}
 
-// Función para mostrar la fecha seleccionada
-function formatSelectedDate(day, monthIndex, year) {
-    const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-                    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-    return `${day} de ${months[monthIndex]} de ${year}`;
-}
+// Función para obtener las preguntas y respuestas
+async function loadQuestionsAndAnswers() {
+    try {
 
-// Función para renderizar los días
-function renderDays() {
-    const daysContainer = document.querySelector('.days');
-    const monthNameElement = document.getElementById('monthName');
-    daysContainer.innerHTML = '';
 
-    const daysInMonth = new Date(currentYear, currentMonthIndex + 1, 0).getDate();
-    monthNameElement.innerText = getMonthName(currentMonthIndex);
+      const response = await fetch(`https://apijusticelaw-production.up.railway.app/v1/user-questions-with-answers?lawyer_id=${lawyerId}`, {
+        method: 'GET',
+        headers: {
+          'Authorization': `Bearer ${token}`, // Enviar el token en la cabecera Authorization
+          'Content-Type': 'application/json',  // Asegura que el servidor reciba los datos en formato JSON
+        },
+      });
 
-    // Recuperar el estado de ocupación de localStorage
-    const occupiedDays = getFromLocalStorage('occupiedDays'); // Recuperamos los días ocupados
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Preguntas y respuestas obtenidas:', data);
 
-    const prevButton = document.createElement('button');
-    prevButton.id = 'prevDayBtn';
-    prevButton.classList.add('prevBtn');
-    prevButton.innerHTML = '&lt;';
-    prevButton.onclick = () => adjustStartDay('prev');
-    daysContainer.appendChild(prevButton);
+        const modalQuestionSelect = document.getElementById('modalQuestion');
+        const modalAnswerSelect = document.getElementById('modalAnswer');
 
-    for (let i = currentStartDay; i < currentStartDay + 7; i++) {
-        if (i > daysInMonth) break;
+        // Limpiar el select de respuestas
+        modalAnswerSelect.innerHTML = '<option value="">Selecciona una pregunta primero</option>';
 
-        const dayDiv = document.createElement('div');
-        dayDiv.classList.add('day');
+        // Llenar el select de preguntas
+        modalQuestionSelect.innerHTML = '<option value="">Selecciona una pregunta...</option>';
+        data.forEach(question => {
+          const option = document.createElement('option');
+          option.value = question.id;
+          option.textContent = question.affair;  // Muestra el asunto de la pregunta
+          modalQuestionSelect.appendChild(option);
+        });
 
-        const currentDate = `${currentYear}-${String(currentMonthIndex + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
+        // Manejar el cambio de selección en las preguntas
+        // Manejar el cambio de selección en las preguntas
+modalQuestionSelect.addEventListener('change', function() {
+    const selectedQuestionId = modalQuestionSelect.value;
 
-        // Si el día está ocupado, añadir la clase 'ocupado'
-        if (occupiedDays[currentDate]) {
-            dayDiv.classList.add('ocupado');
-            dayDiv.onclick = null; // Deshabilitar clic para los días ocupados
+    // Limpiar el select de respuestas
+    modalAnswerSelect.innerHTML = '<option value="">Selecciona una respuesta...</option>';
+
+    if (selectedQuestionId) {
+      // Buscar la pregunta seleccionada en los datos
+      const selectedQuestion = data.find(question => question.id === parseInt(selectedQuestionId));
+
+      // Verificar que la pregunta y sus respuestas existen
+      if (selectedQuestion && selectedQuestion.answers && selectedQuestion.answers.length > 0) {
+        // Llenar el select de respuestas con las respuestas de la pregunta seleccionada
+        selectedQuestion.answers.forEach(answer => {
+          const option = document.createElement('option');
+          option.value = answer.id;
+          option.textContent = answer.content;  // Asegúrate de que 'content' es el texto correcto para la opción
+          modalAnswerSelect.appendChild(option);
+        });
+      } else {
+        // Si no hay respuestas disponibles
+        modalAnswerSelect.innerHTML = '<option value="">No hay respuestas disponibles</option>';
+      }
+    }
+  });
+
+      } else {
+        const data = await response.json();
+        console.error('Error al obtener las preguntas:', data.message);
+      }
+    } catch (error) {
+      console.error('Error en la solicitud:', error);
+    }
+  }
+
+  // Llamada a la función para cargar las preguntas y respuestas
+  loadQuestionsAndAnswers();
+
+
+  async function getAvailabilities() {
+    try {
+        const response = await fetch(`https://apijusticelaw-production.up.railway.app/v1/calendarioAbogado/${lawyerId}`, {
+            method: 'GET',
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Disponibilidades obtenidas:', data); // Console log para verificar datos
+            events = data.disponibilities.map(avail => ({
+                date: avail.date,
+                startTime: avail.startTime, // Solo se toma el 'startTime'
+                endTime: avail.endTime,     // También se guarda el 'endTime' para mostrar el rango
+                status: avail.state.toLowerCase(),
+                person: "Hora disponible para asesoría"
+            }));
+            generateCalendar();
         } else {
-            // Si el día no está ocupado, permitir la selección
-            dayDiv.onclick = () => {
-                document.querySelectorAll('.day').forEach(day => day.classList.remove('selected'));
-                dayDiv.classList.add('selected');
-                updateSelectedDate(i, currentMonthIndex, currentYear);
-            };
+            const data = await response.json();
+            console.error('Error al obtener disponibilidades:', data.message);
         }
+    } catch (error) {
+        console.error('Error en la solicitud:', error);
+    }
+}
+// Generar el calendario con los días del mes
+function generateCalendar() {
+    const title = document.getElementById("calendarTitle");
+    const calendarGrid = document.querySelector(".calendar-grid");
 
-        dayDiv.innerHTML = `<span class="date">${i}</span><span class="day-name">${getDayName(i)}</span>`;
-        daysContainer.appendChild(dayDiv);
+    // Mostrar el mes y año
+    const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    const currentMonth = currentDate.getMonth();
+    const currentYear = currentDate.getFullYear();
+    title.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+
+    // Limpiar el calendario anterior
+    calendarGrid.innerHTML = "";
+
+    // Fecha actual
+    const firstDay = new Date(currentYear, currentMonth, 1);
+    const lastDay = new Date(currentYear, currentMonth + 1, 0);
+
+    // Calcular el día de la semana en que comienza el mes (0 = Domingo, 1 = Lunes, ..., 6 = Sábado)
+    const firstDayIndex = (firstDay.getDay() + 6) % 7; // Ajustar para que Lunes sea 0
+
+    // Crear los días del calendario
+    for (let i = 0; i < firstDayIndex; i++) {
+        const emptyCell = document.createElement("div");
+        calendarGrid.appendChild(emptyCell);
     }
 
-    const nextButton = document.createElement('button');
-    nextButton.id = 'nextDayBtn';
-    nextButton.classList.add('nextBtn');
-    nextButton.innerHTML = '&gt;';
-    nextButton.onclick = () => adjustStartDay('next');
-    daysContainer.appendChild(nextButton);
-}
+    for (let day = 1; day <= lastDay.getDate(); day++) {
+        const dayCell = document.createElement("div");
+        dayCell.classList.add("day");
+        dayCell.textContent = day;
+        calendarGrid.appendChild(dayCell);
 
-// Función para actualizar la fecha seleccionada
-function updateSelectedDate(day, monthIndex, year) {
-    selectedDate = `${year}-${String(monthIndex + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-    const formattedDate = formatSelectedDate(day, monthIndex, year);
-    document.getElementById("dateDisplay").innerText = formattedDate;
-}
+        const currentFormattedDate = `${currentYear}-${(currentMonth + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
 
-// Función para ajustar el inicio del mes cuando se navega
-function adjustStartDay(direction) {
-    const daysInMonth = new Date(currentYear, currentMonthIndex + 1, 0).getDate();
-    if (direction === "prev") {
-        currentStartDay -= 7;
-        if (currentStartDay < 1) {
-            currentMonthIndex = (currentMonthIndex - 1 + 12) % 12;
-            if (currentMonthIndex === 11) currentYear--;
-            const daysInPrevMonth = new Date(currentYear, currentMonthIndex + 1, 0).getDate();
-            currentStartDay = daysInPrevMonth + currentStartDay;
+        // Marcar la fecha actual como seleccionada solo al cargar la página inicialmente
+        if (day === currentDate.getDate() && currentMonth === new Date().getMonth() && currentYear === new Date().getFullYear()) {
+            dayCell.classList.add("selected");
+            loadAvailableHours(currentFormattedDate);
         }
-    } else {
-        if (currentStartDay + 7 <= daysInMonth) {
-            currentStartDay += 7;
-        } else {
-            currentMonthIndex = (currentMonthIndex + 1) % 12;
-            if (currentMonthIndex === 0) currentYear++;
-            currentStartDay = (currentStartDay + 7) - daysInMonth;
-        }
+
+        dayCell.addEventListener("click", function () {
+            // Quitar la clase 'selected' de todos los días
+            document.querySelectorAll('.day').forEach(d => d.classList.remove('selected'));
+            // Añadir la clase 'selected' al día clicado
+            dayCell.classList.add('selected');
+            loadAvailableHours(currentFormattedDate);
+        });
     }
-    renderDays();
 }
 
-// Función para renderizar los meses
-function renderMonths() {
-    const monthsContainer = document.querySelector('.months');
-    monthsContainer.innerHTML = '';
 
-    const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
-                    "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+function loadAvailableHours(date) {
+    const availableHoursList = document.getElementById("availableHoursList");
+    availableHoursList.innerHTML = ""; // Limpiar horas anteriores
 
-    for (let i = 0; i <= 6; i++) {
-        const monthDiv = document.createElement('div');
-        monthDiv.id = `month${i}`;
-        monthDiv.innerText = months[(currentMonthIndex + i) % 12];
-        monthsContainer.appendChild(monthDiv);
-    }
+    const dayEvents = events.filter(event => event.date === date);
+    console.log('Eventos para la fecha seleccionada:', dayEvents); // Console log para verificar eventos del día
 
-    const prevMonthButton = document.createElement('button');
-    prevMonthButton.innerHTML = '&lt;';
-    prevMonthButton.onclick = () => {
-        currentMonthIndex = (currentMonthIndex - 1 + 12) % 12;
-        renderMonths();
-        renderDays();
-    };
-    monthsContainer.prepend(prevMonthButton);
+    for (let i = 9; i < 18; i++) { // Horario de 9 AM a 5 PM
+        const hour = `${i.toString().padStart(2, '0')}:00`; // Solo hora de inicio (no rango)
+        const hourItem = document.createElement("li");
+        hourItem.classList.add("hour");
+        hourItem.textContent = `${hour} - ${hour}`;  // Muestra el rango completo de hora (de inicio a fin)
 
-    const nextMonthButton = document.createElement('button');
-    nextMonthButton.innerHTML = '&gt;';
-    nextMonthButton.onclick = () => {
-        currentMonthIndex = (currentMonthIndex + 1) % 12;
-        renderMonths();
-        renderDays();
-    };
-    monthsContainer.appendChild(nextMonthButton);
-}
+        const event = dayEvents.find(event => event.startTime === hour); // Filtrar solo por 'startTime'
 
-// Función para obtener el nombre del día
-function getDayName(day) {
-    const date = new Date(currentYear, currentMonthIndex, day);
-    return ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"][date.getDay()];
-}
-
-// Función para obtener el nombre del mes
-function getMonthName(monthIndex) {
-    const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-                    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-    return months[monthIndex];
-}
-
-// Función para cargar el estado de los eventos ocupados
-function loadEventState() {
-    const eventStates = JSON.parse(localStorage.getItem('eventStates')) || [];
-    eventStates.forEach(state => {
-        const event = document.getElementById(state.id);
         if (event) {
-            if (state.isOccupied) {
-                event.classList.add('ocupado');
-                event.classList.remove('vacio');
-                event.onclick = null; // Deshabilitar clic para los eventos ocupados
+            if (event.status === 'disponible') {
+                // Si el evento está disponible
+                hourItem.classList.add('available');
+                hourItem.style.backgroundColor = '#E7F1F6'; // Color de disponibilidad
+                hourItem.textContent = `${hour} - ${event.endTime} - ${event.person}`;
+
+                hourItem.addEventListener("click", function () {
+                    // Mostrar el modal y cargar la fecha y hora en el formulario
+                    openModal(date, hour, hourItem);
+                });
+            } else if (event.status === 'agendada') {
+                // Si el evento está agendado
+                hourItem.classList.add('unavailable');
+                hourItem.style.backgroundColor = '#F3E6CD'; // Color para eventos agendados
+                hourItem.textContent = `${hour} - ${event.endTime} - Agendado`;
             }
+        } else {
+            // Si no hay evento para esa hora, marcar como no disponible
+            hourItem.classList.add("unavailable");
+            hourItem.textContent = `${hour} - ${hour} - No disponible`; // O algún texto que indique que no hay evento
         }
-    });
+
+        availableHoursList.appendChild(hourItem);
+    }
+
 }
-
-// Guardar el estado de los eventos
-function saveEventState() {
-    const events = Array.from(document.querySelectorAll(".event"));
-    const eventStates = events.map(event => ({
-        id: event.id,
-        isOccupied: event.classList.contains("ocupado")
-    }));
-    localStorage.setItem('eventStates', JSON.stringify(eventStates));
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-    renderDays();
-    renderMonths();
-    loadEventState(); // Cargar los eventos ocupados desde el localStorage
-
+// Función para abrir el modal y cargar la fecha y hora seleccionadas
+function openModal(date, hour, element) {
     const modal = document.getElementById("availabilityModal");
-    const closeModalBtn = document.querySelector(".close");
-    const saveBtn = document.querySelector(".save");
+    const modalDateInput = document.getElementById("modalDate");
+    const modalTimeInput = document.getElementById("modalTime");
 
-    let currentSelectedEvent = null; // Variable para almacenar el evento seleccionado
+    modalDateInput.value = date;
+    modalTimeInput.value = hour;
 
-    // Mostrar el modal cuando un evento vacío se selecciona
-    document.querySelectorAll(".event.vacio").forEach(event => {
-        event.onclick = function () {
-            currentSelectedEvent = event;
-            modal.style.display = "block";
-        };
-    });
+    const rect = element.getBoundingClientRect();
+    modal.style.top = `${rect.top + window.scrollY - modal.offsetHeight}px`;
+    modal.style.left = `${rect.left}px`;
+    modal.style.display = "block";
 
-    closeModalBtn.onclick = function () {
-        modal.style.display = "none";
+    // Cargar las preguntas y respuestas
+    loadQuestionsAndAnswers();
+}
+// Cerrar el modal cuando se hace clic en la X
+document.getElementById("closeModal").addEventListener("click", function () {
+    const modal = document.getElementById("availabilityModal");
+    modal.style.display = "none";
+});
+
+// Función para reservar una cita
+function bookAppointment(date, hour) {
+    alert(`Reservaste la cita para el ${date} a las ${hour}.`);
+    // Aquí puedes añadir la lógica para confirmar la cita mediante la API
+}
+
+// Navegar al mes anterior
+document.getElementById("prevMonth").addEventListener("click", function () {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    generateCalendar();
+});
+
+// Navegar al mes siguiente
+document.getElementById("nextMonth").addEventListener("click", function () {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    generateCalendar();
+});
+
+// Obtener las disponibilidades del abogado y generar el calendario inicial
+getAvailabilities();
+
+
+// Función para enviar los datos a la API cuando se confirma la reserva
+document.getElementById("confirmBookingButton").addEventListener("click", async function() {
+    const modalDate = document.getElementById("modalDate").value;
+    const modalTime = document.getElementById("modalTime").value;
+    const modalQuestion = document.getElementById("modalQuestion").value;
+    const modalAnswer = document.getElementById("modalAnswer").value;
+
+    // Verifica si todos los campos están completos
+    if (!modalDate || !modalTime || !modalQuestion || !modalAnswer) {
+        alert("Por favor, complete todos los campos.");
+        return;
+    }
+
+    // Datos que se van a enviar a la API
+    const formData = {
+        date: modalDate,
+        time: modalTime, // Solo enviamos el 'startTime'
+        question_id: modalQuestion,
+        answer_id: modalAnswer,
     };
 
-    window.onclick = function (event) {
-        if (event.target === modal) {
-            modal.style.display = "none";
+    console.log(formData);
+    try {
+        // Enviar los datos a la API
+        const response = await fetch("https://apijusticelaw-production.up.railway.app/v1/guardarAsesoria", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`, // Asegúrate de enviar el token
+            },
+            body: JSON.stringify(formData),
+        });
+
+        if (response.ok) {
+            const data = await response.json();
+
+            console.log("Respuesta de la API:", data);
+
+            // Cierra el modal después de confirmar
+            document.getElementById("availabilityModal").style.display = "none";
+
+            location.reload();
+
+        } else {
+            const data = await response.json();
+
         }
-    };
-
-    saveBtn.onclick = function () {
-        const selectedTime = document.getElementById("timePicker")?.value;
-
-        if (!selectedTime) {
-            alert("Por favor, selecciona una hora.");
-            return;
-        }
-
-        if (currentSelectedEvent) {
-            currentSelectedEvent.classList.remove("vacio");
-            currentSelectedEvent.classList.add("ocupado"); // Cambiar a 'ocupado'
-            currentSelectedEvent.onclick = null;
-        }
-
-        saveEventState(); // Guardar el estado de los eventos en Local Storage
-        modal.style.display = "none"; // Cerrar el modal
-    };
+    } catch (error) {
+        console.error("Error al enviar los datos:", error);
+        alert("Hubo un error al intentar enviar la solicitud.");
+    }
 });

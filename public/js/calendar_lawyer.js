@@ -1,207 +1,244 @@
-let currentStartDay = 1;
-let currentMonthIndex = 0;
-let currentYear = 2024;
-let selectedDate = null; // Variable para almacenar la fecha seleccionada
+// Variables globales
+let currentDate = new Date();
+let token = localStorage.getItem('token'); // Obtén el token del almacenamiento local o cualquier otro lugar
+let events = [];
 
-// Función para renderizar los días del mes
-function renderDays() {
-    const daysContainer = document.querySelector('.days');
-    const monthNameElement = document.getElementById('monthName');
-    daysContainer.innerHTML = '';
+// Obtener las disponibilidades del abogado
+async function getAvailabilities() {
+    try {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/disponibilidadesAbogado', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+            },
+        });
 
-    const daysInMonth = new Date(currentYear, currentMonthIndex + 1, 0).getDate();
-    monthNameElement.innerText = getMonthName(currentMonthIndex);
-
-    const prevButton = document.createElement('button');
-    prevButton.id = 'prevDayBtn';
-    prevButton.classList.add('prevBtn');
-    prevButton.innerHTML = '&lt;';
-    prevButton.onclick = () => adjustStartDay('prev');
-    daysContainer.appendChild(prevButton);
-
-    for (let i = currentStartDay; i < currentStartDay + 7; i++) {
-        if (i > daysInMonth) break;
-
-        const dayDiv = document.createElement('div');
-        dayDiv.classList.add('day');
-
-        const currentDate = `${currentYear}-${String(currentMonthIndex + 1).padStart(2, '0')}-${String(i).padStart(2, '0')}`;
-
-        if (currentDate === selectedDate) {
-            dayDiv.classList.add('selected');
-        }
-
-        dayDiv.innerHTML = `<span class="date">${i}</span><span class="day-name">${getDayName(i)}</span>`;
-        
-        dayDiv.onclick = () => {
-            document.querySelectorAll('.day').forEach(day => day.classList.remove('selected'));
-            dayDiv.classList.add('selected');
-            
-            // Corregimos aquí la creación de selectedDate
-            selectedDate = new Date(currentYear, currentMonthIndex, i);  // Aseguramos de usar el índice correcto del mes
-            selectedDate.setHours(0, 0, 0, 0);  // Aseguramos que la hora sea 00:00:00 para evitar desajustes
-
-            // Mostrar la fecha seleccionada en el formato "5 de enero de 2024"
-            document.getElementById("dateDisplay").innerText = ` ${formatSelectedDate(selectedDate)}`;
-            
-            // Mostrar la fecha seleccionada en el modal si está abierto
-            const modalDateDisplay = document.getElementById("modalDateDisplay");
-            if (modalDateDisplay) {
-                modalDateDisplay.innerText = ` ${formatSelectedDate(selectedDate)}`;
-            }
-        };
-
-        daysContainer.appendChild(dayDiv);
-    }
-
-    const nextButton = document.createElement('button');
-    nextButton.id = 'nextDayBtn';
-    nextButton.classList.add('nextBtn');
-    nextButton.innerHTML = '&gt;';
-    nextButton.onclick = () => adjustStartDay('next');
-    daysContainer.appendChild(nextButton);
-}
-
-// Función para ajustar el primer día de la semana al navegar entre los días
-function adjustStartDay(direction) {
-    const daysInMonth = new Date(currentYear, currentMonthIndex + 1, 0).getDate();
-    if (direction === "prev") {
-        currentStartDay -= 7;
-        if (currentStartDay < 1) {
-            currentMonthIndex = (currentMonthIndex - 1 + 12) % 12;
-            if (currentMonthIndex === 11) currentYear--;
-            const daysInPrevMonth = new Date(currentYear, currentMonthIndex + 1).getDate();
-            currentStartDay = daysInPrevMonth + currentStartDay;
-        }
-    } else {
-        if (currentStartDay + 7 <= daysInMonth) {
-            currentStartDay += 7;
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Disponibilidades obtenidas:', data); // Console log para verificar datos
+            events = data.disponibilities.map(avail => ({
+                date: avail.date,
+                time: `${avail.startTime} - ${avail.endTime}`,
+                status: avail.state.toLowerCase(),
+                person: "Hora disponible para asesoría"
+            }));
+            generateCalendar();
         } else {
-            currentMonthIndex = (currentMonthIndex + 1) % 12;
-            if (currentMonthIndex === 0) currentYear++;
-            currentStartDay = (currentStartDay + 7) - daysInMonth;
+            const data = await response.json();
+            console.error('Error al obtener disponibilidades:', data.message);
         }
+    } catch (error) {
+        console.error('Error en la solicitud:', error);
     }
-    renderDays();
 }
 
-// Función para renderizar los meses
-function renderMonths() {
-    const monthsContainer = document.querySelector('.months');
-    monthsContainer.innerHTML = '';
 
-    const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
-                    "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+// Generar el calendario con los días del mes
 
-    for (let i = 0; i <= 6; i++) {
-        const monthDiv = document.createElement('div');
-        monthDiv.id = `month${i}`;
-        monthDiv.innerText = months[(currentMonthIndex + i) % 12];
-        monthsContainer.appendChild(monthDiv);
+// Generar el calendario con los días del mes
+function generateCalendar() {
+    const title = document.getElementById("calendarTitle");
+    const calendarGrid = document.querySelector(".calendar-grid");
+
+    // Mostrar el mes y año
+    const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+    const currentMonth = currentDate.getMonth();
+    const currentYear = currentDate.getFullYear();
+    title.textContent = `${monthNames[currentMonth]} ${currentYear}`;
+
+    // Limpiar el calendario anterior
+    calendarGrid.innerHTML = "";
+
+    // Fecha actual
+    const firstDay = new Date(currentYear, currentMonth, 1);
+    const lastDay = new Date(currentYear, currentMonth + 1, 0);
+
+    // Calcular el día de la semana en que comienza el mes (0 = Domingo, 1 = Lunes, ..., 6 = Sábado)
+    const firstDayIndex = (firstDay.getDay() + 6) % 7; // Ajustar para que Lunes sea 0
+
+    // Crear los días del calendario
+    for (let i = 0; i < firstDayIndex; i++) {
+        const emptyCell = document.createElement("div");
+        calendarGrid.appendChild(emptyCell);
     }
 
-    const prevMonthButton = document.createElement('button');
-    prevMonthButton.innerHTML = '&lt;';
-    prevMonthButton.onclick = () => {
-        currentMonthIndex = (currentMonthIndex - 1 + 12) % 12;
-        renderMonths();
-        renderDays();
-    };
-    monthsContainer.prepend(prevMonthButton);
+    for (let day = 1; day <= lastDay.getDate(); day++) {
+        const dayCell = document.createElement("div");
+        dayCell.classList.add("day");
+        dayCell.textContent = day;
+        calendarGrid.appendChild(dayCell);
 
-    const nextMonthButton = document.createElement('button');
-    nextMonthButton.innerHTML = '&gt;';
-    nextMonthButton.onclick = () => {
-        currentMonthIndex = (currentMonthIndex + 1) % 12;
-        renderMonths();
-        renderDays();
-    };
-    monthsContainer.appendChild(nextMonthButton);
+        const currentFormattedDate = `${currentYear}-${(currentMonth + 1).toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+        // Marcar la fecha actual como seleccionada solo al cargar la página inicialmente
+if (day === currentDate.getDate() && currentMonth === new Date().getMonth() && currentYear === new Date().getFullYear()) {            dayCell.classList.add("selected");
+    dayCell.classList.add("selected");
+    loadAvailableHours(currentFormattedDate);
+        }
+
+        dayCell.addEventListener("click", function () {
+            // Quitar la clase 'selected' de todos los días
+            document.querySelectorAll('.day').forEach(d => d.classList.remove('selected'));
+            // Añadir la clase 'selected' al día clicado
+            dayCell.classList.add('selected');
+            loadAvailableHours(currentFormattedDate);
+        });
+    }
+
+    // Solo cargar las horas disponibles para el día actual al generar el calendario
+    const currentFormattedDate = `${currentYear}-${(currentMonth + 1).toString().padStart(2, '0')}-${currentDate.getDate().toString().padStart(2, '0')}`;
+    loadAvailableHours(currentFormattedDate);
 }
 
-// Función para obtener el nombre del día de la semana
-function getDayName(day) {
-    const date = new Date(currentYear, currentMonthIndex, day);
-    return ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"][date.getDay()];
+// Función para cargar las horas disponibles solo para el día seleccionado
+function loadAvailableHours(date) {
+    const availableHoursList = document.getElementById("availableHoursList");
+    availableHoursList.innerHTML = ""; // Limpiar horas anteriores
+
+    const dayEvents = events.filter(event => event.date === date);
+    console.log('Eventos para la fecha seleccionada:', dayEvents); // Console log para verificar eventos del día
+
+    // Solo cargar las horas del día seleccionado (de 9 AM a 5 PM)
+    for (let i = 9; i < 18; i++) { // Asumimos un horario de 9 AM a 5 PM
+        const hour = `${i.toString().padStart(2, '0')}:00 - ${(i + 1).toString().padStart(2, '0')}:00`;
+        const hourItem = document.createElement("li");
+        hourItem.classList.add("hour");
+        hourItem.textContent = hour; // Mostrar el rango de horas
+
+        const event = dayEvents.find(event => event.time === hour);
+
+        if (event) {
+            if (event.status === 'disponible') {
+                // Si el evento está disponible
+                hourItem.classList.add('available');
+                hourItem.style.backgroundColor = '#E7F1F6'; // Color de disponibilidad
+                hourItem.textContent = `${hour} - ${event.person}`;
+
+                hourItem.addEventListener("click", function () {
+                    // Mostrar el modal y cargar la fecha y hora en el formulario
+                    openModal(date, hour, hourItem);
+                });
+            } else if (event.status === 'agendada') {
+                // Si el evento está agendado
+                hourItem.classList.add('unavailable');
+                hourItem.style.backgroundColor = '#F3E6CD'; // Color para eventos agendados
+                hourItem.textContent = `${hour} - Agendado`;
+            }
+        }  else {
+            hourItem.classList.add("available");
+            hourItem.addEventListener("click", function() {
+                selectHour(hourItem, date, hour);
+            });
+        }
+
+        availableHoursList.appendChild(hourItem);
+    }
 }
 
-// Función para obtener el nombre del mes
-function getMonthName(monthIndex) {
-    const months = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-                    "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
-    return months[monthIndex];
+
+// Cargar las horas disponibles para todo el mes
+function loadAvailableHoursForMonth() {
+    // Recorrer todos los días del mes y cargar las horas disponibles
+    const days = document.querySelectorAll('.day');
+    days.forEach(day => {
+        const date = `${currentDate.getFullYear()}-${(currentDate.getMonth() + 1).toString().padStart(2, '0')}-${day.textContent.padStart(2, '0')}`;
+        loadAvailableHours(date);
+    });
 }
 
-// Función para formatear la fecha al formato "5 de enero de 2024"
-function formatSelectedDate(date) {
-    const dateObject = new Date(date);
-    const day = dateObject.getDate();
-    const month = getMonthName(dateObject.getMonth());
-    const year = dateObject.getFullYear();
-    return `${day} de ${month} de ${year}`;
+// Seleccionar una hora y abrir el modal
+function selectHour(element, date, hour) {
+    // Quitar la clase 'selected' de todas las horas
+    document.querySelectorAll('.hour').forEach(h => h.classList.remove('selected'));
+    // Añadir la clase 'selected' al elemento clicado
+    element.classList.add('selected');
+
+    openModal(date, hour, element);
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    renderDays();
-    renderMonths();
-
+// Abre el modal para añadir disponibilidad
+function openModal(date, hour, element) {
     const modal = document.getElementById("availabilityModal");
-    const closeModalBtn = document.querySelector(".close");
-    const saveBtn = document.querySelector(".save");
+    const modalDate = document.getElementById("modalDate");
+    const modalStartTime = document.getElementById("modalStartTime");
+    const modalEndTime = document.getElementById("modalEndTime");
 
-    // Mostrar el modal al hacer clic en "Editar disponibilidad asesoría"
-    document.querySelectorAll(".edit-availability-option").forEach(button => {
-        button.onclick = function () {
-            modal.style.display = "block";
-            const modalDateDisplay = document.getElementById("modalDateDisplay");
-            if (modalDateDisplay) {
-                modalDateDisplay.innerText = ` ${formatSelectedDate(selectedDate) || "Ninguna"}`;
-            }
-        };
+    modalDate.value = date;
+    const [start, end] = hour.split(" - ");
+    modalStartTime.value = start;
+    modalEndTime.value = end;
+
+    // Posicionar el modal justo encima del área seleccionada
+    const rect = element.getBoundingClientRect();
+    modal.style.top = `${rect.top + window.scrollY - modal.offsetHeight}px`;
+    modal.style.left = `${rect.left}px`;
+    modal.style.display = "block";
+
+    // Añadir evento de guardar al formulario del modal
+    const form = document.getElementById("availabilityForm");
+    form.addEventListener("submit", function(event) {
+        event.preventDefault();
+        saveAvailability(date, modalStartTime.value, modalEndTime.value, element);
     });
+}
 
-    closeModalBtn.onclick = function () {
-        modal.style.display = "none";
-    };
+// Guardar disponibilidad
+async function saveAvailability(date, startTime, endTime, element) {
+    const formData = new FormData();
+    formData.append('date', date);
+    formData.append('state', 'Disponible'); // Estado fijo según la lógica dada
+    formData.append('startTime', startTime);
+    formData.append('endTime', endTime);
 
-    saveBtn.onclick = function () {
-        const selectedTime = document.getElementById("timePicker").value;
+    try {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/guardarDisponibilidad', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`, // Asegúrate de tener el token adecuado
+            },
+            body: formData,
+        });
 
-        if (!selectedTime) {
-            alert("Por favor, selecciona una hora.");
-            return;
+        if (response.ok) {
+            const data = await response.json();
+            console.log('Disponibilidad creada con éxito:', data);
+            // Actualizar la interfaz de usuario
+            element.classList.remove('available');
+            element.classList.add('selected');
+            element.style.backgroundColor = '#E7F1F6';
+            element.textContent = `${startTime} - ${endTime} - Hora disponible para asesoría`;
+
+            // Cerrar el modal
+            document.getElementById("availabilityModal").style.display = "none";
+        } else {
+            const data = await response.json();
+            console.error('Error al guardar disponibilidad:', data.message);
         }
+    } catch (error) {
+        console.error('Error en la solicitud:', error);
+    }
+}
 
-        console.log("Fecha fija:", selectedDate);
-        console.log("Hora fija:", selectedTime);
-
-        modal.style.display = "none";
-    };
-
-    // Funcionalidad para abrir el modal al hacer clic en un evento vacío (vacio)
-    document.querySelectorAll('.event.vacio').forEach(event => {
-        event.addEventListener('click', function () {
-            // Verifica que el evento esté vacío antes de abrir el modal
-            if (this.classList.contains('vacio')) {
-                modal.style.display = "block";
-                const modalDateDisplay = document.getElementById("modalDateDisplay");
-                if (modalDateDisplay) {
-                    modalDateDisplay.innerText = ` ${formatSelectedDate(selectedDate) || "Ninguna"}`;
-                }
-            }
-        });
-    });
-
-    // Manejo de clic en la opción "Eliminar Disponibilidad" dentro del modal
-    document.querySelectorAll('.delete-availability-option').forEach(button => {
-        button.addEventListener('click', function () {
-            const event = this.closest('.event');
-            if (event) {
-                event.classList.remove('ocupado');
-                event.classList.add('vacio');
-                event.innerHTML = ''; // Borra el contenido del evento
-                console.log("Evento marcado como vacío.");
-            }
-        });
-    });
+// Cerrar el modal
+document.querySelector(".close").addEventListener("click", function () {
+    document.getElementById("availabilityModal").style.display = "none";
 });
+
+// Navegar al mes anterior
+document.getElementById("prevMonth").addEventListener("click", function () {
+    currentDate.setMonth(currentDate.getMonth() - 1);
+    generateCalendar();
+    document.querySelectorAll('.day').forEach(d => d.classList.remove('selected'));
+    loadAvailableHoursForMonth(); // Recargar las horas disponibles
+});
+
+// Navegar al mes siguiente
+document.getElementById("nextMonth").addEventListener("click", function () {
+    currentDate.setMonth(currentDate.getMonth() + 1);
+    generateCalendar();
+    document.querySelectorAll('.day').forEach(d => d.classList.remove('selected'));
+    loadAvailableHoursForMonth(); // Recargar las horas disponibles
+});
+
+
+// Obtener las disponibilidades del abogado y generar el calendario inicial
+getAvailabilities();

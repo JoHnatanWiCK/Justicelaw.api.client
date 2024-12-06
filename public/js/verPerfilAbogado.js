@@ -12,6 +12,10 @@ document.addEventListener("DOMContentLoaded", async function () {
         const data = await response.json();
 
         if (data && data.lawyer) {
+
+            document.getElementById('nombreAbogado').textContent = data.lawyer.name + ' ' + data.lawyer.last_names;
+
+
             // Asignar los datos en la sección de Información Personal
             document.querySelector(".telefonoWeb p").textContent =
                 data.verification.cell_phone || "No disponible";
@@ -21,6 +25,10 @@ document.addEventListener("DOMContentLoaded", async function () {
                 data.verification.country || "No disponible";
             document.querySelector(".ciudadWeb p").textContent =
                 data.verification.city || "No disponible";
+
+
+                document.getElementById('fotoPerfilVer').src = data.profile ? data.profile.photo : '../../img/defaultPhoto.jpg';
+
 
             // Asignar la biografía en la sección de Presentación
             document.getElementById("biografiaUsuario").textContent =
@@ -180,7 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 //eder cargar
 async function cargarReseñas() {
-    const token = localStorage.getItem("token"); 
+    const token = localStorage.getItem("token");
 
     if (!token) {
         console.log("No estás autenticado.");
@@ -254,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const reviewData = {
       content: textoReseña,
-      lawyer_id: lawyerId 
+      lawyer_id: lawyerId
     };
 
     try {
@@ -264,15 +272,15 @@ document.addEventListener('DOMContentLoaded', () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}` 
+          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(reviewData)
       });
 
       if (response.ok) {
         const data = await response.json();
-    
-        
+
+
         location.reload();
 
         reseñaInput.value = '';
@@ -289,7 +297,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const inputReseña = document.getElementById('inputReseña');
     const charCounter = document.getElementById('charCounter');
-    const maxChars = 250; 
+    const maxChars = 250;
 
     inputReseña.addEventListener('input', () => {
         const currentLength = inputReseña.value.length;
@@ -297,8 +305,28 @@ const inputReseña = document.getElementById('inputReseña');
         charCounter.textContent = `${currentLength}/${maxChars} caracteres`;
 
         if (currentLength >= maxChars) {
-            charCounter.style.color = 'red'; 
+            charCounter.style.color = 'red';
         } else {
-            charCounter.style.color = 'black'; 
+            charCounter.style.color = 'black';
         }
+    });
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const button = document.getElementById('verCalendarioBtn');
+
+        // Obtener la URL actual
+        const currentUrl = window.location.href;
+
+        // Extraer el `lawyerId` de la URL (asumiendo formato /perfilabogado/{lawyerId})
+        const lawyerId = currentUrl.split('/').pop();
+
+        // Asegurar que el botón redirija a la vista del calendario
+        button.addEventListener('click', () => {
+            if (lawyerId) {
+                window.location.href = `/calendarioAbogado/${lawyerId}`;
+            } else {
+                alert('No se encontró el ID del abogado.');
+            }
+        });
     });

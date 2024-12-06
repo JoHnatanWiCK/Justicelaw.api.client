@@ -6,6 +6,9 @@
     overflow: hidden;
   }
 
+  .content-abogado {
+    flex: 1;
+  }
 
 .sidebar {
     position: sticky;
@@ -361,6 +364,29 @@ width: 350px;
     align-items: center;
     position: relative;
     margin: 0 auto;
+  }
+
+  .calendario-btn {
+    position: absolute;
+    right: 20px; /* Ajusta la distancia del borde derecho */
+    bottom: 10px; /* Ajusta la distancia del borde inferior */
+    padding: 10px 20px;
+    background-color: #ffffff; /* Color de fondo */
+    color: #003049; /* Color del texto */
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Faustina', serif;
+
+  }
+
+
+  .calendario-btn:hover {
+    color: #fff;
+    background-color: #cf9e3e;
   }
 
   .content-abogado {
@@ -780,7 +806,7 @@ width: 350px;
     margin-bottom: 3rem;
     margin-right: 3rem;
     border-radius: 10px;
-   
+
   }
 
   .review-container input {
@@ -1266,7 +1292,7 @@ textarea {
 }
 
 @media (max-width: 1000px) {
-  .left-column, 
+  .left-column,
   .right-column {
       width: 100%; /* Ocupan todo el ancho disponible */
       margin: 0; /* Elimina márgenes laterales */

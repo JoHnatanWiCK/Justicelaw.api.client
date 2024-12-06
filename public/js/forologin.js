@@ -1,3 +1,36 @@
+document.addEventListener('DOMContentLoaded', () => {
+    // Obtener el input de fecha
+    const fechaInput = document.getElementById('fecha');
+    
+    // Obtener la fecha actual
+    const today = new Date();
+    const year = today.getFullYear();
+    const month = String(today.getMonth() + 1).padStart(2, '0'); // Meses van de 0 a 11
+    const day = String(today.getDate()).padStart(2, '0');
+    
+    // Formatear la fecha en YYYY-MM-DD
+    const formattedDate = `${year}-${month}-${day}`;
+    
+    // Establecer la fecha actual en el input
+    fechaInput.value = formattedDate;
+});
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // Obtener el input de fecha
+    const dateInput = document.getElementById('dateInput');
+
+    const today = new Date();
+    const formattedDate = today.toISOString().split('T')[0];
+    
+    dateInput.value = formattedDate;
+    
+});
+
+
+
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('Script cargado y DOM completamente cargado');
 
@@ -312,3 +345,5 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+

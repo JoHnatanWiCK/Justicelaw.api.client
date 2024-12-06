@@ -150,17 +150,6 @@ document.querySelectorAll('.avatar-link, .name-link').forEach(link => {
 
 
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Obtener el input de fecha
-    const dateInput = document.getElementById('dateInput');
-
-    const today = new Date();
-    const formattedDate = today.toISOString().split('T')[0];
-    
-    dateInput.value = formattedDate;
-    
-});
-
 
 document.addEventListener('DOMContentLoaded', () => {
     // Obtener el input de fecha

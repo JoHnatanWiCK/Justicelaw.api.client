@@ -30,7 +30,6 @@
             <form id="questionForm" action="{{ route('api.v1.questions.store') }}" method="POST">
                 @csrf
                 <input type="text" name="affair" placeholder="Asunto:" required />
-                <input type="date" id="dateInput" name="date_publication" style="display: ;" required>
 
                 <span id="userid" style="display: none;"></span>
                 <input type="number" id="userInput" name="user_id" style="display: none;" >

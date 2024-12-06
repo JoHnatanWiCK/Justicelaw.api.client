@@ -148,18 +148,18 @@
         <select id="category-filter" class="category-dropdown">
             <option value="">Todas las categorías</option>
             @foreach ($categories as $c)
-                <option value="{{ $c['id'] }}">{{ $c['name'] }}</option>
+                <option value="{{ $c['name'] }}">{{ $c['name'] }}</option>
             @endforeach
         </select>
     </div>
 
 
+
     <div class="searcha-bar">
-            <input type="text" placeholder="">
+    <input type="text" id="search-input" placeholder="Buscar...">
             <button id="buscarBtn">
                 <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-            <div class="results" id="results"></div>
 
         </div>
 
@@ -305,4 +305,6 @@
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script src="{{ asset('js/forolawyer.js') }}"></script>
+<script src="{{ asset('js/filter.js') }}"></script>
+
 @endpush

@@ -24,17 +24,10 @@
                 <p>LAW</p>
             </div>
         </div>
-        <div class="search-bar">
-            <input type="text" id="searchInput" placeholder="">
-            <button id="buscarBtn">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-            <div class="results" id="results"></div>
-
-        </div>
+        
         <nav class="nav-links">
             <a id="about-us" href="{{ route('sobreNosotros')}}">Sobre nosotros</a>
-            <a id="foro" href="{{ route('indexLog')}}">Informaciones</a>
+            <a id="info" href="{{ route('indexLog')}}">Informaciones</a>
             <a id="foro" href="{{ route('foro')}}">Foro</a>
             <a id="login" href="{{ route('login')}}">Iniciar Sesión</a>
         </nav>

@@ -24,12 +24,7 @@
                 <p>LAW</p>
             </div>
         </div>
-        <div class="search-bar">
-            <input type="text"  id="search-input" placeholder="" />
-            <button id="buscarBtn">
-                <i class="fa-solid fa-magnifying-glass"></i>
-            </button>
-        </div>
+       
         <nav class="nav-links">
             <a id="about-us" href="{{route('sobreNosotrosAbogado')}}">Sobre nosotros</a>
             <a id="informaciones" href="{{ route('infoAbogado')}}">Informaciones</a>

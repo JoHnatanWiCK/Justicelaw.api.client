@@ -203,8 +203,7 @@
                         <span class="date">{{ $q['date_publication'] }}</span>
                         <br>
                         <div class="actions">
-                        <button class="like-btn" data-id="{{ $q['id'] }}"><i class="fa-regular fa-thumbs-up"></i> (<span id="likes-{{ $q['id'] }}">{{ $q['likes'] ?? 0 }}</span>)</button>
-                        <button class="dislike-btn" data-id="{{ $q['id'] }}"><i class="fa-regular fa-thumbs-down"></i> (<span id="dislikes-{{ $q['id'] }}">{{ $q['dislikes'] ?? 0 }}</span>)</button>
+                       
                         @foreach ($users as $use)
                         @if ($q['user_id'] == $use['id'])
                         <span class="name_user" style="display: none;"> {{ $use['name'] }} {{ $use['last_name'] }}</span>

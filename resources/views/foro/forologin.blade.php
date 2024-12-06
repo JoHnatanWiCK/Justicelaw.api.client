@@ -205,19 +205,7 @@
 
                         <br>
                         <div class="actions">
-                        <div class="post" data-post-id="{{ $q['id'] }}" >
-    <!-- Botón de Like -->  
-                            <button class="like-btn" data-id="{{ $q['id'] }}" id="like-btn-{{ $q['id'] }}">
-                                <i class="fa-regular fa-thumbs-up"></i>
-                                <span id="likes-{{ $q['id'] }}">{{ $q['likes'] }}</span>
-                            </button>
-
-    <!-- Botón de Dislike -->
-                            <button class="dislike-btn" data-id="{{ $q['id'] }}" id="dislike-btn-{{ $q['id'] }}">
-                                <i class="fa-regular fa-thumbs-down"></i>
-                                <span id="dislikes-{{ $q['id'] }}">{{ $q['dislikes'] }}</span>
-                            </button>
-                        </div>
+                        
 
 
                         @foreach ($users as $use)

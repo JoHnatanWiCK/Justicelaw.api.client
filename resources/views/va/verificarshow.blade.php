@@ -30,7 +30,12 @@
                 <div class="right-panel">
                     <div class="status-bar">
                         <h2>Estado Cuenta: <span class="status">(pendiente)</span></h2>
-                        <button class="reject-btn">Rechazar</button>
+
+                        <form action="{{route('api.v1.lawyers.delete',$lawyere['id'])}}" method="POST">
+                            @csrf
+                            @method('delete')
+                            <button class="reject-btn" type="submit">Rechazar</button>
+                            </form>  
                         <button class="accept-btn">Aceptar</button>
                     </div>
                     <div class="profile">
@@ -45,7 +50,7 @@
                             </a>
                             <p><strong>Popayan (Cauca), Colombia</strong></p>
                             <p><a href="">{{$lawyere['email']}}</a></p>
-                            <p><a href="tel:+573133353071"></a>{{$lp['email']}}</p>
+                            <p><a href="tel:+573133353071"></a>313 33 53 071</p>
                         </div>
                         <div class="account-details">
                             <h4>Detalles de cuenta</h4>
@@ -55,8 +60,8 @@
                         </div>
                         <div class="description">
                             <h4>Descripción</h4>
-                            <p>{{$lp['biography']}}</p>
-                        </div>
+                            <p>{{ \Illuminate\Support\Str::limit($lp['biography'], 430, '...') }}</p>
+                            </div>
                   @endif
                   @endforeach
                     </div>

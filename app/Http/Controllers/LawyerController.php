@@ -78,8 +78,10 @@ class LawyerController extends Controller
         $lawyere = $this->fetchDataFromApi($url . '/lawyers/' . $id);
 
         $lawyers = $this->fetchDataFromApi($url . '/lawyers');
+        $lawyerPofiles = $this->fetchDataFromApi($url . '/lawyerProfile');
 
-        return view('va.verificarshow',compact('lawyere','lawyers')) ;
+
+        return view('va.verificarshow',compact('lawyere','lawyers','lawyerPofiles')) ;
 
         // return view('notifications.show', compact('notification'));
     }
@@ -103,10 +105,20 @@ class LawyerController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        // Enviar la solicitud de eliminación a la API usando Http::delete
+        $response = Http::delete("https://apijusticelaw-production.up.railway.app/v1/lawyers/{$id}");
+    
+        // Manejar la respuesta de la API
+        if ($response->successful()) {
+            return redirect()->back()->with('success', 'Pregunta eliminada exitosamente');
+        } else {
+            return redirect()->back()->withErrors(['message' => 'Error al eliminar la pregunta']);
+        }
+    }
+    
     }
 
 
-}
+

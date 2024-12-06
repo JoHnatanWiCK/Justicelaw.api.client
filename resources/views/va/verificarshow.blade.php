@@ -29,14 +29,41 @@
                 </div>
                 <div class="right-panel">
                     <div class="status-bar">
-                        <h2>Estado Cuenta: <span class="status">(pendiente)</span></h2>
+<nav>
+<h2  style="display: inline-block;">Estado Cuenta: <span class="status">(pendiente)</span></h2>
 
-                        <form action="{{route('api.v1.lawyers.delete',$lawyere['id'])}}" method="POST">
+                        <form action="{{route('api.v1.lawyers.delete',$lawyere['id'])}}" method="POST" style="display: inline-block;">
                             @csrf
                             @method('delete')
                             <button class="reject-btn" type="submit">Rechazar</button>
                             </form>  
-                        <button class="accept-btn">Aceptar</button>
+
+                            <form action="{{route('api.v1.lawyers.update',$lawyere['id'])}}" method="POST" class="form" style="display: inline-block;">
+        @csrf
+        @method('PUT')
+
+        <input type="text" id="name" name="name" class="input-field" maxlength="30" 
+           value="{{ $lawyere['name'] }}" required style="display: none;"><br>
+
+    <input type="text" id="last_name" name="last_name" class="input-field" maxlength="50" 
+           value="{{ $lawyere['last_names'] }}" required style="display: none;"><br>
+
+    <input id="type_document_id" name="type_document_id" class="input-field" required 
+           value="{{ $lawyere['type_document_id'] }}" style="display: none;"> 
+
+    <input type="text" id="document_number" name="document_number" class="input-field" maxlength="10" 
+           value="{{ $lawyere['document_number'] }}" required style="display: none;"><br>
+
+    <label for="email" style="display: none;">Correo Electrónico:</label>
+    <input type="email" id="email" name="email" class="input-field" maxlength="255" 
+           value="{{ $lawyere['email'] }}" required style="display: none;"><br>
+
+    <input type="number" id="verification" name="verification" class="input-field" 
+           value="1" style="display: none;"><br>   
+        <button class="accept-btn" type="submit">Aceptar</button>
+        </form>
+        </nav>
+
                     </div>
                     <div class="profile">
                         @foreach($lawyerPofiles as $lp)

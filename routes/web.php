@@ -576,7 +576,7 @@ Route::get('lawyers', [LawyerController::class, 'index'])->name('api.v1.lawyers.
 Route::post('lawyers', [LawyerController::class, 'store'])->name('api.v1.lawyers.store');
 Route::get('lawyers/{lawyer}', [LawyerController::class, 'show'])->name('api.v1.lawyers.show');
 Route::put('lawyers/{lawyer}', [LawyerController::class, 'update'])->name('api.v1.lawyers.update');
-Route::delete('lawyers/{id}', [LawyerController::class, 'destroy'])->name('api.v1.lawyers.delete');
+Route::delete('lawyers/{lawyer}', [LawyerController::class, 'destroy'])->name('api.v1.lawyers.delete');
 
 Route::get('verificar', [QuestionController::class, 'verificar']);
 

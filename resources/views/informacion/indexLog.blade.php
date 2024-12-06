@@ -26,15 +26,6 @@
                 <img src="../../img/lomasdestacado.png" alt="Lo más destacado" class="imagen-lo-mas-destacado">
                 <p>Pensión alimenticia: Todo lo que necesitas saber</p>
             </div>
-            <h1>Categorías  que puedes encontrar</h1>
-            <div class="imagen-container">
-                <img src="../../img/Derecholaboralydeempleo.png" alt="Derecholaboralydeempleo">
-                <div class="texto-superpuesto">{{--<a href={{route('informacionesLaboral')}}>--}}Laboral y de Empleo</a></div>
-            </div>
-            <div class="imagen-container">
-              <img src="../../img/derechosNiños.jpg" alt="Derecholaboralydeempleo">
-              <div class="texto-superpuesto">{{--<a href="{{route('informacionInfantil')}}">--}}Infantiles</a></div>
-          </div>
         </div>
     </div>
 </section>

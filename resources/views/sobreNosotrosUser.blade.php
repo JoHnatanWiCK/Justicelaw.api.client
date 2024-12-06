@@ -21,7 +21,6 @@
         <h2>Nuestra Misión</h2>
         <p>Facilitamos el acceso a información confiable para nuestros usuarios sobre procedimientos judiciales. Promovemos una comunidad informada donde el conocimiento empodera a las personas en su proceso legal.</p>
         <br><br><br>
-        <h2>(Espacio para video)</h1>
         <h2>Nuestros Valores</h2>
 
         <div class="values-container">

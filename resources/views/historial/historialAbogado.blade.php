@@ -1,4 +1,4 @@
-@extends('layouts.layoutAbogado')
+{{--@extends('layouts.layoutAbogado')
 
 @section('title', 'Historial')
 

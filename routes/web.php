@@ -79,13 +79,13 @@ Route::get('/sobreNosotrosAbogado', function () {
     return view(view: 'sobreNosotrosLawyer');
 })->name('sobreNosotrosAbogado');
 
-Route::get('/historial', function () {
-    return view(view: 'historial.historial');
-})->name('historial');
+//Route::get('/historial', function () {
+ //   return view(view: 'historial.historial');
+//})->name('historial');
 
-Route::get('/historialAbogado', function () {
-    return view(view: 'historial.historialAbogado');
-})->name('historialAbogado');
+//Route::get('/historialAbogado', function () {
+ //   return view(view: 'historial.historialAbogado');
+//})->name('historialAbogado');
 
 
 Route::get('/configuracion', function () {
@@ -215,6 +215,10 @@ Route::get('/perfilabogado/{lawyerId}', function () {
     return view('verperfil.perfil-abogado');
 });
 
+Route::get('/calendarioAbogado/{lawyerId}', function () {
+    return view('calendar.calendar');
+});
+
 Route::get('/reseñaPublicada', function () {
     return view('verperfil.reseñaPublicada');
 });
@@ -226,6 +230,10 @@ Route::get('/informaciones', function () {
 Route::get('/index', function () {
     return view('informacion.index');
 })->name('index');
+
+Route::get('/indexLog', function () {
+    return view('informacion.indexLog');
+})->name('indexLog');
 
 Route::get('/indexL', function () {
     return view('informacion.indexL');
@@ -595,5 +603,3 @@ Route::get('/adminInfo', function () {
 Route::get('/infoIndex/{id}', function ($id) {
     return view('informacion.InfoIndex', compact('id'));
 })->name('infoIndex');
-
-

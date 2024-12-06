@@ -24,17 +24,8 @@ function initializeEvents() {
     document.addEventListener('click', function (event) {
         const likeButton = event.target.closest('.corazon');
         if (likeButton) {
-            const notification = likeButton.closest('.notification');
-            if (notification) {
-                const notificationId = notification.getAttribute('data-id');
-                if (notificationId) {
-                    toggleLike(notificationId, likeButton);
-                } else {
-                    console.error('No se encontró un ID para la notificación');
-                }
-            } else {
-                console.error('No se encontró el contenedor de la notificación');
-            }
+            const notificationId = likeButton.closest('.notification')?.getAttribute('data-id');
+            notificationId ? toggleLike(notificationId, likeButton) : console.error('ID de notificación no encontrado.');
         }
     });
 
@@ -43,39 +34,39 @@ function initializeEvents() {
         const dropdownToggle = event.target.closest('.dropdown-toggle');
         if (dropdownToggle) {
             const dropdown = dropdownToggle.nextElementSibling;
-            closeAllDropdowns(); // Cierra otros dropdowns
+            closeAllDropdowns();
             dropdown?.classList.toggle('active');
         } else if (!event.target.closest('.user-menu1') && !event.target.closest('.user-menu2')) {
-            closeAllDropdowns(); // Cierra todos los dropdowns si haces clic fuera
+            closeAllDropdowns();
         }
     });
+
     // Manejo de acciones de notificación
     document.addEventListener('click', function (event) {
         const actionButton = event.target.closest('.dropdown2 a');
         if (actionButton) {
             const action = actionButton.getAttribute('data-action');
-            const notification = actionButton.closest('.notification');
-            if (notification) {
-                const notificationId = notification.getAttribute('data-id');
-                if (notificationId) {
-                    fetchNotificationsAction(action, notificationId);
-                } else {
-                    console.error('No se encontró un ID para la notificación');
-                }
-            } else {
-                console.error('No se encontró el contenedor de la notificación');
-            }
+            const notificationId = actionButton.closest('.notification')?.getAttribute('data-id');
+            notificationId ? fetchNotificationsAction(action, notificationId) : console.error('ID de notificación no encontrado.');
         }
     });
 
     // Botones de acciones globales
     document.querySelector('#marcarTodoLeido')?.addEventListener('click', () => fetchNotificationsAction('markAllAsRead'));
-    document.querySelector('#archivarTodo')?.addEventListener('click', () => fetchNotificationsAction('archiveAll'));
+    document.querySelector('#eliminarTodo')?.addEventListener('click', () => fetchNotificationsAction('deleteAll'));
 }
 
 // Cierra todos los dropdowns abiertos
 function closeAllDropdowns() {
     document.querySelectorAll('.dropdown1, .dropdown2').forEach(dropdown => dropdown.classList.remove('active'));
+}
+
+// Obtiene los encabezados comunes para las solicitudes
+function getHeaders() {
+    return {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${getAuthToken()}`,
+    };
 }
 
 // Muestra un mensaje de éxito
@@ -97,48 +88,97 @@ function showSuccessMessage(action) {
 // Cambia el estado de "Me gusta" en una notificación
 async function toggleLike(notificationId, likeButton) {
     try {
-        // Realiza la solicitud para dar "Me gusta"
         const response = await fetch(`${baseUrl}/${notificationId}/like`, {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${getAuthToken()}`,
-            },
+            headers: getHeaders(),
         });
 
         if (!response.ok) throw new Error('Error al intentar dar "Me gusta"');
 
-        // Cambia el ícono de "Me gusta" localmente antes de re-renderizar
-        const newSrc = likeButton.src.includes('Like.png') ? '../../img/Like2.png' : '../../img/Like.png';
-        likeButton.src = newSrc; // Actualiza el ícono en el frontend
+        const isLiked = likeButton.src.includes('Like.png');
+        likeButton.src = isLiked ? '../../img/Like2.png' : '../../img/Like.png';
 
-        // Espera un poco antes de hacer una recarga de las notificaciones para reflejar los cambios
-        setTimeout(() => {
-            fetchAndRenderNotifications(); // Recarga las notificaciones para asegurar que los cambios se persistan
-        }, 500); // Ajusta el tiempo según sea necesario
-
+        setTimeout(fetchAndRenderNotifications, 500);
     } catch (error) {
         console.error('Error al manejar el "Me gusta":', error);
     }
 }
 
-// Función para manejar la acción de eliminar
+// Función para marcar una notificación como leída
+async function markNotificationAsRead(notificationId) {
+    try {
+        const response = await fetch(`${baseUrl}/${notificationId}/mark-as-read`, {
+            method: 'PATCH',
+            headers: getHeaders(),
+        });
+
+        if (!response.ok) throw new Error('Error al marcar la notificación como leída');
+
+        fetchAndRenderNotifications();  // Actualizar las notificaciones después de marcar
+    } catch (error) {
+        console.error('Error al marcar como leído', error);
+    }
+}
+
+// Función para eliminar una notificación
+async function deleteNotification(notificationId) {
+    try {
+        const response = await fetch(`${baseUrl}/${notificationId}`, {
+            method: 'DELETE',
+            headers: getHeaders(),
+        });
+
+        if (!response.ok) throw new Error('Error al eliminar la notificación');
+
+        fetchAndRenderNotifications();  // Actualizar las notificaciones después de eliminar
+    } catch (error) {
+        console.error('Error al eliminar la notificación', error);
+    }
+}
+async function deleteAllNotifications() {
+    try {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/notifications/delete-all', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`, // Si usas token de autenticación
+            }
+        });  // Aquí cerramos el paréntesis de fetch
+
+        if (!response.ok) throw new Error('Error al eliminar todas las notificaciones');
+
+        fetchAndRenderNotifications();  // Actualizar las notificaciones después de eliminar
+    } catch (error) {
+        console.error('Error al eliminar todas las notificaciones', error);
+    }
+}
+
+// Función para realizar las acciones sobre las notificaciones
 async function fetchNotificationsAction(action, notificationId = null) {
     try {
-        let url = notificationId ? `${baseUrl}/${notificationId}` : baseUrl;
-        const method = {
-            markAsRead: 'PATCH',  // Actualización
-            delete: 'DELETE',     // Eliminación
-            deleteAll: 'DELETE',  // Eliminar todas
-        }[action] || 'POST';
+        let url = baseUrl;
+        let method = '';
+
+        // Ajustar las URLs y métodos en función de la acción
+        if (action === 'markAllAsRead') {
+            url = `${baseUrl}/mark-all`;  // Marcar todas como leídas
+            method = 'POST';
+        } else if (action === 'deleteAll') {
+            url = `${baseUrl}/delete-all`;  // Eliminar todas las notificaciones
+            method = 'DELETE';
+        } else if (notificationId) {
+            if (action === 'markAsRead') {
+                url = `${baseUrl}/${notificationId}/mark-as-read`;  // Marcar una notificación como leída
+                method = 'PATCH';
+            } else if (action === 'delete') {
+                url = `${baseUrl}/${notificationId}`;  // Eliminar una notificación
+                method = 'DELETE';
+            }
+        }
 
         const response = await fetch(url, {
             method,
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${getAuthToken()}`,
-            },
-            body: ['markAsRead', 'delete'].includes(action) ? JSON.stringify({ action }) : null,
+            headers: getHeaders(),
         });
 
         if (!response.ok) throw new Error(`Error al realizar la acción: ${action}`);
@@ -147,12 +187,15 @@ async function fetchNotificationsAction(action, notificationId = null) {
         console.log('Respuesta de la API:', result);
 
         const message = {
-            markAllAsRead: 'todas marcadas como leídas',
-            deleteAll: 'todas eliminadas',
-        }[action] || 'realizada';
+            markAsRead: 'Notificación marcada como leída.',
+            delete: 'Notificación eliminada.',
+            markAllAsRead: 'Todas las notificaciones marcadas como leídas.',
+            deleteAll: 'Todas las notificaciones eliminadas.',
+        }[action] || 'Acción realizada con éxito.';
 
         showSuccessMessage(message);
-        fetchAndRenderNotifications(); // Actualiza la lista de notificaciones
+        fetchAndRenderNotifications();  // Actualizar las notificaciones
+
     } catch (error) {
         console.error('Error al realizar acción:', error);
     }
@@ -163,16 +206,12 @@ async function fetchAndRenderNotifications() {
     const notificationsList = document.querySelector('.notifications-list');
     try {
         const response = await fetch(baseUrl, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${getAuthToken()}`,
-            },
+            headers: getHeaders(),
         });
 
         if (!response.ok) throw new Error(`Error al obtener las notificaciones: ${response.statusText}`);
 
         const { notifications } = await response.json();
-        console.log('Datos obtenidos:', notifications);
 
         if (Array.isArray(notifications)) {
             notificationsList.innerHTML = ''; // Limpia la lista actual
@@ -181,11 +220,12 @@ async function fetchAndRenderNotifications() {
                 const notificationElement = document.createElement('div');
                 notificationElement.className = `notification ${notification.read_at ? '' : 'unread'} container2`;
                 notificationElement.setAttribute('data-id', notification.id);
+
                 const likeIcon = notification.data.liked ? '../../img/Like2.png' : '../../img/Like.png';
 
                 notificationElement.innerHTML = `
                     <img class="img-perfil" src="../../img/fotoPerfil.png" alt="perfil">
-                    <a href="${notification.data.url || '#'}">${notification.data.message || 'Notificación sin mensaje'}</a>
+                    <a href="${notification.data.url || '/forologin'}">${notification.data.message || 'Notificación sin mensaje'}</a>
                     <img class="corazon" src="${likeIcon}" alt="Like">
                     <div class="user-menu2">
                         <label class="dropdown-toggle">
@@ -200,6 +240,21 @@ async function fetchAndRenderNotifications() {
                     </div>
                 `;
                 notificationsList.appendChild(notificationElement);
+
+                // Asignar los manejadores de eventos
+                const markAsReadButton = notificationElement.querySelector('[data-action="markAsRead"]');
+                if (markAsReadButton) {
+                    markAsReadButton.addEventListener('click', function () {
+                        markNotificationAsRead(notification.id);
+                    });
+                }
+
+                const deleteButton = notificationElement.querySelector('[data-action="delete"]');
+                if (deleteButton) {
+                    deleteButton.addEventListener('click', function () {
+                        deleteNotification(notification.id);
+                    });
+                }
             });
         } else {
             console.error('La propiedad "notifications" no es un array:', notifications);

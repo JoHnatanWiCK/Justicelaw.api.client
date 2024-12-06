@@ -73,10 +73,10 @@
     </div>
     <div class="act">
       <h2>Actividad</h2>
-      <div class="activity-content">
+      {{--<div class="activity-content">
           <img src="../../img/mas.png" alt="más">
           <h4>Ver el historial de asesoramiento legal</h4>
-      </div>
+      </div>--}}
       <p>Las preguntas que el abogado responda en el foro aparecerán aquí.</p>
       </div>
     </section>

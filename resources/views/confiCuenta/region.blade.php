@@ -19,9 +19,9 @@
                 <li>
                     <a href="{{ route('crearPerfil') }}"><i class="fa-regular fa-user"></i>Información usuario</a>
                 </li>
-                <li>
+                {{--<li>
                     <a href="{{ route('historial') }}"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>
-                </li>
+                </li>--}}
                 <li>
                     <a href="{{ route('configuracion') }}"><i class="fa-solid fa-gear"></i>Configuracion</a>
                 </li>
@@ -84,9 +84,9 @@
           <div class="opcion">
             <a href="{{ route('notificaciones')}}"><i class="fa-regular fa-bell"></i><p>Notificaciones</p></a>
           </div>
-          <div class="opcion">
+          {{--<div class="opcion">
             <a href="../historial/historial.html"><i class="fa-solid fa-clock-rotate-left"></i><p>Historial de busqueda</p></a>
-          </div>
+          </div>--}}
           <div class="opcion">
             <a href="#"><i class="fa-solid fa-shield-halved"></i><p>Privacidad</p></a>
           </div>

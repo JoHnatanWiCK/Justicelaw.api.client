@@ -17,9 +17,9 @@
                     <li>
                         <a href="{{ route('crearPerfil') }}"><i class="fa-regular fa-user"></i>Información usuario</a>
                     </li>
-                    <li>
+                    {{--<li>
                         <a href="{{ route('historial') }}"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>
-                    </li>
+                    </li>--}}
                     <li>
                         <a href="{{ route('configuracion') }}"><i class="fa-solid fa-gear"></i>Configuracion</a>
                     </li>

@@ -15,11 +15,11 @@
                     <i class="fa-regular fa-user"></i>
                 </a>
             </li>
-            <li>
+            {{--<li>
                 <a href="{{route('historialAbogado')}}" class="icon-container">
                     <i class="fa-solid fa-clock-rotate-left"></i>
                 </a>
-            </li>
+            </li>--}}
             <li>
                 <a href="{{route('configuracionAbogado')}}" class="icon-container">
                     <i class="fa-solid fa-gear"></i>
@@ -31,13 +31,8 @@
                 </a>
             </li>
             <li>
-                <a href="#" class="icon-container">
+                <a href="{{route('calendar_lawyer')}}" class="icon-container">
                     <i class="fa-regular fa-calendar"></i>
-                </a>
-            </li>
-            <li>
-                <a href="#" id="logoutButton" class="icon-container">
-                    <i class="fa-solid fa-right-from-bracket"></i>
                 </a>
             </li>
         </ul>

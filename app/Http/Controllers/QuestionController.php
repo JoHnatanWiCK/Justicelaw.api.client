@@ -32,8 +32,22 @@ class QuestionController extends Controller
     // }
     /**
      * Display a listing of the resource.
+     * 
+     * 
+     * 
+     * 
+     * 
      */
-    public function index()
+
+
+
+     public function likes(){
+        $url = env('URL_SERVER_API');
+        $likes = $this->fetchDataFromApi($url . '/likes');
+        return $likes;
+     }
+
+     public function index()
 {
     $url = env('URL_SERVER_API');
 
@@ -43,9 +57,27 @@ class QuestionController extends Controller
     $users = $this->fetchDataFromApi($url . '/users');
     $lawyers = $this->fetchDataFromApi($url . '/lawyers');
     $categories = $this->fetchDataFromApi($url . '/forumCategories');
+    $likes = $this->fetchDataFromApi($url . '/likes');
+
 
     // Convertir los arrays a colecciones
     $questions = collect($questions);
+
+ // Enriquecer cada pregunta con el conteo de likes y dislikes
+ $questions = $questions->map(function ($question) use ($url) {
+    $question['created_at'] = \Carbon\Carbon::parse($question['created_at']);
+    
+    // Consultar los conteos de likes y dislikes desde la API
+    $likesData = $this->fetchDataFromApi($url . '/likes/' . $question['id']);
+
+    // Agregar los conteos al objeto de la pregunta
+    $question['likes_count'] = $likesData['likes_count'] ?? 0;
+    $question['dislikes_count'] = $likesData['dislikes_count'] ?? 0;
+
+    return $question;
+});
+
+
 
     // Asegurar que las fechas sean interpretadas correctamente
     $questions = $questions->map(function ($question) {
@@ -55,6 +87,9 @@ class QuestionController extends Controller
 
     // Ordenar las preguntas por `created_at` en orden descendente
     $questions = $questions->sortByDesc('created_at')->values();
+
+
+
 
     // Configurar la paginación
     $perPage = 9; // Número de elementos por página
@@ -83,9 +118,24 @@ public function indexlogin()
     $users = $this->fetchDataFromApi($url . '/users');
     $lawyers = $this->fetchDataFromApi($url . '/lawyers');
     $categories = $this->fetchDataFromApi($url . '/forumCategories');
+    $likes = $this->fetchDataFromApi($url . '/likes');
+
 
     // Convertir los arrays a colecciones
     $questions = collect($questions);
+
+    $questions = $questions->map(function ($question) use ($url) {
+        $likeData = $this->fetchDataFromApi($url . '/likes/' . $question['id']);
+
+        $question['likes_count'] = $likeData['likes_count'] ?? 0;
+        $question['dislikes_count'] = $likeData['dislikes_count'] ?? 0;
+
+        return $question;
+    });
+
+// Retorna el objeto completo
+
+
 
     // Asegurar que las fechas sean interpretadas correctamente
     $questions = $questions->map(function ($question) {
@@ -95,6 +145,9 @@ public function indexlogin()
 
     // Ordenar las preguntas por `created_at` en orden descendente
     $questions = $questions->sortByDesc('created_at')->values();
+
+
+
 
     // Configurar la paginación
     $perPage = 9; // Número de elementos por página
@@ -110,7 +163,7 @@ public function indexlogin()
     );
 
     // Pasar datos a la vista
-    return view('foro.forologin', compact('pquestions', 'answers', 'users', 'categories', 'lawyers'));
+    return view('foro.forologin', compact('pquestions', 'answers', 'users', 'categories', 'lawyers','likes'));
 }
 
 
@@ -120,33 +173,7 @@ public function indexlogin()
     return $userId;
    }
 
-   public function like($id)
-   {
-       $url = env('URL_SERVER_API') . '/questions/' . $id . '/like'; // Supongamos que tu API tiene esta ruta configurada
-
-       $response = Http::post($url);
-
-       if ($response->successful()) {
-           return response()->json(['message' => 'Like registrado con éxito', 'likes' => $response->json()['likes']]);
-       }
-
-       return response()->json(['message' => 'Error al registrar el like'], 500);
-   }
-
-   // Método para incrementar los "dislikes" de una pregunta
-   public function dislike($id)
-   {
-       $url = env('URL_SERVER_API') . '/questions/' . $id . '/dislike'; // Supongamos que tu API tiene esta ruta configurada
-
-       $response = Http::post($url);
-
-       if ($response->successful()) {
-           return response()->json(['message' => 'Dislike registrado con éxito', 'dislikes' => $response->json()['dislikes']]);
-       }
-
-       return response()->json(['message' => 'Error al registrar el dislike'], 500);
-   }
-
+ 
 
 
 
@@ -208,9 +235,33 @@ public function indexlogin()
     {
         $url = env('URL_SERVER_API');
 
-        $question = $this->fetchDataFromApi($url . '/questions' . $id);
+        $question = $this->fetchDataFromApi($url . '/questions/' . $id);
 
         return $question;
+
+        // return view('categories.show', compact('typeDocument'));
+    }
+
+
+    public function shows(string $id)
+    {
+        $url = env('URL_SERVER_API');
+
+        $like = $this->fetchDataFromApi($url . '/likes/' . $id);
+
+        return $like;
+
+        // return view('categories.show', compact('typeDocument'));
+    }
+
+    
+    public function showlikes(string $id)
+    {
+        $url = env('URL_SERVER_API');
+
+        $like = $this->fetchDataFromApi($url . '/likes/' . $id . '/reactions');
+
+        return $like;
 
         // return view('categories.show', compact('typeDocument'));
     }

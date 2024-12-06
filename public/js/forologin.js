@@ -53,57 +53,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    const csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
-
-    // Manejar clic en "Me gusta"
-    document.querySelectorAll('.btn-like').forEach(button => {
-        button.addEventListener('click', () => {
-            const questionId = button.dataset.id;
-
-            fetch(`/questions/${questionId}/like`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': csrfToken,
-                },
-            })
-                .then(response => response.json())
-                .then(data => {
-                    document.querySelector(`#likes-${questionId}`).textContent = data.likes; // Actualiza contador
-                })
-                .catch(error => console.error('Error:', error));
-        });
-    });
-
-    // Manejar clic en "No me gusta"
-    document.querySelectorAll('.btn-dislike').forEach(button => {
-        button.addEventListener('click', () => {
-            const questionId = button.dataset.id;
-
-            fetch(`/questions/${questionId}/dislike`, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': csrfToken,
-                },
-            })
-                .then(response => response.json())
-                .then(data => {
-                    document.querySelector(`#dislikes-${questionId}`).textContent = data.dislikes; // Actualiza contador
-                })
-                .catch(error => console.error('Error:', error));
-        });
-    });
-});
-
-
-
-
-
 function closeModala() {
     console.log('Cerrando modal...');
 
@@ -123,15 +72,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-
-
 function openTaskModal() {
     document.getElementById('askTaskModal').style.display = 'block';
 }
 function closeTaskModal() {
     document.getElementById('askTaskModal').style.display = 'none';
 }
-
 
 
 document.querySelectorAll('.avatar-link, .name-link').forEach(link => {
@@ -146,20 +92,6 @@ document.querySelectorAll('.avatar-link, .name-link').forEach(link => {
 
     });
 });
-
-
-
-
-
-
-const dateInput = document.getElementById('dateInput');
-
-const today = new Date();
-const formattedDate = today.toISOString().split('T')[0];
-
-dateInput.value = formattedDate;
-
-
 
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -225,27 +157,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
 
 
-
-
-document.getElementById('category-filter').addEventListener('change', function () {
-    const selectedCategory = this.value;
-    const cards = document.querySelectorAll('.card');
-
-    cards.forEach(card => {
-        const categoryId = card.getAttribute('data-category-id');
-        if (selectedCategory === '' || categoryId === selectedCategory) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-});
-
-
-
-
-
-
 function showModal(id, title, content, date,user,last) {
     document.getElementById('respuestas').style.display = 'flex';
 
@@ -278,13 +189,6 @@ document.getElementById('show-more').addEventListener('click', function() {
 });
 
 
-
-
-
-
-
-
-
         //cambiar a home
 document.getElementById('home').addEventListener('click', function(event) {
     event.preventDefault();
@@ -303,3 +207,108 @@ document.getElementById('show-more').addEventListener('click', function() {
 
 
 
+
+
+document.addEventListener('DOMContentLoaded', async () => {
+    console.log('Script cargado y DOM completamente cargado');
+
+    // Función para manejar los clicks en botones de like/dislike
+    document.querySelectorAll('.like-button, .dislike-button').forEach(button => {
+        button.addEventListener('click', async function (event) {
+            event.preventDefault();
+
+            const questionId = this.getAttribute('data-post-id'); // ID de la publicación
+            const isLike = this.classList.contains('like-button'); // Determina si es like o dislike
+            const token = localStorage.getItem('token'); // Token del usuario
+
+            if (!token) {
+                alert('Debes iniciar sesión para dar like o dislike.');
+                return;
+            }
+
+            try {
+                // Enviar la interacción al backend
+                const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/likes/lk', {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${token}`,
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        question_id: questionId,
+                        is_like: isLike, // true para like, false para dislike
+                    }),
+                });
+
+                if (!response.ok) {
+                    throw new Error('Error al procesar tu interacción.');
+                }
+
+                const data = await response.json();
+                console.log('Respuesta del servidor:', data);
+
+                // Actualizar la interfaz de usuario con los nuevos valores
+                const likesCountElement = document.querySelector(`#likes-count-${questionId}`);
+                const dislikesCountElement = document.querySelector(`#dislikes-count-${questionId}`);
+
+                likesCountElement.textContent = data.likes_count; // Actualizar número de likes
+                dislikesCountElement.textContent = data.dislikes_count; // Actualizar número de dislikes
+
+                // Cambiar estilos de los botones para reflejar el estado actual
+                if (isLike) {
+                    this.classList.add('active');
+                    document.querySelector(`#dislike-button-${questionId}`).classList.remove('active');
+                } else {
+                    this.classList.add('active');
+                    document.querySelector(`#like-button-${questionId}`).classList.remove('active');
+                }
+            } catch (error) {
+                console.error('Error al enviar el like/dislike:', error.message);
+            }
+        });
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const filterDropdown = document.getElementById("category-filter");
+    const cards = document.querySelectorAll(".card");
+
+    filterDropdown.addEventListener("change", () => {
+        const selectedCategory = filterDropdown.value.toLowerCase();
+
+        // Iterar sobre todas las tarjetas
+        cards.forEach((card) => {
+            const categorySpan = card.querySelector(".category");
+
+            // Comprobar si la tarjeta contiene la categoría seleccionada
+            if (categorySpan && (categorySpan.textContent.toLowerCase().includes(selectedCategory) || selectedCategory === "")) {
+                card.style.display = "block"; // Mostrar si coincide
+            } else {
+                card.style.display = "none"; // Ocultar si no coincide
+            }
+        });
+    });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("search-input");
+    const cards = document.querySelectorAll(".card");
+
+    searchInput.addEventListener("input", () => {
+        const searchTerm = searchInput.value.toLowerCase();
+
+        cards.forEach((card) => {
+            const title = card.querySelector(".title")?.textContent.toLowerCase() || "";
+            const description = card.querySelector(".description")?.textContent.toLowerCase() || "";
+            const category = card.querySelector(".category")?.textContent.toLowerCase() || "";
+
+            // Verificar si la búsqueda coincide con el título, descripción o categoría
+            if (title.includes(searchTerm) || description.includes(searchTerm) || category.includes(searchTerm)) {
+                card.style.display = "block"; // Mostrar tarjeta
+            } else {
+                card.style.display = "none"; // Ocultar tarjeta
+            }
+        });
+    });
+});

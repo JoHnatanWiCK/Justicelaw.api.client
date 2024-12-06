@@ -242,9 +242,8 @@ body {
 
 /* Contenedor de "Escribe tu duda" */
 .ask-question {
-    width: 70%; /* Ocupa el 100% del ancho del contenedor sidebar */
+    width: 40%; /* Ocupa el 100% del ancho del contenedor sidebar */
     background-color: white;
-    padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     height: 400px;

@@ -215,6 +215,10 @@ Route::get('/perfilabogado/{lawyerId}', function () {
     return view('verperfil.perfil-abogado');
 });
 
+Route::get('/calendarioAbogado/{lawyerId}', function () {
+    return view('calendar.calendar');
+});
+
 Route::get('/reseñaPublicada', function () {
     return view('verperfil.reseñaPublicada');
 });
@@ -590,5 +594,3 @@ Route::get('/adminInfo', function () {
 Route::get('/infoIndex/{id}', function ($id) {
     return view('informacion.InfoIndex', compact('id'));
 })->name('infoIndex');
-
-

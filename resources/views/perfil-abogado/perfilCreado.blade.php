@@ -30,13 +30,8 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="icon-container">
+                        <a href="{{route('calendar_lawyer')}}" class="icon-container">
                             <i class="fa-regular fa-calendar"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#" id="logoutButton" class="icon-container">
-                            <i class="fa-solid fa-right-from-bracket"></i>
                         </a>
                     </li>
                 </ul>
@@ -49,7 +44,7 @@
 
             <div class="content-abogado">
                 <h3 id="userName"></h3>
-           
+
             </div>
             <a href="#" id="editLink"><i
                 class="fa-regular fa-pen-to-square"></i></a>
@@ -140,7 +135,7 @@
                   </div>
               </div>
           </div>
-          
+
           </section>
 
 
@@ -154,15 +149,15 @@
             <div class="box-reseñas">
                 <h4>Reseñas</h4>
                 <div id="reseñasPublicadas" class="reseñas-publicadas">
-        
+
                 </div>
             </div>
-            
+
         </section>
 
     </section>
 
-       
+
 
         <div class="toast">
             <div class="toast-content">

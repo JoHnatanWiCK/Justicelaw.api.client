@@ -65,7 +65,6 @@ async function validarPerfil() {
 
         if (response.ok) {
             const data = await response.json();
-
             const perfilCreado = data && (data.photo || data.biography || data.name);
 
             if (perfilCreado) {
@@ -75,12 +74,19 @@ async function validarPerfil() {
             }
         } else {
             const errorData = await response.json();
-            console.error('Error al cargar los datos del perfil:', errorData);
+            if (errorData.message === 'Perfil no encontrado') {
+                // Redirige a la creación de perfil si no se encuentra el perfil
+                window.location.href = '/crearPerfilAbogado';
+            } else {
+                console.error('Error al cargar los datos del perfil:', errorData);
+            }
         }
     } catch (error) {
         console.error('Error:', error);
     }
 }
+
+
 
 document.getElementById('perfilLink').addEventListener('click', function (e) {
     e.preventDefault(); // Evita la navegación predeterminada

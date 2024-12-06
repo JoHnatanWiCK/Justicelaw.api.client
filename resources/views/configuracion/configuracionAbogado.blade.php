@@ -33,23 +33,18 @@
                   </a>
               </li>
               <li>
-                  <a href="#" class="icon-container">
-                      <i class="fa-regular fa-calendar"></i>
-                  </a>
-              </li>
-              <li>
-                <a href="#" id="logoutButton" class="icon-container">
-                    <i class="fa-solid fa-right-from-bracket"></i>
+                <a href="{{route('calendar_lawyer')}}" class="icon-container">
+                    <i class="fa-regular fa-calendar"></i>
                 </a>
             </li>
-            
+
           </ul>
       </nav>
-           
+
       <div class="main-content">
             <div class="configuration-content">
               <div class="contenido">
-                
+
                 <div class="configuration-header">
                     <div class="search-configuration">
                       <i class="fa-solid fa-magnifying-glass" id="lupa"></i>
@@ -60,7 +55,7 @@
                                 <h4>Herramientas y Recursos</h4>
                                 <a href={{route('PermisosUso')}}><p>Permisos y Derechos de uso</p></a>
                             </div>
-                           
+
                             <div class="container">
                               <h4>Normas Comunitarias y Politicas Legales</h4>
                               <a href={{route('terminosCondiciones')}}><p>Terminos y condiciones</p></a>
@@ -68,7 +63,7 @@
                               <a href={{route('cookies')}}><p>Política de Cookies</p></a>
                               <a href={{route('NormasComuntarias')}}><p>Normas Comunitarias</p></a>
                           </div>
-                           
+
                         </div>
                       </div>
         </section>

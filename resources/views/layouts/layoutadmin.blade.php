@@ -37,7 +37,7 @@
                     <li><img src="{{ asset('img/admin/gestionRoles.png') }}" alt="gestionRoles">
                         <a href="#">Gestión de roles y permisos</a></li>
                     <li><img src="{{ asset('img/admin/administrarPerfiles.png') }}" alt="administrarPerfiles">
-                        <a href="#">Administrar perfiles</a></li>
+                        <a href="/verificarabogado/1">Administrar perfiles</a></li>
                     <li><img src="{{ asset('img/admin/verificarReseñas.png') }}" alt="verificarReseñas">
                         <a href="#">Verificación de reseñas</a></li>
                 </ul>

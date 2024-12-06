@@ -34,6 +34,9 @@
                         <button class="accept-btn">Aceptar</button>
                     </div>
                     <div class="profile">
+                        @foreach($lawyerPofiles as $lp)
+
+                        @if ($lp['lawyer_id']==$lawyere['id'])
                         <div class="profile-info">
                             <img src="../../img/fotoPerfil.jfif" alt="David Astrada" class="fotoperfil">
                             <h3>{{$lawyere['name']}}</h3>
@@ -41,31 +44,21 @@
                                 <img src="pdf-icon.png" alt="PDF"> David hv.pdf (1.4 MB)
                             </a>
                             <p><strong>Popayan (Cauca), Colombia</strong></p>
-                            <p><a href="mailto:daviduolingo@gmail.com">daviduolingo@gmail.com</a></p>
-                            <p><a href="tel:+573133353071">+57 313 33 53 071</a></p>
+                            <p><a href="">{{$lawyere['email']}}</a></p>
+                            <p><a href="tel:+573133353071"></a>{{$lp['email']}}</p>
                         </div>
                         <div class="account-details">
                             <h4>Detalles de cuenta</h4>
                             <p><strong>Primer nombre:</strong> {{$lawyere['name']}}</p>
-                            <p><strong>Primer Apellido:</strong> Astrada</p>
-                            <p><strong>Fecha nacimiento:</strong> 16/04/1998</p>
-                            <p><strong>Género:</strong> Masculino</p>
+                            <p><strong>Primer Apellido:</strong>  {{$lawyere['last_names']}}</p>
+                            <p><strong>Numero de documento:</strong> {{$lawyere['document_number']}}</p> 
                         </div>
                         <div class="description">
                             <h4>Descripción</h4>
-                            <p>Soy una  persona proactiva, organizada y responsable, con  buenas relaciones interpersonales, con una sólida formación académica y experiencia  práctica en diversas áreas del derecho.  Apasionada por la  justicia y comprometida con defender los derechos de los clientes de manera ética y eficaz. Experta en la investigación legal, redacción de documentos legales y representación en procedimientos judiciales y administrativos.</p>
+                            <p>{{$lp['biography']}}</p>
                         </div>
-                        <div class="id-document">
-                            <h4>Documento de identidad</h4>
-                            <img src="images/fotodocumento.png" alt="Documento de identidad">
-                        </div>
-                        <div class="document-details">
-                            <h4>Detalles de documento</h4>
-                            <p><strong>Tipo documento:</strong> Cedula ciudadana</p>
-                            <p><strong>Fecha expedición:</strong> 20/04/2016</p>
-                            <p><strong>Lugar expedición:</strong> Popayan, cauca</p>
-                            <p><strong>Número documento:</strong> 011011010110001</p>
-                        </div>
+                  @endif
+                  @endforeach
                     </div>
                 </div>
 

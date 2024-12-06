@@ -265,11 +265,11 @@
 
 
                     <span id="questionid" style="display:none;"  >0</span>
-                    <input type="number" id="questionInput" name="question_id" style="display: ;" >
+                    <input type="number" id="questionInput" name="question_id" style="display: none;" >
 
-                    <span id="lawyerid" style="display:;">0</span>
-                    <input type="number" id="lawyerInput" name="lawyer_id" style="display: ;" >
-                    <input type="date" id="dateInput" name="date_publication" style="display: ;" required>
+                    <span id="lawyerid" style="display:none;">0</span>
+                    <input type="number" id="lawyerInput" name="lawyer_id" style="display:none ;" >
+                    <input type="date" id="dateput" name="date_publication" style="display: none;" required>
 
                     <button type="submit">Publicar</button>
                     </form>
@@ -310,4 +310,3 @@
 @endpush
 
 
-layoutAbogado

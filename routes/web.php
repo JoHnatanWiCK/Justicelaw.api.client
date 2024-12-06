@@ -543,6 +543,11 @@ Route::get('foro', [QuestionController::class, 'index'])->name('foro');
 Route::get('forolawyer', [QuestionController::class, 'indexlogins'])->name('forologinlawyer');
 
 
+Route::get('likes', [QuestionController::class, 'likes'])->name('api.v1.likes.index');
+Route::get('likes/{like}', [QuestionController::class, 'shows'])->name('api.v1.likes.show');
+Route::get('/mm/{id}/reactions', [QuestionController::class, 'showlikes'])->name('api.v1.slikes.show');
+
+
 Route::get('questions', [QuestionController::class, 'index'])->name('api.v1.questions.index');
 Route::post('questions', [QuestionController::class, 'store'])->name('api.v1.questions.store');
 Route::get('questions/{question}', [QuestionController::class, 'show'])->name('api.v1.questions.show');

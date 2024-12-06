@@ -31,9 +31,12 @@ class LawyerController extends Controller
     {
         $url = env('URL_SERVER_API');
 
+
         $lawyers = $this->fetchDataFromApi($url . '/lawyers');
 
-        return view('va.verificarabogado',compact('lawyers'));
+        $lawyerPofiles = $this->fetchDataFromApi($url . '/lawyerPofiles');
+        
+        return view('va.verificarabogado',compact('lawyers','lawyerPofiles'));
 
         // return view('lawyers.index', compact('lawyers'));
     }

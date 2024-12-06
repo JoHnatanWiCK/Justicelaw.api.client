@@ -17,11 +17,11 @@
                       <i class="fa-regular fa-user"></i>
                   </a>
               </li>
-              <li>
+              {{--<li>
                   <a href="{{route('historialAbogado')}}" class="icon-container">
                       <i class="fa-solid fa-clock-rotate-left"></i>
                   </a>
-              </li>
+              </li>--}}
               <li>
                   <a href="{{route('configuracionAbogado')}}" class="icon-container">
                       <i class="fa-solid fa-gear"></i>

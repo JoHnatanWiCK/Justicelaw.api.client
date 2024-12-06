@@ -79,13 +79,13 @@ Route::get('/sobreNosotrosAbogado', function () {
     return view(view: 'sobreNosotrosLawyer');
 })->name('sobreNosotrosAbogado');
 
-Route::get('/historial', function () {
-    return view(view: 'historial.historial');
-})->name('historial');
+//Route::get('/historial', function () {
+ //   return view(view: 'historial.historial');
+//})->name('historial');
 
-Route::get('/historialAbogado', function () {
-    return view(view: 'historial.historialAbogado');
-})->name('historialAbogado');
+//Route::get('/historialAbogado', function () {
+ //   return view(view: 'historial.historialAbogado');
+//})->name('historialAbogado');
 
 
 Route::get('/configuracion', function () {
@@ -547,6 +547,11 @@ Route::get('foro', [QuestionController::class, 'index'])->name('foro');
 Route::get('forolawyer', [QuestionController::class, 'indexlogins'])->name('forologinlawyer');
 
 
+Route::get('likes', [QuestionController::class, 'likes'])->name('api.v1.likes.index');
+Route::get('likes/{like}', [QuestionController::class, 'shows'])->name('api.v1.likes.show');
+Route::get('/mm/{id}/reactions', [QuestionController::class, 'showlikes'])->name('api.v1.slikes.show');
+
+
 Route::get('questions', [QuestionController::class, 'index'])->name('api.v1.questions.index');
 Route::post('questions', [QuestionController::class, 'store'])->name('api.v1.questions.store');
 Route::get('questions/{question}', [QuestionController::class, 'show'])->name('api.v1.questions.show');
@@ -567,7 +572,7 @@ Route::get('lawyers', [LawyerController::class, 'index'])->name('api.v1.lawyers.
 Route::post('lawyers', [LawyerController::class, 'store'])->name('api.v1.lawyers.store');
 Route::get('lawyers/{lawyer}', [LawyerController::class, 'show'])->name('api.v1.lawyers.show');
 Route::put('lawyers/{lawyer}', [LawyerController::class, 'update'])->name('api.v1.lawyers.update');
-Route::delete('lawyers/{lawyer}', [LawyerController::class, 'destroy'])->name('api.v1.lawyers.delete');
+Route::delete('lawyers/{id}', [LawyerController::class, 'destroy'])->name('api.v1.lawyers.delete');
 
 Route::get('verificar', [QuestionController::class, 'verificar']);
 

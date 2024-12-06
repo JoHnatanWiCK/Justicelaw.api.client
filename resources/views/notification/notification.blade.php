@@ -16,9 +16,9 @@
             <li>
                 <a href="{{ route('crearPerfil') }}"><i class="fa-regular fa-user"></i>Información usuario</a>
             </li>
-            <li>
+            {{--<li>
                 <a href="{{ route('historial') }}"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>
-            </li>
+            </li>--}}
             <li>
                 <a href="{{ route('configuracion') }}"><i class="fa-solid fa-gear"></i>Configuración</a>
             </li>
@@ -42,10 +42,9 @@
                     </label>
                     <div class="dropdown1">
                         <ul>
-                            <li><a href="#" data-filter="favoritas">Mis favoritas</a></li>
-                            <li><a href="#" data-filter="archivadas">Mis archivadas</a></li>
-                            <li><a href="#" data-filter="noleidas">No leídas</a></li>
                             <li><a href="#" data-filter="todas">Todas</a></li>
+                            <li><a href="#" data-filter="favoritas">Mis favoritas</a></li>
+                            <li><a href="#" data-filter="noleidas">No leídas</a></li>
                         </ul>
                     </div>
                 </div>
@@ -57,7 +56,7 @@
 
         <div class="notifications-actions">
             <button id="marcarTodoLeido">Marcar todo como leído</button>
-            <button id="archivarTodo">Archivar todo</button>
+            <button id="eliminarTodo">Eliminar todo</button>
         </div>
 
         <div class="toast">

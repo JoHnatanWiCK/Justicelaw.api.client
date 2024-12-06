@@ -20,7 +20,7 @@ class LawyerProfileController extends Controller
 
         $url = env('URL_SERVER_API');
 
-        $lawyerProfiles = $this->fetchDataFromApi($url . '/lawyerPofiles?included=post');
+        $lawyerProfiles = $this->fetchDataFromApi($url . '/lawyerProfile');
 
         return $lawyerProfiles;
 
@@ -33,6 +33,6 @@ class LawyerProfileController extends Controller
 
         $lawyerProfile = $this->fetchDataFromApi($url . '/lawyerProfile/' . $id);
 
-        return view('lawyerProfiles.show', compact('lawyerProfile'));
+        return $lawyerProfile;
     }
 }

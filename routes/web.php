@@ -231,6 +231,10 @@ Route::get('/index', function () {
     return view('informacion.index');
 })->name('index');
 
+Route::get('/indexLog', function () {
+    return view('informacion.indexLog');
+})->name('indexLog');
+
 Route::get('/indexL', function () {
     return view('informacion.indexL');
 })->name('indexL');

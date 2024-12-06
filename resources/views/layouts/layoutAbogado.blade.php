@@ -45,7 +45,7 @@
             <div class="dropdown">
                 <ul>
                     <li><a href="#" id="perfilLink">Perfil</a></li>
-                    <li><a href="{{ route('historialAbogado')}}">Historial</a></li>
+                    {{--<li><a href="{{ route('historialAbogado')}}">Historial</a></li>--}}
                     <li>
                         <a href="{{ route('noti-lawyer')}}">Notificaciones</a>
                     </li>
@@ -89,9 +89,9 @@
                 <li>
                     <a href="{{ route('notificaciones')}}">Notificaciones</a>
                 </li>
-                <li>
+                {{--<li>
                     <a href="../historial/historial.html"><i class="fa-solid fa-clock-rotate-left"></i>Historial</a>
-                </li>
+                </li>--}}
                 <hr>
                 <li>
                     <a href="../configuracion/configuracion.html"><i class="fa-solid fa-gear"></i>Configuracion</a>

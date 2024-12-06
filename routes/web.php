@@ -79,13 +79,13 @@ Route::get('/sobreNosotrosAbogado', function () {
     return view(view: 'sobreNosotrosLawyer');
 })->name('sobreNosotrosAbogado');
 
-Route::get('/historial', function () {
-    return view(view: 'historial.historial');
-})->name('historial');
+//Route::get('/historial', function () {
+ //   return view(view: 'historial.historial');
+//})->name('historial');
 
-Route::get('/historialAbogado', function () {
-    return view(view: 'historial.historialAbogado');
-})->name('historialAbogado');
+//Route::get('/historialAbogado', function () {
+ //   return view(view: 'historial.historialAbogado');
+//})->name('historialAbogado');
 
 
 Route::get('/configuracion', function () {

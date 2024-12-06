@@ -99,7 +99,57 @@ class LawyerController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|string|max:30',
+            'last_name' => 'required|string|max:50',
+            'type_document_id' => 'required|string|max:10',
+            'document_number' => 'required|string|max:10',
+            'email' => 'required|string|email|max:255',
+            'password' => 'nullable|string|min:8', // Opcional si no siempre se actualiza
+            'verification' => 'required|integer',
+        ]);
+    
+        // Preparar los datos para la solicitud
+        $data = [
+            'name' => $validatedData['name'],
+            'last_name' => $validatedData['last_name'],
+            'type_document_id' => $validatedData['type_document_id'],
+            'document_number' => $validatedData['document_number'],
+            'email' => $validatedData['email'],
+            'verification' => $validatedData['verification'],
+        ];
+    
+        // Agregar la contraseña solo si se envía
+        if (!empty($validatedData['password'])) {
+            $data['password'] = bcrypt($validatedData['password']); // Encriptar contraseña
+        }
+    
+        // Construir la solicitud a la API
+        $response = Http::put("https://apijusticelaw-production.up.railway.app/v1/lawyers/$id", [
+            'name' => $validatedData['name'],
+            'last_name' => $validatedData['last_name'],
+
+            'type_document_id' => $validatedData['type_document_id'],
+            'document_number' => $validatedData['document_number'],
+            'email' => $validatedData['email'],
+            'verification' => $validatedData['verification']
+
+
+        ]);        
+    
+        // Manejar la respuesta de la API
+        if ($response->successful()) {
+            return response()->json([
+                'message' => 'Abogado actualizado exitosamente',
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Error al actualizar al abogado',
+                'details' => $response->json(),
+            ], $response->status());
+        }
+
+
     }
 
     /**
@@ -108,15 +158,16 @@ class LawyerController extends Controller
     public function destroy($id)
     {
         // Enviar la solicitud de eliminación a la API usando Http::delete
-        $response = Http::delete("https://apijusticelaw-production.up.railway.app/v1/lawyers/{$id}");
+        $response = Http::delete("https://apijusticelaw-production.up.railway.app/v1/lawyers/$id");
     
         // Manejar la respuesta de la API
         if ($response->successful()) {
-            return redirect()->back()->with('success', 'Pregunta eliminada exitosamente');
+            return redirect()->back()->with('success', 'Abogado eliminado exitosamente');
         } else {
-            return redirect()->back()->withErrors(['message' => 'Error al eliminar la pregunta']);
+            return redirect()->back()->withErrors(['message' => 'Error al eliminar el abogado']);
         }
     }
+    
     
     }
 

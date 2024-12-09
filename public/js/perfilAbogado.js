@@ -1,58 +1,58 @@
-document.getElementById('logoutButton')?.addEventListener('click', function(event) {
-    event.preventDefault();  
-    document.getElementById('logoutModal').style.display = 'block';  
+document.getElementById('logoutButton')?.addEventListener('click', function (event) {
+    event.preventDefault();
+    document.getElementById('logoutModal').style.display = 'block';
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
 
-  console.log('Script cargado y DOM completamente cargado');
+    console.log('Script cargado y DOM completamente cargado');
 
-  const userMenu = document.querySelector('.content-abogado');
-  const spanUserName = userMenu.querySelector('h3');
+    const userMenu = document.querySelector('.content-abogado');
+    const spanUserName = userMenu.querySelector('h3');
 
-  const userEmail = document.querySelector('.correoWeb');
-  const spanUserEmail = userEmail.querySelector('p');
+    const userEmail = document.querySelector('.correoWeb');
+    const spanUserEmail = userEmail.querySelector('p');
 
-  const token = localStorage.getItem('token');
-  const role = localStorage.getItem('role');
+    const token = localStorage.getItem('token');
+    const role = localStorage.getItem('role');
 
-  console.log('Token actual:', token);
-  console.log('Rol actual:', role);
+    console.log('Token actual:', token);
+    console.log('Rol actual:', role);
 
-  try {
-      const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/auth/meLawyer', {
-          method: 'POST',
-          headers: {
-              'Authorization': `Bearer ${token}`,
-              'Content-Type': 'application/json',
-          },
-      });
+    try {
+        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/auth/meLawyer', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json',
+            },
+        });
 
-      if (!response.ok) {
-          if (response.status === 401) {
-              alert('Tu sesión ha expirado. Serás redirigido a la página de inicio de sesión.');
-              localStorage.removeItem('token');
-              setTimeout(() => {
-                  window.location.href = '/login';
-              }, 3000);
-          } else {
-              throw new Error('Error al obtener datos del usuario');
-          }
-      } else {
-          const data = await response.json();
-          console.log('Datos del usuario:', data);
+        if (!response.ok) {
+            if (response.status === 401) {
+                alert('Tu sesión ha expirado. Serás redirigido a la página de inicio de sesión.');
+                localStorage.removeItem('token');
+                setTimeout(() => {
+                    window.location.href = '/login';
+                }, 3000);
+            } else {
+                throw new Error('Error al obtener datos del usuario');
+            }
+        } else {
+            const data = await response.json();
+            console.log('Datos del usuario:', data);
 
-          const { name, last_names, email } = data;
-          spanUserName.textContent = `${name} ${last_names}`;
-          spanUserEmail.textContent = `${email}`;
+            const { name, last_names, email } = data;
+            spanUserName.textContent = `${name} ${last_names}`;
+            spanUserEmail.textContent = `${email}`;
 
 
-          // Llamar a la función para cargar la foto de perfil
-        //   await cargarFotoPerfil();
-      }
-  } catch (error) {
-      console.error('Error:', error.message);
-  }
+            // Llamar a la función para cargar la foto de perfil
+            //   await cargarFotoPerfil();
+        }
+    } catch (error) {
+        console.error('Error:', error.message);
+    }
 });
 
 async function cargarDatosVerificacion() {
@@ -96,49 +96,49 @@ async function cargarDatosVerificacion() {
 document.addEventListener('DOMContentLoaded', cargarDatosVerificacion);
 
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.profile-nav ul li a');
     const indicator = document.querySelector('.profile-nav .indicator');
     const sections = document.querySelectorAll('.section');
 
     function setIndicatorPosition(link) {
-      const rect = link.getBoundingClientRect();
-      const navRect = link.closest('.profile-nav').getBoundingClientRect();
-      indicator.style.left = `${rect.left - navRect.left}px`;
-      indicator.style.width = `${rect.width}px`;
+        const rect = link.getBoundingClientRect();
+        const navRect = link.closest('.profile-nav').getBoundingClientRect();
+        indicator.style.left = `${rect.left - navRect.left}px`;
+        indicator.style.width = `${rect.width}px`;
     }
 
     function showSection(targetId) {
-      sections.forEach(section => {
-        if (section.id === targetId) {
-          section.classList.add('active');
-        } else {
-          section.classList.remove('active');
-        }
-      });
+        sections.forEach(section => {
+            if (section.id === targetId) {
+                section.classList.add('active');
+            } else {
+                section.classList.remove('active');
+            }
+        });
     }
 
     navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        navLinks.forEach(link => link.classList.remove('active'));
-        link.classList.add('active');
-        setIndicatorPosition(link);
-        const targetId = link.getAttribute('data-target');
-        showSection(targetId);
-      });
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            navLinks.forEach(link => link.classList.remove('active'));
+            link.classList.add('active');
+            setIndicatorPosition(link);
+            const targetId = link.getAttribute('data-target');
+            showSection(targetId);
+        });
     });
 
     const activeLink = document.querySelector('.profile-nav ul li a.active');
     if (activeLink) {
-      setIndicatorPosition(activeLink);
-      const targetId = activeLink.getAttribute('data-target');
-      showSection(targetId);
+        setIndicatorPosition(activeLink);
+        const targetId = activeLink.getAttribute('data-target');
+        showSection(targetId);
     }
-  });
+});
 
 
-  document.querySelectorAll('.star').forEach(star => {
+document.querySelectorAll('.star').forEach(star => {
     star.addEventListener('click', () => {
         const value = parseInt(star.getAttribute('data-value'));
         document.querySelectorAll('.star').forEach(s => {
@@ -148,49 +148,49 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-  });
+});
 
 
-  document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     const navLinks = document.querySelectorAll('.profile-nav-sm ul li a');
     const indicator = document.querySelector('.profile-nav-sm .indicator');
     const sections = document.querySelectorAll('.section-mov');
 
     function setIndicatorPosition(link) {
-      const rect = link.getBoundingClientRect();
-      const navRect = link.closest('.profile-nav-sm').getBoundingClientRect();
-      indicator.style.left = `${rect.left - navRect.left}px`;
-      indicator.style.width = `${rect.width}px`;
+        const rect = link.getBoundingClientRect();
+        const navRect = link.closest('.profile-nav-sm').getBoundingClientRect();
+        indicator.style.left = `${rect.left - navRect.left}px`;
+        indicator.style.width = `${rect.width}px`;
     }
 
     function showSection(targetId) {
-      sections.forEach(section => {
-        if (section.id === targetId) {
-          section.classList.add('active');
-        } else {
-          section.classList.remove('active');
-        }
-      });
+        sections.forEach(section => {
+            if (section.id === targetId) {
+                section.classList.add('active');
+            } else {
+                section.classList.remove('active');
+            }
+        });
     }
 
     navLinks.forEach(link => {
-      link.addEventListener('click', (e) => {
-        e.preventDefault();
-        navLinks.forEach(link => link.classList.remove('active'));
-        link.classList.add('active');
-        setIndicatorPosition(link);
-        const targetId = link.getAttribute('data-target');
-        showSection(targetId);
-      });
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            navLinks.forEach(link => link.classList.remove('active'));
+            link.classList.add('active');
+            setIndicatorPosition(link);
+            const targetId = link.getAttribute('data-target');
+            showSection(targetId);
+        });
     });
 
     const activeLink = document.querySelector('.profile-nav-sm ul li a.active');
     if (activeLink) {
-      setIndicatorPosition(activeLink);
-      const targetId = activeLink.getAttribute('data-target');
-      showSection(targetId);
+        setIndicatorPosition(activeLink);
+        const targetId = activeLink.getAttribute('data-target');
+        showSection(targetId);
     }
-  });
+});
 
 
 
@@ -205,22 +205,23 @@ let timer1, timer2;
 if (button && toast) {
 
 
-button.addEventListener("click", () => {
-    toast.classList.add("active");
-    progress.classList.add("active");
+    button.addEventListener("click", () => {
+        toast.classList.add("active");
+        progress.classList.add("active");
 
 
-    timer1 = setTimeout(() => {
-        toast.classList.remove("active");
+        timer1 = setTimeout(() => {
+            toast.classList.remove("active");
 
-        window.location.href = '../perfil_usuario/perfil_creado.html';
-    }, 5000);
+            window.location.href = '../perfil_usuario/perfil_creado.html';
+        }, 5000);
 
-    timer2 = setTimeout(() => {
-        progress.classList.remove("active");
-    }, 5300);
+        timer2 = setTimeout(() => {
+            progress.classList.remove("active");
+        }, 5300);
 
-});}
+    });
+}
 
 const buttonMovil = document.querySelector("#boton-movil");
 const toastMovil = document.querySelector(".toast");
@@ -233,36 +234,37 @@ let timerM1, timerM2;
 if (buttonMovil && toastMovil) {
 
 
-  buttonMovil.addEventListener("click", () => {
-  toastMovil.classList.add("active");
-  progressMovil.classList.add("active");
+    buttonMovil.addEventListener("click", () => {
+        toastMovil.classList.add("active");
+        progressMovil.classList.add("active");
 
 
-  timerM1 = setTimeout(() => {
-      toastMovil.classList.remove("active");
+        timerM1 = setTimeout(() => {
+            toastMovil.classList.remove("active");
 
-        window.location.href = '../perfil_usuario/perfil_creado.html';
-    }, 5000);
+            window.location.href = '../perfil_usuario/perfil_creado.html';
+        }, 5000);
 
-    timerM2 = setTimeout(() => {
-      progressMovil.classList.remove("active");
-    }, 5300);
+        timerM2 = setTimeout(() => {
+            progressMovil.classList.remove("active");
+        }, 5300);
 
-});}
+    });
+}
 
 
 function handleFileSelection() {
 
-  document.getElementById("modal-foto").style.display = "none";
+    document.getElementById("modal-foto").style.display = "none";
 
-  const toast = document.querySelector('.toast');
-  toast.classList.add('active');
+    const toast = document.querySelector('.toast');
+    toast.classList.add('active');
 
-  setTimeout(() => {
-    toast.classList.remove('active');
-    window.location.hash = '';
-    window.location.reload();
-  }, 3000);
+    setTimeout(() => {
+        toast.classList.remove('active');
+        window.location.hash = '';
+        window.location.reload();
+    }, 3000);
 
 }
 
@@ -270,16 +272,16 @@ function handleFileSelection() {
 
 function handleFileSelection() {
 
-  document.getElementById("modal-movil").style.display = "none";
+    document.getElementById("modal-movil").style.display = "none";
 
-  const toast = document.querySelector('.toast');
-  toast.classList.add('active');
+    const toast = document.querySelector('.toast');
+    toast.classList.add('active');
 
-  setTimeout(() => {
-    toast.classList.remove('active');
-    window.location.hash = '';
-    window.location.reload();
-  }, 3000);
+    setTimeout(() => {
+        toast.classList.remove('active');
+        window.location.hash = '';
+        window.location.reload();
+    }, 3000);
 
 }
 // document.addEventListener('DOMContentLoaded', () => {
@@ -466,63 +468,63 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    
-async function cargarHojaDeVida() {
-    const token = localStorage.getItem('token');
 
-    if (!token) {
-        console.log('No estás autenticado.');
-        return;
-    }
+    async function cargarHojaDeVida() {
+        const token = localStorage.getItem('token');
 
-    try {
-        const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/getVerificationLawyer', {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`
-            }
-        });
-
-        if (response.ok) {
-            const data = await response.json();
-            console.log('Datos de la verificación:', data);
-
-            const resumeUrl = data.resume;
-            const hojaDeVidaSection = document.getElementById('hoja-de-vida');
-            hojaDeVidaSection.innerHTML = '';
-
-            if (resumeUrl.endsWith('.pdf')) {
-                const googleDocsUrl = `https://docs.google.com/viewer?url=${resumeUrl}&embedded=true`;
-                const iframe = document.createElement('iframe');
-                iframe.classList.add('iframeLarge');
-                iframe.src = googleDocsUrl;
-                iframe.frameBorder = "0";
-                hojaDeVidaSection.appendChild(iframe);
-            } else if (resumeUrl.endsWith('.docx') || resumeUrl.endsWith('.doc')) {
-                const googleDocsUrl = `https://docs.google.com/viewer?url=${resumeUrl}&embedded=true`;
-                const viewerLink = document.createElement('iframe');
-                viewerLink.src = googleDocsUrl;
-                viewerLink.classList.add('iframeLarge');
-                viewerLink.frameBorder = "0";
-                hojaDeVidaSection.appendChild(viewerLink);
-            } else {
-                const downloadLink = document.createElement('a');
-                downloadLink.href = resumeUrl;
-                downloadLink.download = true;
-                downloadLink.textContent = 'Descargar hoja de vida';
-                hojaDeVidaSection.appendChild(downloadLink);
-            }
-
-        } else {
-            const errorData = await response.json();
-            console.error('Error al cargar los datos de la verificación:', errorData);
+        if (!token) {
+            console.log('No estás autenticado.');
+            return;
         }
-    } catch (error) {
-        console.error('Error:', error);
-    }
-}
 
-document.addEventListener('DOMContentLoaded', cargarHojaDeVida);
+        try {
+            const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/getVerificationLawyer', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                }
+            });
+
+            if (response.ok) {
+                const data = await response.json();
+                console.log('Datos de la verificación:', data);
+
+                const resumeUrl = data.resume;
+                const hojaDeVidaSection = document.getElementById('hoja-de-vida');
+                hojaDeVidaSection.innerHTML = '';
+
+                if (resumeUrl.endsWith('.pdf')) {
+                    const googleDocsUrl = `https://docs.google.com/viewer?url=${resumeUrl}&embedded=true`;
+                    const iframe = document.createElement('iframe');
+                    iframe.classList.add('iframeLarge');
+                    iframe.src = googleDocsUrl;
+                    iframe.frameBorder = "0";
+                    hojaDeVidaSection.appendChild(iframe);
+                } else if (resumeUrl.endsWith('.docx') || resumeUrl.endsWith('.doc')) {
+                    const googleDocsUrl = `https://docs.google.com/viewer?url=${resumeUrl}&embedded=true`;
+                    const viewerLink = document.createElement('iframe');
+                    viewerLink.src = googleDocsUrl;
+                    viewerLink.classList.add('iframeLarge');
+                    viewerLink.frameBorder = "0";
+                    hojaDeVidaSection.appendChild(viewerLink);
+                } else {
+                    const downloadLink = document.createElement('a');
+                    downloadLink.href = resumeUrl;
+                    downloadLink.download = true;
+                    downloadLink.textContent = 'Descargar hoja de vida';
+                    hojaDeVidaSection.appendChild(downloadLink);
+                }
+
+            } else {
+                const errorData = await response.json();
+                console.error('Error al cargar los datos de la verificación:', errorData);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', cargarHojaDeVida);
 
 
     // Continuar con el siguiente paso
@@ -556,6 +558,7 @@ document.addEventListener('DOMContentLoaded', cargarHojaDeVida);
             formData.append('biography', bio);
             formData.append('profile_photo', photoFile);
 
+            console.log(...formData.entries());
             try {
                 const response = await fetch('https://apijusticelaw-production.up.railway.app/v1/profileLawyer', {
                     method: 'POST',
@@ -647,7 +650,7 @@ var consultorioUsuario = document.getElementById("consultorioUsuario");
 var biografiaUsuario = document.getElementById("biografiaUsuario");
 
 // Cuando el usuario hace clic en el enlace, se abre el modal
-editLink.onclick = function(event) {
+editLink.onclick = function (event) {
     event.preventDefault(); // Evitar la acción predeterminada del enlace
     modalEdit.style.display = "block"; // Mostrar el modal
     // Cargar los datos actuales en los campos del formulario
@@ -660,17 +663,17 @@ editLink.onclick = function(event) {
     biografia.value = biografiaUsuario.textContent;
 }
 // Cuando el usuario hace clic en <span> (x), se cierra el modal
-spanEditClose.onclick = function() {
+spanEditClose.onclick = function () {
     modalEdit.style.display = "none";
 }
 // Cuando el usuario hace clic en cualquier parte fuera del modal, se cierra
-window.onclick = function(event) {
+window.onclick = function (event) {
     if (event.target == modalEdit) {
         modalEdit.style.display = "none";
     }
 }
 // Manejo del formulario de edición
-document.getElementById('editForm').addEventListener('submit', function(event) {
+document.getElementById('editForm').addEventListener('submit', function (event) {
     event.preventDefault(); // Evitar el envío del formulario
     // Obtener los nuevos valores de los inputs
     var nombre = document.getElementById('nombre').value;
@@ -700,7 +703,7 @@ document.getElementById('editForm').addEventListener('submit', function(event) {
     modalEdit.style.display = "none";
 });
 // Al cargar la página, verifica si hay datos guardados
-window.onload = function() {
+window.onload = function () {
     var nombreGuardado = localStorage.getItem('nombreUsuario');
     var contactoGuardado = localStorage.getItem('contactoUsuario');
     var dniGuardado = localStorage.getItem('dniUsuario');

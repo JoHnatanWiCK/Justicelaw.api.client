@@ -283,37 +283,20 @@ document.getElementById("confirmBookingButton").addEventListener("click", async 
             const data = await response.json();
             console.log("Respuesta de guardarAsesoria:", data);
 
-            // Datos necesarios para la reunión
-            const meetingData = {
-                date: modalDate,
-                time: modalTime,
-                topic: "Asesoría Legal",
-                duration: 60, // Duración de la reunión en minutos
-            };
-
-            // Crear reunión en Zoom
-            const zoomResponse = await fetch("https://apijusticelaw-production.up.railway.app/v1/create-zoom-meeting", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`,
-                },
-                body: JSON.stringify(meetingData),
-            });
-
-            if (zoomResponse.ok) {
-                const zoomData = await zoomResponse.json();
-                console.log("Respuesta de create-zoom-meeting:", zoomData);
-
-                // Mostrar el enlace de la reunión al usuario
-                alert(`Asesoría reservada exitosamente. Enlace de la reunión: ${zoomData.join_url}`);
-                location.reload();
+            // Mostrar el enlace de Zoom si está disponible
+            if (data.consulting && data.consulting.zoom_url) {
+                const zoomLinkContainer = document.getElementById("zoomLinkContainer");
+                zoomLinkContainer.innerHTML = `<a href="${data.consulting.zoom_url}" target="_blank">Unirse a la reunión de Zoom</a>`;
+                alert(`Asesoría reservada exitosamente. Enlace de la reunión: ${data.consulting.zoom_url}`);
             } else {
-                console.error("Error al crear la reunión en Zoom:", await zoomResponse.json());
-                alert("Hubo un error al generar la reunión en Zoom.");
+                alert("Asesoría reservada, pero no se generó un enlace de Zoom.");
             }
+
+            // Recargar la página para actualizar datos
+            location.reload();
         } else {
-            console.error("Error al guardar la asesoría:", await response.json());
+            const errorData = await response.json();
+            console.error("Error al guardar la asesoría:", errorData);
             alert("Hubo un error al guardar la asesoría.");
         }
     } catch (error) {
@@ -321,3 +304,4 @@ document.getElementById("confirmBookingButton").addEventListener("click", async 
         alert("Hubo un error al intentar enviar la solicitud.");
     }
 });
+

@@ -63,6 +63,8 @@
     </div>
 </div>
 
+<div id="zoomLinkContainer"></div>
+
 
 
 @endsection

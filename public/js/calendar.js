@@ -246,7 +246,7 @@ getAvailabilities();
 
 
 // Función para enviar los datos a la API cuando se confirma la reserva
-document.getElementById("confirmBookingButton").addEventListener("click", async function() {
+document.getElementById("confirmBookingButton").addEventListener("click", async function () {
     const modalDate = document.getElementById("modalDate").value;
     const modalTime = document.getElementById("modalTime").value;
     const modalQuestion = document.getElementById("modalQuestion").value;
@@ -266,9 +266,10 @@ document.getElementById("confirmBookingButton").addEventListener("click", async 
         answer_id: modalAnswer,
     };
 
-    console.log(formData);
+    console.log("Datos enviados para la asesoría:", formData);
+
     try {
-        // Enviar los datos a la API
+        // Enviar los datos para guardar la asesoría
         const response = await fetch("https://apijusticelaw-production.up.railway.app/v1/guardarAsesoria", {
             method: "POST",
             headers: {
@@ -280,20 +281,43 @@ document.getElementById("confirmBookingButton").addEventListener("click", async 
 
         if (response.ok) {
             const data = await response.json();
+            console.log("Respuesta de guardarAsesoria:", data);
 
-            console.log("Respuesta de la API:", data);
+            // Datos necesarios para la reunión
+            const meetingData = {
+                date: modalDate,
+                time: modalTime,
+                topic: "Asesoría Legal",
+                duration: 60, // Duración de la reunión en minutos
+            };
 
-            // Cierra el modal después de confirmar
-            document.getElementById("availabilityModal").style.display = "none";
+            // Crear reunión en Zoom
+            const zoomResponse = await fetch("https://apijusticelaw-production.up.railway.app/v1/create-zoom-meeting", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`,
+                },
+                body: JSON.stringify(meetingData),
+            });
 
-            location.reload();
+            if (zoomResponse.ok) {
+                const zoomData = await zoomResponse.json();
+                console.log("Respuesta de create-zoom-meeting:", zoomData);
 
+                // Mostrar el enlace de la reunión al usuario
+                alert(`Asesoría reservada exitosamente. Enlace de la reunión: ${zoomData.join_url}`);
+                location.reload();
+            } else {
+                console.error("Error al crear la reunión en Zoom:", await zoomResponse.json());
+                alert("Hubo un error al generar la reunión en Zoom.");
+            }
         } else {
-            const data = await response.json();
-
+            console.error("Error al guardar la asesoría:", await response.json());
+            alert("Hubo un error al guardar la asesoría.");
         }
     } catch (error) {
-        console.error("Error al enviar los datos:", error);
+        console.error("Error en la solicitud:", error);
         alert("Hubo un error al intentar enviar la solicitud.");
     }
 });

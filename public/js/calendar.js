@@ -251,6 +251,7 @@ document.getElementById("confirmBookingButton").addEventListener("click", async 
     const modalTime = document.getElementById("modalTime").value;
     const modalQuestion = document.getElementById("modalQuestion").value;
     const modalAnswer = document.getElementById("modalAnswer").value;
+    const modalZoom = document.getElementById("zoomLinkContainer")
 
     // Verifica si todos los campos están completos
     if (!modalDate || !modalTime || !modalQuestion || !modalAnswer) {
@@ -264,6 +265,7 @@ document.getElementById("confirmBookingButton").addEventListener("click", async 
         time: modalTime, // Solo enviamos el 'startTime'
         question_id: modalQuestion,
         answer_id: modalAnswer,
+        zoom_url: modalZoom,
     };
 
     console.log("Datos enviados para la asesoría:", formData);

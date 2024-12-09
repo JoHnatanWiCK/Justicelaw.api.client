@@ -26,7 +26,7 @@ class QuestionController extends Controller
 
     //         return $response->json();
     //     } catch (\Exception $e) {
-    //         \Log::error('Error al conectar con la API: ' . $e->getMessage());
+    //         Log::error('Error al conectar con la API: ' . $e->getMessage());
     //         return []; // Manejar error devolviendo un array vacío
     //     }
     // }

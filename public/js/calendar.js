@@ -245,13 +245,13 @@ document.getElementById("nextMonth").addEventListener("click", function () {
 getAvailabilities();
 
 
-// Función para enviar los datos a la API cuando se confirma la reserva
 document.getElementById("confirmBookingButton").addEventListener("click", async function () {
     const modalDate = document.getElementById("modalDate").value;
     const modalTime = document.getElementById("modalTime").value;
     const modalQuestion = document.getElementById("modalQuestion").value;
     const modalAnswer = document.getElementById("modalAnswer").value;
-    const modalZoom = document.getElementById("zoomLinkContainer")
+    // No necesitas enviar el contenedor, solo la URL de Zoom si está disponible
+    const modalZoomLink = document.getElementById("zoomLink").value; // Asegúrate de tener un campo con id "zoomLink"
 
     // Verifica si todos los campos están completos
     if (!modalDate || !modalTime || !modalQuestion || !modalAnswer) {
@@ -265,7 +265,8 @@ document.getElementById("confirmBookingButton").addEventListener("click", async 
         time: modalTime, // Solo enviamos el 'startTime'
         question_id: modalQuestion,
         answer_id: modalAnswer,
-        zoom_url: modalZoom,
+        // Enviar solo la URL de Zoom si existe, de lo contrario no enviar nada
+        zoom_url: modalZoomLink ? modalZoomLink : null,
     };
 
     console.log("Datos enviados para la asesoría:", formData);

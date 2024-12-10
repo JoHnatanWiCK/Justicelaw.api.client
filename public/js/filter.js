@@ -40,3 +40,46 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     });
 });
+
+
+
+document.getElementById('divorcio').addEventListener('click', function(){
+	window.location.href="/informacionDivorcio"
+  });
+
+
+
+  document.getElementById('despido').addEventListener('click', function(){
+	window.location.href="/informacionDespido"
+  });
+
+  document.getElementById('accidente').addEventListener('click', function(){
+	window.location.href="/informacionAccidente"
+  });
+
+  document.getElementById('testamento').addEventListener('click', function(){
+	window.location.href="/informacionTestamento"
+  });
+
+
+  document.getElementById('alimentp').addEventListener('click', function(){
+	window.location.href="/informacionPension"
+  });
+
+
+  document.getElementById('arrendamiento').addEventListener('click', function(){
+	window.location.href="/informacionArrendamiento"
+  });
+
+
+  document.getElementById('arrendamiento').addEventListener('click', function(){
+	window.location.href="/informacionArrendamiento"
+  });
+
+  document.getElementById('btnRegistro').addEventListener('click', function(e) {
+    window.location.href = this.href;
+});
+
+
+
+

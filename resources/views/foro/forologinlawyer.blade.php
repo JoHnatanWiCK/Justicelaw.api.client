@@ -43,99 +43,80 @@
             </form>
         </div>
     </div>
+    <div class="conteiner-infos">
+    <h3>Nuestras Informaciones</h3>
 
-<div class="conteiner-infos">
-
-<h3>Nuestras Informaciones</h3>
-
-
-
-<div class="horizontal-card">
-    <img src="../../img/Testamento.jpg" alt="Noticia 5" class="horizontal-card-image">
-    <div class="horizontal-card-content">
-        <h4 class="horizontal-card-title" id="alimentp">PENSIÓN ALIMENTICIA</h4>
-        <p class="horizontal-card-description">
-            Entiende los aspectos esenciales de la pensión alimenticia, incluyendo cómo solicitarla,
-            cómo se calcula y cómo administrarla correctamente para asegurar el bienestar de los
-            dependientes.
-        </p>
+    <div class="horizontal-card">
+        <img src="../../img/Divorcio.jpg" alt="Guía del Divorcio">
+        <div class="horizontal-card-content">
+            <h4 class="horizontal-card-title" id="divorcio">GUÍA DEL DIVORCIO</h4>
+            <p class="horizontal-card-description">
+                La guía sobre divorcio brinda información sobre cómo proceder durante la separación matrimonial,
+                incluyendo consejos legales y emocionales.
+            </p>
+        </div>
     </div>
-</div>
 
-<div class="horizontal-card">
-    <img src="../../img/PensionAliemnticia.jpg" alt="Noticia 5" class="horizontal-card-image">
-    <div class="horizontal-card-content">
-        <h4 class="horizontal-card-title" id="alimentp">PENSIÓN ALIMENTICIA</h4>
-        <p class="horizontal-card-description">
-            Entiende los aspectos esenciales de la pensión alimenticia, incluyendo cómo solicitarla,
-            cómo se calcula y cómo administrarla correctamente para asegurar el bienestar de los
-            dependientes.
-        </p>
+    <div class="horizontal-card">
+        <img src="../../img/Despido.jpg" alt="Redactar una Carta de Despido">
+        <div class="horizontal-card-content">
+            <h4 class="horizontal-card-title" id="despido">REDACTAR UNA CARTA DE DESPIDO</h4>
+            <p class="horizontal-card-description">
+                Descubre los pasos clave para redactar una carta de despido correctamente. Te explicamos cómo estructurarla,
+                qué detalles legales incluir y cómo manejar esta situación de forma profesional y clara.
+            </p>
+        </div>
     </div>
-</div>
 
-<div class="horizontal-card">
-    <img src="../../img/Arrendamiento.jpg" alt="Noticia 5" class="horizontal-card-image">
-    <div class="horizontal-card-content">
-        <h4 class="horizontal-card-title" id="alimentp">PENSIÓN ALIMENTICIA</h4>
-        <p class="horizontal-card-description">
-            Entiende los aspectos esenciales de la pensión alimenticia, incluyendo cómo solicitarla,
-            cómo se calcula y cómo administrarla correctamente para asegurar el bienestar de los
-            dependientes.
-        </p>
+    <div class="horizontal-card">
+        <img src="../../img/Accidente.png" alt="Guía para Accidentes de Tráfico">
+        <div class="horizontal-card-content">
+            <h4 class="horizontal-card-title" id="accidente">GUÍA PARA ACCIDENTES DE TRÁFICO</h4>
+            <p class="horizontal-card-description">
+                Descubre los pasos clave para manejar un accidente de tráfico,
+                desde la documentación hasta las acciones legales necesarias.
+            </p>
+        </div>
     </div>
-</div>
 
-<div class="horizontal-card">
-    <img src="../../img/Testamento.jpg" alt="Noticia 5" class="horizontal-card-image">
-    <div class="horizontal-card-content">
-        <h4 class="horizontal-card-title" id="alimentp">PENSIÓN ALIMENTICIA</h4>
-        <p class="horizontal-card-description">
-            Entiende los aspectos esenciales de la pensión alimenticia, incluyendo cómo solicitarla,
-            cómo se calcula y cómo administrarla correctamente para asegurar el bienestar de los
-            dependientes.
-        </p>
+    <div class="horizontal-card">
+        <img src="../../img/Testamento.jpg" alt="Cómo Redactar un Testamento">
+        <div class="horizontal-card-content">
+            <h4 class="horizontal-card-title" id="testamento">CÓMO REDACTAR UN TESTAMENTO</h4>
+            <p class="horizontal-card-description">
+                Aprende a estructurar y redactar un testamento de forma clara y legalmente válida,
+                asegurando que tus deseos sean respetados y evitando futuros conflictos familiares.
+            </p>
+        </div>
     </div>
-</div>
 
-<div class="horizontal-card">
-    <img src="../../img/Accidente.png" alt="Noticia 5" class="horizontal-card-image">
-    <div class="horizontal-card-content">
-        <h4 class="horizontal-card-title" id="alimentp">PENSIÓN ALIMENTICIA</h4>
-        <p class="horizontal-card-description">
-            Entiende los aspectos esenciales de la pensión alimenticia, incluyendo cómo solicitarla,
-            cómo se calcula y cómo administrarla correctamente para asegurar el bienestar de los
-            dependientes.
-        </p>
+    <div class="horizontal-card">
+        <img src="../../img/PensionAliemnticia.jpg" alt="Pensión Alimenticia">
+        <div class="horizontal-card-content">
+            <h4 class="horizontal-card-title" id="alimentp">PENSIÓN ALIMENTICIA</h4>
+            <p class="horizontal-card-description">
+                Entiende los aspectos esenciales de la pensión alimenticia, incluyendo cómo solicitarla,
+                cómo se calcula y cómo administrarla correctamente para asegurar el bienestar de los
+                dependientes.
+            </p>
+        </div>
     </div>
-</div>
 
-<div class="horizontal-card">
-    <img src="../../img/Despido.jpg" alt="Noticia 5" class="horizontal-card-image">
-    <div class="horizontal-card-content">
-        <h4 class="horizontal-card-title" id="alimentp">PENSIÓN ALIMENTICIA</h4>
-        <p class="horizontal-card-description">
-            Entiende los aspectos esenciales de la pensión alimenticia, incluyendo cómo solicitarla,
-            cómo se calcula y cómo administrarla correctamente para asegurar el bienestar de los
-            dependientes.
-        </p>
+    <div class="horizontal-card">
+        <img src="../../img/Arrendamiento.jpg" alt="Problemas de Arrendamiento">
+        <div class="horizontal-card-content">
+            <h4 class="horizontal-card-title" id="arrendamiento">PROBLEMAS DE ARRENDAMIENTO</h4>
+            <p class="horizontal-card-description">
+                Conoce tus derechos y cómo resolver conflictos comunes en el arrendamiento, incluyendo
+                problemas con el contrato, el mantenimiento del inmueble y la protección legal del
+                inquilino.
+            </p>
+        </div>
     </div>
 </div>
 
 
-<div class="horizontal-card">
-    <img src="../../img/Divorcio.jpg" alt="Noticia 5" class="horizontal-card-image">
-    <div class="horizontal-card-content">
-        <h4 class="horizontal-card-title" id="alimentp">PENSIÓN ALIMENTICIA</h4>
-        <p class="horizontal-card-description">
-            Entiende los aspectos esenciales de la pensión alimenticia, incluyendo cómo solicitarla,
-            cómo se calcula y cómo administrarla correctamente para asegurar el bienestar de los
-            dependientes.
-        </p>
-    </div>
-</div>
 
-</div>
 
     </aside>
 

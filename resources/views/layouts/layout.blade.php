@@ -7,6 +7,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+
     <script src="https://kit.fontawesome.com/bfdeae7cfe.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Faustina:ital,wght@0,300..800;1,300..800&display=swap"
         rel="stylesheet">
@@ -24,7 +26,7 @@
                 <p>LAW</p>
             </div>
         </div>
-        
+
         <nav class="nav-links">
             <a id="about-us" href="{{ route('sobreNosotros')}}">Sobre nosotros</a>
             <a id="info" href="{{ route('indexLog')}}">Informaciones</a>

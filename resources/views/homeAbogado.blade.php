@@ -1,6 +1,6 @@
 @extends('layouts.layoutAbogado')
 
-@section('title', 'Home Login')
+@section('title', 'Home')
 
 @section('nav')
 @endsection

@@ -78,5 +78,6 @@
 @endpush
 
 @push('scripts')
+<script src="{{ asset('js/layoutLogin.js') }}"></script>
 <script src="{{ asset('js/calendar.js') }}"></script>
 @endpush

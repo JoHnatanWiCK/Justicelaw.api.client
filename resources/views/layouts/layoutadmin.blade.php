@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}">
+
     <link href="https://fonts.googleapis.com/css2?family=Faustina:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     @stack('styles')

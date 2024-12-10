@@ -113,5 +113,7 @@
 @endpush
 
 @push('scripts')
+<script src="{{ asset('js/layoutLogin.js') }}"></script>
     <script src="{{ asset('js/verPerfilAbogado.js') }}"></script>
+
 @endpush

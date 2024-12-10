@@ -267,6 +267,19 @@ document.getElementById("confirmBookingButton").addEventListener("click", async 
     console.log("Datos enviados para la asesoría:", formData);
 
     try {
+        // Primero, obtener el token JWT de Zoom desde el backend
+        const zoomTokenResponse = await fetch('https://apijusticelaw-production.up.railway.app/v1/zoom-token');
+        const zoomTokenData = await zoomTokenResponse.json();
+
+        // Verificar si el token de Zoom fue recibido correctamente
+        if (!zoomTokenData.zoomJwtToken) {
+            console.error("No se pudo obtener el token de Zoom.");
+            alert("Error al obtener el token de Zoom.");
+            return;
+        }
+
+        const zoomJwtToken = zoomTokenData.zoomJwtToken;
+
         // Enviar los datos para guardar la asesoría
         const response = await fetch("https://apijusticelaw-production.up.railway.app/v1/guardarAsesoria", {
             method: "POST",
@@ -284,30 +297,37 @@ document.getElementById("confirmBookingButton").addEventListener("click", async 
             // Verifica que la asesoría se guardó correctamente
             if (data.consulting?.id) {
                 const consultingId = data.consulting.id;
+                console.log(`ID de la asesoría guardada: ${consultingId}`);
 
-                // Crear la reunión de Zoom
-                const zoomResponse = await fetch(`https://apijusticelaw-production.up.railway.app/create-zoom-meeting/${consultingId}`, {
-                    method: "POST",
-                    headers: {
-                        "Authorization": `Bearer ${token}`,
-                    },
-                });
+                // Crear la reunión de Zoom utilizando el JWT de Zoom
+const zoomResponse = await fetch(`https://apijusticelaw-production.up.railway.app/v1/create-zoom-meeting/${consultingId}`, {
+    method: "POST",
+    headers: {
+        'Content-Type': 'application/json',
+        "Authorization": `Bearer ${zoomJwtToken}`, // Usar el token JWT de Zoom
+    },
+});
 
-                if (zoomResponse.ok) {
-                    const zoomData = await zoomResponse.json();
-                    console.log("Respuesta de createMeeting:", zoomData);
+if (zoomResponse.ok) {
+    const zoomData = await zoomResponse.json();
+    console.log("Respuesta de createMeeting:", zoomData);
 
-                    if (zoomData.consulting?.zoom_url) {
-                        const zoomLinkContainer = document.getElementById("zoomLinkContainer");
-                        zoomLinkContainer.innerHTML = `<a href="${zoomData.consulting.zoom_url}" target="_blank">Unirse a la reunión de Zoom</a>`;
-                        alert(`Asesoría reservada exitosamente. Enlace de la reunión: ${zoomData.consulting.zoom_url}`);
-                    } else {
-                        alert("Asesoría reservada, pero no se generó un enlace de Zoom.");
-                    }
-                } else {
-                    console.error("Error al crear la reunión de Zoom.");
-                    alert("Hubo un error al crear la reunión de Zoom.");
-                }
+    if (zoomData.consulting?.zoom_url) {
+        const zoomLinkContainer = document.getElementById("zoomLinkContainer");
+        zoomLinkContainer.innerHTML = `<a href="${zoomData.consulting.zoom_url}" target="_blank">Unirse a la reunión de Zoom</a>`;
+        alert(`Asesoría reservada exitosamente. Enlace de la reunión: ${zoomData.consulting.zoom_url}`);
+    } else {
+        console.error("No se generó un enlace de Zoom.");
+        alert("Asesoría reservada, pero no se generó un enlace de Zoom.");
+    }
+} else {
+    const zoomError = await zoomResponse.json();
+    console.error("Error al crear la reunión de Zoom:", zoomError);
+    alert("Hubo un error al crear la reunión de Zoom.");
+}
+            } else {
+                console.error("Error: No se encontró el ID de la asesoría.");
+                alert("Hubo un error al guardar la asesoría.");
             }
 
             // Recargar la página para actualizar datos
@@ -322,5 +342,3 @@ document.getElementById("confirmBookingButton").addEventListener("click", async 
         alert("Hubo un error al intentar enviar la solicitud.");
     }
 });
-
-

@@ -250,8 +250,6 @@ document.getElementById("confirmBookingButton").addEventListener("click", async 
     const modalTime = document.getElementById("modalTime").value;
     const modalQuestion = document.getElementById("modalQuestion").value;
     const modalAnswer = document.getElementById("modalAnswer").value;
-    // No necesitas enviar el contenedor, solo la URL de Zoom si está disponible
-    const modalZoomLink = document.getElementById("zoomLink").value; // Asegúrate de tener un campo con id "zoomLink"
 
     // Verifica si todos los campos están completos
     if (!modalDate || !modalTime || !modalQuestion || !modalAnswer) {
@@ -259,14 +257,11 @@ document.getElementById("confirmBookingButton").addEventListener("click", async 
         return;
     }
 
-    // Datos que se van a enviar a la API
     const formData = {
         date: modalDate,
-        time: modalTime, // Solo enviamos el 'startTime'
+        time: modalTime,
         question_id: modalQuestion,
         answer_id: modalAnswer,
-        // Enviar solo la URL de Zoom si existe, de lo contrario no enviar nada
-        zoom_url: modalZoomLink ? modalZoomLink : null,
     };
 
     console.log("Datos enviados para la asesoría:", formData);
@@ -286,13 +281,33 @@ document.getElementById("confirmBookingButton").addEventListener("click", async 
             const data = await response.json();
             console.log("Respuesta de guardarAsesoria:", data);
 
-            // Mostrar el enlace de Zoom si está disponible
-            if (data.consulting && data.consulting.zoom_url) {
-                const zoomLinkContainer = document.getElementById("zoomLinkContainer");
-                zoomLinkContainer.innerHTML = `<a href="${data.consulting.zoom_url}" target="_blank">Unirse a la reunión de Zoom</a>`;
-                alert(`Asesoría reservada exitosamente. Enlace de la reunión: ${data.consulting.zoom_url}`);
-            } else {
-                alert("Asesoría reservada, pero no se generó un enlace de Zoom.");
+            // Verifica que la asesoría se guardó correctamente
+            if (data.consulting?.id) {
+                const consultingId = data.consulting.id;
+
+                // Crear la reunión de Zoom
+                const zoomResponse = await fetch(`https://apijusticelaw-production.up.railway.app/create-zoom-meeting/${consultingId}`, {
+                    method: "POST",
+                    headers: {
+                        "Authorization": `Bearer ${token}`,
+                    },
+                });
+
+                if (zoomResponse.ok) {
+                    const zoomData = await zoomResponse.json();
+                    console.log("Respuesta de createMeeting:", zoomData);
+
+                    if (zoomData.consulting?.zoom_url) {
+                        const zoomLinkContainer = document.getElementById("zoomLinkContainer");
+                        zoomLinkContainer.innerHTML = `<a href="${zoomData.consulting.zoom_url}" target="_blank">Unirse a la reunión de Zoom</a>`;
+                        alert(`Asesoría reservada exitosamente. Enlace de la reunión: ${zoomData.consulting.zoom_url}`);
+                    } else {
+                        alert("Asesoría reservada, pero no se generó un enlace de Zoom.");
+                    }
+                } else {
+                    console.error("Error al crear la reunión de Zoom.");
+                    alert("Hubo un error al crear la reunión de Zoom.");
+                }
             }
 
             // Recargar la página para actualizar datos
@@ -307,4 +322,5 @@ document.getElementById("confirmBookingButton").addEventListener("click", async 
         alert("Hubo un error al intentar enviar la solicitud.");
     }
 });
+
 
